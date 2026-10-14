@@ -1,0 +1,6 @@
+{
+  "name": "Cambridge Chemistry AS & A Level Master",
+  "description": "Comprehensive Cambridge International AS & A Level Chemistry (9701) learning platform with syllabus chapters, authentic Paper 1 MCQ & Paper 2 Structured Theory past papers, official mark schemes, diagnostic quizzes, and flashcards.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
