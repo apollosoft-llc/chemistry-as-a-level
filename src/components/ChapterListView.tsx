@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import { Chapter } from "../types";
 import {
   BookOpen,
@@ -7,13 +7,20 @@ import {
   ChevronRight,
   Filter,
   BookmarkCheck,
+  Compass,
+  Layers,
+  LayoutGrid,
+  ListTree,
+  ExternalLink,
 } from "lucide-react";
 import { useLanguage } from "../utils/languageContext";
+import { getLinkageForChapter } from "../data/curriculumLinkage";
 
 interface ChapterListViewProps {
   chapters: Chapter[];
   onSelectChapter: (chapter: Chapter) => void;
   onNavigateToRevision?: (chapterNum: number) => void;
+  onNavigateToSyllabusGuide?: () => void;
   searchQuery: string;
 }
 
@@ -21,11 +28,13 @@ export const ChapterListView: React.FC<ChapterListViewProps> = ({
   chapters,
   onSelectChapter,
   onNavigateToRevision,
+  onNavigateToSyllabusGuide,
   searchQuery,
 }) => {
   const { language, t } = useLanguage();
   const [levelFilter, setLevelFilter] = useState<"ALL" | "AS" | "A2">("ALL");
   const [categoryFilter, setCategoryFilter] = useState<string>("ALL");
+  const [viewLayout, setViewLayout] = useState<"grid" | "hierarchy">("grid");
 
   const categories = [
     { id: "ALL", nameEn: "All Areas", nameMn: "Бүх салбар" },
@@ -98,6 +107,7 @@ export const ChapterListView: React.FC<ChapterListViewProps> = ({
           iconColor: "text-amber-600",
         };
       case "Analysis":
+      case "Practical":
         return {
           bg: "bg-purple-50 border-purple-200 text-purple-800",
           badge: "bg-purple-100/80 text-purple-800 border-purple-200",
@@ -112,6 +122,89 @@ export const ChapterListView: React.FC<ChapterListViewProps> = ({
     }
   };
 
+  // Group chapters for hierarchy view
+  const hierarchyGroups = useMemo(() => {
+    const groups: {
+      id: string;
+      titleEn: string;
+      titleMn: string;
+      level: "AS" | "A2";
+      pillar: string;
+      chapters: Chapter[];
+    }[] = [
+      {
+        id: "as-physical",
+        titleEn: "AS Level — Physical Chemistry",
+        titleMn: "AS Түвшин — Физик хими",
+        level: "AS",
+        pillar: "Physical",
+        chapters: filteredChapters.filter((c) => c.level === "AS" && c.category === "Physical"),
+      },
+      {
+        id: "as-inorganic",
+        titleEn: "AS Level — Inorganic Chemistry",
+        titleMn: "AS Түвшин — Органик бус хими",
+        level: "AS",
+        pillar: "Inorganic",
+        chapters: filteredChapters.filter((c) => c.level === "AS" && c.category === "Inorganic"),
+      },
+      {
+        id: "as-organic",
+        titleEn: "AS Level — Organic Chemistry",
+        titleMn: "AS Түвшин — Органик хими",
+        level: "AS",
+        pillar: "Organic",
+        chapters: filteredChapters.filter((c) => c.level === "AS" && c.category === "Organic"),
+      },
+      {
+        id: "as-practical",
+        titleEn: "AS Level — Practical Skills & Analysis",
+        titleMn: "AS Түвшин — Практик туршилт & Анализ",
+        level: "AS",
+        pillar: "Practical",
+        chapters: filteredChapters.filter(
+          (c) => c.level === "AS" && (c.category === "Analysis" || c.category === "Practical")
+        ),
+      },
+      {
+        id: "a2-physical",
+        titleEn: "A Level (A2) — Physical Chemistry",
+        titleMn: "A Түвшин (A2) — Физик хими",
+        level: "A2",
+        pillar: "Physical",
+        chapters: filteredChapters.filter((c) => c.level === "A2" && c.category === "Physical"),
+      },
+      {
+        id: "a2-inorganic",
+        titleEn: "A Level (A2) — Inorganic Chemistry",
+        titleMn: "A Түвшин (A2) — Шилжилтийн металлууд",
+        level: "A2",
+        pillar: "Inorganic",
+        chapters: filteredChapters.filter((c) => c.level === "A2" && c.category === "Inorganic"),
+      },
+      {
+        id: "a2-organic",
+        titleEn: "A Level (A2) — Organic Chemistry",
+        titleMn: "A Түвшин (A2) — Органик хими",
+        level: "A2",
+        pillar: "Organic",
+        chapters: filteredChapters.filter((c) => c.level === "A2" && c.category === "Organic"),
+      },
+      {
+        id: "a2-analysis",
+        titleEn: "A Level (A2) — Analytical Techniques & Planning",
+        titleMn: "A Түвшин (A2) — Анализ & Туршилтын төлөвлөлт",
+        level: "A2",
+        pillar: "Analysis",
+        chapters: filteredChapters.filter(
+          (c) => c.level === "A2" && (c.category === "Analysis" || c.category === "Practical")
+        ),
+      },
+    ];
+
+    return groups.filter((g) => g.chapters.length > 0);
+  }, [filteredChapters]);
+
   return (
     <div className="space-y-6">
       {/* Syllabus Hero Overview Banner */}
@@ -119,11 +212,24 @@ export const ChapterListView: React.FC<ChapterListViewProps> = ({
         <div className="absolute -right-10 -bottom-10 opacity-10 pointer-events-none">
           <Atom className="w-64 h-64 text-cyan-600" />
         </div>
-        <div className="relative z-10 max-w-3xl">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-100/80 border border-cyan-300 text-cyan-900 text-xs font-semibold mb-3">
-            <GraduationCap className="w-3.5 h-3.5 text-cyan-700" />
-            Cambridge International AS & A Level Chemistry (Syllabus 9701)
+        <div className="relative z-10 max-w-4xl">
+          <div className="flex flex-wrap items-center gap-2 mb-3">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-100/80 border border-cyan-300 text-cyan-900 text-xs font-semibold">
+              <GraduationCap className="w-3.5 h-3.5 text-cyan-700" />
+              Cambridge International AS & A Level Chemistry (Syllabus 9701)
+            </div>
+            {onNavigateToSyllabusGuide && (
+              <button
+                onClick={onNavigateToSyllabusGuide}
+                className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900 hover:bg-cyan-700 text-white text-xs font-bold transition-colors shadow-2xs"
+              >
+                <Compass className="w-3.5 h-3.5 text-cyan-400" />
+                <span>{language === "mn" ? "Syllabus Хөтөч нээх (34 Сэдэв)" : "Open 9701 Syllabus Master Guide"}</span>
+                <ChevronRight className="w-3 h-3 opacity-70" />
+              </button>
+            )}
           </div>
+
           <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mb-2">
             Master All 32 Chapters with Structured Theory & Mark Schemes
           </h1>
@@ -157,7 +263,7 @@ export const ChapterListView: React.FC<ChapterListViewProps> = ({
         </div>
       </div>
 
-      {/* Filters Bar */}
+      {/* Filters Bar & View Switcher */}
       <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-2xs space-y-3">
         <div className="flex flex-wrap items-center justify-between gap-3">
           {/* Level Filter (ALL / AS / A2) */}
@@ -180,7 +286,7 @@ export const ChapterListView: React.FC<ChapterListViewProps> = ({
                   : "text-slate-600 hover:text-slate-900"
               }`}
             >
-              AS Level (Ch 1-18)
+              AS Level (Ch 1-18, 31)
             </button>
             <button
               onClick={() => setLevelFilter("A2")}
@@ -190,7 +296,35 @@ export const ChapterListView: React.FC<ChapterListViewProps> = ({
                   : "text-slate-600 hover:text-slate-900"
               }`}
             >
-              A Level / A2 (Ch 19-32)
+              A Level / A2 (Ch 19-30, 32)
+            </button>
+          </div>
+
+          {/* Layout Toggle: Grid vs Syllabus Hierarchy */}
+          <div className="flex items-center gap-1 bg-slate-100 p-1 rounded-lg border border-slate-200 text-xs">
+            <button
+              onClick={() => setViewLayout("grid")}
+              className={`px-2.5 py-1 rounded-md font-semibold flex items-center gap-1.5 transition-all ${
+                viewLayout === "grid"
+                  ? "bg-white text-slate-900 shadow-2xs"
+                  : "text-slate-600 hover:text-slate-900"
+              }`}
+              title="Grid cards layout"
+            >
+              <LayoutGrid className="w-3.5 h-3.5" />
+              <span>Cards</span>
+            </button>
+            <button
+              onClick={() => setViewLayout("hierarchy")}
+              className={`px-2.5 py-1 rounded-md font-semibold flex items-center gap-1.5 transition-all ${
+                viewLayout === "hierarchy"
+                  ? "bg-white text-slate-900 shadow-2xs"
+                  : "text-slate-600 hover:text-slate-900"
+              }`}
+              title="Syllabus guide hierarchy layout"
+            >
+              <ListTree className="w-3.5 h-3.5" />
+              <span>Syllabus Tree</span>
             </button>
           </div>
 
@@ -217,125 +351,222 @@ export const ChapterListView: React.FC<ChapterListViewProps> = ({
         </div>
       </div>
 
-      {/* Chapters Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {filteredChapters.map((chapter) => {
-          const colors = getCategoryColor(chapter.category);
-          const summaryText = language === "en" 
-            ? (chapter.summaryEn || chapter.descriptionEn || "") 
-            : language === "mn" 
-            ? (chapter.summaryMn || chapter.descriptionMn || chapter.summaryEn || "")
-            : (chapter.summaryMn || chapter.summaryEn || "");
+      {/* RENDER MODE 1: GRID VIEW */}
+      {viewLayout === "grid" && (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {filteredChapters.map((chapter) => {
+            const colors = getCategoryColor(chapter.category);
+            const linkage = getLinkageForChapter(chapter.number);
+            const summaryText = language === "en" 
+              ? (chapter.summaryEn || chapter.descriptionEn || "") 
+              : language === "mn" 
+              ? (chapter.summaryMn || chapter.descriptionMn || chapter.summaryEn || "")
+              : (chapter.summaryMn || chapter.summaryEn || "");
 
-          return (
-            <div
-              key={chapter.number}
-              onClick={() => onSelectChapter(chapter)}
-              className="group relative flex flex-col justify-between bg-white hover:bg-slate-50/70 border border-slate-200 hover:border-cyan-400 rounded-xl p-5 cursor-pointer transition-all duration-200 shadow-2xs hover:shadow-md"
-            >
-              <div>
-                {/* Header row: Chapter number, Level, Category */}
-                <div className="flex items-start justify-between gap-2 mb-3">
-                  <div className="flex items-center gap-2">
-                    <span className="w-8 h-8 rounded-lg bg-slate-100 border border-slate-200 flex items-center justify-center text-sm font-extrabold text-cyan-700">
-                      {chapter.number}
-                    </span>
+            return (
+              <div
+                key={chapter.number}
+                onClick={() => onSelectChapter(chapter)}
+                className="group relative flex flex-col justify-between bg-white hover:bg-slate-50/70 border border-slate-200 hover:border-cyan-400 rounded-xl p-5 cursor-pointer transition-all duration-200 shadow-2xs hover:shadow-md"
+              >
+                <div>
+                  {/* Header row: Chapter number, Level, Category & Syllabus Ref */}
+                  <div className="flex items-start justify-between gap-2 mb-2">
+                    <div className="flex items-center gap-2">
+                      <span className="w-8 h-8 rounded-lg bg-slate-100 border border-slate-200 flex items-center justify-center text-sm font-extrabold text-cyan-700">
+                        {chapter.number}
+                      </span>
+                      <span
+                        className={`text-[11px] font-bold px-2 py-0.5 rounded-full border ${
+                          chapter.level === "AS"
+                            ? "bg-blue-50 text-blue-700 border-blue-200"
+                            : "bg-amber-50 text-amber-700 border-amber-200"
+                        }`}
+                      >
+                        {chapter.level} Level
+                      </span>
+                    </div>
+
                     <span
-                      className={`text-[11px] font-bold px-2 py-0.5 rounded-full border ${
-                        chapter.level === "AS"
-                          ? "bg-blue-50 text-blue-700 border-blue-200"
-                          : "bg-amber-50 text-amber-700 border-amber-200"
-                      }`}
+                      className={`text-[10px] font-semibold px-2 py-0.5 rounded border ${colors.badge}`}
                     >
-                      {chapter.level} Level
+                      {chapter.category}
                     </span>
                   </div>
 
-                  <span
-                    className={`text-[10px] font-semibold px-2 py-0.5 rounded border ${colors.badge}`}
-                  >
-                    {chapter.category}
-                  </span>
-                </div>
+                  {/* Official Syllabus Code Badge */}
+                  {linkage?.syllabusRef && (
+                    <div className="mb-2">
+                      <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-slate-100 text-slate-700 border border-slate-200 inline-block">
+                        {linkage.syllabusRef}
+                      </span>
+                    </div>
+                  )}
 
-                {/* Chapter Title */}
-                {language === "en" && (
-                  <h3 className="font-bold text-slate-900 text-base group-hover:text-cyan-700 transition-colors line-clamp-1 mb-2">
-                    {chapter.titleEn}
-                  </h3>
-                )}
-                {language === "mn" && (
-                  <h3 className="font-bold text-slate-900 text-base group-hover:text-cyan-700 transition-colors line-clamp-1 mb-2">
-                    {chapter.titleMn || chapter.titleEn}
-                  </h3>
-                )}
-                {language === "dual" && (
-                  <div className="mb-2">
-                    <h3 className="font-bold text-slate-900 text-sm group-hover:text-cyan-700 transition-colors line-clamp-1">
+                  {/* Chapter Title */}
+                  {language === "en" && (
+                    <h3 className="font-bold text-slate-900 text-base group-hover:text-cyan-700 transition-colors line-clamp-1 mb-2">
                       {chapter.titleEn}
                     </h3>
-                    <p className="text-xs font-semibold text-cyan-800 line-clamp-1">
-                      {chapter.titleMn}
-                    </p>
-                  </div>
-                )}
-
-                {/* Summary */}
-                <p className="text-xs text-slate-600 line-clamp-2 leading-relaxed mb-3">
-                  {summaryText}
-                </p>
-
-                {/* Subtopic pills preview */}
-                <div className="flex flex-wrap gap-1 mb-4">
-                  {(chapter.subtopics || []).slice(0, 3).map((sub, idx) => {
-                    const subTitle = language === "en" ? sub.titleEn : language === "mn" ? (sub.titleMn || sub.titleEn) : sub.titleEn;
-                    return (
-                      <span
-                        key={idx}
-                        className="text-[10px] bg-slate-100 text-slate-700 px-2 py-0.5 rounded border border-slate-200"
-                      >
-                        {subTitle}
-                      </span>
-                    );
-                  })}
-                  {(chapter.subtopics || []).length > 3 && (
-                    <span className="text-[10px] text-slate-400 px-1 py-0.5">
-                      +{(chapter.subtopics || []).length - 3} more
-                    </span>
                   )}
+                  {language === "mn" && (
+                    <h3 className="font-bold text-slate-900 text-base group-hover:text-cyan-700 transition-colors line-clamp-1 mb-2">
+                      {chapter.titleMn || chapter.titleEn}
+                    </h3>
+                  )}
+                  {language === "dual" && (
+                    <div className="mb-2">
+                      <h3 className="font-bold text-slate-900 text-sm group-hover:text-cyan-700 transition-colors line-clamp-1">
+                        {chapter.titleEn}
+                      </h3>
+                      <p className="text-xs font-semibold text-cyan-800 line-clamp-1">
+                        {chapter.titleMn}
+                      </p>
+                    </div>
+                  )}
+
+                  {/* Summary */}
+                  <p className="text-xs text-slate-600 line-clamp-2 leading-relaxed mb-3">
+                    {summaryText}
+                  </p>
+
+                  {/* Subtopic pills preview */}
+                  <div className="flex flex-wrap gap-1 mb-4">
+                    {(chapter.subtopics || []).slice(0, 3).map((sub, idx) => {
+                      const subTitle = language === "en" ? sub.titleEn : language === "mn" ? (sub.titleMn || sub.titleEn) : sub.titleEn;
+                      return (
+                        <span
+                          key={idx}
+                          className="text-[10px] bg-slate-100 text-slate-700 px-2 py-0.5 rounded border border-slate-200"
+                        >
+                          {subTitle}
+                        </span>
+                      );
+                    })}
+                    {(chapter.subtopics || []).length > 3 && (
+                      <span className="text-[10px] text-slate-400 px-1 py-0.5">
+                        +{(chapter.subtopics || []).length - 3} more
+                      </span>
+                    )}
+                  </div>
+                </div>
+
+                {/* Action Buttons Footer */}
+                <div className="pt-3 border-t border-slate-100 flex items-center justify-between gap-2">
+                  <span className="text-xs text-slate-500 font-mono">
+                    {(chapter.subtopics || []).length} {language === "mn" ? "Дэд сэдэв" : "Subtopics"} • {(chapter.keyTerms || []).length} {language === "mn" ? "Нэр томьёо" : "Terms"}
+                  </span>
+
+                  <div className="flex items-center gap-1.5">
+                    {onNavigateToRevision && (
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          onNavigateToRevision(chapter.number);
+                        }}
+                        className="p-1.5 rounded-lg bg-slate-100 hover:bg-cyan-50 text-slate-600 hover:text-cyan-700 border border-slate-200 transition-colors"
+                        title="Open Revision Notes for this chapter"
+                      >
+                        <BookmarkCheck className="w-3.5 h-3.5" />
+                      </button>
+                    )}
+                    <span className="flex items-center gap-1 text-xs font-semibold bg-cyan-600 group-hover:bg-cyan-700 text-white px-3 py-1.5 rounded-lg transition-colors shadow-2xs">
+                      <span>{language === "mn" ? "Бүлэг үзэх" : language === "en" ? "Study Chapter" : "Study • Үзэх"}</span>
+                      <ChevronRight className="w-3.5 h-3.5" />
+                    </span>
+                  </div>
                 </div>
               </div>
+            );
+          })}
+        </div>
+      )}
 
-              {/* Action Buttons Footer */}
-              <div className="pt-3 border-t border-slate-100 flex items-center justify-between gap-2">
-                <span className="text-xs text-slate-500 font-mono">
-                  {(chapter.subtopics || []).length} {language === "mn" ? "Дэд сэдэв" : "Subtopics"} • {(chapter.keyTerms || []).length} {language === "mn" ? "Нэр томьёо" : "Terms"}
-                </span>
-
-                <div className="flex items-center gap-1.5">
-                  {onNavigateToRevision && (
-                    <button
-                      type="button"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        onNavigateToRevision(chapter.number);
-                      }}
-                      className="p-1.5 rounded-lg bg-slate-100 hover:bg-cyan-50 text-slate-600 hover:text-cyan-700 border border-slate-200 transition-colors"
-                      title="Open Revision Notes for this chapter"
+      {/* RENDER MODE 2: SYLLABUS HIERARCHY TREE VIEW */}
+      {viewLayout === "hierarchy" && (
+        <div className="space-y-6">
+          {hierarchyGroups.map((group) => {
+            return (
+              <div
+                key={group.id}
+                className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-2xs"
+              >
+                {/* Group Header */}
+                <div className="p-4 bg-slate-50 border-b border-slate-200 flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <span
+                      className={`text-xs font-bold px-2.5 py-0.5 rounded-full border ${
+                        group.level === "AS"
+                          ? "bg-blue-100 text-blue-900 border-blue-200"
+                          : "bg-amber-100 text-amber-900 border-amber-200"
+                      }`}
                     >
-                      <BookmarkCheck className="w-3.5 h-3.5" />
-                    </button>
-                  )}
-                  <span className="flex items-center gap-1 text-xs font-semibold bg-cyan-600 group-hover:bg-cyan-700 text-white px-3 py-1.5 rounded-lg transition-colors shadow-2xs">
-                    <span>{language === "mn" ? "Бүлэг үзэх" : language === "en" ? "Study Chapter" : "Study • Үзэх"}</span>
-                    <ChevronRight className="w-3.5 h-3.5" />
+                      {group.level} Level
+                    </span>
+                    <h3 className="font-extrabold text-slate-900 text-sm sm:text-base">
+                      {language === "mn" ? group.titleMn : group.titleEn}
+                    </h3>
+                  </div>
+                  <span className="text-xs text-slate-500 font-mono">
+                    {group.chapters.length} {language === "mn" ? "бүлэг" : "chapters"}
                   </span>
                 </div>
+
+                {/* Chapter Rows */}
+                <div className="divide-y divide-slate-100">
+                  {group.chapters.map((chapter) => {
+                    const linkage = getLinkageForChapter(chapter.number);
+                    return (
+                      <div
+                        key={chapter.number}
+                        onClick={() => onSelectChapter(chapter)}
+                        className="p-4 hover:bg-slate-50/70 transition-colors cursor-pointer flex flex-col md:flex-row md:items-center justify-between gap-3 group"
+                      >
+                        <div className="flex items-start gap-3">
+                          <span className="w-8 h-8 rounded-lg bg-slate-100 border border-slate-200 flex items-center justify-center text-sm font-extrabold text-cyan-700 shrink-0">
+                            {chapter.number}
+                          </span>
+                          <div>
+                            <div className="flex flex-wrap items-center gap-2 mb-1">
+                              {linkage?.syllabusRef && (
+                                <span className="text-[10px] font-mono font-bold px-1.5 py-0.2 rounded bg-cyan-50 text-cyan-800 border border-cyan-200">
+                                  {linkage.syllabusRef}
+                                </span>
+                              )}
+                              <span className="text-xs text-slate-500 font-mono">
+                                {(chapter.subtopics || []).length} subtopics
+                              </span>
+                            </div>
+                            <h4 className="font-bold text-slate-900 text-sm group-hover:text-cyan-700 transition-colors">
+                              {language === "mn" ? chapter.titleMn || chapter.titleEn : chapter.titleEn}
+                            </h4>
+                            <p className="text-xs text-slate-500 line-clamp-1 mt-0.5">
+                              {chapter.summaryEn || chapter.descriptionEn}
+                            </p>
+                          </div>
+                        </div>
+
+                        <div className="flex items-center gap-2 shrink-0 self-end md:self-center">
+                          {linkage?.relatedExamPapers && linkage.relatedExamPapers.length > 0 && (
+                            <span className="text-[10px] text-slate-500 bg-slate-100 px-2 py-1 rounded border border-slate-200 hidden lg:inline">
+                              Tested: {linkage.relatedExamPapers.map((p) => p.paperType.replace("Paper ", "P")).join(", ")}
+                            </span>
+                          )}
+                          <span className="px-3 py-1.5 rounded-lg bg-slate-100 group-hover:bg-cyan-600 group-hover:text-white text-slate-700 text-xs font-bold transition-colors flex items-center gap-1">
+                            <span>Open</span>
+                            <ChevronRight className="w-3.5 h-3.5" />
+                          </span>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
-            </div>
-          );
-        })}
-      </div>
+            );
+          })}
+        </div>
+      )}
 
       {filteredChapters.length === 0 && (
         <div className="text-center py-16 bg-white rounded-2xl border border-slate-200 shadow-2xs">

@@ -8,6 +8,7 @@ export interface Translations {
   brandSubtitle: string;
   searchPlaceholder: string;
   navChapters: string;
+  navSyllabusGuide: string;
   navPastPapers: string;
   navCalculations: string;
   navQANotes: string;
@@ -65,6 +66,7 @@ const UI_TRANSLATIONS: Record<LanguageMode, Translations> = {
     brandSubtitle: "9701 AS & A Level Syllabus Mastery",
     searchPlaceholder: "Search topics, formulas, reactions...",
     navChapters: "Chapters",
+    navSyllabusGuide: "Syllabus Guide",
     navPastPapers: "Past Papers",
     navCalculations: "Calculations",
     navQANotes: "QA Notes",
@@ -117,6 +119,7 @@ const UI_TRANSLATIONS: Record<LanguageMode, Translations> = {
     brandSubtitle: "9701 AS & A Level Хичээлийн Хөтөлбөр",
     searchPlaceholder: "Сэдэв, томьёо, урвал, бүлэг хайх...",
     navChapters: "Бүлгүүд",
+    navSyllabusGuide: "Syllabus Хөтөч",
     navPastPapers: "Past Papers",
     navCalculations: "Тооцоот бодлого",
     navQANotes: "QA Notes",
@@ -169,6 +172,7 @@ const UI_TRANSLATIONS: Record<LanguageMode, Translations> = {
     brandSubtitle: "9701 AS & A Level Syllabus Mastery • Хөтөлбөрийн Сан",
     searchPlaceholder: "Search topics, formulas, reactions • Сэдэв, томьёо хайх...",
     navChapters: "Chapters • Бүлгүүд",
+    navSyllabusGuide: "Syllabus Guide • Хөтөч",
     navPastPapers: "Past Papers",
     navCalculations: "Calculations • Бодлого",
     navQANotes: "QA Notes • Лавлах",

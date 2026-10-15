@@ -12,6 +12,9 @@ import {
   Copy,
   Atom,
   GraduationCap,
+  Compass,
+  CheckCircle2,
+  Circle,
   HelpCircle,
   Zap,
   BookmarkCheck,
@@ -25,6 +28,7 @@ import {
 } from "lucide-react";
 import { QualitativeAnalysisNotes } from "./QualitativeAnalysisNotes";
 import { getLinkageForChapter } from "../data/curriculumLinkage";
+import { getSyllabusTopicForChapter } from "../data/syllabusGuideData";
 import { PracticalVideoModal } from "./PracticalVideoModal";
 import { ANIONS_DATA, CATIONS_DATA, GASES_DATA } from "../data/qualitativeAnalysisData";
 import { useLanguage } from "../utils/languageContext";
@@ -54,10 +58,30 @@ export const ChapterDetailView: React.FC<ChapterDetailViewProps> = ({
   const { language, t } = useLanguage();
   const isPracticalChapter = chapter.category === "Practical" || chapter.number === 31 || chapter.number === 32;
   const linkage = getLinkageForChapter(chapter.number);
+  const syllabusTopic = getSyllabusTopicForChapter(chapter.number);
 
-  const [activeTab, setActiveTab] = useState<"linkage" | "subtopics" | "terms" | "questions" | "qualitative">(
-    linkage ? "linkage" : isPracticalChapter ? "qualitative" : "subtopics"
+  const [activeTab, setActiveTab] = useState<"syllabus" | "linkage" | "subtopics" | "terms" | "questions" | "qualitative">(
+    "syllabus"
   );
+  const [masteredOutcomes, setMasteredOutcomes] = useState<Record<string, boolean>>(() => {
+    try {
+      const saved = localStorage.getItem("chemistry_syllabus_mastery_v1");
+      return saved ? JSON.parse(saved) : {};
+    } catch {
+      return {};
+    }
+  });
+
+  const toggleOutcome = (code: string) => {
+    setMasteredOutcomes((prev) => {
+      const next = { ...prev, [code]: !prev[code] };
+      try {
+        localStorage.setItem("chemistry_syllabus_mastery_v1", JSON.stringify(next));
+      } catch (e) {}
+      return next;
+    });
+  };
+
   const [revealedSolutions, setRevealedSolutions] = useState<Record<string, boolean>>({});
   const [copiedTerm, setCopiedTerm] = useState<string | null>(null);
   const [selectedLabModalItem, setSelectedLabModalItem] = useState<{
@@ -201,6 +225,23 @@ export const ChapterDetailView: React.FC<ChapterDetailViewProps> = ({
 
       {/* Navigation Tabs */}
       <div className="flex items-center gap-2 border-b border-slate-200 pb-2 overflow-x-auto">
+        <button
+          onClick={() => setActiveTab("syllabus")}
+          className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all shrink-0 ${
+            activeTab === "syllabus"
+              ? "bg-slate-900 text-white shadow-2xs"
+              : "text-slate-600 hover:text-slate-900 hover:bg-slate-100 border border-slate-200"
+          }`}
+        >
+          <Compass className="w-4 h-4 text-cyan-400" />
+          <span>Syllabus Хөтөч & Зорилтууд</span>
+          {linkage?.syllabusRef && (
+            <span className="text-[10px] px-1.5 py-0.2 rounded bg-cyan-900 text-cyan-200 font-mono">
+              {linkage.syllabusRef.replace("Syllabus ", "")}
+            </span>
+          )}
+        </button>
+
         {linkage && (
           <button
             onClick={() => setActiveTab("linkage")}
@@ -266,6 +307,174 @@ export const ChapterDetailView: React.FC<ChapterDetailViewProps> = ({
           <span>QA Notes & Simulator</span>
         </button>
       </div>
+
+      {/* Tab: Syllabus Guide & Learning Outcomes */}
+      {activeTab === "syllabus" && (
+        <div className="space-y-6">
+          {/* Syllabus Banner */}
+          <div className="p-5 rounded-2xl bg-gradient-to-r from-slate-900 via-slate-800 to-cyan-950 text-white border border-cyan-800/40 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div className="space-y-2">
+              <div className="flex items-center gap-2">
+                <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-cyan-900/80 border border-cyan-500/40 text-cyan-200">
+                  Cambridge 9701 Syllabus
+                </span>
+                {linkage?.syllabusRef && (
+                  <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-white/10 text-cyan-300">
+                    {linkage.syllabusRef}
+                  </span>
+                )}
+              </div>
+              <h2 className="text-lg sm:text-xl font-black text-white">
+                {syllabusTopic
+                  ? `${language === "mn" ? syllabusTopic.titleMn : syllabusTopic.titleEn}`
+                  : `${chapter.titleEn}`}
+              </h2>
+              <p className="text-xs text-slate-300 max-w-2xl leading-relaxed">
+                {syllabusTopic
+                  ? language === "mn"
+                    ? syllabusTopic.examFocusNotesMn
+                    : syllabusTopic.examFocusNotesEn
+                  : "Master each syllabus learning outcome below. Tick outcomes as you master them to track your exam readiness."}
+              </p>
+            </div>
+
+            {/* Quick action buttons */}
+            <div className="flex flex-wrap sm:flex-col gap-2 shrink-0">
+              {onOpenPastPapers && (
+                <button
+                  onClick={() => onOpenPastPapers()}
+                  className="px-3.5 py-1.5 rounded-lg bg-cyan-600 hover:bg-cyan-700 text-white text-xs font-bold transition-colors flex items-center gap-1.5 shadow-2xs"
+                >
+                  <FileText className="w-3.5 h-3.5" />
+                  <span>Шалгалтын асуулт</span>
+                </button>
+              )}
+              {onOpenCalculations && linkage?.coreCalculationTopicId && (
+                <button
+                  onClick={() => onOpenCalculations(linkage.coreCalculationTopicId)}
+                  className="px-3.5 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-white text-xs font-bold transition-colors flex items-center gap-1.5 border border-white/20"
+                >
+                  <Calculator className="w-3.5 h-3.5 text-amber-300" />
+                  <span>Бодлого бодох</span>
+                </button>
+              )}
+            </div>
+          </div>
+
+          {/* Learning Outcomes Checklist */}
+          {syllabusTopic && syllabusTopic.learningOutcomes.length > 0 && (
+            <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-2xs space-y-3">
+              <div className="flex items-center justify-between border-b border-slate-100 pb-3">
+                <h3 className="font-extrabold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                  <span>
+                    {language === "mn"
+                      ? "Суралцахуйн үр дүнгийн шалгах хуудас (Checklist)"
+                      : "Official Cambridge Learning Outcomes (Checklist)"}
+                  </span>
+                </h3>
+                <span className="text-xs text-slate-500 font-mono">
+                  {syllabusTopic.learningOutcomes.filter((o) => !!masteredOutcomes[o.code]).length} /{" "}
+                  {syllabusTopic.learningOutcomes.length} {language === "mn" ? "эзэмшсэн" : "mastered"}
+                </span>
+              </div>
+
+              <div className="space-y-2">
+                {syllabusTopic.learningOutcomes.map((outcome) => {
+                  const isChecked = !!masteredOutcomes[outcome.code];
+                  return (
+                    <div
+                      key={outcome.code}
+                      onClick={() => toggleOutcome(outcome.code)}
+                      className={`flex items-start gap-3 p-3 rounded-xl border transition-all cursor-pointer ${
+                        isChecked
+                          ? "bg-emerald-50/70 border-emerald-300 text-slate-900"
+                          : "bg-slate-50 border-slate-200 text-slate-700 hover:border-slate-300 hover:bg-white"
+                      }`}
+                    >
+                      <button type="button" className="mt-0.5 shrink-0 focus:outline-none">
+                        {isChecked ? (
+                          <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                        ) : (
+                          <Circle className="w-4 h-4 text-slate-300 hover:text-slate-400" />
+                        )}
+                      </button>
+
+                      <div className="flex-1 text-xs leading-relaxed">
+                        <div className="flex items-center gap-2 mb-1">
+                          <span
+                            className={`text-[10px] font-mono font-bold px-1.5 py-0.2 rounded ${
+                              isChecked
+                                ? "bg-emerald-200 text-emerald-900"
+                                : "bg-white text-slate-600 border border-slate-200"
+                            }`}
+                          >
+                            {outcome.code}
+                          </span>
+                        </div>
+
+                        {language === "en" && <p>{outcome.outcomeEn}</p>}
+                        {language === "mn" && <p>{outcome.outcomeMn || outcome.outcomeEn}</p>}
+                        {language === "dual" && (
+                          <div className="space-y-0.5">
+                            <p className="font-medium text-slate-900">{outcome.outcomeEn}</p>
+                            <p className="text-cyan-900 text-[11px]">{outcome.outcomeMn}</p>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+
+          {/* Chapter Learning Intentions (from chapter data) */}
+          {(chapter.learningIntentionsEn || chapter.learningIntentionsMn) && (
+            <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-2xs space-y-3">
+              <h3 className="font-extrabold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+                <GraduationCap className="w-4 h-4 text-cyan-600" />
+                <span>
+                  {language === "mn"
+                    ? "Бүлгийн үндсэн ойлголтууд & Шалгуур"
+                    : "Coursebook Learning Intentions & Goals"}
+                </span>
+              </h3>
+              <ul className="space-y-2 text-xs text-slate-700">
+                {(language === "mn"
+                  ? chapter.learningIntentionsMn || chapter.learningIntentionsEn || []
+                  : chapter.learningIntentionsEn || []
+                ).map((intention, idx) => (
+                  <li key={idx} className="flex items-start gap-2.5">
+                    <span className="w-5 h-5 rounded-full bg-cyan-100 text-cyan-800 font-bold text-[10px] flex items-center justify-center shrink-0 mt-0.5">
+                      {idx + 1}
+                    </span>
+                    <span className="leading-relaxed">{intention}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {/* Examiner tips */}
+          {linkage?.examTips && linkage.examTips.length > 0 && (
+            <div className="bg-amber-50/80 border border-amber-200 rounded-2xl p-5 shadow-2xs space-y-2">
+              <h3 className="font-extrabold text-amber-950 text-sm flex items-center gap-2">
+                <AlertTriangle className="w-4 h-4 text-amber-600" />
+                <span>{language === "mn" ? "Кембрижийн Шалгагчийн Зөвлөмж & Түлхүүр үгс" : "Examiner Guidance & Keywords"}</span>
+              </h3>
+              <div className="space-y-1.5 text-xs text-amber-950">
+                {linkage.examTips.map((tip, idx) => (
+                  <div key={idx} className="flex items-start gap-2">
+                    <span className="text-amber-700 font-bold shrink-0">•</span>
+                    <span className="leading-relaxed">{tip}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      )}
 
       {/* Tab: Linkage (Theory ↔ Practical ↔ Past Papers) */}
       {activeTab === "linkage" && linkage && (

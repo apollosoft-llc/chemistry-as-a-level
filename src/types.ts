@@ -1,6 +1,6 @@
 export type LevelType = "ALL" | "AS" | "A2";
 export type Language = "mn" | "en";
-export type ViewMode = "chapters" | "chapter-detail" | "periodic-table" | "reactions" | "flashcards" | "quiz" | "revision" | "past-papers" | "qualitative-notes" | "calculations" | "test-maker" | "command-words";
+export type ViewMode = "chapters" | "chapter-detail" | "syllabus-guide" | "periodic-table" | "reactions" | "flashcards" | "quiz" | "revision" | "past-papers" | "qualitative-notes" | "calculations" | "test-maker" | "command-words";
 
 export type ProblemDifficulty = "Easy" | "Medium" | "Hard";
 export type ProblemSource = "Coursebook" | "Workbook" | "Past Paper";
@@ -229,9 +229,53 @@ export interface Chapter {
   learningIntentionsMn?: string[];
   subtopics: SubTopic[];
   keyTerms: KeyTerm[];
+  syllabusRef?: string;
+  examPapers?: ("Paper 1" | "Paper 2" | "Paper 3" | "Paper 4" | "Paper 5")[];
   formulas?: { nameEn: string; nameMn: string; formula: string; note: string }[];
   examStyleTips?: string[];
   examQuestions?: ExamQuestion[];
+}
+
+export interface SyllabusLearningOutcome {
+  code: string;
+  outcomeEn: string;
+  outcomeMn: string;
+}
+
+export interface SyllabusTopic {
+  id: string;
+  topicNumber: number | string;
+  level: "AS" | "A2";
+  pillar: "Physical" | "Inorganic" | "Organic" | "Analysis" | "Practical";
+  titleEn: string;
+  titleMn: string;
+  syllabusCodes: string[];
+  correspondingChapterNumbers: number[];
+  examPapers: ("Paper 1" | "Paper 2" | "Paper 3" | "Paper 4" | "Paper 5")[];
+  learningOutcomes: SyllabusLearningOutcome[];
+  examFocusNotesEn: string;
+  examFocusNotesMn: string;
+  keyFormulas?: string[];
+  practicalSkillsLinked?: string[];
+  calculationTopicId?: string;
+}
+
+export interface SyllabusPaperSpec {
+  paperNumber: "Paper 1" | "Paper 2" | "Paper 3" | "Paper 4" | "Paper 5";
+  titleEn: string;
+  titleMn: string;
+  durationMinutes: number;
+  totalMarks: number;
+  weightingAS?: string;
+  weightingALevel: string;
+  formatEn: string;
+  formatMn: string;
+  testedSyllabusRange: string;
+  testedSyllabusRangeMn: string;
+  equipmentRulesEn: string;
+  equipmentRulesMn: string;
+  topStrategyTipsEn: string[];
+  topStrategyTipsMn: string[];
 }
 
 export type ElementCategory =

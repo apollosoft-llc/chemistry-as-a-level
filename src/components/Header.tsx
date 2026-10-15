@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import {
   Atom,
   BookOpen,
+  Compass,
   Layers,
   TestTubes,
   Search,
@@ -109,6 +110,23 @@ export const Header: React.FC<HeaderProps> = ({
               >
                 <BookOpen className="w-3.5 h-3.5" />
                 <span>Chapters</span>
+              </button>
+
+              {/* 2. Syllabus Guide (Хөтөч) */}
+              <button
+                onClick={() => onSelectView("syllabus-guide")}
+                className={`flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-lg text-xs font-bold transition-all shrink-0 ${
+                  currentView === "syllabus-guide"
+                    ? "bg-slate-900 text-white shadow-2xs"
+                    : "text-slate-600 hover:text-slate-900 hover:bg-slate-200/60"
+                }`}
+                title="Official Cambridge 9701 Syllabus Master Guide & Checklist"
+              >
+                <Compass className={`w-3.5 h-3.5 ${currentView === "syllabus-guide" ? "text-cyan-400" : "text-cyan-700"}`} />
+                <span>{t.navSyllabusGuide}</span>
+                <span className="text-[9px] px-1 py-0.2 rounded bg-cyan-100 text-cyan-900 font-bold hidden md:inline">
+                  9701
+                </span>
               </button>
 
               {/* 2. Past Papers */}

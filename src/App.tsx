@@ -14,6 +14,7 @@ import { QualitativeAnalysisNotes } from "./components/QualitativeAnalysisNotes"
 import { CalculationMasteryModule } from "./components/CalculationMasteryModule";
 import { TestMakerModule } from "./components/TestMakerModule";
 import { CommandWordsAndTermsModule } from "./components/CommandWordsAndTermsModule";
+import { SyllabusGuideView } from "./components/SyllabusGuideView";
 import { LanguageProvider } from "./utils/languageContext";
 
 export function AppContent() {
@@ -92,7 +93,22 @@ export function AppContent() {
             chapters={ALL_CHAPTERS}
             onSelectChapter={handleSelectChapter}
             onNavigateToRevision={(chNum) => handleOpenRevision(chNum)}
+            onNavigateToSyllabusGuide={() => handleHeaderSelectView("syllabus-guide")}
             searchQuery={searchQuery}
+          />
+        )}
+
+        {currentView === "syllabus-guide" && (
+          <SyllabusGuideView
+            onNavigateToChapter={(chNum) => {
+              const ch = ALL_CHAPTERS.find((c) => c.number === chNum);
+              if (ch) handleSelectChapter(ch);
+            }}
+            onNavigateToPastPapers={(paperId) => handleOpenPastPapers(paperId)}
+            onNavigateToCalculations={(topicId) => handleOpenCalculations(topicId)}
+            onNavigateToQualitative={handleOpenQualitativeNotes}
+            onNavigateToQuiz={(chNum) => handleOpenQuiz(chNum)}
+            onNavigateToFlashcards={(chNum) => handleOpenFlashcards(chNum)}
           />
         )}
 

@@ -35,6 +35,7 @@ import {
   ORGANIC_REAGENT_CHEAT_SHEET,
   QA_CHEAT_SHEET,
 } from "../data/revisionCheatSheets";
+import { getLinkageForChapter } from "../data/curriculumLinkage";
 import { PdfRevisionSummaryModal } from "./PdfRevisionSummaryModal";
 
 interface RevisionNotesModuleProps {
@@ -500,10 +501,15 @@ export const RevisionNotesModule: React.FC<RevisionNotesModuleProps> = ({
                         {currentChapter.number}
                       </div>
                       <div>
-                        <div className="flex items-center gap-2">
+                        <div className="flex flex-wrap items-center gap-2">
                           <span className="px-2 py-0.5 rounded-full text-[11px] font-bold bg-cyan-100 text-cyan-800 border border-cyan-200">
                             Cambridge {currentChapter.level}
                           </span>
+                          {getLinkageForChapter(currentChapter.number)?.syllabusRef && (
+                            <span className="px-2 py-0.5 rounded-full text-[11px] font-mono font-bold bg-slate-100 text-slate-800 border border-slate-200">
+                              {getLinkageForChapter(currentChapter.number)?.syllabusRef}
+                            </span>
+                          )}
                           <span className="text-xs font-semibold text-slate-500">
                             {currentChapter.category} Chemistry
                           </span>
