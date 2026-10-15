@@ -935,6 +935,10 @@ export const FullPeriodicTableView: React.FC<FullPeriodicTableViewProps> = ({ on
                 <span className="font-mono text-slate-800 font-semibold">
                   {selectedElement.atomicRadius ? `${selectedElement.atomicRadius} nm` : "—"}
                 </span>
+              </div>
+            )}
+          </div>
+
           {/* Interactive Bohr Orbital & Z_eff Simulator */}
           <BohrAtomSimulator element={selectedElement} />
 
