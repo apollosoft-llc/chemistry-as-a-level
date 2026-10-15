@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from "react";
 import { ALL_118_ELEMENTS } from "../data/all118Elements";
 import { ElementData, ElementCategory } from "../types";
+import { BohrAtomSimulator } from "./BohrAtomSimulator";
 import {
   Search,
   Sliders,
@@ -13,7 +14,77 @@ import {
   Atom,
   Info,
   Maximize2,
+  TrendingUp,
+  BarChart2,
 } from "lucide-react";
+
+export type HeatmapProperty =
+  | "none"
+  | "atomicRadius"
+  | "firstIonisationEnergy"
+  | "electronegativity"
+  | "meltingPointC"
+  | "atomicMass";
+
+const HEATMAP_SPECS: Record<
+  HeatmapProperty,
+  { label: string; labelMn: string; unit: string; min: number; max: number; note: string; noteMn: string }
+> = {
+  none: { label: "Categories", labelMn: "Үндсэн Ангилал", unit: "", min: 0, max: 0, note: "", noteMn: "" },
+  atomicRadius: {
+    label: "Atomic Radius",
+    labelMn: "Атомын Радиус",
+    unit: "nm",
+    min: 0.03,
+    max: 0.27,
+    note: "Decreases across period (higher Z_eff pulls electrons closer); Increases down group (extra shells).",
+    noteMn: "Үеийн дагуу буурдаг (Z_eff өсдөг); Бүлгийн дагуу өсдөг (электрон бүрхүүл нэмэгддэг).",
+  },
+  firstIonisationEnergy: {
+    label: "1st Ionisation Energy",
+    labelMn: "1-р Иончлолын Энерги",
+    unit: "kJ/mol",
+    min: 380,
+    max: 2372,
+    note: "Increases across period (greater Z_eff); Decreases down group (greater shielding & radius).",
+    noteMn: "Үеийн дагуу өсдөг (Z_eff өсдөг); Бүлгийн дагуу буурдаг (радиус томорч халхавч нэмэгддэг).",
+  },
+  electronegativity: {
+    label: "Electronegativity",
+    labelMn: "Цахилгаан Сөрөг Чанар",
+    unit: "Pauling",
+    min: 0.7,
+    max: 4.0,
+    note: "Increases towards Fluorine (top right); Decreases towards Francium (bottom left).",
+    noteMn: "Баруун дээд булангийн Фтор (4.0) руу өсч, зүүн доод булангийн Франци (0.7) руу буурдаг.",
+  },
+  meltingPointC: {
+    label: "Melting Point",
+    labelMn: "Хайлах Температур",
+    unit: "°C",
+    min: -272,
+    max: 3550,
+    note: "Peaks at Group 14 macromolecular networks (C, Si) and transition metals (W).",
+    noteMn: "Аварга ковалент бүтэцтэй C, Si болон шилжилтийн металлууд (W) дээр оргилдоо хүрдэг.",
+  },
+  atomicMass: {
+    label: "Atomic Mass (Ar)",
+    labelMn: "Атом Масс",
+    unit: "",
+    min: 1.008,
+    max: 294,
+    note: "Increases smoothly with atomic number Z across the periodic table.",
+    noteMn: "Үелэх системийн дагуу атомын дугаар Z-тэй хамт жигд өсдөг.",
+  },
+};
+
+const getHeatmapColor = (val: number | undefined, prop: HeatmapProperty): string => {
+  if (val === undefined || isNaN(val)) return "#475569";
+  const spec = HEATMAP_SPECS[prop];
+  const t = Math.max(0, Math.min(1, (val - spec.min) / (spec.max - spec.min || 1)));
+  const hue = (1 - t) * 230; // 230 (cool blue) down to 0 (hot red)
+  return `hsl(${hue}, 85%, 42%)`;
+};
 
 // Category display configurations for light theme
 const CATEGORY_CONFIG: Record<
@@ -185,6 +256,7 @@ export const FullPeriodicTableView: React.FC<FullPeriodicTableViewProps> = ({ on
   });
 
   const [selectedElement, setSelectedElement] = useState<ElementData | null>(null);
+  const [heatmapProperty, setHeatmapProperty] = useState<HeatmapProperty>("none");
 
   // Discovery Quest Mode
   const [isQuestActive, setIsQuestActive] = useState(false);
@@ -295,16 +367,42 @@ export const FullPeriodicTableView: React.FC<FullPeriodicTableViewProps> = ({ on
 
     const visible = isElementVisible(el);
     const isSelected = selectedElement?.number === el.number;
+    const isHeatmapActive = heatmapProperty !== "none";
     const category = el.category || "unknown";
     const catStyle = CATEGORY_CONFIG[category] || CATEGORY_CONFIG.unknown;
     const stateInfo = getElementStateAtTemp(el, temperatureC);
+
+    let cellBg = visible ? catStyle.colorHex : "#f1f5f9";
+    let bottomValueStr = typeof el.atomicMass === "number"
+      ? el.atomicMass.toFixed(el.atomicMass % 1 === 0 ? 0 : el.atomicMass < 10 ? 3 : 2)
+      : el.atomicMass;
+
+    if (isHeatmapActive && visible) {
+      const rawVal = (el as any)[heatmapProperty];
+      cellBg = getHeatmapColor(rawVal, heatmapProperty);
+      if (rawVal !== undefined && !isNaN(rawVal)) {
+        if (heatmapProperty === "atomicRadius") {
+          bottomValueStr = `${rawVal} nm`;
+        } else if (heatmapProperty === "firstIonisationEnergy") {
+          bottomValueStr = `${rawVal}`;
+        } else if (heatmapProperty === "electronegativity") {
+          bottomValueStr = `${rawVal}`;
+        } else if (heatmapProperty === "meltingPointC") {
+          bottomValueStr = `${rawVal}°C`;
+        } else if (heatmapProperty === "atomicMass") {
+          bottomValueStr = `${Number(rawVal).toFixed(1)}`;
+        }
+      } else {
+        bottomValueStr = "—";
+      }
+    }
 
     return (
       <button
         key={el.number}
         onClick={() => handleElementClick(el)}
         style={{
-          backgroundColor: visible ? catStyle.colorHex : "#f1f5f9",
+          backgroundColor: cellBg,
           borderColor: isSelected ? "#0284c7" : visible ? "rgba(255,255,255,0.2)" : "#e2e8f0",
         }}
         className={`relative flex flex-col justify-between p-1 sm:p-1.5 rounded-lg border transition-all text-left duration-150 group select-none shadow-2xs ${
@@ -334,11 +432,9 @@ export const FullPeriodicTableView: React.FC<FullPeriodicTableViewProps> = ({ on
           </span>
         </div>
 
-        {/* Bottom: Atomic Weight */}
-        <div className="text-[8px] sm:text-[9px] font-mono text-white/85 text-center truncate leading-none font-medium">
-          {typeof el.atomicMass === "number"
-            ? el.atomicMass.toFixed(el.atomicMass % 1 === 0 ? 0 : el.atomicMass < 10 ? 3 : 2)
-            : el.atomicMass}
+        {/* Bottom: Atomic Weight or Heatmap Value */}
+        <div className="text-[8px] sm:text-[9px] font-mono text-white/90 text-center truncate leading-none font-bold">
+          {bottomValueStr}
         </div>
       </button>
     );
@@ -557,6 +653,66 @@ export const FullPeriodicTableView: React.FC<FullPeriodicTableViewProps> = ({ on
             })}
           </div>
         </div>
+      </div>
+
+      {/* Heatmap Property Visualizer Overlay Bar */}
+      <div className="bg-slate-50/90 rounded-2xl border border-slate-200 p-4 space-y-3">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div className="flex items-center gap-2">
+            <TrendingUp className="w-4 h-4 text-cyan-700" />
+            <span className="text-xs font-bold text-slate-800">
+              Interactive Heatmap Visualizer (Үелэх Системийн Хөтөлбөрийн Градиент):
+            </span>
+          </div>
+
+          {heatmapProperty !== "none" && (
+            <div className="flex items-center gap-3 text-xs">
+              <span className="font-mono text-slate-500 font-bold text-[11px]">
+                Min: {HEATMAP_SPECS[heatmapProperty].min} {HEATMAP_SPECS[heatmapProperty].unit}
+              </span>
+              {/* Gradient preview bar */}
+              <div className="w-28 sm:w-36 h-3 rounded-full bg-gradient-to-r from-[hsl(230,85%,42%)] via-[hsl(115,85%,42%)] to-[hsl(0,85%,42%)] shadow-inner" />
+              <span className="font-mono text-slate-500 font-bold text-[11px]">
+                Max: {HEATMAP_SPECS[heatmapProperty].max} {HEATMAP_SPECS[heatmapProperty].unit}
+              </span>
+            </div>
+          )}
+        </div>
+
+        {/* Heatmap Mode Buttons */}
+        <div className="flex flex-wrap items-center gap-2">
+          {(["none", "atomicRadius", "firstIonisationEnergy", "electronegativity", "meltingPointC", "atomicMass"] as const).map((prop) => {
+            const spec = HEATMAP_SPECS[prop];
+            const isSelected = heatmapProperty === prop;
+            return (
+              <button
+                key={prop}
+                onClick={() => setHeatmapProperty(prop)}
+                className={`px-3 py-1.5 rounded-xl text-xs font-bold border transition-all ${
+                  isSelected
+                    ? "bg-cyan-700 text-white border-cyan-800 shadow-2xs"
+                    : "bg-white text-slate-700 border-slate-200 hover:bg-slate-100"
+                }`}
+              >
+                {spec.labelMn} ({spec.label})
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Cambridge Trend Direction Explanation */}
+        {heatmapProperty !== "none" && (
+          <div className="p-3 bg-white rounded-xl border border-slate-200 text-xs text-slate-700 flex items-start gap-2">
+            <Info className="w-4 h-4 text-cyan-600 shrink-0 mt-0.5" />
+            <div>
+              <span className="font-bold text-cyan-900 block mb-0.5">
+                Cambridge 9701 Trend Direction:
+              </span>
+              <span>{HEATMAP_SPECS[heatmapProperty].noteMn}</span>
+              <span className="text-slate-500 block text-[11px] mt-0.5">{HEATMAP_SPECS[heatmapProperty].note}</span>
+            </div>
+          </div>
+        )}
       </div>
 
       {/* Main Periodic Table 18-Column Grid */}
@@ -779,9 +935,8 @@ export const FullPeriodicTableView: React.FC<FullPeriodicTableViewProps> = ({ on
                 <span className="font-mono text-slate-800 font-semibold">
                   {selectedElement.atomicRadius ? `${selectedElement.atomicRadius} nm` : "—"}
                 </span>
-              </div>
-            )}
-          </div>
+          {/* Interactive Bohr Orbital & Z_eff Simulator */}
+          <BohrAtomSimulator element={selectedElement} />
 
           {/* Cambridge 9701 Exam Highlights */}
           <div className="bg-white p-4 rounded-2xl border border-slate-200 space-y-1 text-xs shadow-2xs">
