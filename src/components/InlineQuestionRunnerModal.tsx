@@ -161,6 +161,34 @@ export const InlineQuestionRunnerModal: React.FC<InlineQuestionRunnerModalProps>
           </div>
 
           <div className="flex items-center gap-2">
+            {paper?.qpUrl && (
+              <a
+                href={paper.qpUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hidden sm:inline-flex items-center gap-1 px-2.5 py-1.5 rounded-xl bg-cyan-950/80 hover:bg-cyan-900 text-cyan-300 border border-cyan-800 text-xs font-bold transition-all shadow-2xs"
+                title="Албан ёсны Question Paper (PDF) шинэ таб дээр нээх"
+              >
+                <FileText className="w-3.5 h-3.5 text-cyan-400" />
+                <span>QP</span>
+                <ExternalLink className="w-3 h-3 opacity-60" />
+              </a>
+            )}
+
+            {paper?.msUrl && (
+              <a
+                href={paper.msUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hidden sm:inline-flex items-center gap-1 px-2.5 py-1.5 rounded-xl bg-emerald-950/80 hover:bg-emerald-900 text-emerald-300 border border-emerald-800 text-xs font-bold transition-all shadow-2xs"
+                title="Албан ёсны Mark Scheme (PDF) шинэ таб дээр нээх"
+              >
+                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
+                <span>MS</span>
+                <ExternalLink className="w-3 h-3 opacity-60" />
+              </a>
+            )}
+
             {paper && onOpenFullPaper && (
               <button
                 onClick={() => {
@@ -169,7 +197,7 @@ export const InlineQuestionRunnerModal: React.FC<InlineQuestionRunnerModalProps>
                 }}
                 className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white text-xs font-bold transition-all border border-slate-700"
               >
-                <span>Бүтэн Paper нээх</span>
+                <span>Бүтэн Paper</span>
                 <ExternalLink className="w-3.5 h-3.5 text-cyan-400" />
               </button>
             )}
