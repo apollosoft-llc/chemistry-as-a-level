@@ -8,67 +8,246 @@ export const CHAPTERS_DATA: Chapter[] = [
     category: "Physical",
     titleEn: "Atomic Structure",
     titleMn: "Атомын бүтэц",
-    descriptionEn: "Subatomic particles, mass and atomic numbers, isotopes, and particle behaviour in electric fields.",
-    descriptionMn: "Атомын эгэл хэсгүүд (протон, нейтрон, электрон), масс ба атомын дугаар, изотопууд, цахилгаан орон дахь хазайлт.",
+    descriptionEn: "Models of the atom and Rutherford's gold-foil experiment, protons, neutrons and electrons, beams in electric fields, proton and nucleon numbers, ions and isotopes (Syllabus 1.1–1.2).",
+    descriptionMn: "Атомын загварууд ба Резерфордын алтан ялтасны туршилт, протон, нейтрон, электрон, цахилгаан орон дахь цацрагийн хазайлт, протоны ба нуклоны тоо, ионууд, изотопууд (Syllabus 1.1–1.2).",
+    syllabusRef: "Syllabus 1.1–1.2",
+    examPapers: ["Paper 1", "Paper 2"],
     learningIntentionsEn: [
-      "Describe the structure of the atom: mostly empty space, tiny dense positive nucleus with protons & neutrons, electrons in shells",
-      "Identify relative charges and masses: proton (1, +1), neutron (1, 0), electron (1/1836, -1)",
-      "Deduce behaviour of beams of protons, neutrons, and electrons in an electric field (angle of deflection depends on charge/mass ratio)",
-      "Define isotopes as atoms of the same element with the same proton number but different nucleon numbers",
-      "Explain why isotopes have identical chemical properties (same electron configuration) but different physical properties (different mass/density)"
+      "Describe the atom: a tiny, dense, positive nucleus, mostly empty space, with electrons in shells (energy levels)",
+      "State the relative masses and charges of the proton (1, +1), neutron (1, 0) and electron (1/1836, −1)",
+      "Describe the distribution of mass and charge in an atom: nearly all the mass and all the positive charge are in the nucleus",
+      "Deduce how beams of protons, neutrons and electrons behave in an electric field (direction from the sign of the charge, size of deflection ∝ charge ÷ mass)",
+      "Use the atomic (proton) number Z and the mass (nucleon) number A",
+      "Deduce the numbers of protons, neutrons and electrons in atoms and ions",
+      "Define isotope and use the isotopic notation ᴬ_Z X (e.g. ³⁵₁₇Cl)",
+      "Explain why isotopes have the same chemical properties but different physical properties"
     ],
     learningIntentionsMn: [
-      "Атомын бүтцийг тайлбарлах: ихэнх хэсэг нь хоосон орон зай, төвдөө бөөм (протон + нейтрон), тойроод электрон бүрхүүл",
-      "Эгэл бөөмсийн харьцангуй масс ба цэнэг: протон (1, +1), нейтрон (1, 0), электрон (1/1836, -1)",
-      "Цахилгаан орон дахь цацрагийн хазайлт: электрон эерэг хавтан руу их хазайна (масс маш бага), протон сөрөг рүү бага хазайна, нейтрон хазайхгүй",
-      "Изотопын тодорхойлолт: ижил протонтой боловч ялгаатай нейтроны тоотой (массын тоо ялгаатай) нэг элементийн атомууд",
-      "Изотопуудын химийн шинж чанар ижил (электрон бүтэц адил), физик шинж чанар ялгаатай (масс, нягт өөр) байдгийг тайлбарлах"
+      "Атомыг тайлбарлах: жижиг, нягт, эерэг цэнэгтэй цөм, ихэнх хэсэг нь хоосон орон зай, электронууд бүрхүүлд (энергийн түвшинд) байрлана",
+      "Протон (1, +1), нейтрон (1, 0), электрон (1/1836, −1)-ы харьцангуй масс ба цэнэгийг хэлэх",
+      "Атом дахь масс ба цэнэгийн тархалтыг тайлбарлах: масс бараг бүхэлдээ, эерэг цэнэг бүхэлдээ цөмд төвлөрнө",
+      "Протон, нейтрон, электроны цацраг цахилгаан оронд хэрхэн хазайхыг тодорхойлох (чиглэл нь цэнэгийн тэмдгээс, хазайлтын хэмжээ нь цэнэг ÷ масс-аас хамаарна)",
+      "Атомын (протоны) дугаар Z ба массын (нуклоны) тоо A-г ашиглах",
+      "Атом ба ион дахь протон, нейтрон, электроны тоог олох",
+      "Изотопыг тодорхойлж, изотопын тэмдэглэгээ ᴬ_Z X (жишээ нь ³⁵₁₇Cl)-ийг ашиглах",
+      "Изотопууд яагаад химийн шинж чанараараа ижил, физик шинж чанараараа ялгаатай байдгийг тайлбарлах"
     ],
     subtopics: [
       {
         id: "1.1",
         number: "1.1",
-        titleEn: "Elements and Atoms",
-        titleMn: "Элементүүд ба атомууд",
-        summaryEn: "Elements consist of one type of atom. Atoms are the smallest parts of an element taking part in chemical change (diameter ~10⁻¹⁰ m).",
-        summaryMn: "Химийн элемент нь зөвхөн нэг төрлийн атомаас тогтоно. Химийн хувиралд ордог хамгийн жижиг хэсэг (диаметр ~10⁻¹⁰ м).",
-        keyConcepts: ["Chemical symbols (Latin/Greek origins)", "Atomic diameter ~ 10⁻¹⁰ m", "Hydrogen mass ~ 1.67 × 10⁻²⁷ kg"]
+        titleEn: "Models of the Atom & Rutherford's Gold Foil",
+        titleMn: "Атомын загварууд ба Резерфордын алтан ялтасны туршилт",
+        summaryEn: "Dalton: atoms of one element all have the same mass. Thomson: a sphere of positive charge with electrons embedded in it. Rutherford (with Geiger and Marsden) fired α-particles (He²⁺) at gold foil 0.0005 mm thick: most passed straight through (atom is mostly empty space), a few were deflected (the nucleus is positive), and about 1 in 20 000 bounced back by more than 90° (the nucleus is tiny, dense and holds nearly all the mass). An atom is ~10⁻¹⁰ m across but its nucleus is only ~10⁻¹⁵ m — 100 000 times smaller.",
+        summaryMn: "Дальтон: нэг элементийн атомууд ижил масстай. Томсон: эерэг цэнэгтэй бөмбөрцөг дотор электронууд шигдсэн. Резерфорд (Гейгер, Марсдены хамт) 0.0005 мм зузаан алтан ялтас руу α-бөөм (He²⁺) харвасан: ихэнх нь шууд нэвтэрсэн (атомын ихэнх нь хоосон орон зай), цөөн нь хазайсан (цөм эерэг цэнэгтэй), 20 000-аас 1 орчим нь 90°-аас их өнцгөөр ойсон (цөм маш жижиг, нягт, бараг бүх массыг агуулна). Атом ~10⁻¹⁰ м, цөм нь ердөө ~10⁻¹⁵ м буюу 100 000 дахин жижиг.",
+        keyConcepts: ["Dalton → Thomson → Rutherford → Bohr", "Most α-particles pass straight through: mostly empty space", "≈ 1 in 20 000 bounce back: tiny, dense, positive nucleus", "Atom ~10⁻¹⁰ m, nucleus ~10⁻¹⁵ m"],
+        keyEquations: ["Atom ÷ nucleus = 10⁻¹⁰ ÷ 10⁻¹⁵ = 10⁵"],
+        commonPitfalls: [
+          "Link each observation to its conclusion: straight through → empty space; deflected → positive nucleus; bounced back → small, dense nucleus with most of the mass.",
+          "Stadium analogy: if an atom were 100 m wide, the nucleus would be about 1 mm (a pea-sized dot)."
+        ]
       },
       {
         id: "1.2",
         number: "1.2",
-        titleEn: "Inside the Atom & Electric Field Deflection",
-        titleMn: "Атомын дотоод бүтэц & Цахилгаан орон дахь хазайлт",
-        summaryEn: "Protons (+1, 1 u), Neutrons (0, 1 u), Electrons (-1, 1/1836 u). Deflection in electric field ∝ charge/mass. Electrons deflect sharply toward (+) plate; protons deflect slightly toward (-) plate; neutrons do not deflect.",
-        summaryMn: "Цахилгаан орон дахь хазайлтын өнцөг нь цэнэг/масс (e/m) харьцаанаас хамаарна. Электрон хөнгөхөн тул эерэг туйл руу их хазайдаг.",
-        keyConcepts: ["Nucleus contains nucleons (p + n)", "Deflection angle: e⁻ >> p⁺, n⁰ = 0", "Rutherford alpha scattering experiment"],
-        keyEquations: ["Deflection ∝ Charge / Mass (q/m)"],
-        examinerTips: ["Always state deflection is towards opposite polarity plate with magnitude inversely proportional to particle mass."]
+        titleEn: "Protons, Neutrons & Electrons",
+        titleMn: "Протон, нейтрон ба электрон",
+        summaryEn: "The nucleus contains protons and neutrons (nucleons) and nearly all the mass; electrons occupy shells around it. Relative masses and charges: proton 1, +1; neutron 1, 0; electron 1/1836, −1 (1.673 × 10⁻²⁷ kg ÷ 9.109 × 10⁻³¹ kg = 1836). All the positive charge is in the nucleus, the negative charge is spread out in the shells, and in a neutral atom the number of electrons equals the number of protons so the charges cancel.",
+        summaryMn: "Цөм нь протон ба нейтрон (нуклонууд)-оос тогтох ба атомын бараг бүх массыг агуулна; электронууд түүнийг тойрсон бүрхүүлд байрлана. Харьцангуй масс ба цэнэг: протон 1, +1; нейтрон 1, 0; электрон 1/1836, −1 (1.673 × 10⁻²⁷ кг ÷ 9.109 × 10⁻³¹ кг = 1836). Эерэг цэнэг бүхэлдээ цөмд, сөрөг цэнэг бүрхүүлүүдэд тархсан; саармаг атомд электроны тоо протоны тоотой тэнцүү тул цэнэгүүд хоорондоо нөхөгдөнө.",
+        keyConcepts: ["proton: mass 1, charge +1, in nucleus", "neutron: mass 1, charge 0, in nucleus", "electron: mass 1/1836, charge −1, in shells", "Neutral atom: electrons = protons"],
+        keyEquations: ["mp ÷ me = 1836"],
+        commonPitfalls: [
+          "The relative mass of an electron is 1/1836 (negligible) — not 0 and not 1.",
+          "Atoms are neutral because the number of protons equals the number of electrons, not because they contain no charged particles.",
+          "Relative values are used because the real masses and charges are too small to be convenient."
+        ]
       },
       {
         id: "1.3",
         number: "1.3",
-        titleEn: "Numbers of Nucleons, Ions & Isotopes",
-        titleMn: "Нуклоны тоо, ионууд ба изотопууд",
-        summaryEn: "Atomic number Z = protons; Mass number A = protons + neutrons. Neutrons = A - Z. Positive ions (cations) lose e⁻; Negative ions (anions) gain e⁻.",
-        summaryMn: "Атомын дугаар Z = протон. Массын дугаар A = протон + нейтрон. Нейтрон = A - Z. Эерэг ион электрон алдана, сөрөг ион электрон авна.",
-        keyConcepts: ["A (nucleon number) top-left, Z (proton number) bottom-left", "Isotopes: same Z, different A", "Chemical properties depend entirely on valence electrons"],
-        keyEquations: ["Number of neutrons = A - Z", "Electrons in ion = Z - (charge)"],
-        examinerTips: ["Remember: for Cr³⁺ (Z=24), electrons = 24 - 3 = 21. For S²⁻ (Z=16, A=33), p=16, n=17, e=18."]
+        titleEn: "Beams of Particles in an Electric Field",
+        titleMn: "Цахилгаан орон дахь эгэл бөөмсийн цацраг",
+        summaryEn: "Like charges repel and opposite charges attract. Electrons bend towards the + plate with a large deflection (tiny mass); protons bend towards the − plate with a small deflection (≈ 1836 × heavier); neutrons are not deflected (no charge). For beams at the same velocity, the angle of deflection is proportional to charge ÷ mass: if protons (1 ÷ 1) are deflected 8°, ²H⁺ (1 ÷ 2) and ⁴He²⁺ (2 ÷ 4) are deflected 4°, and ³He²⁺ (2 ÷ 3) about 5.3°.",
+        summaryMn: "Ижил цэнэгүүд түлхэлцэж, эсрэг цэнэгүүд таталцана. Электрон + хавтан руу их хазайна (масс маш бага); протон − хавтан руу бага хазайна (≈ 1836 дахин хүнд); нейтрон хазайхгүй (цэнэггүй). Ижил хурдтай цацрагийн хазайлтын өнцөг нь цэнэг ÷ масс-тай пропорциональ: протон 8° хазайвал ²H⁺ (1 ÷ 2) ба ⁴He²⁺ (2 ÷ 4) нь 4°, ³He²⁺ (2 ÷ 3) нь ойролцоогоор 5.3° хазайна.",
+        keyConcepts: ["e⁻ → towards +, large deflection", "p⁺ → towards −, small deflection", "n⁰ → straight through", "Deflection angle ∝ charge ÷ mass"],
+        keyEquations: ["Angle ∝ charge ÷ mass", "θ(particle) = θ(proton) × (charge ÷ mass)"],
+        examinerTips: [
+          "Always give BOTH the direction (towards the oppositely charged plate) and the size of the deflection, with a reason (charge and mass).",
+          "Write 'protons bend towards the − plate because opposite charges attract' — not just 'the protons are attracted'.",
+          "The electron is deflected most because it has the largest charge-to-mass ratio."
+        ]
+      },
+      {
+        id: "1.4",
+        number: "1.4",
+        titleEn: "Proton Number & Nucleon Number",
+        titleMn: "Протоны тоо ба нуклоны тоо",
+        summaryEn: "Atomic (proton) number Z = number of protons; it defines the element (every atom with 11 protons is sodium). Mass (nucleon) number A = protons + neutrons. Neutrons = A − Z. In isotopic notation the mass number is written on top and the proton number at the bottom, e.g. ²⁷₁₃Al has 13 protons, 13 electrons and 27 − 13 = 14 neutrons.",
+        summaryMn: "Атомын (протоны) дугаар Z = протоны тоо; энэ нь элементийг тодорхойлно (11 протонтой бүх атом натри байна). Массын (нуклоны) тоо A = протон + нейтрон. Нейтрон = A − Z. Изотопын тэмдэглэгээнд массын тоог дээр, протоны тоог доор бичнэ, жишээ нь ²⁷₁₃Al нь 13 протон, 13 электрон, 27 − 13 = 14 нейтронтой.",
+        keyConcepts: ["Z = protons (defines the element)", "A = protons + neutrons", "Neutral atom: electrons = Z", "Mass number on top, proton number at the bottom"],
+        keyEquations: ["n = A − Z", "e (neutral atom) = Z"],
+        commonPitfalls: [
+          "Do not swap the numbers: ²⁷₁₃Al is correct, ¹³₂₇Al is wrong — the larger number (A) goes on top.",
+          "An oxygen atom cannot have 9 protons: 9 protons would make it fluorine."
+        ]
+      },
+      {
+        id: "1.5",
+        number: "1.5",
+        titleEn: "Ions: Gaining & Losing Electrons",
+        titleMn: "Ионууд: электрон авах ба алдах",
+        summaryEn: "An ion is a charged particle formed when an atom loses or gains electrons; the number of protons never changes. Cation (positive ion): electrons lost, e.g. Mg → Mg²⁺ + 2e⁻ (12 p, 10 e). Anion (negative ion): electrons gained, e.g. Cl + e⁻ → Cl⁻ (17 p, 18 e). Electrons in an ion = Z − charge: subtract for a positive ion, add for a negative ion (Cr²⁺: 24 − 2 = 22; S²⁻: 16 + 2 = 18).",
+        summaryMn: "Ион нь атом электрон алдах эсвэл авах үед үүсэх цэнэгтэй бөөм; протоны тоо хэзээ ч өөрчлөгдөхгүй. Катион (эерэг ион): электрон алдана, жишээ нь Mg → Mg²⁺ + 2e⁻ (12 p, 10 e). Анион (сөрөг ион): электрон авна, жишээ нь Cl + e⁻ → Cl⁻ (17 p, 18 e). Ион дахь электрон = Z − цэнэг: эерэг ионд хасна, сөрөг ионд нэмнэ (Cr²⁺: 24 − 2 = 22; S²⁻: 16 + 2 = 18).",
+        keyConcepts: ["Cation: fewer electrons than protons", "Anion: more electrons than protons", "Protons and neutrons are unchanged when an ion forms", "Isoelectronic: Na⁺, Mg²⁺, O²⁻, OH⁻, NH₄⁺ all have 10 electrons"],
+        keyEquations: ["Mg → Mg²⁺ + 2e⁻", "Cl + e⁻ → Cl⁻", "e (ion) = Z − charge"],
+        commonPitfalls: [
+          "Positive ion → SUBTRACT electrons: Cr²⁺ has 24 − 2 = 22 electrons, not 26.",
+          "Negative ion → ADD electrons: S²⁻ has 16 + 2 = 18 electrons.",
+          "Identifying a species: protons → element, protons + neutrons → mass number, protons − electrons → charge."
+        ]
+      },
+      {
+        id: "1.6",
+        number: "1.6",
+        titleEn: "Isotopes",
+        titleMn: "Изотопууд",
+        summaryEn: "Isotopes are atoms of the same element with the same number of protons but different numbers of neutrons (same Z, different A), e.g. hydrogen-1, hydrogen-2 (deuterium) and hydrogen-3 (tritium); ³⁵Cl and ³⁷Cl. Isotopes have the same chemical properties because they have the same number and arrangement of electrons, and chemical reactions involve electrons. They have different physical properties (mass, density) because they have different numbers of neutrons — an ice cube of D₂O sinks in H₂O. Chlorine with Ar = 35.5 is 75% ³⁵Cl and 25% ³⁷Cl (3 : 1).",
+        summaryMn: "Изотопууд нь протоны тоо ижил боловч нейтроны тоо ялгаатай нэг элементийн атомууд (Z ижил, A ялгаатай), жишээ нь устөрөгч-1, устөрөгч-2 (дейтери), устөрөгч-3 (тритий); ³⁵Cl ба ³⁷Cl. Изотопуудын электроны тоо ба байршил ижил, химийн урвалд электрон оролцдог тул химийн шинж чанар нь ижил. Нейтроны тоо ялгаатай тул физик шинж чанар (масс, нягт) нь ялгаатай — D₂O мөсөн шоо H₂O-д живнэ. Ar = 35.5 бүхий хлор нь 75% ³⁵Cl, 25% ³⁷Cl (3 : 1) агуулна.",
+        keyConcepts: ["Same protons, different neutrons", "Same chemical properties: same electrons", "Different physical properties: different mass and density", "Notation: hydrogen-2 or ²₁H"],
+        keyEquations: ["Ar = Σ(isotope mass × abundance) ÷ 100", "35x + 37(100 − x) = 3550 → x = 75"],
+        commonPitfalls: [
+          "Do not define isotopes as 'atoms with different masses' — say 'same element, same number of protons, different number of neutrons'.",
+          "Same chemical properties because of the same number (and arrangement) of ELECTRONS — not 'the same number of protons'.",
+          "Isotopes differ in physical properties (mass, density), not in reactivity."
+        ]
       }
     ],
     keyTerms: [
+      { termEn: "Nucleus", termMn: "Цөм", definitionEn: "The tiny, dense, positively charged centre of an atom, containing the protons and neutrons and nearly all of its mass.", definitionMn: "Протон ба нейтроныг агуулсан, атомын бараг бүх массыг төвлөрүүлсэн, маш жижиг, нягт, эерэг цэнэгтэй төв хэсэг." },
+      { termEn: "Nucleon", termMn: "Нуклон", definitionEn: "A particle found in the nucleus: a proton or a neutron.", definitionMn: "Цөмд байдаг бөөм: протон эсвэл нейтрон." },
+      { termEn: "Atomic Number (Z)", termMn: "Атомын дугаар / Протоны тоо", definitionEn: "The number of protons in the nucleus of an atom; it defines the element.", definitionMn: "Атомын цөм дэх протоны тоо; энэ нь элементийг тодорхойлно." },
+      { termEn: "Nucleon Number (A)", termMn: "Нуклоны тоо / Массын тоо", definitionEn: "The total number of protons and neutrons in the nucleus of an atom.", definitionMn: "Атомын цөм дэх протон ба нейтроны нийлбэр тоо." },
       { termEn: "Isotope", termMn: "Изотоп", definitionEn: "Atoms of the same element with the same number of protons but different numbers of neutrons.", definitionMn: "Ижил тооны протонтой боловч ялгаатай тооны нейтронтой нэг элементийн атомууд." },
-      { termEn: "Nucleon Number (A)", termMn: "Нуклоны дугаар / Массын тоо", definitionEn: "The total number of protons and neutrons in the nucleus of an atom.", definitionMn: "Атомын цөм дэх протон ба нейтроны нийлбэр тоо." },
-      { termEn: "Atomic Number (Z)", termMn: "Атомын дугаар / Протоны тоо", definitionEn: "The number of protons in the nucleus of an atom.", definitionMn: "Атомын цөм дэх протоны тоо." }
+      { termEn: "Ion", termMn: "Ион", definitionEn: "A charged particle formed when an atom (or group of atoms) loses or gains electrons.", definitionMn: "Атом (эсвэл атомын бүлэг) электрон алдах эсвэл авах үед үүсэх цэнэгтэй бөөм." },
+      { termEn: "Cation", termMn: "Катион", definitionEn: "A positive ion, formed when an atom loses electrons (fewer electrons than protons).", definitionMn: "Атом электрон алдсанаар үүсэх эерэг ион (электрон нь протоноос цөөн)." },
+      { termEn: "Anion", termMn: "Анион", definitionEn: "A negative ion, formed when an atom gains electrons (more electrons than protons).", definitionMn: "Атом электрон авсанаар үүсэх сөрөг ион (электрон нь протоноос олон)." },
+      { termEn: "Shell (Energy Level)", termMn: "Бүрхүүл (Энергийн түвшин)", definitionEn: "A region around the nucleus where electrons are found, each with a fixed energy.", definitionMn: "Цөмийг тойрсон, тодорхой энергитэй, электронууд байрладаг муж." },
+      { termEn: "Relative Charge", termMn: "Харьцангуй цэнэг", definitionEn: "The charge of a particle compared with the charge of a proton (+1): proton +1, neutron 0, electron −1.", definitionMn: "Бөөмийн цэнэгийг протоны цэнэг (+1)-тэй харьцуулсан утга: протон +1, нейтрон 0, электрон −1." },
+      { termEn: "Relative Mass", termMn: "Харьцангуй масс", definitionEn: "The mass of a particle compared with the mass of a proton (1): proton 1, neutron 1, electron 1/1836.", definitionMn: "Бөөмийн массыг протоны масс (1)-тай харьцуулсан утга: протон 1, нейтрон 1, электрон 1/1836." }
     ],
     formulas: [
-      { nameEn: "Number of Neutrons", nameMn: "Нейтроны тоо", formula: "N = A - Z", note: "Mass number minus atomic number" },
-      { nameEn: "Number of Electrons in Ion", nameMn: "Ион дахь электроны тоо", formula: "e = Z - (Ion Charge)", note: "Subtract positive charge, add negative charge" }
+      { nameEn: "Number of Neutrons", nameMn: "Нейтроны тоо", formula: "n = A − Z", note: "Mass (nucleon) number minus atomic (proton) number" },
+      { nameEn: "Number of Electrons in an Ion", nameMn: "Ион дахь электроны тоо", formula: "e = Z − (ion charge)", note: "Subtract for a positive ion, add for a negative ion" },
+      { nameEn: "Deflection in an Electric Field", nameMn: "Цахилгаан орон дахь хазайлт", formula: "angle ∝ charge ÷ mass", note: "Beams at the same velocity; e.g. ⁴He²⁺ (2 ÷ 4) is deflected half as much as a proton" },
+      { nameEn: "Relative Atomic Mass from Isotopes", nameMn: "Изотопуудаас харьцангуй атомын масс", formula: "Ar = Σ(mass × % abundance) ÷ 100", note: "e.g. Cl: (35 × 75 + 37 × 25) ÷ 100 = 35.5" }
     ],
     examStyleTips: [
-      "In electric field deflection questions, mention both direction (attraction to opposite charge) and degree of deflection (electrons have ~1/1836 the mass of a proton).",
-      "Isotopes have identical chemical reactivity because chemical reactions involve valence electrons, not the nucleus."
+      "In electric field deflection questions, state both the direction (towards the oppositely charged plate) and the size of the deflection (electrons ≈ 1/1836 the mass of a proton, so they bend much more).",
+      "Isotopes have identical chemical properties because they have the same number and arrangement of electrons, and chemical reactions involve electrons — not because they have the same number of protons.",
+      "For ions, positive charge → subtract electrons, negative charge → add electrons: Cr²⁺ has 22 electrons, not 26.",
+      "Isotopic symbol: mass number on top, proton number at the bottom (²⁷₁₃Al, not ¹³₂₇Al).",
+      "The relative mass of an electron is 1/1836 — never write 0 or 1.",
+      "Atoms are neutral because the number of protons equals the number of electrons."
+    ],
+    examQuestions: [
+      {
+        id: "ch1-q1",
+        marks: 3,
+        questionEn: "Vanadium has mass number 51 and proton number 23.\nDeduce the numbers of protons, electrons and neutrons in a neutral vanadium atom.",
+        questionMn: "Ванадийн массын тоо 51, протоны тоо 23.\nСаармаг ванадийн атом дахь протон, электрон, нейтроны тоог олно уу.",
+        solutionEn: "Protons = Z = 23 [1]\nElectrons = protons in a neutral atom = 23 [1]\nNeutrons = A − Z = 51 − 23 = 28 [1]",
+        solutionMn: "Протон = Z = 23. Саармаг атомд электрон = протон = 23. Нейтрон = A − Z = 51 − 23 = 28.",
+        examinerTip: "Say the rule aloud: p = Z, e = p (neutral atom), n = A − Z."
+      },
+      {
+        id: "ch1-q2",
+        marks: 4,
+        questionEn: "Deduce the numbers of protons, neutrons and electrons in:\n(a) ⁵²₂₄Cr²⁺\n(b) ³³₁₆S²⁻",
+        questionMn: "Дараах ионуудын протон, нейтрон, электроны тоог олно уу:\n(a) ⁵²₂₄Cr²⁺\n(b) ³³₁₆S²⁻",
+        solutionEn: "(a) 24 p · 52 − 24 = 28 n [1] · 2+ ion → 24 − 2 = 22 e [1]\n(b) 16 p · 33 − 16 = 17 n [1] · 2− ion → 16 + 2 = 18 e [1]",
+        solutionMn: "(a) 24 протон, 28 нейтрон; эерэг ион тул электрон хасна: 24 − 2 = 22 электрон. (b) 16 протон, 17 нейтрон; сөрөг ион тул электрон нэмнэ: 16 + 2 = 18 электрон.",
+        examinerTip: "Positive ion → subtract electrons; negative ion → add. A very common error is 24 + 2 = 26 for Cr²⁺."
+      },
+      {
+        id: "ch1-q3",
+        marks: 2,
+        questionEn: "Identify each species, giving its full isotopic symbol and charge:\n(a) 26 protons, 30 neutrons, 23 electrons\n(b) 34 protons, 45 neutrons, 36 electrons",
+        questionMn: "Бөөм бүрийг тодорхойлж, изотопын тэмдэглэгээ ба цэнэгийг бичнэ үү:\n(a) 26 протон, 30 нейтрон, 23 электрон\n(b) 34 протон, 45 нейтрон, 36 электрон",
+        solutionEn: "(a) ⁵⁶₂₆Fe³⁺ [1]\n(b) ⁷⁹₃₄Se²⁻ [1]",
+        solutionMn: "(a) 26 протон → Fe; A = 26 + 30 = 56; цэнэг = 26 − 23 = 3+ → ⁵⁶₂₆Fe³⁺. (b) 34 протон → Se; A = 34 + 45 = 79; цэнэг = 34 − 36 = 2− → ⁷⁹₃₄Se²⁻.",
+        examinerTip: "Detective method: protons → element, protons + neutrons → mass number, protons − electrons → charge."
+      },
+      {
+        id: "ch1-q4",
+        marks: 6,
+        questionEn: "State the relative masses and relative charges of an electron, a neutron and a proton.",
+        questionMn: "Электрон, нейтрон, протоны харьцангуй масс ба харьцангуй цэнэгийг бичнэ үү.",
+        solutionEn: "Electron: relative mass 1/1836 [1] · relative charge −1 [1]\nNeutron: relative mass 1 [1] · relative charge 0 [1]\nProton: relative mass 1 [1] · relative charge +1 [1]",
+        solutionMn: "Электрон: масс 1/1836, цэнэг −1. Нейтрон: масс 1, цэнэг 0. Протон: масс 1, цэнэг +1.",
+        examinerTip: "'0' or 'negligible' alone is not accepted for the electron's relative mass — write 1/1836."
+      },
+      {
+        id: "ch1-q5",
+        marks: 3,
+        questionEn: "(a) What do you understand by the term isotope? [1]\n(b) Explain why ³⁵Cl⁻ and ³⁷Cl⁻ have the same chemical properties. [1]\n(c) State one physical property that differs between the two isotopes and explain why. [1]",
+        questionMn: "(a) Изотоп гэж юу вэ? [1]\n(b) ³⁵Cl⁻ ба ³⁷Cl⁻ яагаад ижил химийн шинж чанартай вэ? [1]\n(c) Хоёр изотопын ялгаатай нэг физик шинж чанарыг нэрлэж, шалтгааныг тайлбарлана уу. [1]",
+        solutionEn: "(a) Atoms of the same element with the same number of protons but different numbers of neutrons [1]\n(b) Same number and arrangement of electrons · chemical reactions involve electrons [1]\n(c) Mass or density differs · because they have different numbers of neutrons [1]",
+        solutionMn: "(a) Протоны тоо ижил, нейтроны тоо ялгаатай нэг элементийн атомууд. (b) Электроны тоо ба байршил ижил; химийн урвалд электрон оролцоно. (c) Масс/нягт ялгаатай, учир нь нейтроны тоо өөр.",
+        examinerTip: "'Atoms with different masses' scores 0 for (a). In (b), 'same number of protons' is not accepted — the mark is for ELECTRONS."
+      },
+      {
+        id: "ch1-q6",
+        marks: 4,
+        questionEn: "Beams of protons, neutrons and electrons, all moving at the same velocity, pass between two oppositely charged plates.\nDescribe and explain how each beam behaves.",
+        questionMn: "Ижил хурдтай протон, нейтрон, электроны цацраг эсрэг цэнэгтэй хоёр хавтангийн дундуур өнгөрнө.\nЦацраг бүр хэрхэн хазайхыг тайлбарлана уу.",
+        solutionEn: "Protons bend towards the negative plate · positive charge, opposite charges attract [1]\nElectrons bend towards the positive plate · negative charge [1]\nElectrons are deflected much more than protons · electron mass is 1/1836 of a proton, largest charge ÷ mass [1]\nNeutrons pass straight through · no charge [1]",
+        solutionMn: "Протон сөрөг хавтан руу хазайна (эерэг цэнэгтэй, эсрэг цэнэгүүд таталцана). Электрон эерэг хавтан руу хазайна. Электрон протоноос хамаагүй их хазайна, учир нь масс нь протоны 1/1836. Нейтрон цэнэггүй тул шууд өнгөрнө.",
+        examinerTip: "Every mark needs direction AND a reason. 'The protons are attracted' on its own scores nothing."
+      },
+      {
+        id: "ch1-q7",
+        marks: 3,
+        questionEn: "Under certain conditions a beam of protons is deflected by +8° (towards the negative plate).\nUnder the same conditions, predict the angle of deflection of beams of (a) ²H⁺, (b) ⁴He²⁺ and (c) ³He²⁺.",
+        questionMn: "Тодорхой нөхцөлд протоны цацраг +8° (сөрөг хавтан руу) хазайдаг.\nИжил нөхцөлд (a) ²H⁺, (b) ⁴He²⁺, (c) ³He²⁺ цацраг хэдэн градус хазайхыг тооцоолно уу.",
+        solutionEn: "Angle ∝ charge ÷ mass · proton: 1 ÷ 1 = 1 → 8°\n(a) ²H⁺: 1 ÷ 2 = ½ → +4° [1]\n(b) ⁴He²⁺: 2 ÷ 4 = ½ → +4° [1]\n(c) ³He²⁺: 2 ÷ 3 → 2/3 × 8° = +16/3° ≈ +5⅓° [1]",
+        solutionMn: "Хазайлт ∝ цэнэг ÷ масс. Протон: 1 ÷ 1 → 8°. (a) ²H⁺: 1 ÷ 2 → +4°. (b) ⁴He²⁺: 2 ÷ 4 → +4°. (c) ³He²⁺: 2 ÷ 3 → 2/3 × 8° ≈ +5.3°. Бүгд эерэг тул сөрөг хавтан руу хазайна.",
+        examinerTip: "Work out charge ÷ mass for each particle first, then scale the proton angle."
+      },
+      {
+        id: "ch1-q8",
+        marks: 2,
+        questionEn: "Chlorine has two isotopes, ³⁵Cl and ³⁷Cl. The relative atomic mass of chlorine is 35.5.\nCalculate the percentage abundance of each isotope.",
+        questionMn: "Хлор ³⁵Cl ба ³⁷Cl гэсэн хоёр изотоптой. Хлорын харьцангуй атомын масс 35.5.\nИзотоп бүрийн хувийн тархалтыг тооцоолно уу.",
+        solutionEn: "Let x% be ³⁵Cl: 35x + 37(100 − x) = 3550 [1]\n3700 − 2x = 3550 → x = 75\n75% ³⁵Cl and 25% ³⁷Cl, a 3 : 1 ratio [1]",
+        solutionMn: "³⁵Cl-ийг x% гэвэл: 35x + 37(100 − x) = 35.5 × 100. 3700 − 2x = 3550 → x = 75. Иймд 75% ³⁵Cl, 25% ³⁷Cl (3 : 1). Ar нь 35-д ойр байгаа нь ³⁵Cl илүү элбэг болохыг харуулна.",
+        examinerTip: "Sanity check: Ar = 35.5 is nearer 35 than 37, so ³⁵Cl must be the more abundant isotope."
+      },
+      {
+        id: "ch1-q9",
+        marks: 4,
+        questionEn: "Uranium has two common isotopes, ²³⁵₉₂U and ²³⁸₉₂U.\n(a) State two ways in which atoms of these isotopes are identical and one way in which they differ. [3]\n(b) How many electrons are there in one U²⁺ ion? [1]",
+        questionMn: "Ураны түгээмэл хоёр изотоп: ²³⁵₉₂U ба ²³⁸₉₂U.\n(a) Эдгээр изотопын атомууд ижил байх хоёр, ялгаатай байх нэг зүйлийг бичнэ үү. [3]\n(b) Нэг U²⁺ ионд хэдэн электрон байх вэ? [1]",
+        solutionEn: "(a) Same number of protons, 92 [1] · same number of electrons, 92 [1]\nDifferent numbers of neutrons: 143 and 146 [1]\n(b) 92 − 2 = 90 electrons [1]",
+        solutionMn: "(a) Протоны тоо ижил (92), электроны тоо ижил (92); нейтроны тоо ялгаатай (143 ба 146). (b) 92 − 2 = 90 электрон.",
+        examinerTip: "Give actual numbers — 'same protons, different neutrons (143 vs 146)' is more secure than a vague statement."
+      },
+      {
+        id: "ch1-q10",
+        marks: 3,
+        questionEn: "In Rutherford's experiment, α-particles were fired at a thin sheet of gold foil.\nDescribe what was observed and what each observation shows about the structure of the atom.",
+        questionMn: "Резерфордын туршилтад нимгэн алтан ялтас руу α-бөөм харвасан.\nЮу ажиглагдсан, ажиглалт бүр атомын бүтцийн талаар юуг харуулж байгааг тайлбарлана уу.",
+        solutionEn: "Most α-particles passed straight through · the atom is mostly empty space [1]\nSome were deflected · the nucleus is positively charged and repels the positive α-particles [1]\nAbout 1 in 20 000 bounced back · the nucleus is very small and dense, containing nearly all the mass [1]",
+        solutionMn: "Ихэнх α-бөөм шууд нэвтэрсэн → атомын ихэнх нь хоосон орон зай. Зарим нь хазайсан → цөм эерэг цэнэгтэй, эерэг α-бөөмийг түлхэнэ. 20 000-аас 1 орчим нь буцаж ойсон → цөм маш жижиг, нягт, бараг бүх массыг агуулна.",
+        examinerTip: "Pair every observation with its conclusion — an observation without a conclusion earns no mark."
+      },
+      {
+        id: "ch1-q11",
+        marks: 2,
+        questionEn: "A hydrogen atom is about 10⁻¹⁰ m across and its nucleus about 10⁻¹⁵ m across.\nIf the atom were enlarged to the size of a stadium 100 m wide, how big would the nucleus be? What does this show?",
+        questionMn: "Устөрөгчийн атом ойролцоогоор 10⁻¹⁰ м, цөм нь 10⁻¹⁵ м хэмжээтэй.\nАтомыг 100 м өргөн цэнгэлдэх хүрээлэн болтол томруулбал цөм нь ямар хэмжээтэй болох вэ? Энэ юуг харуулж байна вэ?",
+        solutionEn: "Ratio atom : nucleus = 10⁻¹⁰ ÷ 10⁻¹⁵ = 10⁵ · 100 m ÷ 10⁵ = 10⁻³ m = 1 mm [1]\nThe nucleus is a dot the size of a pea in the stadium · the atom is mostly empty space [1]",
+        solutionMn: "Атом : цөм = 10⁻¹⁰ ÷ 10⁻¹⁵ = 10⁵. 100 м ÷ 10⁵ = 10⁻³ м = 1 мм. Цөм нь цэнгэлдэх хүрээлэн доторх вандуйн хэмжээтэй цэг — атомын ихэнх нь хоосон орон зай."
+      }
     ]
   },
   {
