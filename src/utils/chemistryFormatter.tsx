@@ -60,8 +60,8 @@ export function formatChemicalFormula(raw: string): string {
   str = str.replace(/\s*\.\s*(\d*H2O)/g, "·$1");
   str = str.replace(/\s*\*\s*(\d*H2O)/g, "·$1");
 
-  // Free radical dots (e.g. Cl., Br., CH3., NO2., OH.)
-  str = str.replace(/([A-Za-z0-9\)])(\.|\*)/g, "$1•");
+  // Free radical dots (e.g. Cl., Br., CH3., NO2., OH.) — but keep decimal points such as 35.5
+  str = str.replace(/([A-Za-z0-9\)])(\.|\*)(?!\d)/g, "$1•");
 
   // Format common ions like Fe3+, Fe2+, Cu2+, Al3+, Cr3+, Mg2+, Ca2+, Ba2+, Zn2+, Pb2+, Ag+, Na+, K+, NH4+
   str = str.replace(/([A-Za-z\)])(\d+)([+-])/g, (_, elem, num, sign) => {

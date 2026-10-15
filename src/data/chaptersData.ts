@@ -257,85 +257,253 @@ export const CHAPTERS_DATA: Chapter[] = [
     category: "Physical",
     titleEn: "Electrons in Atoms",
     titleMn: "Атом дахь электронууд",
-    descriptionEn: "Principal quantum shells, sub-shells (s, p, d, f), orbitals, electronic configurations, ionisation energies, and periodic trends.",
-    descriptionMn: "Энергийн түвшин, дэд түвшин (s, p, d, f), орбиталь, электрон тохиргоо, иончлолын энерги (IE), үелэх хандлагууд.",
+    descriptionEn: "Shells, sub-shells and orbitals, electronic configurations and electrons in boxes, free radicals, first and successive ionisation energies, and trends in atomic and ionic radius (Syllabus 1.3–1.4).",
+    descriptionMn: "Бүрхүүл, дэд бүрхүүл ба орбиталь, электрон тохиргоо ба «хайрцаг» дүрслэл, чөлөөт радикал, нэгдүгээр ба дараалсан иончлолын энерги, атом ба ионы радиусын хандлага (Syllabus 1.3–1.4).",
+    syllabusRef: "Syllabus 1.3–1.4",
+    examPapers: ["Paper 1", "Paper 2"],
     learningIntentionsEn: [
-      "Describe principal quantum shells (n = 1, 2, 3, 4) holding 2, 8, 18, 32 electrons",
-      "Understand s (spherical), p (dumbbell, px, py, pz), and d orbital shapes and capacities (s=2, p=6, d=10, f=14)",
-      "Write electronic configurations for atoms and ions (e.g. 1s² 2s² 2p⁶... including Cr: [Ar] 3d⁵ 4s¹ and Cu: [Ar] 3d¹⁰ 4s¹)",
-      "Define 1st Ionisation Energy: energy needed to remove 1 mole of electrons from 1 mole of gaseous atoms to form 1 mole of gaseous 1+ ions",
-      "Explain factors affecting IE: Nuclear charge, Distance from nucleus (atomic radius), Shielding by inner shells, Spin-pair repulsion",
-      "Interpret successive IE graphs on log₁₀ scale to deduce group and electronic configuration"
+      "Use the terms shell, sub-shell, orbital, principal quantum number (n) and ground state",
+      "State the number of orbitals and the maximum number of electrons in s, p and d sub-shells (1, 3, 5 orbitals → 2, 6, 10 electrons)",
+      "Write full (1s² notation) and shorthand ([Ar]) electronic configurations of atoms and ions",
+      "Use electrons-in-boxes diagrams and explain the configurations of chromium and copper",
+      "Sketch the shapes of s and p orbitals and identify free radicals (species with unpaired electrons)",
+      "Define first ionisation energy and write equations, with state symbols, for successive ionisation energies",
+      "Explain ionisation energies using nuclear charge, distance, shielding and spin-pair repulsion, including trends across a period and down a group",
+      "Deduce the group and electronic configuration of an element from successive ionisation energy data",
+      "Explain the trends in atomic and ionic radius across a period and down a group"
     ],
     learningIntentionsMn: [
-      "Энергийн үндсэн түвшин n=1(2e), n=2(8e), n=3(18e), n=4(32e) багтаамжтай",
-      "s (бөмбөлөг), p (хос дэлбээ px, py, pz), d орбиталуудын хэлбэр, багтаамж (s=1 орбиталь, p=3, d=5)",
-      "Электрон тохиргоо бичих: Hund-ийн дүрэм, Pauli-ийн зарчим, Aufbau дүрэм, 4s дүүрч 3d орно; Cr, Cu-ийн онцлог",
-      "1-р иончлолын энергийн стандарт тодорхойлолт ба тэгшитгэл: X(g) → X⁺(g) + e⁻",
-      "Иончлолын энергид нөлөөлөх 4 хүчин зүйл: Цөмийн цэнэг, Зай (радиус), Дотоод давхаргын халхавчлал, Спин хослолын түлхэлт",
-      "Дараалсан иончлолын энергийн үсрэлтээр элементийн бүлгийг тодорхойлох"
+      "Бүрхүүл, дэд бүрхүүл, орбиталь, үндсэн квант тоо (n), үндсэн төлөв гэсэн нэр томьёог хэрэглэх",
+      "s, p, d дэд бүрхүүл дэх орбиталийн тоо ба электроны дээд тоог хэлэх (1, 3, 5 орбиталь → 2, 6, 10 электрон)",
+      "Атом ба ионы бүрэн (1s² тэмдэглэгээ) ба товч ([Ar]) электрон тохиргоог бичих",
+      "«Хайрцаг» диаграмм ашиглах, хром ба зэсийн тохиргоог тайлбарлах",
+      "s ба p орбиталийн хэлбэрийг зурах, чөлөөт радикалыг (хосгүй электронтой бөөм) таних",
+      "Нэгдүгээр иончлолын энергийг тодорхойлж, дараалсан иончлолын энергийн тэгшитгэлийг төлөвийн тэмдэгтэй бичих",
+      "Цөмийн цэнэг, зай, халхлалт, спин хосын түлхэлтээр иончлолын энерги ба үе, бүлгийн дагуух хандлагыг тайлбарлах",
+      "Дараалсан иончлолын энергийн өгөгдлөөс элементийн бүлэг ба электрон тохиргоог тодорхойлох",
+      "Үе ба бүлгийн дагуух атом ба ионы радиусын хандлагыг тайлбарлах"
     ],
     subtopics: [
       {
         id: "2.1",
         number: "2.1",
-        titleEn: "Simple Electronic Structure & Quantum Shells",
-        titleMn: "Электрон бүрхүүлийн бүтэц ба квант тоонууд",
-        summaryEn: "Principal quantum shells n=1,2,3,4 hold 2n² electrons. Shell 1=2, Shell 2=8, Shell 3=18, Shell 4=32.",
-        summaryMn: "Энергийн түвшин бүр хамгийн ихдээ 2n² электрон агуулна.",
-        keyConcepts: ["Principal quantum number n", "Maximum electrons per shell = 2n²"]
+        titleEn: "Shells, Sub-shells & Orbitals",
+        titleMn: "Бүрхүүл, дэд бүрхүүл ба орбиталь",
+        summaryEn: "Electrons occupy energy levels (shells) numbered by the principal quantum number n; n = 1 is closest to the nucleus and lowest in energy. Shells hold a maximum of 2, 8, 18, 32 electrons (2n²). Each shell is divided into sub-shells: s (1 orbital, 2 e⁻), p (3 orbitals, 6 e⁻), d (5 orbitals, 10 e⁻). An atomic orbital is a region of space around the nucleus that can hold one or two electrons. Within a shell the energy order is s < p < d, and after argon the 4s sub-shell is lower in energy than 3d.",
+        summaryMn: "Электронууд үндсэн квант тоо n-ээр дугаарлагдсан энергийн түвшинд (бүрхүүлд) байрлана; n = 1 нь цөмд хамгийн ойр, энерги нь хамгийн бага. Бүрхүүлүүд хамгийн ихдээ 2, 8, 18, 32 электрон (2n²) агуулна. Бүрхүүл бүр дэд бүрхүүлд хуваагдана: s (1 орбиталь, 2 e⁻), p (3 орбиталь, 6 e⁻), d (5 орбиталь, 10 e⁻). Атомын орбиталь нь цөмийн орчмын нэг эсвэл хоёр электрон байрлах орон зайн муж. Нэг бүрхүүл дотор энерги s < p < d дарааллаар өсөх ба аргоны дараа 4s нь 3d-ээс бага энергитэй.",
+        keyConcepts: ["n = 1, 2, 3, 4 → max 2, 8, 18, 32 electrons", "s: 1 orbital · p: 3 orbitals · d: 5 orbitals", "Each orbital holds ≤ 2 electrons", "Electron hotel: floor = shell, corridor = sub-shell, room = orbital"],
+        keyEquations: ["Max electrons in shell n = 2n²", "n = 3: 3s, 3p, 3d → 1 + 3 + 5 = 9 orbitals → 18 e⁻"],
+        commonPitfalls: [
+          "A d sub-shell has 5 orbitals and holds 10 electrons — not 3 and 6 (that is p).",
+          "Simple configurations (2,8,8,2) are fine at IGCSE; at AS use sub-shells (1s² 2s² 2p⁶ 3s² 3p⁶ 4s²)."
+        ]
       },
       {
         id: "2.2",
         number: "2.2",
-        titleEn: "First & Successive Ionisation Energy",
-        titleMn: "1-р ба дараалсан иончлолын энерги",
-        summaryEn: "1st IE: X(g) → X⁺(g) + e⁻. 2nd IE: X⁺(g) → X²⁺(g) + e⁻. Successive IEs always increase because removing e⁻ from a positive ion increases effective nuclear attraction.",
-        summaryMn: "1-р иончлолын энерги: Хийн төлөв дэх 1 моль атомаас 1 моль электрон салгаж 1 моль 1+ цэнэгтэй хийн ион үүсгэхэд шаардагдах энерги.",
-        keyConcepts: ["Definition and state symbols (g)", "Big jump in successive IE indicates removal from a shell closer to nucleus"],
-        keyEquations: ["1st IE: X(g) → X⁺(g) + e⁻", "2nd IE: X⁺(g) → X²⁺(g) + e⁻", "3rd IE: X²⁺(g) → X³⁺(g) + e⁻"]
+        titleEn: "Orbital Shapes & Filling Rules",
+        titleMn: "Орбиталийн хэлбэр ба дүүргэх дүрэм",
+        summaryEn: "s orbitals are spherical (2s has the same shape as 1s but is larger and higher in energy). p orbitals have two lobes (dumbbell); px, py and pz lie along the x, y and z axes at 90° to each other and have the same energy. Filling rules: (1) lowest energy first: 1s → 2s → 2p → 3s → 3p → 4s → 3d → 4p; (2) an orbital holds at most two electrons, with opposite spins; (3) in a sub-shell, electrons occupy separate orbitals singly with the same spin before pairing, which minimises repulsion.",
+        summaryMn: "s орбиталь бөмбөрцөг хэлбэртэй (2s нь 1s-тэй ижил хэлбэртэй ч том, энерги өндөр). p орбиталь хоёр дэлбээтэй (гантель); px, py, pz нь x, y, z тэнхлэгийн дагуу бие биедээ 90°-аар байрлах ба энерги нь ижил. Дүүргэх дүрэм: (1) бага энергитэйгээс эхэлнэ: 1s → 2s → 2p → 3s → 3p → 4s → 3d → 4p; (2) нэг орбитальд хамгийн ихдээ эсрэг спинтэй хоёр электрон; (3) дэд бүрхүүлд электронууд эхлээд тус тусдаа орбитальд ижил спинтэйгээр орж, дараа нь хосолно — энэ нь түлхэлтийг багасгана.",
+        keyConcepts: ["s: spherical · p: two lobes on an axis", "Filling order: 1s 2s 2p 3s 3p 4s 3d 4p", "First 3d electron: scandium (Z = 21)", "First 4p electron: gallium (Z = 31)"],
+        keyEquations: ["1s → 2s → 2p → 3s → 3p → 4s → 3d → 4p"],
+        commonPitfalls: [
+          "After 3p comes 4s, not 3d.",
+          "Nitrogen 2p is ↑ ↑ ↑ (singly occupied, same spin), not ↑↓ ↑ _."
+        ]
       },
       {
         id: "2.3",
         number: "2.3",
-        titleEn: "Sub-shells, Orbitals & Shapes",
-        titleMn: "Дэд түвшин, орбиталууд ба тэдгээрийн хэлбэр",
-        summaryEn: "An atomic orbital is a region of space where there is >95% probability of finding an electron. Holds max 2 electrons with opposite spins.",
-        summaryMn: "s орбиталь нь бөмбөлөг хэлбэртэй, p орбиталь нь x, y, z тэнхлэгийн дагуу 3 чиглэлтэй хос дэлбээ (гантел) хэлбэртэй.",
-        keyConcepts: ["s orbital (spherical)", "p orbitals (px, py, pz dumbbell)", "Energy order: 1s < 2s < 2p < 3s < 3p < 4s < 3d < 4p"]
+        titleEn: "Electronic Configurations & Electrons in Boxes",
+        titleMn: "Электрон тохиргоо ба «хайрцаг» дүрслэл",
+        summaryEn: "Configurations are written in 1s² notation (e.g. Fe: 1s² 2s² 2p⁶ 3s² 3p⁶ 3d⁶ 4s²) or shorthand with a noble-gas core ([Ar] 3d⁶ 4s²); the superscripts must add up to Z. Chromium is [Ar] 3d⁵ 4s¹ and copper is [Ar] 3d¹⁰ 4s¹ because half-filled and full 3d sub-shells are more stable. In electrons-in-boxes diagrams a box is an orbital and an arrow an electron; ↑↓ shows opposite spins. Unpaired electrons: B 1, C 2, N 3, O 2, F 1, Ne 0. The block (s, p, d) is the sub-shell of the outer electron; outer s + p electrons give the group.",
+        summaryMn: "Тохиргоог 1s² тэмдэглэгээгээр (Fe: 1s² 2s² 2p⁶ 3s² 3p⁶ 3d⁶ 4s²) эсвэл идэвхгүй хийн цөмтэй товч хэлбэрээр ([Ar] 3d⁶ 4s²) бичнэ; дээд индексүүдийн нийлбэр Z-тэй тэнцүү байх ёстой. Хром [Ar] 3d⁵ 4s¹, зэс [Ar] 3d¹⁰ 4s¹ байдаг, учир нь хагас дүүрсэн ба бүрэн дүүрсэн 3d дэд бүрхүүл илүү тогтвортой. «Хайрцаг» диаграммд хайрцаг = орбиталь, сум = электрон; ↑↓ нь эсрэг спин. Хосгүй электрон: B 1, C 2, N 3, O 2, F 1, Ne 0. Блок (s, p, d) нь гадна электроны дэд бүрхүүл; гадна s + p электроны тоо бүлгийг заана.",
+        keyConcepts: ["Cr: [Ar] 3d⁵ 4s¹ (half-filled 3d)", "Cu: [Ar] 3d¹⁰ 4s¹ (full 3d)", "Check: superscripts add up to Z", "s-block: Groups 1–2 · p-block: Groups 13–18 · d-block: filling d"],
+        keyEquations: ["Fe: 1s² 2s² 2p⁶ 3s² 3p⁶ 3d⁶ 4s² = [Ar] 3d⁶ 4s²", "Cr: [Ar] 3d⁵ 4s¹ · Cu: [Ar] 3d¹⁰ 4s¹"],
+        commonPitfalls: [
+          "Cu is [Ar] 3d¹⁰ 4s¹, not [Ar] 3d⁹ 4s²; Cr is [Ar] 3d⁵ 4s¹, not [Ar] 3d⁴ 4s².",
+          "If the question says 'use 1s² notation', write the configuration in full — [Ar] shorthand loses the mark."
+        ]
       },
       {
         id: "2.4",
         number: "2.4",
-        titleEn: "Electronic Configurations of Atoms & Ions",
-        titleMn: "Атом ба ионы электрон тохиргоо",
-        summaryEn: "Electrons fill lowest energy first (Aufbau). Exceptional stability of half-filled (3d⁵) and fully-filled (3d¹⁰) subshells for Cr and Cu.",
-        summaryMn: "D-блокын шилжилтийн металлууд ион үүсгэхдээ эхлээд 4s электроноо алдаж, дараа нь 3d электроноо алдана!",
-        keyConcepts: ["Chromium: [Ar] 3d⁵ 4s¹", "Copper: [Ar] 3d¹⁰ 4s¹", "d-block ions lose 4s electrons first! (e.g. Fe²⁺: [Ar] 3d⁶)"]
+        titleEn: "Configurations of Ions & Free Radicals",
+        titleMn: "Ионы электрон тохиргоо ба чөлөөт радикал",
+        summaryEn: "Main-group ions gain or lose electrons in the outer sub-shell: Na⁺ 1s² 2s² 2p⁶ (like Ne), S²⁻ 1s² 2s² 2p⁶ 3s² 3p⁶ (like Ar). d-block atoms lose their 4s electrons first: Ti [Ar] 3d² 4s² → Ti²⁺ [Ar] 3d²; Fe [Ar] 3d⁶ 4s² → Fe³⁺ [Ar] 3d⁵. 4s fills before 3d but also empties before 3d. A free radical is a species with one or more unpaired electrons, shown with a dot: Cl• (3p⁵), H₃C• (methyl radical), H and O atoms are radicals; Na⁺ and Cl⁻ are not (all electrons paired).",
+        summaryMn: "Үндсэн бүлгийн ионууд гадна дэд бүрхүүлдээ электрон авах эсвэл алдана: Na⁺ 1s² 2s² 2p⁶ (Ne шиг), S²⁻ 1s² 2s² 2p⁶ 3s² 3p⁶ (Ar шиг). d-блокийн атомууд эхлээд 4s электроноо алдана: Ti [Ar] 3d² 4s² → Ti²⁺ [Ar] 3d²; Fe [Ar] 3d⁶ 4s² → Fe³⁺ [Ar] 3d⁵. 4s нь 3d-ээс өмнө дүүрдэг ч мөн 3d-ээс өмнө хоосордог. Чөлөөт радикал нь нэг буюу хэд хэдэн хосгүй электронтой бөөм бөгөөд цэгээр тэмдэглэнэ: Cl• (3p⁵), H₃C• (метил радикал); H ба O атом радикал; Na⁺, Cl⁻ радикал биш (бүх электрон хостой).",
+        keyConcepts: ["d-block ions: remove 4s before 3d", "Fe²⁺: [Ar] 3d⁶ · Fe³⁺: [Ar] 3d⁵", "Cu²⁺: [Ar] 3d⁹ · Cu⁺: [Ar] 3d¹⁰", "Free radical = one or more unpaired electrons"],
+        keyEquations: ["Fe [Ar] 3d⁶ 4s² → Fe³⁺ [Ar] 3d⁵", "Cr [Ar] 3d⁵ 4s¹ → Cr³⁺ [Ar] 3d³"],
+        commonPitfalls: [
+          "Fe²⁺ is [Ar] 3d⁶, not [Ar] 3d⁴ 4s² — 4s electrons are lost first.",
+          "Count electrons first: Fe³⁺ has 26 − 3 = 23 electrons."
+        ]
       },
       {
         id: "2.5",
         number: "2.5",
-        titleEn: "Periodic Trends in IE & Radii",
-        titleMn: "Иончлолын энерги ба радиусын үелэх хандлага",
-        summaryEn: "Across Period: IE generally increases (nuclear charge increases, shielding similar). Dips at Group 13 (electron in higher energy p-subshell) and Group 16 (spin-pair repulsion in p orbital). Down Group: IE decreases (greater radius & shielding).",
-        summaryMn: "Үеийн дагуу IE ерөнхийдөө өснө. Гэхдээ Mg->Al дээр буурна (3p нь 3s-ээс өндөр энергитэй), P->S дээр буурна (3p orbital дахь спин хослолын түлхэлт).",
-        keyConcepts: ["General increase across Period", "Dip at Gr 2 -> Gr 13 (s to p subshell)", "Dip at Gr 15 -> Gr 16 (spin-pair repulsion)", "Decrease down Group"]
+        titleEn: "Ionisation Energy: Definition & Four Factors",
+        titleMn: "Иончлолын энерги: тодорхойлолт ба дөрвөн хүчин зүйл",
+        summaryEn: "First ionisation energy (IE₁) is the energy needed to remove one electron from each atom in one mole of atoms of the element in the gaseous state to form one mole of gaseous 1+ ions: Ca(g) → Ca⁺(g) + e⁻ (IE₁ = 590 kJ mol⁻¹). Successive IEs remove one electron at a time: Ca⁺(g) → Ca²⁺(g) + e⁻ (IE₂ = 1150), Ca²⁺(g) → Ca³⁺(g) + e⁻ (IE₃ = 4940). IE depends on: (1) nuclear charge ↑ → IE ↑; (2) distance of the outer electron ↑ → IE ↓; (3) shielding by inner electrons ↑ → IE ↓; (4) spin-pair repulsion makes a paired electron easier to remove → IE ↓.",
+        summaryMn: "Нэгдүгээр иончлолын энерги (IE₁) нь хийн төлөвт буй 1 моль атомын атом бүрээс нэг электрон салгаж 1 моль хийн 1+ ион үүсгэхэд шаардагдах энерги: Ca(g) → Ca⁺(g) + e⁻ (IE₁ = 590 kJ mol⁻¹). Дараалсан IE нь электроныг нэг нэгээр салгана: Ca⁺(g) → Ca²⁺(g) + e⁻ (IE₂ = 1150), Ca²⁺(g) → Ca³⁺(g) + e⁻ (IE₃ = 4940). IE-д нөлөөлөх хүчин зүйл: (1) цөмийн цэнэг ↑ → IE ↑; (2) гадна электроны зай ↑ → IE ↓; (3) дотоод электронуудын халхлалт ↑ → IE ↓; (4) спин хосын түлхэлт хостой электроныг салгахад хялбар болгоно → IE ↓.",
+        keyConcepts: ["All species gaseous (g)", "Charge on the right = number of the IE", "One electron removed per IE", "Factors: nuclear charge · distance · shielding · spin-pair repulsion"],
+        keyEquations: ["IE₁: X(g) → X⁺(g) + e⁻", "IE₂: X⁺(g) → X²⁺(g) + e⁻", "IE₃: X²⁺(g) → X³⁺(g) + e⁻"],
+        commonPitfalls: [
+          "State symbols (g) are compulsory: Na(g) → Na⁺(g) + e⁻, not Na → Na⁺ + e⁻.",
+          "The 2nd IE removes ONE electron from a 1+ ion: Al⁺(g) → Al²⁺(g) + e⁻, not Al(g) → Al²⁺(g) + 2e⁻.",
+          "Explain trends with attraction (charge, distance, shielding, spin-pair repulsion) — never just 'it is more stable'."
+        ]
+      },
+      {
+        id: "2.6",
+        number: "2.6",
+        titleEn: "Successive Ionisation Energies",
+        titleMn: "Дараалсан иончлолын энерги",
+        summaryEn: "Successive IEs always increase because each electron is removed from an increasingly positive ion. A big jump shows the next electron comes from a new shell closer to the nucleus with less shielding. Sodium (log IE graph) has jumps after the 1st and 9th electrons → 2, 8, 1. The number of electrons before the first big jump = number of outer electrons = group: e.g. 1000, 2260, 3390, 4540, 7010, 8500 | 27 100 … → 6 outer electrons → Group 16 (sulfur).",
+        summaryMn: "Дараалсан IE үргэлж өснө, учир нь электрон бүрийг улам эерэг болж буй ионоос салгадаг. Огцом үсрэлт нь дараагийн электрон цөмд илүү ойр, халхлалт багатай шинэ бүрхүүлээс салж байгааг харуулна. Натри (log IE график) 1 ба 9 дэх электроны дараа үсэрнэ → 2, 8, 1. Эхний огцом үсрэлтээс өмнөх электроны тоо = гадна электроны тоо = бүлэг: жишээ нь 1000, 2260, 3390, 4540, 7010, 8500 | 27 100 … → 6 гадна электрон → 16-р бүлэг (хүхэр).",
+        keyConcepts: ["IE always increases: more positive ion", "Big jump = new inner shell", "Electrons before first jump = group number", "Divide each IE by the one before to find the jump"],
+        keyEquations: ["Group = number of electrons removed before the first big jump"],
+        examinerTips: [
+          "Explain a big jump with: the electron is removed from a shell closer to the nucleus, with less shielding, so it is more strongly attracted.",
+          "Predict jumps from the configuration: Al (2, 8, 3) jumps after the 3rd and 11th electrons."
+        ]
+      },
+      {
+        id: "2.7",
+        number: "2.7",
+        titleEn: "Trends in IE₁ & Atomic and Ionic Radius",
+        titleMn: "IE₁ ба атом, ионы радиусын хандлага",
+        summaryEn: "Across a period IE₁ generally increases (nuclear charge ↑, same shell, similar shielding) and atomic radius decreases. Two dips: Be → B (and Mg → Al) because the electron is removed from a 2p (3p) sub-shell that is slightly further away and shielded by the s electrons; N → O (and P → S) because oxygen loses a paired 2p electron (spin-pair repulsion). IE₁ falls sharply from a noble gas to the next alkali metal (new shell). Down a group IE₁ decreases and radius increases: extra shells mean greater distance and shielding, which outweigh the larger nuclear charge (Li 519, Na 494, K 418, Rb 403 kJ mol⁻¹). Cations are smaller than their atoms (outer shell lost); anions are larger (extra electrons, more repulsion). Isoelectronic ions: Na⁺ > Mg²⁺ > Al³⁺ (same 10 e⁻, more protons).",
+        summaryMn: "Үеийн дагуу IE₁ ерөнхийдөө өсөж (цөмийн цэнэг ↑, нэг бүрхүүл, халхлалт ойролцоо), атомын радиус багасна. Хоёр уналт: Be → B (мөн Mg → Al), учир нь электрон арай хол, s электроноор халхлагдсан 2p (3p) дэд бүрхүүлээс салдаг; N → O (мөн P → S), учир нь хүчилтөрөгч хостой 2p электроноо алддаг (спин хосын түлхэлт). Идэвхгүй хийнээс дараагийн шүлтлэг металл руу IE₁ огцом буурна (шинэ бүрхүүл). Бүлгийн дагуу доош IE₁ буурч, радиус өснө: нэмэлт бүрхүүлүүд зай ба халхлалтыг ихэсгэж, цөмийн цэнэгийн өсөлтөөс давна (Li 519, Na 494, K 418, Rb 403 kJ mol⁻¹). Катион атомаасаа жижиг (гадна бүрхүүлээ алдсан), анион том (нэмэлт электрон, түлхэлт их). Ижил электронтой ионууд: Na⁺ > Mg²⁺ > Al³⁺ (10 e⁻, протон олон байх тусам жижиг).",
+        keyConcepts: ["Across a period: IE₁ ↑, radius ↓", "Dips at B and O (Al and S)", "Down a group: IE₁ ↓, radius ↑", "Cation < atom · anion > atom"],
+        keyEquations: ["IE₁: Mg 736 > Al 577 kJ mol⁻¹", "IE₁: N 1402 > O 1314 kJ mol⁻¹"],
+        commonPitfalls: [
+          "Down a group, do not say 'nuclear charge increases so IE increases' — distance and shielding outweigh the extra nuclear charge.",
+          "For Mg → Al, mention all three: 3p electron, slightly further from the nucleus, shielded by the 3s electrons.",
+          "Period 3 anions (P³⁻, S²⁻, Cl⁻) are larger than the cations (Na⁺, Mg²⁺, Al³⁺) because they have an extra shell."
+        ]
       }
     ],
     keyTerms: [
-      { termEn: "First Ionisation Energy (IE₁)", termMn: "1-р Иончлолын Энерги", definitionEn: "The energy needed to remove one electron from each atom in one mole of gaseous atoms to form one mole of gaseous 1+ ions.", definitionMn: "Хийн төлөвт байгаа 1 моль салангид атомуудаас нэг нэг электрон салгаж, 1 моль нэг валенттай хийн ион үүсгэхэд шаардагдах энерги." },
-      { termEn: "Atomic Orbital", termMn: "Атомын орбиталь", definitionEn: "A region of space around the nucleus of an atom that can be occupied by one or two electrons (with opposite spins).", definitionMn: "Атомын цөмийн эргэн тойронд эсрэг спинтэй 1 эсвэл 2 электрон байрлах магадлал хамгийн өндөр орон зайн муж." },
-      { termEn: "Spin-Pair Repulsion", termMn: "Спин хослолын түлхэлт", definitionEn: "The repulsion between two electrons in the same orbital, making them easier to remove than unpaired electrons in equal-energy orbitals.", definitionMn: "Нэг орбитальд хамт оршдог хоёр электроны хоорондын цахилгаан түлхэлт." }
+      { termEn: "Principal Quantum Shell (n)", termMn: "Үндсэн квант бүрхүүл (n)", definitionEn: "A main energy level for electrons, numbered n = 1, 2, 3 …; n = 1 is closest to the nucleus.", definitionMn: "Электроны үндсэн энергийн түвшин, n = 1, 2, 3 … гэж дугаарлана; n = 1 нь цөмд хамгийн ойр." },
+      { termEn: "Sub-shell", termMn: "Дэд бүрхүүл", definitionEn: "A division of a shell (s, p or d) holding up to 2, 6 or 10 electrons.", definitionMn: "Бүрхүүлийн хэсэг (s, p эсвэл d), хамгийн ихдээ 2, 6, 10 электрон агуулна." },
+      { termEn: "Atomic Orbital", termMn: "Атомын орбиталь", definitionEn: "A region of space around the nucleus of an atom that can hold one or two electrons (with opposite spins).", definitionMn: "Атомын цөмийн орчимд эсрэг спинтэй нэг эсвэл хоёр электрон байрлах орон зайн муж." },
+      { termEn: "Electronic Configuration", termMn: "Электрон тохиргоо", definitionEn: "The arrangement of electrons in shells, sub-shells and orbitals in an atom or ion.", definitionMn: "Атом эсвэл ион дахь электронуудын бүрхүүл, дэд бүрхүүл, орбиталиудад байрлах байдал." },
+      { termEn: "Ground State", termMn: "Үндсэн төлөв", definitionEn: "The lowest-energy electronic configuration of an atom.", definitionMn: "Атомын хамгийн бага энергитэй электрон тохиргоо." },
+      { termEn: "Spin-Pair Repulsion", termMn: "Спин хосын түлхэлт", definitionEn: "The extra repulsion between two electrons in the same orbital, which makes a paired electron easier to remove.", definitionMn: "Нэг орбиталь дахь хоёр электроны хоорондох нэмэлт түлхэлт; хостой электроныг салгахад хялбар болгоно." },
+      { termEn: "Free Radical", termMn: "Чөлөөт радикал", definitionEn: "A species with one or more unpaired electrons, e.g. Cl• or H₃C•.", definitionMn: "Нэг буюу хэд хэдэн хосгүй электронтой бөөм, жишээ нь Cl• эсвэл H₃C•." },
+      { termEn: "First Ionisation Energy (IE₁)", termMn: "Нэгдүгээр иончлолын энерги (IE₁)", definitionEn: "The energy needed to remove one electron from each atom in one mole of gaseous atoms to form one mole of gaseous 1+ ions.", definitionMn: "Хийн төлөвт буй 1 моль атомын атом бүрээс нэг электрон салгаж 1 моль хийн 1+ ион үүсгэхэд шаардагдах энерги." },
+      { termEn: "Successive Ionisation Energies", termMn: "Дараалсан иончлолын энерги", definitionEn: "The energies needed to remove the electrons from an atom one at a time: IE₁, IE₂, IE₃ …", definitionMn: "Атомаас электроныг нэг нэгээр нь салгахад шаардагдах энергиүд: IE₁, IE₂, IE₃ …" },
+      { termEn: "Nuclear Charge", termMn: "Цөмийн цэнэг", definitionEn: "The total positive charge of the nucleus, equal to the number of protons.", definitionMn: "Цөмийн нийт эерэг цэнэг, протоны тоотой тэнцүү." },
+      { termEn: "Shielding", termMn: "Халхлалт", definitionEn: "The repulsion of outer electrons by inner shells of electrons, which reduces the attraction of the nucleus for them.", definitionMn: "Дотоод бүрхүүлийн электронууд гадна электроныг түлхэж, цөмийн татах хүчийг сулруулах үзэгдэл." },
+      { termEn: "Atomic Radius", termMn: "Атомын радиус", definitionEn: "The distance from the nucleus to the outer electrons of an atom.", definitionMn: "Цөмөөс атомын гадна электрон хүртэлх зай." },
+      { termEn: "Ionic Radius", termMn: "Ионы радиус", definitionEn: "The radius of an ion: cations are smaller and anions larger than their atoms.", definitionMn: "Ионы радиус: катион атомаасаа жижиг, анион атомаасаа том." }
     ],
     formulas: [
-      { nameEn: "1st Ionisation Energy", nameMn: "1-р иончлолын энерги", formula: "X(g) → X⁺(g) + e⁻", note: "Standard state symbols (g) are compulsory in exams" },
-      { nameEn: "nth Ionisation Energy", nameMn: "n-р иончлолын энерги", formula: "X^(n-1)+(g) → X^n+(g) + e⁻", note: "Always gaseous ions" }
+      { nameEn: "Electrons in Shell n", nameMn: "n-р бүрхүүлийн электрон", formula: "max e⁻ = 2n²", note: "n = 1, 2, 3, 4 → 2, 8, 18, 32" },
+      { nameEn: "First Ionisation Energy", nameMn: "Нэгдүгээр иончлолын энерги", formula: "X(g) → X⁺(g) + e⁻", note: "State symbols (g) are compulsory in exams" },
+      { nameEn: "nth Ionisation Energy", nameMn: "n-р иончлолын энерги", formula: "X⁽ⁿ⁻¹⁾⁺(g) → Xⁿ⁺(g) + e⁻", note: "One electron per step; the charge on the right equals n" },
+      { nameEn: "Group from Successive IEs", nameMn: "Дараалсан IE-ээс бүлэг олох", formula: "group = electrons removed before the first big jump", note: "Divide each IE by the previous one to find the largest ratio" }
     ],
     examStyleTips: [
-      "Missing state symbols (g) in Ionisation Energy definitions/equations is an automatic mark loss!",
-      "Transition metal ionisation: Always remove 4s electrons before 3d electrons when forming cations (e.g. Fe is [Ar]3d⁶4s², but Fe²⁺ is [Ar]3d⁶).",
-      "To find the group of an unknown element from successive IEs, look for the largest ratio/jump. If the jump is between 3rd and 4th, it has 3 valence electrons -> Group 13."
+      "Missing state symbols (g) in ionisation energy equations loses the mark — X(g) → X⁺(g) + e⁻.",
+      "d-block ions: remove 4s electrons before 3d (Fe is [Ar] 3d⁶ 4s², Fe²⁺ is [Ar] 3d⁶).",
+      "Learn the exceptions Cr [Ar] 3d⁵ 4s¹ and Cu [Ar] 3d¹⁰ 4s¹.",
+      "When asked to 'use 1s² notation', write the configuration in full rather than with [Ar].",
+      "Explain IE trends with the four factors — nuclear charge, distance, shielding, spin-pair repulsion — and say which one outweighs the others.",
+      "To find the group from successive IEs, locate the biggest ratio: a jump between the 3rd and 4th IE means 3 outer electrons → Group 13."
+    ],
+    examQuestions: [
+      {
+        id: "ch2-q1",
+        marks: 2,
+        questionEn: "Use 1s² notation to give the electronic configurations of (a) sulfur (Z = 16) and (b) vanadium (Z = 23).",
+        questionMn: "1s² тэмдэглэгээг ашиглан (a) хүхэр (Z = 16), (b) ванади (Z = 23)-ийн электрон тохиргоог бичнэ үү.",
+        solutionEn: "(a) S: 1s² 2s² 2p⁶ 3s² 3p⁴ [1]\n(b) V: 1s² 2s² 2p⁶ 3s² 3p⁶ 3d³ 4s² [1]",
+        solutionMn: "(a) S: 1s² 2s² 2p⁶ 3s² 3p⁴. (b) V: 1s² 2s² 2p⁶ 3s² 3p⁶ 3d³ 4s² — 3p⁶-ийн дараа эхлээд 4s, дараа нь 3d дүүрнэ.",
+        examinerTip: "Check the sum of the superscripts: 16 for S and 23 for V."
+      },
+      {
+        id: "ch2-q2",
+        marks: 3,
+        questionEn: "Write the full electronic configurations of (a) chromium (Z = 24), (b) copper (Z = 29), and (c) explain why they do not follow the usual filling pattern.",
+        questionMn: "(a) Хром (Z = 24), (b) зэс (Z = 29)-ийн бүрэн электрон тохиргоог бичиж, (c) яагаад ердийн дүүргэх дарааллыг дагадаггүйг тайлбарлана уу.",
+        solutionEn: "(a) Cr: 1s² 2s² 2p⁶ 3s² 3p⁶ 3d⁵ 4s¹ [1]\n(b) Cu: 1s² 2s² 2p⁶ 3s² 3p⁶ 3d¹⁰ 4s¹ [1]\n(c) A half‑filled (3d⁵) or full (3d¹⁰) d sub‑shell is more stable [1]",
+        solutionMn: "(a) Cr: [Ar] 3d⁵ 4s¹. (b) Cu: [Ar] 3d¹⁰ 4s¹. (c) Хагас дүүрсэн (3d⁵) эсвэл бүрэн дүүрсэн (3d¹⁰) d дэд бүрхүүл илүү тогтвортой тул нэг 4s электрон 3d рүү шилждэг.",
+        examinerTip: "[Ar] 3d⁴ 4s² and [Ar] 3d⁹ 4s² are the classic wrong answers."
+      },
+      {
+        id: "ch2-q3",
+        marks: 4,
+        questionEn: "Use 1s² notation to deduce the electronic configuration of:\n(a) Fe³⁺ (Fe: Z = 26)\n(b) Mn²⁺ (Mn: Z = 25)\n(c) Cu²⁺ (Cu: Z = 29)\n(d) S²⁻ (S: Z = 16)",
+        questionMn: "1s² тэмдэглэгээгээр дараах ионуудын электрон тохиргоог бичнэ үү:\n(a) Fe³⁺ (Z = 26)\n(b) Mn²⁺ (Z = 25)\n(c) Cu²⁺ (Z = 29)\n(d) S²⁻ (Z = 16)",
+        solutionEn: "(a) Fe³⁺: 1s² 2s² 2p⁶ 3s² 3p⁶ 3d⁵ [1]\n(b) Mn²⁺: 1s² 2s² 2p⁶ 3s² 3p⁶ 3d⁵ [1]\n(c) Cu²⁺: 1s² 2s² 2p⁶ 3s² 3p⁶ 3d⁹ [1]\n(d) S²⁻: 1s² 2s² 2p⁶ 3s² 3p⁶ [1]",
+        solutionMn: "(a) Fe [Ar] 3d⁶ 4s² → 2 ширхэг 4s, дараа нь 1 ширхэг 3d электрон алдана → [Ar] 3d⁵ (23 e⁻). (b) Mn [Ar] 3d⁵ 4s² → [Ar] 3d⁵. (c) Cu [Ar] 3d¹⁰ 4s¹ → [Ar] 3d⁹. (d) S²⁻ хоёр электрон авч Ar-тай ижил болно.",
+        examinerTip: "Transition metal ions lose their 4s electrons before any 3d electrons."
+      },
+      {
+        id: "ch2-q4",
+        marks: 3,
+        questionEn: "(a) Draw the electrons-in-boxes diagram for the outer sub-shells (3s and 3p) of phosphorus (Z = 15).\n(b) How many unpaired electrons does a phosphorus atom have?\n(c) Is a chlorine atom a free radical? Explain.",
+        questionMn: "(a) Фосфорын (Z = 15) гадна дэд бүрхүүлийн (3s ба 3p) «хайрцаг» диаграммыг зурна уу.\n(b) Фосфорын атом хэдэн хосгүй электронтой вэ?\n(c) Хлорын атом чөлөөт радикал мөн үү? Тайлбарлана уу.",
+        solutionEn: "(a) 3s ↑↓ · 3p ↑ ↑ ↑ (electrons in separate p orbitals with the same spin) [1]\n(b) 3 unpaired electrons [1]\n(c) Yes · Cl is 3s² 3p⁵, so it has one unpaired electron [1]",
+        solutionMn: "(a) 3s ↑↓, 3p ↑ ↑ ↑ — p орбиталиудад эхлээд нэг нэгээр, ижил спинтэйгээр орно. (b) 3 хосгүй электрон. (c) Тийм: Cl нь 3p⁵ тул нэг хосгүй электронтой — чөлөөт радикал.",
+        examinerTip: "Hund's rule in words: electrons occupy orbitals singly, with parallel spins, before pairing."
+      },
+      {
+        id: "ch2-q5",
+        marks: 3,
+        questionEn: "(a) Define the term first ionisation energy.\n(b) Write equations, with state symbols, for the 2nd ionisation energy of aluminium and the 3rd ionisation energy of magnesium.",
+        questionMn: "(a) Нэгдүгээр иончлолын энергийг тодорхойлно уу.\n(b) Хөнгөнцагааны 2-р иончлолын энерги ба магнийн 3-р иончлолын энергийн тэгшитгэлийг төлөвийн тэмдэгтэй бичнэ үү.",
+        solutionEn: "(a) Energy needed to remove one electron from each atom in one mole of gaseous atoms to form one mole of gaseous 1+ ions [1]\n(b) Al⁺(g) → Al²⁺(g) + e⁻ [1]\nMg²⁺(g) → Mg³⁺(g) + e⁻ [1]",
+        solutionMn: "(a) Хийн төлөвт буй 1 моль атомын атом бүрээс нэг электрон салгаж 1 моль хийн 1+ ион үүсгэхэд шаардагдах энерги. (b) Al⁺(g) → Al²⁺(g) + e⁻; Mg²⁺(g) → Mg³⁺(g) + e⁻. Баруун талын цэнэг = иончлолын энергийн дугаар.",
+        examinerTip: "The key words are 'one mole', 'gaseous atoms' and 'gaseous 1+ ions'. Each equation removes only ONE electron."
+      },
+      {
+        id: "ch2-q6",
+        marks: 3,
+        questionEn: "The successive ionisation energies of element X (kJ mol⁻¹) are:\n1000, 2260, 3390, 4540, 7010, 8500, 27 100, 31 670, 36 580, 43 140\n(a) Between which two ionisation energies is the first big jump?\n(b) Deduce the group of X and explain your answer.",
+        questionMn: "X элементийн дараалсан иончлолын энерги (kJ mol⁻¹):\n1000, 2260, 3390, 4540, 7010, 8500, 27 100, 31 670, 36 580, 43 140\n(a) Эхний огцом үсрэлт аль хоёр иончлолын энергийн хооронд байна вэ?\n(b) X-ийн бүлгийг тодорхойлж, тайлбарлана уу.",
+        solutionEn: "(a) Between the 6th (8500) and 7th (27 100) · ratio about 3.2 [1]\n(b) Six electrons are removed from the outer shell before the jump [1]\nSo X has 6 outer electrons → Group 16 (sulfur) [1]",
+        solutionMn: "(a) 6-р (8500) ба 7-р (27 100)-ийн хооронд, ойролцоогоор 3.2 дахин. (b) Үсрэлтээс өмнө 6 электрон гадна бүрхүүлээс салж байна; 7 дахь электрон цөмд ойр шинэ бүрхүүлээс салдаг. Иймд 6 гадна электрон → 16-р бүлэг (хүхэр).",
+        examinerTip: "Divide each IE by the one before — the biggest ratio marks the change of shell."
+      },
+      {
+        id: "ch2-q7",
+        marks: 4,
+        questionEn: "The first ionisation energies of magnesium and aluminium are 736 and 577 kJ mol⁻¹.\nExplain why aluminium has a lower first ionisation energy than magnesium.",
+        questionMn: "Магни ба хөнгөнцагааны нэгдүгээр иончлолын энерги 736 ба 577 kJ mol⁻¹.\nХөнгөнцагааны IE₁ яагаад магнийнхаас бага байгааг тайлбарлана уу.",
+        solutionEn: "Mg is [Ne] 3s² and Al is [Ne] 3s² 3p¹ [1]\nAl loses a 3p electron, which is higher in energy and slightly further from the nucleus [1]\nThe 3p electron is shielded by the 3s electrons [1]\nThese outweigh the larger nuclear charge of Al, so less energy is needed [1]",
+        solutionMn: "Mg [Ne] 3s², Al [Ne] 3s² 3p¹. Al нь 3p электроноо алдана — энэ нь энерги өндөр, цөмөөс арай хол. 3p электроныг 3s электронууд халхална. Эдгээр нь Al-ийн их цөмийн цэнэгээс давж, бага энерги шаардана.",
+        examinerTip: "Finish by weighing up the factors: 'these outweigh the increase in nuclear charge'."
+      },
+      {
+        id: "ch2-q8",
+        marks: 3,
+        questionEn: "(a) Explain why the first ionisation energy of oxygen (1314 kJ mol⁻¹) is lower than that of nitrogen (1402 kJ mol⁻¹).\n(b) Explain why the first ionisation energy decreases from lithium to potassium.",
+        questionMn: "(a) Хүчилтөрөгчийн IE₁ (1314 kJ mol⁻¹) яагаад азотынхоос (1402 kJ mol⁻¹) бага вэ?\n(b) Литиээс кали хүртэл IE₁ яагаад буурдгийг тайлбарлана уу.",
+        solutionEn: "(a) N is 2p ↑ ↑ ↑, O is 2p ↑↓ ↑ ↑ · O loses a paired 2p electron [1]\nSpin‑pair repulsion makes this electron easier to remove [1]\n(b) Outer electron is in a higher shell: further from the nucleus and more shielded · these outweigh the increased nuclear charge [1]",
+        solutionMn: "(a) N: 2p ↑ ↑ ↑, O: 2p ↑↓ ↑ ↑. Хүчилтөрөгч хостой 2p электроноо алддаг; спин хосын түлхэлт түүнийг салгахад хялбар болгоно. (b) Гадна электрон өндөр бүрхүүлд — цөмөөс хол, халхлалт их; энэ нь цөмийн цэнэгийн өсөлтөөс давна.",
+        examinerTip: "Draw the 2p boxes for N and O and circle the electron that is removed."
+      },
+      {
+        id: "ch2-q9",
+        marks: 4,
+        questionEn: "(a) Explain why atomic radius decreases from sodium to chlorine.\n(b) Explain why Mg²⁺ is smaller than a magnesium atom.\n(c) Put Na⁺, Mg²⁺ and Al³⁺ in order of decreasing radius and explain.",
+        questionMn: "(a) Натриас хлор хүртэл атомын радиус яагаад буурдгийг тайлбарлана уу.\n(b) Mg²⁺ яагаад магнийн атомаас жижиг вэ?\n(c) Na⁺, Mg²⁺, Al³⁺-ийг радиусын буурах дарааллаар байрлуулж тайлбарлана уу.",
+        solutionEn: "(a) Nuclear charge increases · electrons are added to the same shell with similar shielding, so they are pulled closer [1]\n(b) Mg²⁺ has lost its outer (third) shell [1]\n(c) Na⁺ > Mg²⁺ > Al³⁺ [1]\nAll have 10 electrons; more protons attract the same electrons more strongly [1]",
+        solutionMn: "(a) Цөмийн цэнэг өснө; электронууд ижил бүрхүүлд, ойролцоо халхлалттай нэмэгдэх тул цөмд илүү ойр татагдана. (b) Mg²⁺ гадна (3-р) бүрхүүлээ алдсан. (c) Na⁺ > Mg²⁺ > Al³⁺ — бүгд 10 электронтой, протон олон байх тусам электроныг хүчтэй татна.",
+        examinerTip: "For isoelectronic ions, compare the number of protons for the same number of electrons."
+      },
+      {
+        id: "ch2-q10",
+        marks: 3,
+        questionEn: "Exit ticket:\n(a) Cobalt has Z = 27. Write the configuration of Co²⁺ in 1s² notation.\n(b) Between which two successive ionisation energies of sulfur is the first big jump? Explain.",
+        questionMn: "(a) Кобальтын Z = 27. Co²⁺-ийн тохиргоог 1s² тэмдэглэгээгээр бичнэ үү.\n(b) Хүхрийн дараалсан иончлолын энергийн эхний огцом үсрэлт аль хоёрын хооронд байх вэ? Тайлбарлана уу.",
+        solutionEn: "(a) Co²⁺: 1s² 2s² 2p⁶ 3s² 3p⁶ 3d⁷ [1]\n(b) Between the 6th and 7th [1]\nThe 7th electron comes from the second shell: closer to the nucleus and less shielded [1]",
+        solutionMn: "(a) Co [Ar] 3d⁷ 4s² → Co²⁺ [Ar] 3d⁷. (b) S нь 2, 8, 6 тул 6 ба 7 дахь IE-ийн хооронд; 7 дахь электрон цөмд ойр, халхлалт багатай 2-р бүрхүүлээс салдаг."
+      }
     ]
   },
   {
@@ -345,81 +513,303 @@ export const CHAPTERS_DATA: Chapter[] = [
     category: "Physical",
     titleEn: "Atoms, Molecules & Stoichiometry",
     titleMn: "Атом, молекул ба стехиометр (Молийн тооцоо)",
-    descriptionEn: "Unified atomic mass, relative atomic/molecular mass, the mole & Avogadro constant, reacting masses, gas volumes, solution concentrations, and titrations.",
-    descriptionMn: "Нэгдсэн массын нэгж (u), харьцангуй молекул масс, Авогадрогийн тогтмол ба моль, урвалын масс, хийн эзлэхүүн (24 dm³), уусмалын концентраци, титрлэлт, бүтээгдэхүүний гарц.",
+    descriptionEn: "Relative masses and the unified atomic mass unit, mass spectra, hydrated salts, the mole and the Avogadro constant, formulas and ionic equations, reacting masses, limiting reagent and percentage yield, solutions and titrations, and gas volumes (Syllabus 2.1–2.4, 22.2).",
+    descriptionMn: "Харьцангуй масс ба атомын массын нэгдсэн нэгж, масс-спектр, кристалл устай давс, моль ба Авогадрогийн тогтмол, томьёо ба ионы тэгшитгэл, урвалын масс, хязгаарлагч бодис ба гарцын хувь, уусмал ба титрлэлт, хийн эзлэхүүн (Syllabus 2.1–2.4, 22.2).",
+    syllabusRef: "Syllabus 2.1–2.4 · 22.2",
+    examPapers: ["Paper 1", "Paper 2", "Paper 3"],
     learningIntentionsEn: [
-      "Define unified atomic mass unit (u): 1/12th of the mass of a carbon-12 atom",
-      "Define relative atomic mass Ar, relative molecular mass Mr, and relative formula mass",
-      "Define the mole in terms of Avogadro constant L = 6.02 × 10²³ particles mol⁻¹",
-      "Perform calculations involving n = m/M, n = c × V (in dm³), and gas volume at r.t.p. V = n × 24.0 dm³",
-      "Determine empirical and molecular formulae from combustion and percentage composition data",
-      "Perform titration calculations, identify limiting reagents, and calculate percentage yield"
+      "Define the unified atomic mass unit, Ar, relative isotopic mass and Mr, and use the mole",
+      "Calculate Ar from isotopic abundances or a mass spectrum, and use M⁺, [M+1] and [M+2] peaks of organic molecules",
+      "Find the number of molecules of water of crystallisation from the mass lost on heating",
+      "Calculate empirical and molecular formulas from masses, percentages or combustion data",
+      "Write formulas of ionic compounds, balanced equations with state symbols, and ionic equations",
+      "Calculate reacting masses, identify the limiting reagent and calculate percentage yield",
+      "Calculate concentrations and the results of titrations",
+      "Use the molar gas volume (24.0 dm³ at r.t.p.) and deduce stoichiometry from gas volumes"
     ],
     learningIntentionsMn: [
-      "Нэгдсэн массын нэгж: нүүрстөрөгч-12 атомын массын 1/12",
-      "Харьцангуй атом/молекул масс Ar, Mr тооцоолох",
-      "Молийн тодорхойлолт ба Авогадрогийн тогтмол: 6.02 × 10²³ ширхэг бөөм",
-      "Молийн үндсэн томьёонууд: n = m / M, n = c × V (dm³), Хийн эзлэхүүн V = n × 24.0 dm³ (х.н.)",
-      "Эмпирик ба молекулын томьёог хувь найрлагаас тооцоолох",
-      "Титрлэлтийн тооцоо, урвалын хязгаарлагч бодис (limiting reagent) болон хувийн гарц (percentage yield) олох"
+      "Атомын массын нэгдсэн нэгж, Ar, изотопын харьцангуй масс, Mr-ийг тодорхойлж, моль ашиглах",
+      "Изотопын тархалт эсвэл масс-спектрээс Ar тооцоолох, органик молекулын M⁺, [M+1], [M+2] оргилыг ашиглах",
+      "Халаахад алдагдсан массаас кристалл усны молекулын тоог олох",
+      "Масс, хувь эсвэл шаталтын өгөгдлөөс эмпирик ба молекулын томьёог тооцоолох",
+      "Ионы нэгдлийн томьёо, төлөвийн тэмдэгтэй тэнцвэржүүлсэн тэгшитгэл, ионы тэгшитгэл бичих",
+      "Урвалын масс тооцоолох, хязгаарлагч бодисыг тодорхойлох, гарцын хувийг олох",
+      "Концентраци ба титрлэлтийн үр дүнг тооцоолох",
+      "Хийн молийн эзлэхүүнийг (r.t.p.-д 24.0 dm³) ашиглах, хийн эзлэхүүнээс стехиометрийг тодорхойлох"
     ],
     subtopics: [
       {
         id: "3.1",
         number: "3.1",
-        titleEn: "Relative Masses & Mass Spectrometry",
-        titleMn: "Харьцангуй масс ба Масс-спектрометр",
-        summaryEn: "Ar = weighted average mass of an atom compared to 1/12th carbon-12. Calculated from mass spectrum: Σ(isotopic mass × % abundance) / 100.",
-        summaryMn: "Ar = бүх изотопуудын дундаж жин. Ar = (масс₁ × %₁ + масс₂ × %₂) / 100.",
-        keyConcepts: ["Unified atomic mass 1 u = 1.66 × 10⁻²⁷ kg", "Mass spectrum m/e peaks", "[M+1] peak gives carbon count: n = 100/1.1 × ([M+1]/M)"],
-        keyEquations: ["Ar = Σ (Isotopic mass × % abundance) / 100", "n (Carbons) = (100 / 1.1) × (abundance of [M+1] / abundance of M+)"]
+        titleEn: "Relative Masses & the Mole Map",
+        titleMn: "Харьцангуй масс ба молийн «газрын зураг»",
+        summaryEn: "The unified atomic mass unit (u) is 1/12 of the mass of a carbon-12 atom (1 u = 1.66 × 10⁻²⁷ kg). Ar is the weighted average mass of the atoms of an element ÷ 1 u (no units; Cl = 35.5 because of isotopes). Relative isotopic mass is the mass of one isotope ÷ 1 u. Mr (molecules) and relative formula mass (ionic compounds) are the sums of the Ar values: CH₄ = 12.0 + 4(1.0) = 16.0; (NH₄)₂SO₄ = 132.1; Mg(NO₃)₂·6H₂O = 256.3. Every calculation goes through moles: n = m ÷ M, N = n × L, n = V ÷ 24.0 (gas), n = c × V (solution).",
+        summaryMn: "Атомын массын нэгдсэн нэгж (u) нь нүүрстөрөгч-12 атомын массын 1/12 (1 u = 1.66 × 10⁻²⁷ кг). Ar нь элементийн атомуудын жигнэсэн дундаж масс ÷ 1 u (нэгжгүй; изотопуудын улмаас Cl = 35.5). Изотопын харьцангуй масс = нэг изотопын масс ÷ 1 u. Mr (молекул) ба харьцангуй томьёоны масс (ионы нэгдэл) нь Ar-уудын нийлбэр: CH₄ = 12.0 + 4(1.0) = 16.0; (NH₄)₂SO₄ = 132.1; Mg(NO₃)₂·6H₂O = 256.3. Бүх тооцоо мольоор дамжина: n = m ÷ M, N = n × L, n = V ÷ 24.0 (хий), n = c × V (уусмал).",
+        keyConcepts: ["1 u = 1/12 mass of ¹²C", "Ar has no units", "Mr = sum of Ar values", "Mole map: mass ↔ moles ↔ particles ↔ gas volume ↔ solution"],
+        keyEquations: ["n = m ÷ M", "N = n × 6.02 × 10²³", "n = V ÷ 24.0 (V in dm³ at room temperature and pressure)", "n = c × V (V in dm³)"],
+        commonPitfalls: [
+          "Ar is not 'the mass of an atom' — it is the weighted average mass of the atoms compared with 1/12 of the mass of a carbon-12 atom.",
+          "Say which particle: 1 mol Cl₂ contains 2 mol Cl atoms."
+        ]
       },
       {
         id: "3.2",
         number: "3.2",
-        titleEn: "The Mole & Reacting Masses",
-        titleMn: "Моль ба урвалын массын тооцоо",
-        summaryEn: "1 mol = 6.02 × 10²³ particles. Number of moles n = mass (g) / Molar mass (g mol⁻¹). Reacting mass stoichiometry.",
-        summaryMn: "n = m / M. Тэгшитгэлийн стехиометрийн харьцааг ашиглан урвалд орох болон үүсэх бодисын массыг тооцоолно.",
-        keyConcepts: ["Avogadro constant NA = 6.02 × 10²³ mol⁻¹", "Limiting reagent determines maximum theoretical yield"],
-        keyEquations: ["moles = mass / molar mass (n = m/M)", "Percentage yield = (actual yield / theoretical yield) × 100%"]
+        titleEn: "Hydrated Salts & Water of Crystallisation",
+        titleMn: "Кристалл устай давс ба кристалл ус",
+        summaryEn: "Water of crystallisation is water that is part of the crystal structure. Hydrated CuSO₄·5H₂O is blue; anhydrous CuSO₄ is white. Heating drives off the water (blue → white, droplets at the top of the tube); adding water back turns it blue and the tube gets hot. To find x in CuSO₄·xH₂O: heat to constant mass, mass of water = mass lost, then x = n(H₂O) ÷ n(anhydrous salt). Example: 2.50 g → 1.60 g CuSO₄: water 0.90 g = 0.050 mol, CuSO₄ = 0.0100 mol, x = 5.",
+        summaryMn: "Кристалл ус нь талстын бүтцийн нэг хэсэг болсон ус. Кристалл устай CuSO₄·5H₂O цэнхэр, усгүй CuSO₄ цагаан. Халаахад ус ялгарна (цэнхэр → цагаан, хуруу шилний дээд хэсэгт усны дусал); буцааж ус нэмэхэд цэнхэр болж, хуруу шил халуу оргино. CuSO₄·xH₂O-ийн x-ийг олохдоо: тогтмол масс хүртэл халаана, усны масс = алдагдсан масс, x = n(H₂O) ÷ n(усгүй давс). Жишээ: 2.50 г → 1.60 г CuSO₄: ус 0.90 г = 0.050 моль, CuSO₄ = 0.0100 моль, x = 5.",
+        keyConcepts: ["Hydrated: contains water of crystallisation", "Anhydrous: without water", "Heat to constant mass", "x = n(H₂O) ÷ n(anhydrous)"],
+        keyEquations: ["CuSO₄·5H₂O ⇌ CuSO₄ + 5H₂O", "x = n(H₂O) ÷ n(anhydrous salt)"],
+        commonPitfalls: [
+          "Use the Mr of the ANHYDROUS salt for the moles of the residue, not the Mr of the hydrate.",
+          "Heat to constant mass to make sure all the water has been driven off."
+        ]
       },
       {
         id: "3.3",
         number: "3.3",
-        titleEn: "Gas Volumes & Solution Concentrations",
-        titleMn: "Хийн эзлэхүүн ба Уусмалын концентраци",
-        summaryEn: "At r.t.p. (20°C, 1 atm), 1 mol of any gas occupies 24.0 dm³ (24 000 cm³). Concentration c = n / V(dm³). In titrations, n(acid) × stoichiometric ratio = n(alkali).",
-        summaryMn: "Өрөөний нөхцөлд (20°C, 1 атм) 1 моль хий 24.0 dm³ эзлэхүүн эзэлнэ. Уусмалын концентраци c = n / V (dm³ = cm³ / 1000).",
-        keyConcepts: ["Molar gas volume = 24.0 dm³ mol⁻¹ at r.t.p.", "1 dm³ = 1000 cm³", "Concordant titres must be within 0.10 cm³"],
-        keyEquations: ["Gas volume V = n × 24.0 dm³", "Concentration c (mol dm⁻³) = moles / volume (dm³)", "moles = c × V (cm³) / 1000"]
+        titleEn: "Mass Spectra: Ar and Organic Molecules",
+        titleMn: "Масс-спектр: Ar ба органик молекул",
+        summaryEn: "Each peak in the mass spectrum of an element is one isotope; its height is the relative abundance. Ar = Σ(isotopic mass × % abundance) ÷ 100: neon 20 (90.9%), 21 (0.3%), 22 (8.8%) → Ar = 20.2. For organic molecules the M⁺ peak gives Mr; fragments include 15 CH₃⁺, 29 C₂H₅⁺, 43 CH₃CO⁺. The [M+1] peak (from ¹³C) gives the number of carbon atoms: n = 100 × [M+1] ÷ (1.1 × [M]). An [M+2] peak shows Cl (M : M+2 = 3 : 1) or Br (1 : 1).",
+        summaryMn: "Элементийн масс-спектрийн оргил бүр нэг изотоп; өндөр нь харьцангуй тархалт. Ar = Σ(изотопын масс × % тархалт) ÷ 100: неон 20 (90.9%), 21 (0.3%), 22 (8.8%) → Ar = 20.2. Органик молекулд M⁺ оргил Mr-ийг өгнө; хэлтэрхийнүүд: 15 CH₃⁺, 29 C₂H₅⁺, 43 CH₃CO⁺. [M+1] оргил (¹³C-ээс) нүүрстөрөгчийн атомын тоог өгнө: n = 100 × [M+1] ÷ (1.1 × [M]). [M+2] оргил нь Cl (M : M+2 = 3 : 1) эсвэл Br (1 : 1) байгааг харуулна.",
+        keyConcepts: ["Peak height = relative abundance", "M⁺ peak → Mr", "[M+1] → number of C atoms", "[M+2]: Cl 3 : 1, Br 1 : 1"],
+        keyEquations: ["Ar = Σ(mass × % abundance) ÷ 100", "n(C) = 100 × [M + 1] ÷ (1.1 × [M])"],
+        commonPitfalls: [
+          "Divide by the total abundance (100 for percentages) — not by the number of isotopes.",
+          "Estimate first: Ar must lie between the lightest and heaviest isotopes, closest to the most abundant one."
+        ]
       },
       {
         id: "3.4",
         number: "3.4",
-        titleEn: "Empirical & Molecular Formulae",
+        titleEn: "The Mole & the Avogadro Constant",
+        titleMn: "Моль ба Авогадрогийн тогтмол",
+        summaryEn: "One mole is the amount of substance containing 6.02 × 10²³ particles (the Avogadro constant L = 6.02 × 10²³ mol⁻¹). Molar mass is the mass of one mole in g mol⁻¹, numerically equal to Ar or Mr. Examples: 2.9 g CaO ÷ 56.1 = 0.052 mol; 4.5 g H₂O = 0.25 mol = 1.5 × 10²³ molecules = 4.5 × 10²³ atoms. Give answers to the number of significant figures of the least precise data and round only at the end.",
+        summaryMn: "Нэг моль нь 6.02 × 10²³ бөөм агуулсан бодисын хэмжээ (Авогадрогийн тогтмол L = 6.02 × 10²³ mol⁻¹). Молийн масс нь нэг молийн масс (g mol⁻¹), тоон утгаараа Ar эсвэл Mr-тэй тэнцүү. Жишээ: 2.9 г CaO ÷ 56.1 = 0.052 моль; 4.5 г H₂O = 0.25 моль = 1.5 × 10²³ молекул = 4.5 × 10²³ атом. Хариуг хамгийн нарийвчлал багатай өгөгдлийн чухал цифрийн тоогоор өгч, зөвхөн эцэст нь тоймлоно.",
+        keyConcepts: ["L = 6.02 × 10²³ mol⁻¹", "Molar mass M in g mol⁻¹", "Atoms = molecules × atoms per molecule", "Significant figures: match the data"],
+        keyEquations: ["n = m ÷ M · m = n × M", "N = n × L"],
+        commonPitfalls: [
+          "A mole is NOT '6.02 × 10²³ grams' — it is the amount containing 6.02 × 10²³ particles.",
+          "0.004 has 1 significant figure; 0.0040 has 2.",
+          "Do not round at each step — keep the full value in the calculator."
+        ]
+      },
+      {
+        id: "3.5",
+        number: "3.5",
+        titleEn: "Reacting Masses, Limiting Reagent & % Yield",
+        titleMn: "Урвалын масс, хязгаарлагч бодис ба гарцын хувь",
+        summaryEn: "Routine: moles of the known substance → mole ratio from the equation → moles of the unknown → mass. Fe₂O₃ + 3CO → 2Fe + 3CO₂: 798 g Fe₂O₃ = 5.00 mol → 10.0 mol Fe = 558 g. The limiting reagent is used up first and fixes the amount of product; compare the moles needed with the moles available (79.8 g Fe₂O₃ = 0.500 mol needs 0.750 mol C; 0.780 mol available, so C is in excess). Percentage yield = actual ÷ theoretical × 100. Percentage by mass of an element = mass of element in 1 mol ÷ Mr × 100 (Fe in Fe₂O₃ = 69.9%).",
+        summaryMn: "Алгоритм: мэдэгдэх бодисын моль → тэгшитгэлийн молийн харьцаа → үл мэдэгдэх бодисын моль → масс. Fe₂O₃ + 3CO → 2Fe + 3CO₂: 798 г Fe₂O₃ = 5.00 моль → 10.0 моль Fe = 558 г. Хязгаарлагч бодис түрүүлж дуусаж, бүтээгдэхүүний хэмжээг тодорхойлно; шаардлагатай ба байгаа молийг харьцуул (79.8 г Fe₂O₃ = 0.500 моль нь 0.750 моль C шаардана; 0.780 моль байгаа тул C илүүдэлтэй). Гарцын хувь = бодит ÷ онолын × 100. Элементийн массын хувь = 1 моль дахь элементийн масс ÷ Mr × 100 (Fe₂O₃ дахь Fe = 69.9%).",
+        keyConcepts: ["moles → ratio → moles → mass", "Limiting reagent: used up first", "Compare moles needed with moles available", "% yield = actual ÷ theoretical × 100"],
+        keyEquations: ["% yield = actual mass ÷ theoretical mass × 100", "% by mass = (n × Ar) ÷ Mr × 100"],
+        commonPitfalls: [
+          "Moles of reactant ≠ moles of product — use the coefficients in the equation.",
+          "The reagent with more moles is NOT necessarily in excess — compare with the ratio in the equation.",
+          "Theoretical yield = moles of product × Mr of the PRODUCT."
+        ]
+      },
+      {
+        id: "3.6",
+        number: "3.6",
+        titleEn: "Empirical & Molecular Formulas",
         titleMn: "Эмпирик ба молекулын томьёо",
-        summaryEn: "Empirical formula is the simplest whole number ratio of atoms. Molecular formula is the actual number of atoms in a molecule.",
-        summaryMn: "Эмпирик томьёо = атомуудын хамгийн бага бүхэл тоон харьцаа. Молекулын томьёо = эмпирик томьёоны бүхэл үржвэр (Mr / empirical Mr).",
-        keyConcepts: ["Step 1: % to grams -> Step 2: divide by Ar -> Step 3: divide by smallest -> Step 4: whole number ratio"],
-        keyEquations: ["Multiplier x = Mr / (Empirical Formula Mass)", "Molecular Formula = (Empirical Formula) × x"]
+        summaryEn: "The empirical formula is the simplest whole-number ratio of atoms; the molecular formula is the actual number of atoms in a molecule = (empirical formula)ₙ. Table method: element → mass (or %) → ÷ Ar → ÷ smallest → whole-number ratio (multiply if you get 1.5 or 2.5). Example: 3.55 g of a phosphorus oxide with 1.55 g P: P 0.0500, O 0.125 → 1 : 2.5 → P₂O₅. From combustion data: moles of C = moles of CO₂, moles of H = 2 × moles of H₂O. CH₂O with Mr 180 → C₆H₁₂O₆.",
+        summaryMn: "Эмпирик томьёо нь атомуудын хамгийн энгийн бүхэл тоон харьцаа; молекулын томьёо нь молекул дахь атомын бодит тоо = (эмпирик томьёо)ₙ. Хүснэгтийн арга: элемент → масс (эсвэл %) → ÷ Ar → ÷ хамгийн бага → бүхэл харьцаа (1.5 эсвэл 2.5 гарвал үржүүлнэ). Жишээ: 1.55 г P агуулсан 3.55 г фосфорын исэл: P 0.0500, O 0.125 → 1 : 2.5 → P₂O₅. Шаталтын өгөгдлөөс: C-ийн моль = CO₂-ийн моль, H-ийн моль = 2 × H₂O-ийн моль. CH₂O, Mr 180 → C₆H₁₂O₆.",
+        keyConcepts: ["mass → ÷ Ar → ÷ smallest → ratio", "Ratio 1 : 2.5 → multiply by 2", "n = Mr ÷ empirical formula mass", "C from CO₂, H from H₂O"],
+        keyEquations: ["n = Mr ÷ Mr(empirical formula)", "molecular formula = (empirical formula)ₙ"],
+        commonPitfalls: [
+          "Do not round 1 : 2.5 to 1 : 3 — multiply both by 2 to get 2 : 5.",
+          "In combustion analysis, each H₂O contains TWO hydrogen atoms."
+        ]
+      },
+      {
+        id: "3.7",
+        number: "3.7",
+        titleEn: "Ionic Formulas, Balanced & Ionic Equations",
+        titleMn: "Ионы томьёо, тэнцвэржүүлсэн ба ионы тэгшитгэл",
+        summaryEn: "Ion charges come from the Periodic Table; learn NO₃⁻, CO₃²⁻, SO₄²⁻, OH⁻, HCO₃⁻, PO₄³⁻, NH₄⁺, Zn²⁺, Ag⁺. A Roman numeral gives the charge: iron(III) → Fe³⁺. The charges in a formula must add up to zero: Al₂(SO₄)₃, (NH₄)₂CO₃, Ca₃(PO₄)₂. Balance equations atom by atom and add state symbols (s), (l), (g), (aq): Na₂CO₃(s) + 2HCl(aq) → 2NaCl(aq) + CO₂(g) + H₂O(l). Ionic equation: split (aq) compounds into ions, cross out spectator ions, check that charges balance: Fe²⁺(aq) + 2OH⁻(aq) → Fe(OH)₂(s).",
+        summaryMn: "Ионы цэнэгийг үелэх системээс олно; NO₃⁻, CO₃²⁻, SO₄²⁻, OH⁻, HCO₃⁻, PO₄³⁻, NH₄⁺, Zn²⁺, Ag⁺-ийг цээжлэх. Ром тоо цэнэгийг заана: төмөр(III) → Fe³⁺. Томьёон дахь цэнэгүүдийн нийлбэр тэг байх ёстой: Al₂(SO₄)₃, (NH₄)₂CO₃, Ca₃(PO₄)₂. Тэгшитгэлийг атом атомаар тэнцвэржүүлж, (s), (l), (g), (aq) төлөвийн тэмдэг нэмнэ: Na₂CO₃(s) + 2HCl(aq) → 2NaCl(aq) + CO₂(g) + H₂O(l). Ионы тэгшитгэл: (aq) нэгдлүүдийг ион болгон задалж, хөндлөнгийн (spectator) ионуудыг хасч, цэнэгийн тэнцвэрийг шалгана: Fe²⁺(aq) + 2OH⁻(aq) → Fe(OH)₂(s).",
+        keyConcepts: ["Charges add up to zero", "Brackets for more than one polyatomic ion", "Spectator ions appear unchanged on both sides", "Keep (s), (l), (g) species as formulas"],
+        keyEquations: ["Ag⁺(aq) + Cl⁻(aq) → AgCl(s)", "H⁺(aq) + OH⁻(aq) → H₂O(l)", "CO₃²⁻(aq) + 2H⁺(aq) → CO₂(g) + H₂O(l)"],
+        commonPitfalls: [
+          "Aluminium sulfate is Al₂(SO₄)₃ — 2 × (3+) = 3 × (2−).",
+          "In ionic equations do not split solids, liquids or gases into ions, and remove all spectator ions."
+        ]
+      },
+      {
+        id: "3.8",
+        number: "3.8",
+        titleEn: "Solutions, Concentration & Titrations",
+        titleMn: "Уусмал, концентраци ба титрлэлт",
+        summaryEn: "Concentration c = n ÷ V, with c in mol dm⁻³ and V in dm³ (cm³ ÷ 1000); mass concentration in g dm⁻³ = mol dm⁻³ × Mr. In a titration, read the burette to ±0.05 cm³, ignore the rough titre and average concordant titres (within 0.10 cm³): 24.85 and 24.80 → 24.83 cm³. Routine: moles of the known solution → mole ratio → concentration of the unknown. 20.0 cm³ of 0.400 mol dm⁻³ NaOH = 8.00 × 10⁻³ mol; H₂SO₄ : NaOH = 1 : 2 → 4.00 × 10⁻³ mol in 25.25 cm³ → 0.158 mol dm⁻³.",
+        summaryMn: "Концентраци c = n ÷ V, c нь mol dm⁻³, V нь dm³ (cm³ ÷ 1000); массын концентраци g dm⁻³ = mol dm⁻³ × Mr. Титрлэлтэд бюреткийг ±0.05 cm³ нарийвчлалтай уншиж, туршилтын (rough) титрийг хасч, ойролцоо (0.10 cm³ дотор) титрүүдийн дундажийг авна: 24.85 ба 24.80 → 24.83 cm³. Алгоритм: мэдэгдэх уусмалын моль → молийн харьцаа → үл мэдэгдэхийн концентраци. 0.400 mol dm⁻³ NaOH-ийн 20.0 cm³ = 8.00 × 10⁻³ моль; H₂SO₄ : NaOH = 1 : 2 → 25.25 cm³-т 4.00 × 10⁻³ моль → 0.158 mol dm⁻³.",
+        keyConcepts: ["c (mol dm⁻³) = n ÷ V (dm³)", "V(dm³) = V(cm³) ÷ 1000", "Concordant titres: within 0.10 cm³", "g dm⁻³ = mol dm⁻³ × Mr"],
+        keyEquations: ["c = n ÷ V", "n = c × V(cm³) ÷ 1000"],
+        commonPitfalls: [
+          "Never put cm³ into c × V — convert to dm³ first.",
+          "Do not include the rough titre in the mean.",
+          "Total moles of ions: 0.4 mol Al₂(SO₄)₃ gives 0.8 mol Al³⁺ + 1.2 mol SO₄²⁻ = 2.0 mol ions."
+        ]
+      },
+      {
+        id: "3.9",
+        number: "3.9",
+        titleEn: "Gas Volumes",
+        titleMn: "Хийн эзлэхүүн",
+        summaryEn: "Avogadro's hypothesis: equal volumes of gases at the same temperature and pressure contain equal numbers of molecules. At r.t.p. one mole of any gas occupies 24.0 dm³ (24 000 cm³), so n = V ÷ 24.0. Gas volume ratios equal mole ratios, which lets you deduce formulas: 50 cm³ CₓHᵧ + 250 cm³ O₂ → 150 cm³ CO₂ gives 1 : 5 : 3 → x = 3; the remaining 2 O₂ form 4 H₂O → C₃H₈.",
+        summaryMn: "Авогадрогийн таамаглал: ижил температур ба даралтад ижил эзлэхүүнтэй хийнүүд ижил тооны молекул агуулна. r.t.p.-д ямар ч хийн 1 моль 24.0 dm³ (24 000 cm³) эзэлнэ, иймд n = V ÷ 24.0. Хийн эзлэхүүний харьцаа = молийн харьцаа тул томьёог олж болно: 50 cm³ CₓHᵧ + 250 cm³ O₂ → 150 cm³ CO₂ нь 1 : 5 : 3 → x = 3; үлдсэн 2 O₂ нь 4 H₂O үүсгэнэ → C₃H₈.",
+        keyConcepts: ["Molar gas volume = 24.0 dm³ mol⁻¹ at r.t.p.", "Volume ratio = mole ratio", "120 cm³ = 0.120 dm³"],
+        keyEquations: ["n = V ÷ 24.0 (V in dm³)", "V = n × 24.0"],
+        commonPitfalls: [
+          "Convert cm³ to dm³ before dividing by 24.0 (or divide cm³ by 24 000).",
+          "Liquid products (e.g. PCl₃(l), H₂O(l)) have no gas volume."
+        ]
       }
     ],
     keyTerms: [
-      { termEn: "Mole", termMn: "Моль", definitionEn: "The amount of substance which contains 6.02 × 10²³ specified particles (atoms, molecules, ions, or electrons).", definitionMn: "6.02 × 10²³ ширхэг тодорхой бөөмс (атом, молекул, ион г.м) агуулсан бодисын тоо хэмжээ." },
-      { termEn: "Limiting Reagent", termMn: "Хязгаарлагч бодис", definitionEn: "The reactant that is completely consumed first in a reaction, limiting the amount of product that can be formed.", definitionMn: "Урвалд түрүүлж бүрэн зарцуулагдаж, үүсэх бүтээгдэхүүний дээд хэмжээг хязгаарладаг эх бодис." },
-      { termEn: "Relative Atomic Mass (Ar)", termMn: "Харьцангуй атом масс", definitionEn: "The ratio of the weighted average mass of atoms of an element to 1/12th of the mass of a carbon-12 atom.", definitionMn: "Нэг элементийн атомуудын дундаж массыг нүүрстөрөгч-12 атомын массын 1/12-д харьцуулсан харьцаа." }
+      { termEn: "Unified Atomic Mass Unit (u)", termMn: "Атомын массын нэгдсэн нэгж (u)", definitionEn: "One twelfth of the mass of a carbon-12 atom (1.66 × 10⁻²⁷ kg).", definitionMn: "Нүүрстөрөгч-12 атомын массын 1/12 хэсэг (1.66 × 10⁻²⁷ кг)." },
+      { termEn: "Relative Atomic Mass (Ar)", termMn: "Харьцангуй атомын масс (Ar)", definitionEn: "The weighted average mass of the atoms of an element compared with 1/12 of the mass of a carbon-12 atom.", definitionMn: "Элементийн атомуудын жигнэсэн дундаж массыг нүүрстөрөгч-12 атомын массын 1/12-тэй харьцуулсан утга." },
+      { termEn: "Relative Isotopic Mass", termMn: "Изотопын харьцангуй масс", definitionEn: "The mass of an atom of one isotope compared with 1/12 of the mass of a carbon-12 atom.", definitionMn: "Нэг изотопын атомын массыг нүүрстөрөгч-12 атомын массын 1/12-тэй харьцуулсан утга." },
+      { termEn: "Relative Molecular Mass (Mr)", termMn: "Харьцангуй молекул масс (Mr)", definitionEn: "The mass of a molecule compared with 1/12 of the mass of a carbon-12 atom; the sum of the Ar values. 'Relative formula mass' is used for ionic compounds.", definitionMn: "Молекулын массыг нүүрстөрөгч-12 атомын массын 1/12-тэй харьцуулсан утга; Ar-уудын нийлбэр. Ионы нэгдэлд «харьцангуй томьёоны масс» гэнэ." },
+      { termEn: "Mole", termMn: "Моль", definitionEn: "The amount of substance containing 6.02 × 10²³ specified particles (atoms, molecules, ions or electrons).", definitionMn: "6.02 × 10²³ тодорхой бөөм (атом, молекул, ион, электрон) агуулсан бодисын хэмжээ." },
+      { termEn: "Avogadro Constant (L)", termMn: "Авогадрогийн тогтмол (L)", definitionEn: "The number of particles in one mole: 6.02 × 10²³ mol⁻¹.", definitionMn: "Нэг моль дахь бөөмийн тоо: 6.02 × 10²³ mol⁻¹." },
+      { termEn: "Molar Mass", termMn: "Молийн масс", definitionEn: "The mass of one mole of a substance, in g mol⁻¹.", definitionMn: "Бодисын нэг молийн масс, g mol⁻¹-ээр." },
+      { termEn: "Empirical Formula", termMn: "Эмпирик томьёо", definitionEn: "The simplest whole-number ratio of the atoms of each element in a compound.", definitionMn: "Нэгдэл дэх элемент бүрийн атомын хамгийн энгийн бүхэл тоон харьцаа." },
+      { termEn: "Molecular Formula", termMn: "Молекулын томьёо", definitionEn: "The actual number of atoms of each element in one molecule.", definitionMn: "Нэг молекул дахь элемент бүрийн атомын бодит тоо." },
+      { termEn: "Water of Crystallisation", termMn: "Кристалл ус", definitionEn: "Water that is part of the crystal structure of a hydrated compound, e.g. the 5H₂O in CuSO₄·5H₂O.", definitionMn: "Кристалл устай нэгдлийн талстын бүтцэд орсон ус, жишээ нь CuSO₄·5H₂O дахь 5H₂O." },
+      { termEn: "Limiting Reagent", termMn: "Хязгаарлагч бодис", definitionEn: "The reactant that is used up first and so fixes the maximum amount of product; the other reactant is in excess.", definitionMn: "Түрүүлж дуусч, бүтээгдэхүүний дээд хэмжээг тодорхойлдог эх бодис; нөгөө эх бодис илүүдэлтэй." },
+      { termEn: "Concentration", termMn: "Концентраци", definitionEn: "The amount of solute in 1 dm³ of solution: c = n ÷ V, in mol dm⁻³.", definitionMn: "1 dm³ уусмал дахь ууссан бодисын хэмжээ: c = n ÷ V, mol dm⁻³." },
+      { termEn: "Molar Gas Volume", termMn: "Хийн молийн эзлэхүүн", definitionEn: "The volume occupied by one mole of any gas: 24.0 dm³ at room temperature and pressure.", definitionMn: "Ямар ч хийн нэг молийн эзлэх эзлэхүүн: өрөөний температур ба даралтад 24.0 dm³." },
+      { termEn: "Percentage Yield", termMn: "Гарцын хувь", definitionEn: "Actual mass of product ÷ theoretical (maximum) mass × 100.", definitionMn: "Бүтээгдэхүүний бодит масс ÷ онолын (хамгийн их) масс × 100." }
     ],
     formulas: [
-      { nameEn: "Moles from Mass", nameMn: "Массаас моль олох", formula: "n = m / M", note: "mass in grams, M in g mol⁻¹" },
-      { nameEn: "Moles from Solution", nameMn: "Уусмалаас моль олох", formula: "n = c × V", note: "c in mol dm⁻³, V in dm³ (divide cm³ by 1000)" },
-      { nameEn: "Gas Moles at r.t.p.", nameMn: "Хийн моль", formula: "n = V / 24.0", note: "V in dm³ at 20°C and 101 kPa" },
-      { nameEn: "Percentage Yield", nameMn: "Хувийн гарц", formula: "% Yield = (Actual Mass / Theoretical Mass) × 100%", note: "Shows efficiency of reaction" }
+      { nameEn: "Moles from Mass", nameMn: "Массаас моль", formula: "n = m ÷ M", note: "m in g, M in g mol⁻¹" },
+      { nameEn: "Number of Particles", nameMn: "Бөөмийн тоо", formula: "N = n × 6.02 × 10²³", note: "Multiply by atoms per molecule for atoms" },
+      { nameEn: "Moles from Solution", nameMn: "Уусмалаас моль", formula: "n = c × V", note: "c in mol dm⁻³, V in dm³ (cm³ ÷ 1000)" },
+      { nameEn: "Gas Moles at r.t.p.", nameMn: "Хийн моль (r.t.p.)", formula: "n = V ÷ 24.0", note: "V in dm³ at room temperature and pressure" },
+      { nameEn: "Relative Atomic Mass", nameMn: "Харьцангуй атомын масс", formula: "Ar = Σ(mass × % abundance) ÷ 100", note: "From isotopic abundances or a mass spectrum" },
+      { nameEn: "Percentage Yield", nameMn: "Гарцын хувь", formula: "% yield = actual ÷ theoretical × 100", note: "Theoretical mass uses the Mr of the product" },
+      { nameEn: "Water of Crystallisation", nameMn: "Кристалл ус", formula: "x = n(H₂O) ÷ n(anhydrous salt)", note: "Water = mass lost on heating to constant mass" },
+      { nameEn: "Carbon Atoms from [M+1]", nameMn: "[M+1]-ээс нүүрстөрөгчийн тоо", formula: "n = 100 × [M+1] ÷ (1.1 × [M])", note: "¹³C is 1.1% of natural carbon" }
     ],
     examStyleTips: [
-      "Always check unit conversions: 1 dm³ = 1000 cm³. When using c × V, always divide cm³ by 1000!",
-      "Express final answers to the same number of significant figures as the least accurate data in the question (usually 3 s.f.).",
-      "In titration questions, average ONLY concordant titres (within 0.10 cm³ of each other) and discard the rough titre."
+      "Convert cm³ to dm³ (÷ 1000) before using n = c × V.",
+      "Use the coefficients in the equation for the mole ratio — moles of reactant are rarely equal to moles of product.",
+      "To identify the limiting reagent, compare the moles needed with the moles available; 'more moles' does not mean 'in excess'.",
+      "Give answers to the same number of significant figures as the least precise data, and round only at the end.",
+      "Ionic equations: remove spectator ions and keep solids, liquids and gases as full formulas; check the charges balance.",
+      "In titrations, average only concordant titres (within 0.10 cm³) and discard the rough titre.",
+      "Definition of Ar: weighted average mass of the atoms compared with 1/12 of the mass of a carbon-12 atom."
+    ],
+    examQuestions: [
+      {
+        id: "ch3-q1",
+        marks: 2,
+        questionEn: "The mass spectrum of neon shows ²⁰Ne 90.9%, ²¹Ne 0.3% and ²²Ne 8.8%.\nCalculate the relative atomic mass of neon to 3 significant figures.",
+        questionMn: "Неоны масс-спектрт ²⁰Ne 90.9%, ²¹Ne 0.3%, ²²Ne 8.8% байна.\nНеоны харьцангуй атомын массыг 3 чухал цифрээр тооцоолно уу.",
+        solutionEn: "20 × 90.9 + 21 × 0.3 + 22 × 8.8 = 1818 + 6.3 + 193.6 = 2017.9 [1]\nAr = 2017.9 ÷ 100 = 20.2 [1]",
+        solutionMn: "Масс бүрийг хувиар үржүүлж нэмнэ: 1818 + 6.3 + 193.6 = 2017.9. 100-д хуваана: Ar = 20.2.",
+        examinerTip: "Estimate first: the answer must be close to 20 because ²⁰Ne is by far the most abundant isotope."
+      },
+      {
+        id: "ch3-q2",
+        marks: 2,
+        questionEn: "Copper has two isotopes, ⁶³Cu and ⁶⁵Cu. Ar(Cu) = 63.55.\nCalculate the percentage abundance of each isotope.",
+        questionMn: "Зэс ⁶³Cu ба ⁶⁵Cu гэсэн хоёр изотоптой. Ar(Cu) = 63.55.\nИзотоп бүрийн хувийн тархалтыг тооцоолно уу.",
+        solutionEn: "Let ⁶³Cu = x%: 63x + 65(100 − x) = 6355 [1]\n6500 − 2x = 6355 → x = 72.5 · so 72.5% ⁶³Cu and 27.5% ⁶⁵Cu [1]",
+        solutionMn: "⁶³Cu-ийг x% гэвэл 63x + 65(100 − x) = 63.55 × 100. 6500 − 2x = 6355 → x = 72.5. Иймд 72.5% ⁶³Cu, 27.5% ⁶⁵Cu. Шалгалт: (63 × 72.5 + 65 × 27.5) ÷ 100 = 63.55.",
+        examinerTip: "Always check by substituting your percentages back into the Ar formula."
+      },
+      {
+        id: "ch3-q3",
+        marks: 3,
+        questionEn: "2.50 g of hydrated copper(II) sulfate, CuSO₄·xH₂O, is heated to constant mass. 1.60 g of anhydrous CuSO₄ remains.\nCalculate x. (Ar: H = 1.0, O = 16.0, S = 32.1, Cu = 63.5)",
+        questionMn: "2.50 г кристалл устай зэс(II) сульфатыг (CuSO₄·xH₂O) тогтмол масс хүртэл халаахад 1.60 г усгүй CuSO₄ үлджээ.\nx-ийг тооцоолно уу. (Ar: H = 1.0, O = 16.0, S = 32.1, Cu = 63.5)",
+        solutionEn: "Mass of water = 2.50 − 1.60 = 0.90 g → n(H₂O) = 0.90 ÷ 18.0 = 0.050 mol [1]\nn(CuSO₄) = 1.60 ÷ 159.6 = 0.0100 mol [1]\nx = 0.050 ÷ 0.0100 = 5 → CuSO₄·5H₂O [1]",
+        solutionMn: "Усны масс 0.90 г = 0.050 моль. CuSO₄ = 1.60 ÷ 159.6 = 0.0100 моль. x = 0.050 ÷ 0.0100 = 5 → CuSO₄·5H₂O.",
+        examinerTip: "Use the Mr of anhydrous CuSO₄ (159.6) for the residue, not the hydrate."
+      },
+      {
+        id: "ch3-q4",
+        marks: 3,
+        questionEn: "A compound contains C 40.0%, H 6.7% and O 53.3% by mass. Its Mr is 180.\nFind its empirical and molecular formulas. (Ar: C = 12.0, H = 1.0, O = 16.0)",
+        questionMn: "Нэгдэл массаараа C 40.0%, H 6.7%, O 53.3% агуулна. Mr = 180.\nЭмпирик ба молекулын томьёог олно уу. (Ar: C = 12.0, H = 1.0, O = 16.0)",
+        solutionEn: "C 40.0 ÷ 12.0 = 3.33 · H 6.7 ÷ 1.0 = 6.7 · O 53.3 ÷ 16.0 = 3.33 [1]\n÷ 3.33 → 1 : 2 : 1 → empirical formula CH₂O [1]\nM(CH₂O) = 30.0 · 180 ÷ 30.0 = 6 → C₆H₁₂O₆ [1]",
+        solutionMn: "Ar-д хуваавал C 3.33, H 6.7, O 3.33. Хамгийн багад хуваавал 1 : 2 : 1 → CH₂O. 180 ÷ 30.0 = 6 → C₆H₁₂O₆.",
+        examinerTip: "Lay the working out as a table: element · % · ÷ Ar · ÷ smallest."
+      },
+      {
+        id: "ch3-q5",
+        marks: 3,
+        questionEn: "0.600 g of a hydrocarbon burns completely to give 1.76 g CO₂ and 1.08 g H₂O. Its Mr is 30.0.\nFind the empirical and molecular formulas and write the combustion equation.",
+        questionMn: "0.600 г нүүрсустөрөгч бүрэн шатаж 1.76 г CO₂, 1.08 г H₂O үүсгэв. Mr = 30.0.\nЭмпирик ба молекулын томьёог олж, шаталтын тэгшитгэлийг бичнэ үү.",
+        solutionEn: "n(C) = n(CO₂) = 1.76 ÷ 44.0 = 0.0400 mol · n(H) = 2 × 1.08 ÷ 18.0 = 0.120 mol [1]\nC : H = 1 : 3 → CH₃ · 30.0 ÷ 15.0 = 2 → C₂H₆ [1]\n2C₂H₆ + 7O₂ → 4CO₂ + 6H₂O [1]",
+        solutionMn: "C-ийн моль = CO₂-ийн моль = 0.0400; H-ийн моль = 2 × 0.0600 = 0.120. C : H = 1 : 3 → CH₃; 30.0 ÷ 15.0 = 2 → C₂H₆. Шалгалт: 0.480 г C + 0.120 г H = 0.600 г. 2C₂H₆ + 7O₂ → 4CO₂ + 6H₂O.",
+        examinerTip: "Each H₂O contains two H atoms — the most common error is forgetting to double."
+      },
+      {
+        id: "ch3-q6",
+        marks: 4,
+        questionEn: "5.40 g of aluminium is heated with 17.75 g of chlorine: 2Al + 3Cl₂ → 2AlCl₃. 18.7 g of AlCl₃ is obtained.\nIdentify the limiting reagent and calculate the percentage yield. (Ar: Al = 27.0, Cl = 35.5)",
+        questionMn: "5.40 г хөнгөнцагааныг 17.75 г хлортой халаав: 2Al + 3Cl₂ → 2AlCl₃. 18.7 г AlCl₃ гарсан.\nХязгаарлагч бодисыг тодорхойлж, гарцын хувийг тооцоолно уу. (Ar: Al = 27.0, Cl = 35.5)",
+        solutionEn: "n(Al) = 5.40 ÷ 27.0 = 0.200 · n(Cl₂) = 17.75 ÷ 71.0 = 0.250 [1]\n0.200 mol Al needs 0.300 mol Cl₂ but only 0.250 available → Cl₂ is limiting [1]\nn(AlCl₃) = 0.250 × 2/3 = 0.1667 mol × 133.5 = 22.25 g [1]\n% yield = 18.7 ÷ 22.25 × 100 = 84.0% [1]",
+        solutionMn: "Al 0.200 моль, Cl₂ 0.250 моль. 0.200 моль Al-д 0.300 моль Cl₂ хэрэгтэй, гэвч 0.250 л байгаа → Cl₂ хязгаарлагч. Онолын AlCl₃ = 0.1667 моль × 133.5 = 22.25 г. Гарц = 18.7 ÷ 22.25 × 100 = 84.0%.",
+        examinerTip: "Base the theoretical yield on the limiting reagent, using the Mr of the product."
+      },
+      {
+        id: "ch3-q7",
+        marks: 3,
+        questionEn: "20.0 cm³ of 0.400 mol dm⁻³ NaOH is neutralised by 25.25 cm³ of sulfuric acid.\nH₂SO₄ + 2NaOH → Na₂SO₄ + 2H₂O\nCalculate the concentration of the sulfuric acid.",
+        questionMn: "0.400 mol dm⁻³ NaOH-ийн 20.0 cm³-ийг хүхрийн хүчлийн 25.25 cm³ саармагжуулав.\nH₂SO₄ + 2NaOH → Na₂SO₄ + 2H₂O\nХүхрийн хүчлийн концентрацийг тооцоолно уу.",
+        solutionEn: "n(NaOH) = 0.400 × 0.0200 = 8.00 × 10⁻³ mol [1]\nH₂SO₄ : NaOH = 1 : 2 → n(H₂SO₄) = 4.00 × 10⁻³ mol [1]\nc = 4.00 × 10⁻³ ÷ 0.02525 = 0.158 mol dm⁻³ [1]",
+        solutionMn: "NaOH-ийн моль = 0.400 × 0.0200 = 8.00 × 10⁻³. Харьцаа 1 : 2 тул H₂SO₄ = 4.00 × 10⁻³ моль. c = 4.00 × 10⁻³ ÷ 0.02525 dm³ = 0.158 mol dm⁻³.",
+        examinerTip: "Routine: moles of the known → ratio → concentration. Convert both volumes to dm³."
+      },
+      {
+        id: "ch3-q8",
+        marks: 4,
+        questionEn: "50 cm³ of a hydrocarbon CₓHᵧ reacts exactly with 250 cm³ of oxygen to give 150 cm³ of carbon dioxide (all volumes at r.t.p.).\nDeduce x and y and write the equation.",
+        questionMn: "50 cm³ CₓHᵧ нүүрсустөрөгч 250 cm³ хүчилтөрөгчтэй бүрэн урвалд орж 150 cm³ нүүрстөрөгчийн давхар исэл үүсгэв (бүгд r.t.p.).\nx, y-ийг олж, тэгшитгэлийг бичнэ үү.",
+        solutionEn: "Volume ratio = mole ratio: CₓHᵧ : O₂ : CO₂ = 50 : 250 : 150 = 1 : 5 : 3 [1]\n3 CO₂ per molecule → x = 3 [1]\n5 − 3 = 2 mol O₂ left = 4 mol O atoms → 4 H₂O → y = 8 [1]\nC₃H₈ + 5O₂ → 3CO₂ + 4H₂O [1]",
+        solutionMn: "Эзлэхүүний харьцаа = молийн харьцаа = 1 : 5 : 3. 3 CO₂ → x = 3. CO₂-д 3 O₂ зарцуулагдаж, үлдсэн 2 O₂ = 4 O атом → 4 H₂O → y = 8. C₃H₈ + 5O₂ → 3CO₂ + 4H₂O.",
+        examinerTip: "The oxygen not used to make CO₂ must have formed water."
+      },
+      {
+        id: "ch3-q9",
+        marks: 4,
+        questionEn: "Write ionic equations, with state symbols, for:\n(a) aqueous silver nitrate + aqueous sodium chloride\n(b) magnesium + dilute sulfuric acid\n(c) calcium carbonate + hydrochloric acid\n(d) aqueous iron(II) sulfate + aqueous sodium hydroxide",
+        questionMn: "Дараах урвалуудын ионы тэгшитгэлийг төлөвийн тэмдэгтэй бичнэ үү:\n(a) мөнгөний нитратын уусмал + натрийн хлоридын уусмал\n(b) магни + шингэрүүлсэн хүхрийн хүчил\n(c) кальцийн карбонат + давсны хүчил\n(d) төмөр(II) сульфатын уусмал + натрийн гидроксидын уусмал",
+        solutionEn: "(a) Ag⁺(aq) + Cl⁻(aq) → AgCl(s) [1]\n(b) Mg(s) + 2H⁺(aq) → Mg²⁺(aq) + H₂(g) [1]\n(c) CaCO₃(s) + 2H⁺(aq) → Ca²⁺(aq) + CO₂(g) + H₂O(l) [1]\n(d) Fe²⁺(aq) + 2OH⁻(aq) → Fe(OH)₂(s) [1]",
+        solutionMn: "(a) Na⁺, NO₃⁻ хөндлөнгийн ионууд. (b) SO₄²⁻ хөндлөнгийн ион. (c) CaCO₃ хатуу тул ион болгон задлахгүй; Cl⁻ хөндлөнгийн. (d) Na⁺, SO₄²⁻ хөндлөнгийн; Fe(OH)₂ тунадас үүснэ.",
+        examinerTip: "Check that the total charge is the same on both sides of every ionic equation."
+      },
+      {
+        id: "ch3-q10",
+        marks: 4,
+        questionEn: "A ketone has M⁺ at m/e 72 (relative abundance 40.0) and an [M+1] peak of 1.76. Large fragment peaks appear at 29, 43 and 57.\nDeduce the number of carbon atoms, the molecular formula and the structure.",
+        questionMn: "Кетоны M⁺ оргил m/e 72 (харьцангуй тархалт 40.0), [M+1] оргил 1.76. 29, 43, 57-д том хэлтэрхийн оргил гарна.\nНүүрстөрөгчийн атомын тоо, молекулын томьёо ба бүтцийг тодорхойлно уу.",
+        solutionEn: "n(C) = 100 × 1.76 ÷ (1.1 × 40.0) = 4 [1]\n72 − 4 × 12 = 24 = one O + 8 H → C₄H₈O [1]\nFragments: 43 = CH₃CO⁺ · 29 = C₂H₅⁺ · 57 = C₂H₅CO⁺ [1]\nStructure CH₃COCH₂CH₃ (butanone) [1]",
+        solutionMn: "[M+1]-ээс n = 4 нүүрстөрөгч. 72 − 48 = 24 = O (16) + 8H → C₄H₈O. Хэлтэрхийнүүд: 43 = CH₃CO⁺, 29 = C₂H₅⁺, 57 = C₂H₅CO⁺ → бутанон CH₃COCH₂CH₃.",
+        examinerTip: "Use the fragments to place the C=O group: 43 and 57 together point to butanone."
+      },
+      {
+        id: "ch3-q11",
+        marks: 4,
+        questionEn: "2.24 g of iron reacts with chlorine to form 6.50 g of an iron chloride. (Ar: Fe = 55.8, Cl = 35.5)\n(a) Deduce its formula.\n(b) Write the equation for its formation.\n(c) Write the ionic equation, with state symbols, for its reaction with aqueous sodium hydroxide.",
+        questionMn: "2.24 г төмөр хлортой урвалд орж 6.50 г төмрийн хлорид үүсгэв. (Ar: Fe = 55.8, Cl = 35.5)\n(a) Томьёог тодорхойлно уу.\n(b) Үүсэх урвалын тэгшитгэлийг бичнэ үү.\n(c) Натрийн гидроксидын уусмалтай урвалын ионы тэгшитгэлийг төлөвийн тэмдэгтэй бичнэ үү.",
+        solutionEn: "(a) Cl = 6.50 − 2.24 = 4.26 g → 0.120 mol · Fe = 2.24 ÷ 55.8 = 0.0401 mol [1]\nFe : Cl = 1 : 3 → FeCl₃, iron(III) chloride [1]\n(b) 2Fe(s) + 3Cl₂(g) → 2FeCl₃(s) [1]\n(c) Fe³⁺(aq) + 3OH⁻(aq) → Fe(OH)₃(s) [1]",
+        solutionMn: "(a) Cl-ийн масс 4.26 г = 0.120 моль, Fe 0.0401 моль → 1 : 3 → FeCl₃. (b) 2Fe(s) + 3Cl₂(g) → 2FeCl₃(s). (c) Fe³⁺(aq) + 3OH⁻(aq) → Fe(OH)₃(s)."
+      },
+      {
+        id: "ch3-q12",
+        marks: 4,
+        questionEn: "1.215 g of magnesium reacts with 75.0 cm³ of 2.00 mol dm⁻³ hydrochloric acid:\nMg + 2HCl → MgCl₂ + H₂\n(a) Which reagent is limiting?\n(b) Calculate the volume of hydrogen produced at r.t.p.",
+        questionMn: "1.215 г магни 2.00 mol dm⁻³ давсны хүчлийн 75.0 cm³-тэй урвалд орно:\nMg + 2HCl → MgCl₂ + H₂\n(a) Аль бодис хязгаарлагч вэ?\n(b) r.t.p.-д ялгарах устөрөгчийн эзлэхүүнийг тооцоолно уу.",
+        solutionEn: "(a) n(Mg) = 1.215 ÷ 24.3 = 0.0500 mol · n(HCl) = 2.00 × 0.0750 = 0.150 mol [1]\n0.0500 mol Mg needs 0.100 mol HCl; 0.150 available → Mg is limiting [1]\n(b) n(H₂) = 0.0500 mol [1]\nV = 0.0500 × 24.0 = 1.20 dm³ [1]",
+        solutionMn: "(a) Mg 0.0500 моль, HCl 0.150 моль. Mg-д 0.100 моль HCl хэрэгтэй, 0.150 байгаа → Mg хязгаарлагч. (b) H₂ = 0.0500 моль × 24.0 = 1.20 dm³."
+      }
     ]
   },
   {
@@ -505,52 +895,250 @@ export const CHAPTERS_DATA: Chapter[] = [
     category: "Physical",
     titleEn: "States of Matter & The Gas Laws",
     titleMn: "Бодисын төлөв ба Хийн хуулиуд",
-    descriptionEn: "Kinetic theory of gases, ideal gas equation pV = nRT, real vs ideal gases, and crystal lattice structures (giant ionic, giant metallic, giant covalent, simple molecular).",
-    descriptionMn: "Хийн кинетик онол, идеаль хийн төлөвийн тэгшитгэл pV = nRT, бодит ба идеаль хийн ялгаа, талст оронт торын төрлүүд (ионы, металлын, ковалентын аварга тор, энгийн молекулын тор).",
+    descriptionEn: "Kinetic theory, ideal and real gases, pV = nRT and finding Mr, vapour pressure, and giant ionic, metallic, molecular and simple molecular lattices including fullerenes, nanotubes and graphene (Syllabus 4.1–4.2).",
+    descriptionMn: "Кинетик онол, идеаль ба бодит хий, pV = nRT ба Mr олох, уурын даралт, ионы, металлын, аварга молекулын ба энгийн молекулын тор — фуллерен, нанохоолой, графен зэрэг (Syllabus 4.1–4.2).",
+    syllabusRef: "Syllabus 4.1–4.2",
+    examPapers: ["Paper 1", "Paper 2"],
     learningIntentionsEn: [
-      "State assumptions of kinetic theory of gases: zero particle volume, no intermolecular forces, elastic collisions",
-      "Explain conditions where real gases deviate from ideal behavior (very high pressure, very low temperature)",
-      "Use the ideal gas equation pV = nRT in calculations and finding Mr of volatile liquids (Mr = mRT / pV)",
-      "Describe structures and properties of: giant ionic (NaCl, MgO), simple molecular (I₂, C₆₀, ice), giant covalent (diamond, graphite, SiO₂), and giant metallic (Cu, alloys)"
+      "Explain gas pressure in terms of molecules colliding with the walls of the container",
+      "Explain that an ideal gas has zero particle volume and no intermolecular forces, and state when real gases deviate (high pressure, low temperature)",
+      "Use pV = nRT in SI units, including finding the relative molecular mass of a gas or volatile liquid",
+      "Explain vapour pressure and boiling in terms of a dynamic equilibrium between a liquid and its vapour",
+      "Describe giant ionic lattices (NaCl, MgO) and giant metallic lattices (copper, alloys)",
+      "Describe simple molecular lattices (iodine, buckminsterfullerene C₆₀, ice)",
+      "Describe giant molecular lattices (silicon(IV) oxide, graphite, diamond) and graphene and nanotubes",
+      "Explain and predict melting point, conductivity, hardness and solubility from structure, and deduce the structure from data"
     ],
     learningIntentionsMn: [
-      "Идеаль хийн кинетик онолын таамаглалууд (эгэл хэсгүүдийн эзлэхүүн маш бага, таталцах хүчгүй, уян харимхай мөргөлдөөн)",
-      "Бодит хий идеаль хийнээс гажих нөхцөл: Маш өндөр даралт, маш бага температур",
-      "Идеаль хийн тэгшитгэл pV = nRT ашиглан Mr болон эзлэхүүн, даралт тооцоолох (нэгжийн хувиргалт чухал!)",
-      "Талст бүтэц ба холбооны төрлүүдийн шинж чанар: хайлах/буцлах цэг, цахилгаан дамжуулалт, хатуулаг, уусах чанар"
+      "Хийн даралтыг молекулууд савны хананд мөргөлдөхтэй холбон тайлбарлах",
+      "Идеаль хийн бөөмс тэг эзлэхүүнтэй, молекул хоорондын хүчгүй гэдгийг тайлбарлаж, бодит хий хэзээ гаждагийг хэлэх (өндөр даралт, бага температур)",
+      "pV = nRT-г SI нэгжээр хэрэглэх, хий эсвэл дэгдэмхий шингэний харьцангуй молекул массыг олох",
+      "Уурын даралт ба буцлалтыг шингэн ба уурын хоорондох динамик тэнцвэрээр тайлбарлах",
+      "Ионы аварга тор (NaCl, MgO) ба металлын аварга тор (зэс, хайлш)-ыг тодорхойлох",
+      "Энгийн молекулын торыг (иод, бакминстерфуллерен C₆₀, мөс) тодорхойлох",
+      "Аварга молекулын торыг (цахиур(IV) исэл, графит, алмаз), графен ба нанохоолойг тодорхойлох",
+      "Бүтцээс хайлах цэг, цахилгаан дамжуулалт, хатуулаг, уусах чанарыг тайлбарлах ба урьдчилан хэлэх, өгөгдлөөс бүтцийг тодорхойлох"
     ],
     subtopics: [
       {
         id: "5.1",
         number: "5.1",
-        titleEn: "Ideal Gas Equation (pV = nRT)",
-        titleMn: "Идеаль хийн тэгшитгэл ба нэгжийн хувиргалт",
-        summaryEn: "pV = nRT where p is in Pa, V is in m³, T is in K (T(K) = °C + 273), R = 8.31 J K⁻¹ mol⁻¹. Finding molar mass: Mr = mRT / pV.",
-        summaryMn: "Даралт p нь Pa (1 kPa = 1000 Pa), Эзлэхүүн V нь m³ (1 m³ = 1000 dm³ = 1 000 000 cm³), T нь Kelvin (°C + 273).",
-        keyConcepts: ["Unit precision: Pa and m³", "Mr = (m × R × T) / (p × V)"],
-        keyEquations: ["pV = nRT", "pV = (m / Mr) RT", "Mr = mRT / pV"]
+        titleEn: "Kinetic Theory, Ideal & Real Gases",
+        titleMn: "Кинетик онол, идеаль ба бодит хий",
+        summaryEn: "Kinetic theory: gas molecules move rapidly and randomly, their volume is negligible, there are no intermolecular forces, collisions are elastic, and temperature ∝ average kinetic energy. Gas pressure is caused by molecules colliding with the walls of the container. At constant T, V ∝ 1/p (more frequent collisions); at constant p, V ∝ T in kelvin (harder collisions). Real gases deviate from ideal behaviour at high pressure (molecules close together, so their own volume matters) and low temperature (molecules slow, so intermolecular forces pull them together and p is lower than expected). Gases are most ideal at low pressure and high temperature; He and Ne are nearly ideal (tiny atoms, very weak id–id forces), NH₃ is not (hydrogen bonding).",
+        summaryMn: "Кинетик онол: хийн молекулууд хурдан, эмх замбараагүй хөдөлнө, эзлэхүүн нь үл тооцогдохуйц, молекул хоорондын хүчгүй, мөргөлдөөн уян, температур ∝ дундаж кинетик энерги. Хийн даралт нь молекулууд савны хананд мөргөлдөхөөс үүснэ. Тогтмол T-д V ∝ 1/p (мөргөлдөөн олширно); тогтмол p-д V ∝ T (кельвинээр) (мөргөлдөөн хүчтэй болно). Бодит хий өндөр даралтад (молекулууд ойр тул өөрсдийн эзлэхүүн чухал болно) ба бага температурт (молекулууд удаан тул молекул хоорондын хүч тэднийг татаж, даралт хүлээгдэж буйгаас бага) идеаль байдлаас гажна. Бага даралт, өндөр температурт хий хамгийн идеаль; He, Ne бараг идеаль (жижиг атом, маш сул id–id хүч), NH₃ идеаль биш (устөрөгчийн холбоо).",
+        keyConcepts: ["Ideal gas: zero particle volume + no intermolecular forces", "Pressure = collisions with the walls", "Least ideal: high p, low T", "Most ideal: low p, high T"],
+        keyEquations: ["T (K) = θ (°C) + 273", "Constant T: V ∝ 1/p · constant p: V ∝ T"],
+        commonPitfalls: [
+          "An ideal gas is not 'a gas whose molecules are very small' — state BOTH zero particle volume AND no intermolecular forces.",
+          "Real gases are least ideal at LOW temperature and HIGH pressure — give a reason for each.",
+          "Temperature changes must be in kelvin: 20 °C → 40 °C is 293 K → 313 K (× 1.07), not a doubling."
+        ]
       },
       {
         id: "5.2",
         number: "5.2",
-        titleEn: "Lattice Structures & Physical Properties",
-        titleMn: "Талст бүтэц ба физик шинжүүд",
-        summaryEn: "Giant ionic (high MP, conducts only molten/aqueous). Giant covalent (diamond, SiO₂ high MP non-conductor; graphite conducts due to delocalised π electrons). Giant metallic (high MP, malleable, conducts solid/liquid). Simple molecular (low MP, non-conductor).",
-        summaryMn: "Бүтцийн ангилал ба онцлог: Ионы тор (хайламж/уусмалдаа ионоор дамжуулна), Металл (чөлөөт электроноор хатуу ба шингэндээ дамжуулна), Графит (давхарга хоорондын чөлөөт электроноор дамжуулна).",
-        keyConcepts: ["Cleavage planes in ionic lattices -> brittle", "Delocalised electrons in metals -> malleable & conductive", "Allotropes of carbon: diamond, graphite, graphene, C₆₀"]
+        titleEn: "The Ideal Gas Equation pV = nRT",
+        titleMn: "Идеаль хийн тэгшитгэл pV = nRT",
+        summaryEn: "pV = nRT with p in Pa, V in m³, n in mol, T in K and R = 8.31 J K⁻¹ mol⁻¹. Conversions: kPa × 10³ → Pa; dm³ × 10⁻³ → m³; cm³ × 10⁻⁶ → m³; °C + 273 → K. Rearrangements: V = nRT/p, n = pV/RT, T = pV/nR, and with n = m/Mr, Mr = mRT/pV. Example: 0.500 mol CO₂ at 150 kPa and 19 °C occupies 0.500 × 8.31 × 292 ÷ 150 000 = 8.09 × 10⁻³ m³ (8.09 dm³). Syringe oven: 0.118 g of liquid gives 62.0 cm³ of vapour at 373 K and 1.01 × 10⁵ Pa → Mr = 58.4 ≈ 58 (propanone).",
+        summaryMn: "pV = nRT: p — Pa, V — m³, n — моль, T — K, R = 8.31 J K⁻¹ mol⁻¹. Хувиргалт: kPa × 10³ → Pa; dm³ × 10⁻³ → m³; cm³ × 10⁻⁶ → m³; °C + 273 → K. Хувиргасан хэлбэр: V = nRT/p, n = pV/RT, T = pV/nR, n = m/Mr гэвэл Mr = mRT/pV. Жишээ: 150 kPa, 19 °C-д 0.500 моль CO₂ нь 0.500 × 8.31 × 292 ÷ 150 000 = 8.09 × 10⁻³ m³ (8.09 dm³) эзэлнэ. Тариурын зуух: 0.118 г шингэн 373 K, 1.01 × 10⁵ Pa-д 62.0 cm³ уур болно → Mr = 58.4 ≈ 58 (пропанон).",
+        keyConcepts: ["SI units: Pa, m³, K", "R = 8.31 J K⁻¹ mol⁻¹", "Mr = mRT ÷ pV (m in g)", "Suggest the substance from Mr"],
+        keyEquations: ["pV = nRT", "Mr = mRT ÷ pV", "1 cm³ = 1 × 10⁻⁶ m³ · 1 dm³ = 1 × 10⁻³ m³"],
+        commonPitfalls: [
+          "Never substitute kPa or cm³ directly — convert to Pa and m³ first.",
+          "Keep the mass in grams in Mr = mRT/pV so that Mr comes out in g mol⁻¹."
+        ]
+      },
+      {
+        id: "5.3",
+        number: "5.3",
+        titleEn: "The Liquid State & Vapour Pressure",
+        titleMn: "Шингэн төлөв ба уурын даралт",
+        summaryEn: "In a closed container a liquid evaporates; at first evaporation is faster than condensation, then the two rates become equal and the concentration of vapour stays constant (dynamic equilibrium). Vapour pressure is the pressure exerted by a vapour in equilibrium with its liquid. Vapour pressure rises with temperature because more molecules have enough kinetic energy to escape the intermolecular forces. A liquid boils when its vapour pressure equals the atmospheric pressure.",
+        summaryMn: "Битүү саванд шингэн ууршина; эхэндээ уурших нь конденсацаас хурдан, дараа нь хоёр хурд тэнцэж, уурын концентраци тогтмол болно (динамик тэнцвэр). Уурын даралт нь шингэнтэйгээ тэнцвэрт байгаа уурын даралт. Температур өсөхөд илүү олон молекул молекул хоорондын хүчнээс салах хангалттай кинетик энергитэй болох тул уурын даралт өснө. Уурын даралт нь агаар мандлын даралттай тэнцэх үед шингэн буцална.",
+        keyConcepts: ["Dynamic equilibrium: rate of evaporation = rate of condensation", "Vapour pressure ↑ with temperature", "Boiling point: vapour pressure = atmospheric pressure"],
+        commonPitfalls: [
+          "At equilibrium evaporation and condensation have NOT stopped — they happen at equal rates."
+        ]
+      },
+      {
+        id: "5.4",
+        number: "5.4",
+        titleEn: "Giant Ionic & Giant Metallic Lattices",
+        titleMn: "Ионы ба металлын аварга тор",
+        summaryEn: "A crystal lattice is a regularly repeating arrangement of ions, atoms or molecules. In NaCl the Na⁺ and Cl⁻ ions alternate and each ion is surrounded by 6 oppositely charged ions. Ionic solids are hard, have high melting points, are often soluble in water and conduct only when molten or aqueous. They are brittle: a blow shifts a layer so that ions of the same charge meet and repel, splitting the crystal. MgO (2852 °C) melts far higher than NaCl (801 °C) because Mg²⁺ and O²⁻ have double charges. Metals are malleable and ductile because layers of ions can slide while the metallic bonding acts in all directions and re-forms. Alloys are mixtures of a metal with other elements; different-sized atoms make the lattice irregular so layers slide less easily — brass (Cu/Zn) is stronger than copper.",
+        summaryMn: "Талст тор нь ион, атом эсвэл молекулын тогтмол давтагдах байршил. NaCl-д Na⁺ ба Cl⁻ ионууд ээлжилж, ион бүрийг эсрэг цэнэгтэй 6 ион хүрээлнэ. Ионы хатуу бодис хатуу, хайлах цэг өндөр, усанд ихэвчлэн уусдаг, зөвхөн хайлмал эсвэл уусмал үедээ цахилгаан дамжуулна. Хэврэг: цохилт давхаргыг шилжүүлж, ижил цэнэгтэй ионууд таарч түлхэлцэн талст хуваагдана. MgO (2852 °C) нь NaCl (801 °C)-оос хамаагүй өндөр температурт хайлна, учир нь Mg²⁺, O²⁻ давхар цэнэгтэй. Металл давхаргууд гулсах боловч металлын холбоо бүх чиглэлд үйлчилж дахин үүсдэг тул металл давтагдах, сунах чадвартай. Хайлш нь металл ба бусад элементийн холимог; өөр хэмжээтэй атомууд торыг жигд бус болгож давхаргын гулсалтыг багасгана — гууль (Cu/Zn) зэснээс бат бөх.",
+        keyConcepts: ["NaCl: each ion has 6 nearest neighbours", "Ionic: brittle, conducts molten/aqueous only", "Metals: layers slide, bonds re-form", "Alloys: irregular lattice → stronger"],
+        commonPitfalls: [
+          "Ionic solids are brittle NOT because 'the bonds are weak' — a shifted layer brings like charges together and they repel.",
+          "Alloys are mixtures, not compounds.",
+          "Metals are malleable because bonding is non-directional and re-forms after layers slide, not because the bonds are weak."
+        ]
+      },
+      {
+        id: "5.5",
+        number: "5.5",
+        titleEn: "Simple Molecular & Giant Molecular Lattices",
+        titleMn: "Энгийн молекулын ба аварга молекулын тор",
+        summaryEn: "Simple molecular lattices (I₂, ice, CO₂, C₆₀) have strong covalent bonds within each molecule but only weak intermolecular forces between molecules, so they have low melting points (iodine 114 °C, sublimes) and do not conduct. Giant molecular (covalent) lattices have a 3D network of strong covalent bonds and very high melting points. Diamond: each C bonded to 4 others — very hard, no delocalised electrons, does not conduct. SiO₂: each Si bonded to 4 O and each O to 2 Si — hard, high melting point, non-conductor; CO₂ is a gas because it is simple molecular. Graphite: each C forms 3 covalent bonds in hexagonal layers, the 4th electron is delocalised and moves along the layers (conducts); layers are held by weak forces so they slide (pencils), but the melting point is high because covalent bonds within layers must break.",
+        summaryMn: "Энгийн молекулын тор (I₂, мөс, CO₂, C₆₀)-д молекул дотор хүчтэй ковалент холбоо, молекулуудын хооронд зөвхөн сул хүч байдаг тул хайлах цэг бага (иод 114 °C, сублимацид орно), цахилгаан дамжуулахгүй. Аварга молекулын (ковалент) тор нь хүчтэй ковалент холбооны 3D сүлжээтэй, хайлах цэг маш өндөр. Алмаз: C бүр өөр 4 C-тэй холбогдоно — маш хатуу, чөлөөт электронгүй, дамжуулахгүй. SiO₂: Si бүр 4 O-той, O бүр 2 Si-тэй — хатуу, хайлах цэг өндөр, дамжуулахгүй; CO₂ энгийн молекул тул хий. Графит: C бүр зургаан өнцөгт давхаргад 3 ковалент холбоо үүсгэж, 4 дэх электрон нь чөлөөтэй болж давхаргын дагуу хөдөлнө (дамжуулна); давхаргууд сул хүчээр холбогдсон тул гулсана (харандаа), гэхдээ давхарга доторх ковалент холбоог таслах шаардлагатай тул хайлах цэг өндөр.",
+        keyConcepts: ["Simple molecular: weak IMF → low m.p.", "Giant covalent: many strong covalent bonds → very high m.p.", "Graphite conducts: delocalised electrons along layers", "Diamond and SiO₂: no delocalised electrons"],
+        commonPitfalls: [
+          "Iodine melts at 114 °C because weak id–id forces BETWEEN molecules are overcome — the I–I covalent bonds do not break.",
+          "Graphite's high melting point is due to strong covalent bonds within the layers, not the weak forces between layers.",
+          "There are no 'SiO₂ molecules' — SiO₂ is a giant network; the formula is the ratio of atoms."
+        ]
+      },
+      {
+        id: "5.6",
+        number: "5.6",
+        titleEn: "Fullerenes, Nanotubes & Graphene",
+        titleMn: "Фуллерен, нанохоолой ба графен",
+        summaryEn: "Allotropes are different crystalline forms of the same element. Buckminsterfullerene C₆₀ (20 hexagons + 12 pentagons) is simple molecular: weak forces between C₆₀ molecules, so it is soft, a poor conductor and sublimes at about 600 °C (graphite only at about 3700 °C). It is slightly soluble in CS₂ and more reactive than graphite. A nanotube is a rolled graphite layer: it conducts along the tube, is very strong along its axis and melts at about 3500 °C. Graphene is a single layer of graphite: an excellent conductor (delocalised electrons move across the sheet) and very strong for its mass. For any unfamiliar structure ask: what are the particles, what bonds hold them, are there delocalised electrons, is it a network or separate molecules?",
+        summaryMn: "Аллотроп нь нэг элементийн өөр өөр талст хэлбэрүүд. Бакминстерфуллерен C₆₀ (20 зургаан өнцөгт + 12 таван өнцөгт) энгийн молекулын бүтэцтэй: C₆₀ молекулуудын хооронд сул хүч байдаг тул зөөлөн, муу дамжуулагч, ойролцоогоор 600 °C-д сублимацид орно (графит ~3700 °C-д). CS₂-д бага зэрэг уусах ба графитаас идэвхтэй. Нанохоолой нь ороосон графитын давхарга: хоолойн дагуу дамжуулна, тэнхлэгийнхээ дагуу маш бат бөх, ~3500 °C-д хайлна. Графен нь графитын нэг давхарга: маш сайн дамжуулагч (чөлөөт электронууд хуудасны дагуу хөдөлнө), массынхаа хувьд маш бат бөх. Танихгүй бүтэцтэй тулгарвал: бөөм нь юу вэ, ямар холбоо байна, чөлөөт электрон бий юу, сүлжээ үү эсвэл тусдаа молекул уу гэж асуу.",
+        keyConcepts: ["C₆₀: simple molecular, sublimes ≈ 600 °C", "Nanotube: rolled graphite layer", "Graphene: single layer, excellent conductor", "Four questions: particles · bonds · delocalised electrons · network or molecules"],
+        commonPitfalls: [
+          "C₆₀ is NOT a giant covalent structure — it is made of separate C₆₀ molecules."
+        ]
+      },
+      {
+        id: "5.7",
+        number: "5.7",
+        titleEn: "Structure → Properties: Deducing the Structure",
+        titleMn: "Бүтэц → шинж чанар: бүтцийг тодорхойлох",
+        summaryEn: "Giant ionic (NaCl, MgO): ions, ionic bonds — hard, brittle, high m.p., conducts molten/aqueous, often soluble. Giant molecular (diamond, graphite, SiO₂): atoms, covalent bonds — very hard (graphite soft), very high m.p., non-conductor (graphite conducts), insoluble. Giant metallic (Cu, Fe): positive ions in delocalised electrons — hard, malleable, usually high m.p., conducts as solid and liquid, insoluble. Simple molecular (I₂, H₂O, CO₂, C₆₀): molecules, weak IMFs — soft, low m.p., non-conductor; non-polar ones insoluble in water. From data: high m.p. + conducts only when molten → ionic; high m.p. + conducts as solid → metallic; very high m.p. + never conducts → giant covalent; low m.p. + never conducts → simple molecular.",
+        summaryMn: "Ионы аварга (NaCl, MgO): ион, ионы холбоо — хатуу, хэврэг, хайлах цэг өндөр, хайлмал/уусмалдаа дамжуулна, ихэвчлэн уусна. Аварга молекулын (алмаз, графит, SiO₂): атом, ковалент холбоо — маш хатуу (графит зөөлөн), хайлах цэг маш өндөр, дамжуулахгүй (графит дамжуулна), уусахгүй. Металлын аварга (Cu, Fe): чөлөөт электрон дахь эерэг ионууд — хатуу, давтагдах чадвартай, хайлах цэг ихэвчлэн өндөр, хатуу ба шингэн үедээ дамжуулна, уусахгүй. Энгийн молекулын (I₂, H₂O, CO₂, C₆₀): молекул, сул хүч — зөөлөн, хайлах цэг бага, дамжуулахгүй; туйлгүй нь усанд уусахгүй. Өгөгдлөөс: хайлах цэг өндөр + зөвхөн хайлмалдаа дамжуулна → ионы; өндөр + хатуудаа дамжуулна → металл; маш өндөр + огт дамжуулахгүй → аварга ковалент; бага + дамжуулахгүй → энгийн молекул.",
+        keyConcepts: ["Conducts only molten/aqueous → giant ionic", "Conducts solid and liquid → giant metallic", "Very high m.p., no conduction → giant covalent", "Low m.p., no conduction → simple molecular"],
+        commonPitfalls: [
+          "In every explanation give: particles + force between them + consequence (e.g. 'many strong covalent bonds → much energy needed to break').",
+          "Diamond conducts heat well but does NOT conduct electricity — it has no delocalised electrons."
+        ]
       }
     ],
     keyTerms: [
-      { termEn: "Ideal Gas", termMn: "Идеаль хий", definitionEn: "A gas whose particles have negligible volume and zero intermolecular forces, obeying pV = nRT under all conditions.", definitionMn: "Эгэл хэсгүүдийн эзлэхүүн ба харилцан үйлчлэлийн хүчийг тооцохгүй, бүх нөхцөлд pV=nRT хуульд захирагдах онолын хий." },
-      { termEn: "Allotrope", termMn: "Аллотропи / Дүр хувирал", definitionEn: "Different structural crystalline forms of the same element in the same physical state (e.g. diamond and graphite).", definitionMn: "Нэг элементийн хатуу төлөв дэх ялгаатай талст бүтэц бүхий хэлбэрүүд." }
+      { termEn: "Kinetic Theory", termMn: "Кинетик онол", definitionEn: "The theory that gas particles are in rapid, random motion, with temperature proportional to their average kinetic energy.", definitionMn: "Хийн бөөмс хурдан, эмх замбараагүй хөдөлж, температур нь дундаж кинетик энергитэй пропорциональ гэсэн онол." },
+      { termEn: "Ideal Gas", termMn: "Идеаль хий", definitionEn: "A gas whose particles have zero volume and no intermolecular forces of attraction; it obeys pV = nRT exactly.", definitionMn: "Бөөмс нь тэг эзлэхүүнтэй, молекул хоорондын таталцлын хүчгүй хий; pV = nRT-г яг дагана." },
+      { termEn: "Real Gas", termMn: "Бодит хий", definitionEn: "A gas that deviates from ideal behaviour, most at high pressure and low temperature.", definitionMn: "Идеаль байдлаас гаждаг хий; өндөр даралт, бага температурт хамгийн их гажна." },
+      { termEn: "Gas Pressure", termMn: "Хийн даралт", definitionEn: "The force per unit area caused by gas molecules colliding with the walls of the container.", definitionMn: "Хийн молекулууд савны хананд мөргөлдөхөөс үүсэх нэгж талбайд ногдох хүч." },
+      { termEn: "Vapour Pressure", termMn: "Уурын даралт", definitionEn: "The pressure exerted by a vapour in equilibrium with its liquid.", definitionMn: "Шингэнтэйгээ тэнцвэрт байгаа уурын үзүүлэх даралт." },
+      { termEn: "Boiling Point", termMn: "Буцлах цэг", definitionEn: "The temperature at which the vapour pressure of a liquid equals the atmospheric pressure.", definitionMn: "Шингэний уурын даралт агаар мандлын даралттай тэнцэх температур." },
+      { termEn: "Crystal Lattice", termMn: "Талст тор", definitionEn: "A regularly repeating three-dimensional arrangement of ions, atoms or molecules.", definitionMn: "Ион, атом эсвэл молекулын тогтмол давтагдах гурван хэмжээст байршил." },
+      { termEn: "Giant Molecular (Covalent) Structure", termMn: "Аварга молекулын (ковалент) бүтэц", definitionEn: "A three-dimensional network of atoms joined by strong covalent bonds, e.g. diamond and SiO₂.", definitionMn: "Хүчтэй ковалент холбоогоор холбогдсон атомуудын гурван хэмжээст сүлжээ, жишээ нь алмаз, SiO₂." },
+      { termEn: "Malleable / Ductile", termMn: "Давтагдах / Сунах чадвар", definitionEn: "Able to be hammered into shape / drawn into wires.", definitionMn: "Цохиж хэлбэржүүлэх / утас болгон сунгах боломжтой." },
+      { termEn: "Brittle", termMn: "Хэврэг", definitionEn: "Shatters when hit, as ionic crystals do.", definitionMn: "Цохиход хагардаг, ионы талст шиг." },
+      { termEn: "Alloy", termMn: "Хайлш", definitionEn: "A mixture of a metal with one or more other elements, e.g. brass (Cu and Zn).", definitionMn: "Металл ба нэг буюу хэд хэдэн өөр элементийн холимог, жишээ нь гууль (Cu ба Zn)." },
+      { termEn: "Allotropes", termMn: "Аллотропууд", definitionEn: "Different crystalline or structural forms of the same element, e.g. diamond, graphite and C₆₀.", definitionMn: "Нэг элементийн өөр өөр талст буюу бүтцийн хэлбэрүүд, жишээ нь алмаз, графит, C₆₀." },
+      { termEn: "Fullerene", termMn: "Фуллерен", definitionEn: "An allotrope of carbon made of hollow spheres or tubes of carbon atoms, e.g. C₆₀.", definitionMn: "Нүүрстөрөгчийн атомуудын хөндий бөмбөрцөг эсвэл хоолойноос тогтох нүүрстөрөгчийн аллотроп, жишээ нь C₆₀." },
+      { termEn: "Graphene", termMn: "Графен", definitionEn: "A single layer of graphite, one atom thick.", definitionMn: "Нэг атомын зузаантай графитын ганц давхарга." }
     ],
     formulas: [
-      { nameEn: "Ideal Gas Law", nameMn: "Идеаль хийн хууль", formula: "pV = nRT", note: "p in Pa, V in m³, T in K, R = 8.31 J K⁻¹ mol⁻¹" },
-      { nameEn: "Molar Mass from Gas", nameMn: "Хийнээс молекул масс олох", formula: "Mr = (m × R × T) / (p × V)", note: "Convert cm³ to m³ by dividing by 10⁶" }
+      { nameEn: "Ideal Gas Equation", nameMn: "Идеаль хийн тэгшитгэл", formula: "pV = nRT", note: "p in Pa, V in m³, T in K, R = 8.31 J K⁻¹ mol⁻¹" },
+      { nameEn: "Mr from Gas Data", nameMn: "Хийн өгөгдлөөс Mr", formula: "Mr = mRT ÷ pV", note: "m in g; used with the syringe oven for volatile liquids" },
+      { nameEn: "Kelvin Temperature", nameMn: "Кельвин температур", formula: "T (K) = θ (°C) + 273", note: "Always use kelvin in gas calculations" },
+      { nameEn: "Volume Conversions", nameMn: "Эзлэхүүний хувиргалт", formula: "1 dm³ = 10⁻³ m³ · 1 cm³ = 10⁻⁶ m³", note: "kPa × 10³ = Pa" }
     ],
     examStyleTips: [
-      "Watch units in pV = nRT! 100 kPa = 100 000 Pa; 50 cm³ = 50 × 10⁻⁶ m³; 25°C = 298 K.",
-      "Real gases deviate most from ideal behavior at high pressure (molecules are close, volume cannot be ignored) and low temperature (molecules move slowly, intermolecular forces take effect)."
+      "In pV = nRT use Pa, m³ and K: 100 kPa = 1.00 × 10⁵ Pa; 50 cm³ = 5.0 × 10⁻⁵ m³; 25 °C = 298 K.",
+      "Ideal gas: zero particle volume AND no intermolecular forces — both points are needed for 2 marks.",
+      "Real gases deviate most at high pressure and low temperature — always give the reason.",
+      "When calculating Mr from gas data, keep mass in grams and suggest a likely substance from the answer.",
+      "Explain properties with particles + force + consequence; e.g. graphite conducts because the 4th electron of each C is delocalised and moves along the layers.",
+      "Ionic brittleness: layers shift → like charges meet → repulsion; not 'the bonds are weak'."
+    ],
+    examQuestions: [
+      {
+        id: "ch5-q1",
+        marks: 4,
+        questionEn: "(a) What is meant by an ideal gas? [2]\n(b) State one condition under which a real gas is least ideal and explain why. [2]",
+        questionMn: "(a) Идеаль хий гэж юу вэ? [2]\n(b) Бодит хий хамгийн бага идеаль байх нэг нөхцөлийг хэлж, шалтгааныг тайлбарлана уу. [2]",
+        solutionEn: "(a) Particles have zero (negligible) volume [1] · no intermolecular forces [1]\n(b) High pressure [1] · molecules are close together so their own volume is no longer negligible [1]\n(or low temperature · molecules move slowly so intermolecular forces become significant)",
+        solutionMn: "(a) Бөөмс тэг эзлэхүүнтэй; молекул хоорондын хүчгүй. (b) Өндөр даралт — молекулууд ойр байх тул өөрсдийн эзлэхүүн чухал болно (эсвэл бага температур — молекулууд удаан хөдөлж, молекул хоорондын хүч нөлөөлнө).",
+        examinerTip: "'Molecules are very small' scores nothing — say zero volume."
+      },
+      {
+        id: "ch5-q2",
+        marks: 3,
+        questionEn: "Calculate the volume occupied by 0.500 mol of carbon dioxide at 150 kPa and 19 °C. (R = 8.31 J K⁻¹ mol⁻¹)",
+        questionMn: "150 kPa ба 19 °C-д 0.500 моль нүүрстөрөгчийн давхар ислийн эзлэх эзлэхүүнийг тооцоолно уу. (R = 8.31 J K⁻¹ mol⁻¹)",
+        solutionEn: "p = 150 000 Pa · T = 19 + 273 = 292 K [1]\nV = nRT ÷ p = 0.500 × 8.31 × 292 ÷ 150 000 [1]\nV = 8.09 × 10⁻³ m³ = 8.09 dm³ [1]",
+        solutionMn: "Нэгжийг хувиргана: p = 150 000 Pa, T = 292 K. V = nRT/p = 0.500 × 8.31 × 292 ÷ 150 000 = 8.09 × 10⁻³ m³ = 8.09 dm³.",
+        examinerTip: "Write the unit conversions on a separate line before substituting."
+      },
+      {
+        id: "ch5-q3",
+        marks: 3,
+        questionEn: "A 5.00 dm³ flask contains 4.00 g of oxygen at 127 °C.\nCalculate the pressure in the flask. (R = 8.31 J K⁻¹ mol⁻¹, Mr(O₂) = 32.0)",
+        questionMn: "5.00 dm³ колбонд 127 °C-д 4.00 г хүчилтөрөгч байна.\nКолбон дахь даралтыг тооцоолно уу. (R = 8.31 J K⁻¹ mol⁻¹, Mr(O₂) = 32.0)",
+        solutionEn: "T = 400 K · V = 5.00 × 10⁻³ m³ · n = 4.00 ÷ 32.0 = 0.125 mol [1]\np = nRT ÷ V = 0.125 × 8.31 × 400 ÷ 5.00 × 10⁻³ [1]\np = 8.31 × 10⁴ Pa (83.1 kPa) [1]",
+        solutionMn: "T = 400 K, V = 5.00 × 10⁻³ m³, n = 0.125 моль. p = nRT/V = 8.31 × 10⁴ Pa (83.1 kPa)."
+      },
+      {
+        id: "ch5-q4",
+        marks: 4,
+        questionEn: "0.290 g of a hydrocarbon gas X occupies 124 cm³ at 25 °C and 100 kPa.\n(a) Calculate the Mr of X. [3]\n(b) Suggest the molecular formula of X. [1]",
+        questionMn: "X нүүрсустөрөгчийн хийн 0.290 г нь 25 °C, 100 kPa-д 124 cm³ эзэлнэ.\n(a) X-ийн Mr-ийг тооцоолно уу. [3]\n(b) X-ийн молекулын томьёог санал болгоно уу. [1]",
+        solutionEn: "(a) V = 1.24 × 10⁻⁴ m³ · T = 298 K · p = 1.00 × 10⁵ Pa [1]\nMr = mRT ÷ pV [1]\nMr = 0.290 × 8.31 × 298 ÷ (1.00 × 10⁵ × 1.24 × 10⁻⁴) = 57.9 ≈ 58 [1]\n(b) C₄H₁₀ (Mr = 58) [1]",
+        solutionMn: "(a) SI нэгж: V = 1.24 × 10⁻⁴ m³, T = 298 K, p = 1.00 × 10⁵ Pa. Mr = mRT/pV = 57.9 ≈ 58. (b) C₄H₁₀ (бутан, Mr = 58).",
+        examinerTip: "cm³ × 10⁻⁶ = m³ — the single most common error in pV = nRT questions."
+      },
+      {
+        id: "ch5-q5",
+        marks: 3,
+        questionEn: "In a syringe-oven experiment at 100 °C and 101 kPa, the mass of a syringe containing a volatile liquid fell from 10.426 g to 10.308 g, and the gas syringe reading rose from 25.0 cm³ to 87.0 cm³.\nCalculate the Mr of the liquid and suggest its identity.",
+        questionMn: "100 °C, 101 kPa-д тариурын зуухны туршилтаар дэгдэмхий шингэнтэй тариурын масс 10.426 г-аас 10.308 г болж буурч, хийн тариурын заалт 25.0 cm³-ээс 87.0 cm³ болж өсөв.\nШингэний Mr-ийг тооцоолж, ямар бодис болохыг санал болгоно уу.",
+        solutionEn: "m = 10.426 − 10.308 = 0.118 g · V = 87.0 − 25.0 = 62.0 cm³ = 6.20 × 10⁻⁵ m³ [1]\nMr = 0.118 × 8.31 × 373 ÷ (1.01 × 10⁵ × 6.20 × 10⁻⁵) = 58.4 [1]\nMr ≈ 58 → propanone, CH₃COCH₃ [1]",
+        solutionMn: "Шингэний масс 0.118 г, уурын эзлэхүүн 62.0 cm³ = 6.20 × 10⁻⁵ m³, T = 373 K, p = 1.01 × 10⁵ Pa. Mr = mRT/pV = 58.4 ≈ 58 → пропанон CH₃COCH₃."
+      },
+      {
+        id: "ch5-q6",
+        marks: 3,
+        questionEn: "Bromine is placed in a closed jar. The colour of the vapour above the liquid gets darker and then stops changing.\n(a) Explain these observations. [2]\n(b) Why does the vapour pressure of bromine rise when the temperature increases? [1]",
+        questionMn: "Бромыг битүү саванд хийв. Шингэний дээрх уурын өнгө бараан болж, дараа нь өөрчлөгдөхөө болино.\n(a) Эдгээр ажиглалтыг тайлбарлана уу. [2]\n(b) Температур өсөхөд бромын уурын даралт яагаад өсдөг вэ? [1]",
+        solutionEn: "(a) At first evaporation is faster than condensation, so the vapour concentration rises [1]\nThen the rates become equal · dynamic equilibrium, so the vapour concentration stays constant [1]\n(b) More molecules have enough kinetic energy to overcome the intermolecular forces and escape [1]",
+        solutionMn: "(a) Эхэндээ уурших нь конденсацаас хурдан тул уурын концентраци өснө; дараа нь хурдууд тэнцэж динамик тэнцвэр тогтож, концентраци тогтмол болно. (b) Илүү олон молекул молекул хоорондын хүчийг даван гарах хангалттай кинетик энергитэй болно."
+      },
+      {
+        id: "ch5-q7",
+        marks: 6,
+        questionEn: "(a) Describe the lattice of sodium chloride. [3]\n(b) Explain why sodium chloride is brittle. [3]",
+        questionMn: "(a) Натрийн хлоридын торыг тодорхойлно уу. [3]\n(b) Натрийн хлорид яагаад хэврэг байдгийг тайлбарлана уу. [3]",
+        solutionEn: "(a) Regular repeating three‑dimensional lattice [1] · alternating Na⁺ and Cl⁻ ions [1] · each ion surrounded by 6 oppositely charged ions [1]\n(b) A force shifts one layer of ions relative to another [1]\nIons of the same charge come next to each other [1]\nThe repulsion splits the crystal [1]",
+        solutionMn: "(a) Тогтмол давтагдах 3D тор; Na⁺ ба Cl⁻ ионууд ээлжилнэ; ион бүрийг эсрэг цэнэгтэй 6 ион хүрээлнэ. (b) Хүч нэг давхаргыг шилжүүлж, ижил цэнэгтэй ионууд хажуу хажууд ирж түлхэлцэн талст хуваагдана."
+      },
+      {
+        id: "ch5-q8",
+        marks: 4,
+        questionEn: "(a) Brass (an alloy of copper and zinc) is stronger than pure copper. Explain. [2]\n(b) Tensile strength / 10⁸ Pa: 100% Cu 2.3 · 20% Zn 3.0 · 40% Zn 3.6. Describe and explain the trend. [2]",
+        questionMn: "(a) Гууль (зэс ба цайрын хайлш) цэвэр зэснээс бат бөх. Тайлбарлана уу. [2]\n(b) Суналтын бат бөх / 10⁸ Pa: 100% Cu 2.3 · 20% Zn 3.0 · 40% Zn 3.6. Хандлагыг тодорхойлж тайлбарлана уу. [2]",
+        solutionEn: "(a) Zn atoms are a different size from Cu atoms [1] · the lattice is irregular so layers cannot slide as easily [1]\n(b) Strength increases as the percentage of Zn increases [1] · more Zn atoms distort the lattice more [1]",
+        solutionMn: "(a) Zn атом Cu атомаас өөр хэмжээтэй; тор жигд бус болж давхаргууд амархан гулсахгүй. (b) Zn-ийн хувь өсөх тусам бат бөх өснө — олон Zn атом торыг илүү гажуудуулна."
+      },
+      {
+        id: "ch5-q9",
+        marks: 9,
+        questionEn: "Carbon forms several allotropes.\n(a) Define allotropes. [1]\n(b) Explain why diamond and graphite have high melting points. [2]\n(c) Explain why graphite conducts electricity. [3]\n(d) Explain why graphite is used in pencils. [2]\n(e) Why does C₆₀ sublime at about 600 °C? [1]",
+        questionMn: "Нүүрстөрөгч хэд хэдэн аллотроп үүсгэдэг.\n(a) Аллотропыг тодорхойлно уу. [1]\n(b) Алмаз ба графит яагаад хайлах цэг өндөртэй вэ? [2]\n(c) Графит яагаад цахилгаан дамжуулдаг вэ? [3]\n(d) Графитыг яагаад харандаанд ашигладаг вэ? [2]\n(e) C₆₀ яагаад ойролцоогоор 600 °C-д сублимацид ордог вэ? [1]",
+        solutionEn: "(a) Different crystalline or structural forms of the same element [1]\n(b) Giant structures with many strong covalent bonds [1] · a lot of energy is needed to break them [1]\n(c) Each C forms 3 covalent bonds [1] · the 4th electron is delocalised [1] · delocalised electrons move along the layers [1]\n(d) Weak forces between the layers [1] · layers slide off onto the paper [1]\n(e) C₆₀ is simple molecular · only weak intermolecular forces need to be overcome [1]",
+        solutionMn: "(a) Нэг элементийн өөр өөр талст хэлбэр. (b) Олон хүчтэй ковалент холбоотой аварга бүтэц — таслахад их энерги хэрэгтэй. (c) C бүр 3 холбоо үүсгэж, 4 дэх электрон чөлөөтэй болж давхаргын дагуу хөдөлнө. (d) Давхарга хоорондын хүч сул — давхаргууд гулсаж цаасан дээр үлдэнэ. (e) C₆₀ энгийн молекул — зөвхөн молекул хоорондын сул хүчийг даван гарна.",
+        examinerTip: "For the melting point of graphite, credit is for breaking covalent bonds — not for the weak forces between layers."
+      },
+      {
+        id: "ch5-q10",
+        marks: 4,
+        questionEn: "Deduce the structure of each substance:\n(a) X: m.p. 747 °C, conducts when molten, soluble in water\n(b) Y: m.p. 114 °C, very poor conductor, almost insoluble\n(c) Z: m.p. 1495 °C, conducts as a solid and when molten, insoluble\n(d) W: very high m.p., poor conductor as solid and liquid",
+        questionMn: "Бодис бүрийн бүтцийг тодорхойлно уу:\n(a) X: хайлах цэг 747 °C, хайлмалдаа дамжуулна, усанд уусна\n(b) Y: хайлах цэг 114 °C, маш муу дамжуулагч, бараг уусахгүй\n(c) Z: хайлах цэг 1495 °C, хатуу ба хайлмалдаа дамжуулна, уусахгүй\n(d) W: хайлах цэг маш өндөр, хатуу ба шингэн үедээ муу дамжуулагч",
+        solutionEn: "(a) Giant ionic [1]\n(b) Simple molecular, such as iodine [1]\n(c) Giant metallic [1]\n(d) Giant covalent (giant molecular) [1]",
+        solutionMn: "(a) Ионы аварга тор. (b) Энгийн молекул (жишээ нь иод). (c) Металлын аварга тор. (d) Аварга ковалент (аварга молекулын) тор.",
+        examinerTip: "Conduction only when molten points to ions; conduction as a solid points to delocalised electrons."
+      },
+      {
+        id: "ch5-q11",
+        marks: 2,
+        questionEn: "Explain why carbon dioxide is a gas at room temperature but silicon(IV) oxide is a high-melting solid.",
+        questionMn: "Нүүрстөрөгчийн давхар исэл өрөөний температурт хий, харин цахиур(IV) исэл өндөр хайлах цэгтэй хатуу бодис байдгийг тайлбарлана уу.",
+        solutionEn: "CO₂ is simple molecular · only weak intermolecular forces between molecules [1]\nSiO₂ is a giant covalent network · many strong Si–O covalent bonds must be broken [1]",
+        solutionMn: "CO₂ энгийн молекул — молекулуудын хооронд зөвхөн сул хүч. SiO₂ аварга ковалент сүлжээ — олон хүчтэй Si–O ковалент холбоог таслах шаардлагатай."
+      }
     ]
   },
   {
@@ -560,78 +1148,241 @@ export const CHAPTERS_DATA: Chapter[] = [
     category: "Physical",
     titleEn: "Enthalpy Changes (Thermochemistry)",
     titleMn: "Энтальпийн өөрчлөлт (Термохими & Гессийн хууль)",
-    descriptionEn: "Exothermic and endothermic reactions, enthalpy profile diagrams, activation energy, standard conditions, calorimetry (q = mcΔT), Hess's Law cycles, and bond energy calculations.",
-    descriptionMn: "Экзотерм ба эндотерм урвал, урвалын энергийн профиль, идэвхжлийн энерги, калориметр (q = mcΔT), стандарт энтальпиуд (ΔH⦵f, ΔH⦵c, ΔH⦵neut), Гессийн хуулийн цикл, холбооны энерги.",
+    descriptionEn: "Exothermic and endothermic reactions, reaction pathway diagrams, standard enthalpy changes, calorimetry (q = mcΔT), Hess's law cycles using ΔHf and ΔHc, and bond energies (Syllabus 5.1–5.2).",
+    descriptionMn: "Экзотерм ба эндотерм урвал, урвалын замын диаграмм, стандарт энтальпийн өөрчлөлтүүд, калориметр (q = mcΔT), ΔHf ба ΔHc ашигласан Гессийн хуулийн цикл, холбооны энерги (Syllabus 5.1–5.2).",
+    syllabusRef: "Syllabus 5.1–5.2",
+    examPapers: ["Paper 1", "Paper 2", "Paper 3"],
     learningIntentionsEn: [
-      "Explain enthalpy changes (ΔH): Exothermic (ΔH < 0, heat released), Endothermic (ΔH > 0, heat absorbed)",
-      "Draw reaction pathway diagrams showing reactants, products, activation energy (Ea), and ΔH",
-      "Define standard enthalpy changes: Formation (ΔH⦵f), Combustion (ΔH⦵c), Neutralisation (ΔH⦵neut), Reaction (ΔH⦵r)",
-      "Calculate heat transferred from calorimetry: q = mcΔT, and molar enthalpy change ΔH = -q / n",
-      "Apply Hess's Law to construct energy cycles: ΔHr = ΣΔHf(products) - ΣΔHf(reactants) and ΔHr = ΣΔHc(reactants) - ΣΔHc(products)",
-      "Calculate ΔHr using average bond energies: ΔHr = Σ(bonds broken) - Σ(bonds formed)"
+      "Use ΔH: exothermic reactions have negative ΔH and endothermic reactions positive ΔH",
+      "Draw and interpret reaction pathway diagrams showing ΔH and the activation energy EA",
+      "Define standard conditions (298 K, 101 kPa) and the standard enthalpy changes of reaction, formation, combustion and neutralisation",
+      "Calculate ΔH from experimental results using q = mcΔT and ΔH = −mcΔT ÷ n",
+      "Evaluate calorimetry experiments: sources of error and improvements",
+      "Use Hess's law to construct energy cycles",
+      "Calculate enthalpy changes from ΔHf and from ΔHc data",
+      "Explain ΔH in terms of bond breaking (endothermic) and bond making (exothermic)",
+      "Calculate ΔH from bond energies and explain the difference between exact and average bond energies"
     ],
     learningIntentionsMn: [
-      "Энтальпийн өөрчлөлт: Экзотерм (ΔH хасах, дулаан ялгарна), Эндотерм (ΔH нэмэх, дулаан шингээнэ)",
-      "Энергийн профиль зурах (Ea сум эх бодисоос дээш, ΔH сум эх бодисоос бүтээгдэхүүн рүү)",
-      "Стандарт энтальпийн тодорхойлолтууд: Үүсэхийн (ΔH⦵f), Шатахын (ΔH⦵c), Саармагжихын (ΔH⦵neut)",
-      "Калориметрийн тооцоо: q = mcΔT (J), 1 моль бодист шилжүүлэх: ΔH = -q / (n × 1000) (kJ mol⁻¹)",
-      "Гессийн хуулийн цикл: Үүсэхийн энтальпиар ΔHr = ΣΔHf(бүт) - ΣΔHf(эх); Шатахын энтальпиар ΔHr = ΣΔHc(эх) - ΣΔHc(бүт)",
-      "Холбооны энергийн тооцоо: Холбоо тасрах = Эндотерм (+), Холбоо үүсэх = Экзотерм (-). ΔHr = Σ(тасарсан) - Σ(үүссэн)"
+      "ΔH-г хэрэглэх: экзотерм урвалын ΔH сөрөг, эндотерм урвалын ΔH эерэг",
+      "ΔH ба идэвхжүүлэлтийн энерги EA-г харуулсан урвалын замын диаграмм зурах, унших",
+      "Стандарт нөхцөл (298 K, 101 kPa) ба урвалын, үүсэхийн, шатахын, саармагжихын стандарт энтальпийн өөрчлөлтийг тодорхойлох",
+      "Туршилтын үр дүнгээс q = mcΔT ба ΔH = −mcΔT ÷ n ашиглан ΔH тооцоолох",
+      "Калориметрийн туршилтыг үнэлэх: алдааны эх үүсвэр ба сайжруулалт",
+      "Гессийн хуулиар энергийн цикл байгуулах",
+      "ΔHf болон ΔHc өгөгдлөөс энтальпийн өөрчлөлтийг тооцоолох",
+      "ΔH-г холбоо тасрах (эндотерм) ба холбоо үүсэх (экзотерм)-ээр тайлбарлах",
+      "Холбооны энергиэс ΔH тооцоолж, яг ба дундаж холбооны энергийн ялгааг тайлбарлах"
     ],
     subtopics: [
       {
         id: "6.1",
         number: "6.1",
-        titleEn: "Calorimetry & Measuring Enthalpy",
-        titleMn: "Калориметр ба дулааны хэмжилт",
-        summaryEn: "q = mcΔT where m is mass of solution in g (1 cm³ = 1 g), c = 4.18 J g⁻¹ °C⁻¹, ΔT = temperature change. Molar ΔH = -q / n (in kJ mol⁻¹).",
-        summaryMn: "q = mcΔT. Уусмалын 1 cm³ = 1 g гэж тооцно. ΔH = -q / (n × 1000) kJ mol⁻¹. Температур өссөн бол ΔH сөрөг тэмдэгтэй байна!",
-        keyConcepts: ["Specific heat capacity of water = 4.18 J g⁻¹ K⁻¹", "Heat losses cause experimental ΔH to be less exothermic than data book"],
-        keyEquations: ["q = mcΔT (J)", "ΔH = -q / (1000 × n) (kJ mol⁻¹)"]
+        titleEn: "Exothermic, Endothermic & Pathway Diagrams",
+        titleMn: "Экзотерм, эндотерм ба урвалын замын диаграмм",
+        summaryEn: "The enthalpy change ΔH is the energy exchanged with the surroundings at constant pressure (kJ mol⁻¹). Exothermic: energy is transferred to the surroundings, the temperature rises, ΔH is negative (combustion, respiration, neutralisation, CaO + water). Endothermic: energy is absorbed, the temperature falls, ΔH is positive (thermal decomposition, photosynthesis, NH₄Cl dissolving). On a reaction pathway diagram (enthalpy against reaction pathway) exothermic products lie below the reactants (ΔH arrow down) and endothermic products above (arrow up). EA, the minimum energy colliding particles need to react, is measured from the reactants to the peak. If EA = +80 and ΔH = −120 kJ mol⁻¹, the reverse reaction has ΔH = +120 and EA = +200 kJ mol⁻¹.",
+        summaryMn: "Энтальпийн өөрчлөлт ΔH нь тогтмол даралтад орчинтой солилцсон энерги (kJ mol⁻¹). Экзотерм: энерги орчинд шилжиж, температур өснө, ΔH сөрөг (шаталт, амьсгал, саармагжилт, CaO + ус). Эндотерм: энерги шингээж, температур буурна, ΔH эерэг (дулааны задрал, фотосинтез, NH₄Cl уусах). Урвалын замын диаграммд (энтальпи — урвалын зам) экзотерм урвалын бүтээгдэхүүн эх бодисоос доор (ΔH сум доош), эндотермд дээр (сум дээш). EA — мөргөлдөж буй бөөмс урвалд орох хамгийн бага энерги, эх бодисоос оргил хүртэл хэмжинэ. EA = +80, ΔH = −120 kJ mol⁻¹ бол урвуу урвалын ΔH = +120, EA = +200 kJ mol⁻¹.",
+        keyConcepts: ["Exothermic: ΔH −, temperature rises", "Endothermic: ΔH +, temperature falls", "EA: from reactants to the peak", "Reverse reaction: ΔH changes sign"],
+        keyEquations: ["EA(reverse) = EA(forward) − ΔH(forward)"],
+        commonPitfalls: [
+          "If the temperature rises the reaction is exothermic, so ΔH is NEGATIVE.",
+          "EA is measured from the reactants to the top of the hump — not from zero or from the products."
+        ]
       },
       {
         id: "6.2",
         number: "6.2",
-        titleEn: "Standard Enthalpy Definitions",
-        titleMn: "Стандарт энтальпийн тодорхойлолтууд",
-        summaryEn: "Standard conditions: 298 K (25°C), 101 kPa (1 atm), standard physical states. ΔH⦵f of any pure element in standard state = 0.",
-        summaryMn: "Стандарт нөхцөл: 298 K, 101 kPa. Цэвэр элементийн үүсэхийн стандарт энтальпи ΔH⦵f = 0.",
-        keyConcepts: ["ΔH⦵f: Formation of 1 mol compound from elements", "ΔH⦵c: Complete combustion of 1 mol substance in excess O₂", "ΔH⦵neut: Formation of 1 mol H₂O from acid + alkali (always ~ -57.1 kJ mol⁻¹)"]
+        titleEn: "Standard Conditions & Standard Enthalpy Changes",
+        titleMn: "Стандарт нөхцөл ба стандарт энтальпийн өөрчлөлтүүд",
+        summaryEn: "Standard conditions (⦵): 298 K (25 °C) and 101 kPa, with each substance in its normal physical state (carbon as graphite). ΔHr⦵: the amounts in the stoichiometric equation react (2H₂ + O₂ → 2H₂O(l), −572 kJ). ΔHf⦵: one mole of a compound is formed from its elements in their standard states (2Fe(s) + 1½O₂(g) → Fe₂O₃(s)); ΔHf⦵ of an element in its standard state = 0. ΔHc⦵: one mole of a substance is burnt completely in excess oxygen (always negative). ΔHneut⦵: one mole of water is formed when an acid reacts with an alkali: H⁺(aq) + OH⁻(aq) → H₂O(l), −57.1 kJ mol⁻¹ (always negative). C(graphite) + O₂(g) → CO₂(g) is both ΔHf⦵[CO₂] and ΔHc⦵[C].",
+        summaryMn: "Стандарт нөхцөл (⦵): 298 K (25 °C), 101 kPa, бодис бүр ердийн физик төлөвтөө (нүүрстөрөгч — графит). ΔHr⦵: стехиометрийн тэгшитгэлд заасан хэмжээгээр урвалд орно (2H₂ + O₂ → 2H₂O(l), −572 kJ). ΔHf⦵: стандарт төлөвт буй элементүүдээс 1 моль нэгдэл үүснэ (2Fe(s) + 1½O₂(g) → Fe₂O₃(s)); стандарт төлөвт буй элементийн ΔHf⦵ = 0. ΔHc⦵: 1 моль бодис илүүдэл хүчилтөрөгчид бүрэн шатна (үргэлж сөрөг). ΔHneut⦵: хүчил шүлттэй урвалд орж 1 моль ус үүснэ: H⁺(aq) + OH⁻(aq) → H₂O(l), −57.1 kJ mol⁻¹ (үргэлж сөрөг). C(graphite) + O₂(g) → CO₂(g) нь ΔHf⦵[CO₂] ба ΔHc⦵[C] хоёулаа мөн.",
+        keyConcepts: ["Standard: 298 K, 101 kPa", "ΔHf⦵ of an element = 0", "ΔHc⦵ and ΔHneut⦵ always negative", "Use ½ coefficients to make exactly 1 mol"],
+        keyEquations: ["ΔHf⦵[CH₄]: C(graphite) + 2H₂(g) → CH₄(g)", "ΔHc⦵[C₂H₅OH]: C₂H₅OH(l) + 3O₂(g) → 2CO₂(g) + 3H₂O(l)", "ΔHneut⦵: H⁺(aq) + OH⁻(aq) → H₂O(l)"],
+        commonPitfalls: [
+          "ΔHf is formation from ELEMENTS in their standard states — not from atoms (Na(s) + ½Cl₂(g) → NaCl(s)).",
+          "ΔHneut is per mole of WATER formed — not per mole of acid.",
+          "Standard conditions are 298 K and 101 kPa — not 273 K."
+        ]
       },
       {
         id: "6.3",
         number: "6.3",
-        titleEn: "Hess's Law & Enthalpy Cycles",
-        titleMn: "Гессийн хууль ба энергийн цикл",
-        summaryEn: "Total enthalpy change is independent of the route taken. From ΔHf: ΔHr = ΣΔHf(products) - ΣΔHf(reactants). From ΔHc: ΔHr = ΣΔHc(reactants) - ΣΔHc(products).",
-        summaryMn: "Гессийн хууль: Химийн урвалын нийт энтальпийн өөрчлөлт нь анхны ба эцсийн төлөв ижил үед урвал явагдсан замаас үл хамаарна.",
-        keyEquations: ["ΔH(route 1) = ΔH(route 2)", "ΔHr = ΣΔHf(products) - ΣΔHf(reactants)", "ΔHr = ΣΔHc(reactants) - ΣΔHc(products)"]
+        titleEn: "Calorimetry: q = mcΔT",
+        titleMn: "Калориметр: q = mcΔT",
+        summaryEn: "q = mcΔT, where q is the heat (J), m the mass of water or solution (g), c = 4.18 J g⁻¹ °C⁻¹ and ΔT the temperature change. Then ΔH = −q ÷ n (n = moles of the stated reactant or product) and ÷ 1000 for kJ mol⁻¹. Assume 1 cm³ of solution = 1 g and c(solution) = c(water). Example: 50 cm³ of 1.0 mol dm⁻³ HCl + 50 cm³ of 1.0 mol dm⁻³ NaOH, 21.3 → 27.8 °C: q = 100 × 4.18 × 6.5 = 2717 J; n(H₂O) = 0.050 mol; ΔHneut = −54 kJ mol⁻¹ (data book −57.1). If one reagent is in excess (e.g. excess Zn with CuSO₄), use the moles of the limiting reagent.",
+        summaryMn: "q = mcΔT: q — дулаан (J), m — ус эсвэл уусмалын масс (г), c = 4.18 J g⁻¹ °C⁻¹, ΔT — температурын өөрчлөлт. Дараа нь ΔH = −q ÷ n (n — заасан эх бодис эсвэл бүтээгдэхүүний моль), kJ mol⁻¹ болгохдоо 1000-д хуваана. 1 cm³ уусмал = 1 г, c(уусмал) = c(ус) гэж үзнэ. Жишээ: 1.0 mol dm⁻³ HCl-ийн 50 cm³ + 1.0 mol dm⁻³ NaOH-ийн 50 cm³, 21.3 → 27.8 °C: q = 100 × 4.18 × 6.5 = 2717 J; n(H₂O) = 0.050 моль; ΔHneut = −54 kJ mol⁻¹ (лавлах ном −57.1). Нэг бодис илүүдэлтэй бол (жишээ нь CuSO₄-тэй илүүдэл Zn) хязгаарлагч бодисын молийг ашиглана.",
+        keyConcepts: ["m = mass of water / solution, not of the solid or fuel", "c(water) = 4.18 J g⁻¹ °C⁻¹", "1 cm³ solution ≈ 1 g", "Use moles of the limiting reagent"],
+        keyEquations: ["q = mcΔT", "ΔH = −q ÷ n", "ΔH (kJ mol⁻¹) = −mcΔT ÷ (1000 × n)"],
+        commonPitfalls: [
+          "m in q = mcΔT is the mass of the WATER or SOLUTION — not the mass of fuel or solid added.",
+          "Temperature rose → exothermic → ΔH negative.",
+          "Divide J by 1000 to get kJ: −2717 J ÷ 0.050 mol = −54.3 kJ mol⁻¹, not −54 340 kJ mol⁻¹."
+        ]
       },
       {
         id: "6.4",
         number: "6.4",
-        titleEn: "Bond Energies & Reaction Enthalpy",
-        titleMn: "Холбооны энерги ба урвалын энтальпи",
-        summaryEn: "Bond breaking is endothermic (+), bond forming is exothermic (-). ΔHr = Σ(bonds broken) - Σ(bonds formed). Average bond energies give slight deviations from exact values.",
-        summaryMn: "Холбоо тасрахад дулаан шингээнэ (+), шинэ холбоо үүсэхэд дулаан ялгарна (-).",
-        keyEquations: ["ΔHr = Σ E(bonds broken) - Σ E(bonds formed)"]
+        titleEn: "Enthalpy of Combustion Experiments & Errors",
+        titleMn: "Шатахын энтальпийн туршилт ба алдаа",
+        summaryEn: "To measure ΔHc, burn a fuel in a spirit burner under a metal calorimeter and record the mass of fuel burnt, the mass of water and ΔT; q = m(water) × c × ΔT, n(fuel) = mass burnt ÷ Mr, ΔHc = −q ÷ n. Example: 0.21 g propan-1-ol heats 100 g of water by 10.7 °C → q = 4472.6 J, n = 0.0035 mol → ΔHc ≈ −1300 kJ mol⁻¹ (data book −2021). Experimental values are less exothermic because of heat lost to the air, can and thermometer, incomplete combustion (soot), fuel evaporating from the wick, and non-standard conditions. Improvements: lid, draught shield and insulation, flame just touching the can, cap kept on the burner, a bomb calorimeter or extrapolating ΔT.",
+        summaryMn: "ΔHc хэмжихдээ спиртийн шатаагчаар металл калориметрийн доор түлш шатааж, шатсан түлшний масс, усны масс, ΔT-г тэмдэглэнэ; q = m(ус) × c × ΔT, n(түлш) = шатсан масс ÷ Mr, ΔHc = −q ÷ n. Жишээ: 0.21 г пропан-1-ол 100 г усыг 10.7 °C халаана → q = 4472.6 J, n = 0.0035 моль → ΔHc ≈ −1300 kJ mol⁻¹ (лавлах ном −2021). Туршилтын утга бага экзотерм гардаг шалтгаан: агаар, сав, термометр рүү дулаан алдагдах, бүрэн бус шаталт (тортог), зулнаас түлш ууршин алдагдах, стандарт бус нөхцөл. Сайжруулалт: таг, салхины хамгаалалт, дулаалга, дөл савд арай л хүрэх, шатаагчийн тагийг хаах, бөмбөгөн калориметр эсвэл ΔT-г экстраполяц хийх.",
+        keyConcepts: ["Measure: mass of fuel burnt, mass of water, ΔT", "Main error: heat losses to surroundings", "Experimental ΔHc less negative than data book", "Name specific errors, never 'human error'"],
+        keyEquations: ["n(fuel) = mass burnt ÷ Mr", "ΔHc = −m(water) × c × ΔT ÷ n(fuel)"],
+        commonPitfalls: [
+          "'Human error' scores nothing — name a specific error such as heat loss or incomplete combustion.",
+          "State the EFFECT of an error: heat loss makes ΔT smaller, so the calculated ΔH is less negative than the true value."
+        ]
+      },
+      {
+        id: "6.5",
+        number: "6.5",
+        titleEn: "Hess's Law & Energy Cycles",
+        titleMn: "Гессийн хууль ба энергийн цикл",
+        summaryEn: "Hess's law: the total enthalpy change for a reaction is independent of the route taken, provided the initial and final conditions are the same. It finds ΔH values that cannot be measured directly (e.g. ΔHf of propane, or the decomposition of MgCO₃ which needs strong heating). Cycle using ΔHf: elements at the bottom with arrows pointing UP, so ΔHr = ΣΔHf(products) − ΣΔHf(reactants); e.g. 2NaHCO₃ → Na₂CO₃ + CO₂ + H₂O: −1810.0 − (−1901.6) = +91.6 kJ mol⁻¹. Cycle using ΔHc: combustion products at the bottom with arrows pointing DOWN, so ΔH = ΣΔHc(reactants) − ΣΔHc(products); e.g. ΔHf[C₂H₆] = −1644.4 − (−1559.7) = −84.7 kJ mol⁻¹. Multiply each value by the number of moles in the equation and reverse the sign when an arrow is reversed.",
+        summaryMn: "Гессийн хууль: анхны ба эцсийн нөхцөл ижил бол урвалын нийт энтальпийн өөрчлөлт явсан замаас хамаарахгүй. Шууд хэмжих боломжгүй ΔH-г олоход ашиглана (жишээ нь пропаны ΔHf, эсвэл хүчтэй халаалт шаарддаг MgCO₃-ийн задрал). ΔHf ашигласан цикл: элементүүд доор, сумнууд ДЭЭШ тул ΔHr = ΣΔHf(бүтээгдэхүүн) − ΣΔHf(эх бодис); жишээ нь 2NaHCO₃ → Na₂CO₃ + CO₂ + H₂O: −1810.0 − (−1901.6) = +91.6 kJ mol⁻¹. ΔHc ашигласан цикл: шаталтын бүтээгдэхүүн доор, сумнууд ДООШ тул ΔH = ΣΔHc(эх бодис) − ΣΔHc(бүтээгдэхүүн); жишээ нь ΔHf[C₂H₆] = −1644.4 − (−1559.7) = −84.7 kJ mol⁻¹. Утга бүрийг тэгшитгэл дэх молийн тоогоор үржүүлж, сумыг эргүүлбэл тэмдгийг өөрчилнө.",
+        keyConcepts: ["ΔH independent of route", "ΔHf data: products − reactants", "ΔHc data: reactants − products", "Elements in standard state: ΔHf = 0 (but ΔHc ≠ 0)"],
+        keyEquations: ["ΔHr = ΣΔHf(products) − ΣΔHf(reactants)", "ΔHr = ΣΔHc(reactants) − ΣΔHc(products)"],
+        commonPitfalls: [
+          "With ΔHc data it is reactants − products — the opposite of the ΔHf rule.",
+          "Multiply by the coefficients: 3 mol of CO₂ in the equation means 3 × ΔHf[CO₂].",
+          "Elements have ΔHf = 0 but NOT ΔHc = 0 (carbon and hydrogen burn)."
+        ]
+      },
+      {
+        id: "6.6",
+        number: "6.6",
+        titleEn: "Bond Energies",
+        titleMn: "Холбооны энерги",
+        summaryEn: "Bond breaking is endothermic (+, energy is needed to overcome attraction); bond making is exothermic (−, energy is released). If less energy is needed to break bonds than is released making them, the reaction is exothermic. Bond energy E is the energy needed to break one mole of a bond in gaseous molecules (always positive): Br₂(g) → 2Br(g), E = +193 kJ mol⁻¹. Exact bond energies apply to diatomic molecules (Br–Br, O=O); average bond energies (C–H, O–H) are means over many compounds. ΔH = Σ(bonds broken) − Σ(bonds formed): N₂ + 3H₂ → 2NH₃: (945 + 3 × 436) − 6 × 391 = −93 kJ mol⁻¹. Answers from bond energies differ from data-book values because average values are used and bond energies refer to gases.",
+        summaryMn: "Холбоо тасрах нь эндотерм (+, таталцлыг даван гарахад энерги хэрэгтэй); холбоо үүсэх нь экзотерм (−, энерги ялгарна). Холбоо таслахад зарцуулах энерги үүсэхэд ялгарах энергиэс бага бол урвал экзотерм. Холбооны энерги E нь хийн молекул дахь 1 моль холбоог таслахад шаардагдах энерги (үргэлж эерэг): Br₂(g) → 2Br(g), E = +193 kJ mol⁻¹. Яг утга нь хоёр атомт молекулд (Br–Br, O=O) хамаарна; дундаж холбооны энерги (C–H, O–H) олон нэгдлийн дундаж. ΔH = Σ(тасарсан холбоо) − Σ(үүссэн холбоо): N₂ + 3H₂ → 2NH₃: (945 + 3 × 436) − 6 × 391 = −93 kJ mol⁻¹. Холбооны энергиэс гарсан хариу лавлах номын утгаас ялгаатай, учир нь дундаж утга ашиглах ба холбооны энерги хийн төлөвт хамаардаг.",
+        keyConcepts: ["Breaking: endothermic (+) · making: exothermic (−)", "Bond energy always positive", "Exact (diatomic) vs average (many compounds)", "Count every bond in every molecule"],
+        keyEquations: ["ΔH = Σ E(bonds broken) − Σ E(bonds formed)", "N₂ + 3H₂ → 2NH₃: 2253 − 2346 = −93 kJ mol⁻¹"],
+        commonPitfalls: [
+          "Breaking bonds ABSORBS energy — never 'energy is released when bonds break'.",
+          "Count bonds carefully: 2NH₃ contains 6 N–H bonds; ethanol has 1 C–C, 5 C–H, 1 C–O and 1 O–H.",
+          "Bond-energy answers are approximate: average values, and substances may be liquids not gases."
+        ]
       }
     ],
     keyTerms: [
-      { termEn: "Hess's Law", termMn: "Гессийн хууль", definitionEn: "The total enthalpy change in a chemical reaction is independent of the route by which the reaction takes place, provided initial and final conditions are the same.", definitionMn: "Химийн урвалын нийт энтальпийн өөрчлөлт нь анхны ба эцсийн нөхцөлүүд ижил байх үед урвалын явсан замаас хамаарахгүй тогтмол байна." },
-      { termEn: "Standard Enthalpy of Formation (ΔH⦵f)", termMn: "Үүсэхийн стандарт энтальпи", definitionEn: "The enthalpy change when one mole of a compound is formed from its elements under standard conditions in their standard states.", definitionMn: "Стандарт нөхцөлд орших элементүүдээс 1 моль нэгдэл үүсэх үеийн энтальпийн өөрчлөлт." },
-      { termEn: "Bond Energy", termMn: "Холбооны энерги", definitionEn: "The energy needed to break one mole of a specific covalent bond in the gaseous state.", definitionMn: "Хийн төлөв дэх 1 моль тодорхой ковалент холбоог бүрэн таслахад шаардагдах энерги." }
+      { termEn: "Enthalpy Change (ΔH)", termMn: "Энтальпийн өөрчлөлт (ΔH)", definitionEn: "The energy exchanged with the surroundings at constant pressure, in kJ mol⁻¹.", definitionMn: "Тогтмол даралтад орчинтой солилцсон энерги, kJ mol⁻¹." },
+      { termEn: "Exothermic", termMn: "Экзотерм", definitionEn: "A reaction that transfers energy to the surroundings; the temperature rises and ΔH is negative.", definitionMn: "Орчинд энерги шилжүүлдэг урвал; температур өсч, ΔH сөрөг." },
+      { termEn: "Endothermic", termMn: "Эндотерм", definitionEn: "A reaction that absorbs energy from the surroundings; the temperature falls and ΔH is positive.", definitionMn: "Орчноос энерги шингээдэг урвал; температур буурч, ΔH эерэг." },
+      { termEn: "Activation Energy (EA)", termMn: "Идэвхжүүлэлтийн энерги (EA)", definitionEn: "The minimum energy colliding particles need in order to react.", definitionMn: "Мөргөлдөж буй бөөмс урвалд орохын тулд шаардагдах хамгийн бага энерги." },
+      { termEn: "Standard Conditions", termMn: "Стандарт нөхцөл", definitionEn: "298 K and 101 kPa, with substances in their normal physical states.", definitionMn: "298 K ба 101 kPa, бодисууд ердийн физик төлөвтөө." },
+      { termEn: "Standard Enthalpy Change of Reaction (ΔHr⦵)", termMn: "Урвалын стандарт энтальпийн өөрчлөлт (ΔHr⦵)", definitionEn: "The enthalpy change when the amounts shown in the equation react under standard conditions.", definitionMn: "Тэгшитгэлд заасан хэмжээгээр бодисууд стандарт нөхцөлд урвалд ороход гарах энтальпийн өөрчлөлт." },
+      { termEn: "Standard Enthalpy Change of Formation (ΔHf⦵)", termMn: "Үүсэхийн стандарт энтальпийн өөрчлөлт (ΔHf⦵)", definitionEn: "The enthalpy change when one mole of a compound is formed from its elements under standard conditions, all in their standard states.", definitionMn: "Стандарт нөхцөлд, стандарт төлөвт буй элементүүдээс 1 моль нэгдэл үүсэх үеийн энтальпийн өөрчлөлт." },
+      { termEn: "Standard Enthalpy Change of Combustion (ΔHc⦵)", termMn: "Шатахын стандарт энтальпийн өөрчлөлт (ΔHc⦵)", definitionEn: "The enthalpy change when one mole of a substance is burnt completely in excess oxygen under standard conditions.", definitionMn: "Стандарт нөхцөлд 1 моль бодис илүүдэл хүчилтөрөгчид бүрэн шатах үеийн энтальпийн өөрчлөлт." },
+      { termEn: "Standard Enthalpy Change of Neutralisation (ΔHneut⦵)", termMn: "Саармагжихын стандарт энтальпийн өөрчлөлт (ΔHneut⦵)", definitionEn: "The enthalpy change when one mole of water is formed by the reaction of an acid with an alkali under standard conditions.", definitionMn: "Стандарт нөхцөлд хүчил шүлттэй урвалд орж 1 моль ус үүсэх үеийн энтальпийн өөрчлөлт." },
+      { termEn: "Enthalpy Change of Atomisation", termMn: "Атомчлалын энтальпийн өөрчлөлт", definitionEn: "The enthalpy change when one mole of gaseous atoms is formed from the element in its standard state.", definitionMn: "Стандарт төлөвт буй элементээс 1 моль хийн атом үүсэх үеийн энтальпийн өөрчлөлт." },
+      { termEn: "Specific Heat Capacity (c)", termMn: "Хувийн дулаан багтаамж (c)", definitionEn: "The energy needed to raise the temperature of 1 g of a substance by 1 °C; for water 4.18 J g⁻¹ °C⁻¹.", definitionMn: "1 г бодисын температурыг 1 °C-аар өсгөхөд шаардагдах энерги; усных 4.18 J g⁻¹ °C⁻¹." },
+      { termEn: "Hess's Law", termMn: "Гессийн хууль", definitionEn: "The total enthalpy change for a reaction is independent of the route taken, provided the initial and final conditions are the same.", definitionMn: "Анхны ба эцсийн нөхцөл ижил бол урвалын нийт энтальпийн өөрчлөлт явсан замаас хамаарахгүй." },
+      { termEn: "Bond Energy (E)", termMn: "Холбооны энерги (E)", definitionEn: "The energy needed to break one mole of a particular bond in gaseous molecules; always positive.", definitionMn: "Хийн молекул дахь тодорхой холбооны 1 моль-ийг таслахад шаардагдах энерги; үргэлж эерэг." },
+      { termEn: "Average Bond Energy", termMn: "Дундаж холбооны энерги", definitionEn: "The mean energy needed to break one mole of a bond, averaged over many different compounds.", definitionMn: "Олон өөр нэгдлийн дунджаар тооцсон, 1 моль холбоог таслахад шаардагдах энерги." }
     ],
     formulas: [
-      { nameEn: "Calorimetry Heat", nameMn: "Дулааны тооцоо", formula: "q = mcΔT", note: "m in g, c = 4.18, ΔT in K or °C" },
-      { nameEn: "Molar Enthalpy Change", nameMn: "Молийн энтальпийн өөрчлөлт", formula: "ΔH = -q / n", note: "Divide by 1000 for kJ mol⁻¹" },
-      { nameEn: "Hess Cycle from ΔHf", nameMn: "Үүсэхийн энтальпиар бодох", formula: "ΔHr = ΣΔHf(products) - ΣΔHf(reactants)", note: "Multiply by stoichiometric coefficients" },
-      { nameEn: "Bond Energy Equation", nameMn: "Холбооны энергийн томьёо", formula: "ΔHr = Σ(Bonds Broken) - Σ(Bonds Formed)", note: "Reactants broken minus products formed" }
+      { nameEn: "Heat Transferred", nameMn: "Шилжсэн дулаан", formula: "q = mcΔT", note: "m = mass of water/solution in g, c = 4.18 J g⁻¹ °C⁻¹" },
+      { nameEn: "Molar Enthalpy Change", nameMn: "Молийн энтальпийн өөрчлөлт", formula: "ΔH = −q ÷ n", note: "Divide by 1000 for kJ mol⁻¹; negative if the temperature rises" },
+      { nameEn: "Hess Cycle from ΔHf", nameMn: "ΔHf-ээр Гессийн цикл", formula: "ΔHr = ΣΔHf(products) − ΣΔHf(reactants)", note: "Multiply by coefficients; elements = 0" },
+      { nameEn: "Hess Cycle from ΔHc", nameMn: "ΔHc-ээр Гессийн цикл", formula: "ΔHr = ΣΔHc(reactants) − ΣΔHc(products)", note: "The reverse of the ΔHf rule" },
+      { nameEn: "Bond Energy Equation", nameMn: "Холбооны энергийн томьёо", formula: "ΔH = Σ(bonds broken) − Σ(bonds formed)", note: "All bond energies are positive values" }
     ],
     examStyleTips: [
-      "In calorimetry, never forget the negative sign for exothermic reactions (ΔH = -mcΔT / n). Temperature increase = negative ΔH.",
-      "In Hess's Law with ΔHf, the elements go at the bottom with arrows pointing UP to reactants and products.",
-      "In Hess's Law with ΔHc, the combustion products (CO₂, H₂O) go at the bottom with arrows pointing DOWN from reactants and products."
+      "In calorimetry, m is the mass of the water or solution — and a temperature rise means ΔH is negative.",
+      "Convert J to kJ (÷ 1000) and give ΔH with sign and units: −54.3 kJ mol⁻¹.",
+      "With ΔHf data use products − reactants; with ΔHc data use reactants − products.",
+      "Definitions: ΔHf is from ELEMENTS in standard states; ΔHneut is per mole of WATER; standard conditions are 298 K and 101 kPa.",
+      "Bond breaking absorbs energy (+) and bond making releases energy (−).",
+      "For experimental errors, name a specific cause (heat loss, incomplete combustion, evaporation of fuel) and its effect on ΔH."
+    ],
+    examQuestions: [
+      {
+        id: "ch6-q1",
+        marks: 4,
+        questionEn: "50 cm³ of 1.0 mol dm⁻³ HCl is mixed with 50 cm³ of 1.0 mol dm⁻³ NaOH in a polystyrene cup. The temperature rises from 21.3 °C to 27.8 °C.\nCalculate the enthalpy change of neutralisation. (c = 4.18 J g⁻¹ °C⁻¹)",
+        questionMn: "1.0 mol dm⁻³ HCl-ийн 50 cm³-ийг 1.0 mol dm⁻³ NaOH-ийн 50 cm³-тэй полистирол аяганд холив. Температур 21.3 °C-аас 27.8 °C болж өсөв.\nСаармагжихын энтальпийн өөрчлөлтийг тооцоолно уу. (c = 4.18 J g⁻¹ °C⁻¹)",
+        solutionEn: "m = 50 + 50 = 100 g · ΔT = 27.8 − 21.3 = 6.5 °C [1]\nq = 100 × 4.18 × 6.5 = 2717 J [1]\nn(H₂O) = 0.050 dm³ × 1.0 = 0.050 mol [1]\nΔH = −2717 ÷ 0.050 = −54 340 J mol⁻¹ = −54 kJ mol⁻¹ [1]",
+        solutionMn: "m = 100 г, ΔT = 6.5 °C. q = 100 × 4.18 × 6.5 = 2717 J. Үүссэн ус = 0.050 моль. ΔH = −2717 ÷ 0.050 = −54 kJ mol⁻¹ (температур өссөн тул сөрөг).",
+        examinerTip: "Use the TOTAL volume of both solutions for m, and the moles of water formed for n."
+      },
+      {
+        id: "ch6-q2",
+        marks: 3,
+        questionEn: "Excess zinc is added to 50.0 cm³ of 0.200 mol dm⁻³ CuSO₄(aq). The temperature rises by 10.2 °C.\nCalculate ΔH for Zn(s) + CuSO₄(aq) → ZnSO₄(aq) + Cu(s).",
+        questionMn: "0.200 mol dm⁻³ CuSO₄(aq)-ийн 50.0 cm³-д илүүдэл цайр нэмэхэд температур 10.2 °C-аар өсөв.\nZn(s) + CuSO₄(aq) → ZnSO₄(aq) + Cu(s) урвалын ΔH-г тооцоолно уу.",
+        solutionEn: "q = 50.0 × 4.18 × 10.2 = 2131.8 J [1]\nZn is in excess → n(CuSO₄) = 0.0500 × 0.200 = 0.0100 mol [1]\nΔH = −2131.8 ÷ 0.0100 = −213 180 J mol⁻¹ = −213 kJ mol⁻¹ [1]",
+        solutionMn: "q = 2131.8 J. Zn илүүдэлтэй тул хязгаарлагч CuSO₄-ийн моль = 0.0100. ΔH = −213 kJ mol⁻¹.",
+        examinerTip: "Divide by the moles of the limiting reagent (CuSO₄), not the zinc."
+      },
+      {
+        id: "ch6-q3",
+        marks: 4,
+        questionEn: "100 g of water is heated from 20.2 °C to 30.9 °C by burning propan-1-ol. The burner's mass falls from 86.27 g to 86.06 g. Mr(C₃H₇OH) = 60.\n(a) Calculate the enthalpy change of combustion. [3]\n(b) The data book value is −2021 kJ mol⁻¹. Give two reasons why the experimental value is less exothermic. [1]",
+        questionMn: "Пропан-1-олыг шатааж 100 г усыг 20.2 °C-аас 30.9 °C хүртэл халаав. Шатаагчийн масс 86.27 г-аас 86.06 г болж буурав. Mr(C₃H₇OH) = 60.\n(a) Шатахын энтальпийн өөрчлөлтийг тооцоолно уу. [3]\n(b) Лавлах номын утга −2021 kJ mol⁻¹. Туршилтын утга яагаад бага экзотерм байгааг хоёр шалтгаанаар тайлбарлана уу. [1]",
+        solutionEn: "(a) Mass of fuel = 0.21 g · ΔT = 10.7 °C · q = 100 × 4.18 × 10.7 = 4472.6 J [1]\nn = 0.21 ÷ 60 = 0.0035 mol [1]\nΔHc = −4472.6 ÷ 0.0035 = −1 277 886 J mol⁻¹ ≈ −1300 kJ mol⁻¹ [1]\n(b) Heat lost to the surroundings · incomplete combustion (or fuel evaporating from the wick) [1]",
+        solutionMn: "(a) Түлш 0.21 г, ΔT = 10.7 °C, q = 4472.6 J, n = 0.0035 моль, ΔHc ≈ −1300 kJ mol⁻¹. (b) Орчинд дулаан алдагдсан; бүрэн бус шаталт (эсвэл зулнаас түлш ууршсан).",
+        examinerTip: "In (a) m is the mass of WATER (100 g), not of the fuel."
+      },
+      {
+        id: "ch6-q4",
+        marks: 4,
+        questionEn: "Write equations, with state symbols, for:\n(a) the standard enthalpy change of formation of methane\n(b) the standard enthalpy change of combustion of ethanol\n(c) the standard enthalpy change of formation of propanone, CH₃COCH₃(l)\n(d) the standard enthalpy change of formation of sodium chloride",
+        questionMn: "Төлөвийн тэмдэгтэй тэгшитгэл бичнэ үү:\n(a) метаны үүсэхийн стандарт энтальпи\n(b) этанолын шатахын стандарт энтальпи\n(c) пропанон CH₃COCH₃(l)-ийн үүсэхийн стандарт энтальпи\n(d) натрийн хлоридын үүсэхийн стандарт энтальпи",
+        solutionEn: "(a) C(graphite) + 2H₂(g) → CH₄(g) [1]\n(b) C₂H₅OH(l) + 3O₂(g) → 2CO₂(g) + 3H₂O(l) [1]\n(c) 3C(graphite) + 3H₂(g) + ½O₂(g) → CH₃COCH₃(l) [1]\n(d) Na(s) + ½Cl₂(g) → NaCl(s) [1]",
+        solutionMn: "Үүсэхийн тэгшитгэлд стандарт төлөвт буй элементүүдээс яг 1 моль нэгдэл үүснэ (шаардлагатай бол ½ коэффициент). Шатахын тэгшитгэлд яг 1 моль түлш илүүдэл O₂-д шатна.",
+        examinerTip: "Exactly ONE mole of the compound (or fuel) — use ½ coefficients rather than doubling."
+      },
+      {
+        id: "ch6-q5",
+        marks: 3,
+        questionEn: "Use the ΔHf values (kJ mol⁻¹) to calculate ΔHr for:\n2NaHCO₃(s) → Na₂CO₃(s) + CO₂(g) + H₂O(l)\nΔHf: NaHCO₃ −950.8 · Na₂CO₃ −1130.7 · CO₂ −393.5 · H₂O −285.8",
+        questionMn: "ΔHf утгуудыг (kJ mol⁻¹) ашиглан дараах урвалын ΔHr-ийг тооцоолно уу:\n2NaHCO₃(s) → Na₂CO₃(s) + CO₂(g) + H₂O(l)\nΔHf: NaHCO₃ −950.8 · Na₂CO₃ −1130.7 · CO₂ −393.5 · H₂O −285.8",
+        solutionEn: "Products: −1130.7 + (−393.5) + (−285.8) = −1810.0 [1]\nReactants: 2 × (−950.8) = −1901.6 [1]\nΔHr = −1810.0 − (−1901.6) = +91.6 kJ mol⁻¹ [1]",
+        solutionMn: "Бүтээгдэхүүн: −1810.0. Эх бодис: 2 × (−950.8) = −1901.6. ΔHr = бүтээгдэхүүн − эх бодис = +91.6 kJ mol⁻¹.",
+        examinerTip: "Remember to multiply ΔHf of NaHCO₃ by 2."
+      },
+      {
+        id: "ch6-q6",
+        marks: 3,
+        questionEn: "Use the ΔHc values (kJ mol⁻¹) to calculate the standard enthalpy change of formation of ethane:\n2C(graphite) + 3H₂(g) → C₂H₆(g)\nΔHc: C −393.5 · H₂ −285.8 · C₂H₆ −1559.7",
+        questionMn: "ΔHc утгуудыг (kJ mol⁻¹) ашиглан этаны үүсэхийн стандарт энтальпийг тооцоолно уу:\n2C(graphite) + 3H₂(g) → C₂H₆(g)\nΔHc: C −393.5 · H₂ −285.8 · C₂H₆ −1559.7",
+        solutionEn: "Reactants burnt: 2(−393.5) + 3(−285.8) = −1644.4 [1]\nProduct burnt: −1559.7 [1]\nΔHf = −1644.4 − (−1559.7) = −84.7 kJ mol⁻¹ [1]",
+        solutionMn: "ΔHc өгөгдөлтэй үед эх бодис − бүтээгдэхүүн: 2(−393.5) + 3(−285.8) = −1644.4; −1644.4 − (−1559.7) = −84.7 kJ mol⁻¹.",
+        examinerTip: "With combustion data the rule is reactants − products."
+      },
+      {
+        id: "ch6-q7",
+        marks: 4,
+        questionEn: "MgCO₃(s) → MgO(s) + CO₂(g) cannot be measured directly.\nΔH₁ for MgCO₃(s) + 2HCl(aq) is −50.0 kJ mol⁻¹ and ΔH₂ for MgO(s) + 2HCl(aq) is −167.0 kJ mol⁻¹.\n(a) Write Hess's law for the cycle. [1]\n(b) Calculate ΔHr. [2]\n(c) Why can ΔHr not be measured directly? [1]",
+        questionMn: "MgCO₃(s) → MgO(s) + CO₂(g)-ийг шууд хэмжих боломжгүй.\nMgCO₃(s) + 2HCl(aq)-ийн ΔH₁ = −50.0 kJ mol⁻¹, MgO(s) + 2HCl(aq)-ийн ΔH₂ = −167.0 kJ mol⁻¹.\n(a) Циклийн Гессийн хуулийг бичнэ үү. [1]\n(b) ΔHr-ийг тооцоолно уу. [2]\n(c) ΔHr-ийг яагаад шууд хэмжих боломжгүй вэ? [1]",
+        solutionEn: "(a) ΔH₁ = ΔHr + ΔH₂ [1]\n(b) ΔHr = ΔH₁ − ΔH₂ = −50.0 − (−167.0) [1]\n= +117.0 kJ mol⁻¹ [1]\n(c) It needs strong heating, so the heat transferred cannot be measured [1]",
+        solutionMn: "(a) Хоёр зам ижил төгсгөлд хүрнэ (MgCl₂(aq) + H₂O(l) + CO₂(g)): ΔH₁ = ΔHr + ΔH₂. (b) ΔHr = −50.0 − (−167.0) = +117.0 kJ mol⁻¹. (c) Хүчтэй халаалт шаарддаг тул шилжсэн дулааныг хэмжих боломжгүй."
+      },
+      {
+        id: "ch6-q8",
+        marks: 3,
+        questionEn: "Use the bond energies to calculate ΔH for the Haber process:\nN₂(g) + 3H₂(g) → 2NH₃(g)\nE / kJ mol⁻¹: N≡N 945 · H–H 436 · N–H 391",
+        questionMn: "Холбооны энергийг ашиглан Хаберын процессын ΔH-г тооцоолно уу:\nN₂(g) + 3H₂(g) → 2NH₃(g)\nE / kJ mol⁻¹: N≡N 945 · H–H 436 · N–H 391",
+        solutionEn: "Bonds broken: 945 + 3 × 436 = +2253 [1]\nBonds formed: 6 × 391 = 2346 [1]\nΔH = 2253 − 2346 = −93 kJ mol⁻¹ [1]",
+        solutionMn: "Тасарсан: 1 N≡N + 3 H–H = 945 + 1308 = 2253. Үүссэн: 2NH₃-д 6 N–H = 2346. ΔH = 2253 − 2346 = −93 kJ mol⁻¹.",
+        examinerTip: "2NH₃ contains 6 N–H bonds, not 3."
+      },
+      {
+        id: "ch6-q9",
+        marks: 3,
+        questionEn: "H₂(g) + Br₂(g) → 2HBr(g), ΔH = −103 kJ mol⁻¹. E(H–H) = 436 and E(Br–Br) = 193 kJ mol⁻¹.\n(a) Calculate the bond energy of H–Br. [2]\n(b) Explain why ΔH calculated from average bond energies often differs from the data-book value. [1]",
+        questionMn: "H₂(g) + Br₂(g) → 2HBr(g), ΔH = −103 kJ mol⁻¹. E(H–H) = 436, E(Br–Br) = 193 kJ mol⁻¹.\n(a) H–Br холбооны энергийг тооцоолно уу. [2]\n(b) Дундаж холбооны энергиэс тооцсон ΔH яагаад лавлах номын утгаас ялгаатай байдгийг тайлбарлана уу. [1]",
+        solutionEn: "(a) −103 = (436 + 193) − 2E(H–Br) [1]\nE(H–Br) = (436 + 193 + 103) ÷ 2 = 366 kJ mol⁻¹ [1]\n(b) Average bond energies are means over many compounds, not the exact values in these molecules (and bond energies apply to gases) [1]",
+        solutionMn: "(a) ΔH = тасарсан − үүссэн: −103 = 629 − 2E → E(H–Br) = 366 kJ mol⁻¹. (b) Дундаж холбооны энерги олон нэгдлийн дундаж бөгөөд эдгээр молекул дахь яг утга биш; мөн хийн төлөвт хамаарна."
+      },
+      {
+        id: "ch6-q10",
+        marks: 3,
+        questionEn: "Exit ticket:\n(a) 0.0200 mol of a fuel heats 100 g of water by 10.0 °C. Calculate ΔHc. [2]\n(b) C₂H₄ + H₂ → C₂H₆. ΔHc / kJ mol⁻¹: C₂H₄ −1411, H₂ −286, C₂H₆ −1560. Calculate ΔHr. [1]",
+        questionMn: "(a) Түлшний 0.0200 моль 100 г усыг 10.0 °C-аар халаав. ΔHc-ийг тооцоолно уу. [2]\n(b) C₂H₄ + H₂ → C₂H₆. ΔHc / kJ mol⁻¹: C₂H₄ −1411, H₂ −286, C₂H₆ −1560. ΔHr-ийг тооцоолно уу. [1]",
+        solutionEn: "(a) q = 100 × 4.18 × 10.0 = 4180 J [1]\nΔHc = −4180 ÷ 0.0200 = −209 000 J mol⁻¹ = −209 kJ mol⁻¹ [1]\n(b) Reactants − products: (−1411 − 286) − (−1560) = −137 kJ mol⁻¹ [1]",
+        solutionMn: "(a) q = 4180 J, ΔHc = −209 kJ mol⁻¹. (b) ΔHc өгөгдөл: эх бодис − бүтээгдэхүүн = (−1697) − (−1560) = −137 kJ mol⁻¹."
+      }
     ]
   },
   {
