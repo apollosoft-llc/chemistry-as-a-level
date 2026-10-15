@@ -541,23 +541,57 @@ export const PastPapersModule: React.FC<PastPapersModuleProps> = ({
                     )}
                   </div>
 
-                  {/* Actions Footer */}
-                  <div className="pt-3 border-t border-slate-100 flex flex-wrap items-center justify-between gap-2">
-                    <button
-                      onClick={() => handleStartPaper(paper, "practice")}
-                      className="px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold transition-colors flex items-center gap-1.5"
-                    >
-                      <BookOpen className="w-3.5 h-3.5 text-slate-500" />
-                      <span>{isP1 ? "Practice Mode (Untimed)" : "View Questions & Mark Scheme"}</span>
-                    </button>
+                  {/* Actions Footer with QP & MS Web Links */}
+                  <div className="pt-3 border-t border-slate-100 flex flex-col gap-2.5">
+                    {/* Direct Cambridge QP & MS Links */}
+                    <div className="flex items-center gap-1.5 text-xs">
+                      {paper.qpUrl && (
+                        <a
+                          href={paper.qpUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex-1 py-1.5 px-2.5 rounded-lg bg-cyan-50 hover:bg-cyan-100 text-cyan-900 border border-cyan-200 font-bold flex items-center justify-center gap-1 text-[11px] transition-colors"
+                          title="Open official Question Paper PDF in new tab"
+                        >
+                          <FileText className="w-3.5 h-3.5 text-cyan-700" />
+                          <span>Official QP (PDF)</span>
+                          <ExternalLink className="w-3 h-3 opacity-60" />
+                        </a>
+                      )}
 
-                    <button
-                      onClick={() => handleStartPaper(paper, "exam")}
-                      className="px-4 py-1.5 rounded-xl bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white text-xs font-bold transition-transform active:scale-95 shadow-2xs flex items-center gap-1.5"
-                    >
-                      <Clock className="w-3.5 h-3.5" />
-                      <span>Start Timed Exam</span>
-                    </button>
+                      {paper.msUrl && (
+                        <a
+                          href={paper.msUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex-1 py-1.5 px-2.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-900 border border-emerald-200 font-bold flex items-center justify-center gap-1 text-[11px] transition-colors"
+                          title="Open official Mark Scheme PDF in new tab"
+                        >
+                          <CheckCircle2 className="w-3.5 h-3.5 text-emerald-700" />
+                          <span>Official MS (PDF)</span>
+                          <ExternalLink className="w-3 h-3 opacity-60" />
+                        </a>
+                      )}
+                    </div>
+
+                    {/* In-App Interactive Buttons */}
+                    <div className="flex flex-wrap items-center justify-between gap-2">
+                      <button
+                        onClick={() => handleStartPaper(paper, "practice")}
+                        className="px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold transition-colors flex items-center gap-1.5"
+                      >
+                        <BookOpen className="w-3.5 h-3.5 text-slate-500" />
+                        <span>{isP1 ? "Practice Mode" : "Questions & Mark Scheme"}</span>
+                      </button>
+
+                      <button
+                        onClick={() => handleStartPaper(paper, "exam")}
+                        className="px-4 py-1.5 rounded-xl bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white text-xs font-bold transition-transform active:scale-95 shadow-2xs flex items-center gap-1.5"
+                      >
+                        <Clock className="w-3.5 h-3.5" />
+                        <span>Start Timed Exam</span>
+                      </button>
+                    </div>
                   </div>
                 </div>
               );
@@ -598,8 +632,36 @@ export const PastPapersModule: React.FC<PastPapersModuleProps> = ({
               </div>
             </div>
 
-            {/* Timer & Submit controls */}
-            <div className="flex items-center gap-3">
+            {/* Timer & Quick Web QP / MS links */}
+            <div className="flex items-center gap-2">
+              {activePaper.qpUrl && (
+                <a
+                  href={activePaper.qpUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-2.5 py-1.5 rounded-xl bg-cyan-50 hover:bg-cyan-100 text-cyan-900 border border-cyan-200 text-xs font-bold flex items-center gap-1 transition-colors"
+                  title="Open official Question Paper PDF in new tab"
+                >
+                  <FileText className="w-3.5 h-3.5 text-cyan-700" />
+                  <span className="hidden sm:inline">QP (PDF)</span>
+                  <ExternalLink className="w-3 h-3 opacity-60" />
+                </a>
+              )}
+
+              {activePaper.msUrl && (
+                <a
+                  href={activePaper.msUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-2.5 py-1.5 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-900 border border-emerald-200 text-xs font-bold flex items-center gap-1 transition-colors"
+                  title="Open official Mark Scheme PDF in new tab"
+                >
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-700" />
+                  <span className="hidden sm:inline">MS (PDF)</span>
+                  <ExternalLink className="w-3 h-3 opacity-60" />
+                </a>
+              )}
+
               {mcqMode === "exam" && (
                 <div className="flex items-center gap-1.5 bg-slate-900 text-white px-3 py-1.5 rounded-xl text-xs font-mono font-bold shadow-xs">
                   <Clock className="w-3.5 h-3.5 text-cyan-400" />
@@ -819,6 +881,34 @@ export const PastPapersModule: React.FC<PastPapersModuleProps> = ({
             </div>
 
             <div className="flex items-center gap-2">
+              {activePaper.qpUrl && (
+                <a
+                  href={activePaper.qpUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-2.5 py-1.5 rounded-xl bg-cyan-50 hover:bg-cyan-100 text-cyan-900 border border-cyan-200 text-xs font-bold flex items-center gap-1 transition-colors"
+                  title="Open official Question Paper PDF in new tab"
+                >
+                  <FileText className="w-3.5 h-3.5 text-cyan-700" />
+                  <span className="hidden sm:inline">Official QP</span>
+                  <ExternalLink className="w-3 h-3 opacity-60" />
+                </a>
+              )}
+
+              {activePaper.msUrl && (
+                <a
+                  href={activePaper.msUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-2.5 py-1.5 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-900 border border-emerald-200 text-xs font-bold flex items-center gap-1 transition-colors"
+                  title="Open official Mark Scheme PDF in new tab"
+                >
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-700" />
+                  <span className="hidden sm:inline">Official MS</span>
+                  <ExternalLink className="w-3 h-3 opacity-60" />
+                </a>
+              )}
+
               <button
                 onClick={handlePrintPaper}
                 className="p-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold flex items-center gap-1"
