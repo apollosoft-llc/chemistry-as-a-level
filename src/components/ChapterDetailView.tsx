@@ -30,6 +30,7 @@ import { QualitativeAnalysisNotes } from "./QualitativeAnalysisNotes";
 import { getLinkageForChapter } from "../data/curriculumLinkage";
 import { getSyllabusTopicForChapter } from "../data/syllabusGuideData";
 import { PracticalVideoModal } from "./PracticalVideoModal";
+import { InlineQuestionRunnerModal } from "./InlineQuestionRunnerModal";
 import { ANIONS_DATA, CATIONS_DATA, GASES_DATA } from "../data/qualitativeAnalysisData";
 import { useLanguage } from "../utils/languageContext";
 import { formatChemicalFormula, ChemFormula } from "../utils/chemistryFormatter";
@@ -87,6 +88,12 @@ export const ChapterDetailView: React.FC<ChapterDetailViewProps> = ({
   const [selectedLabModalItem, setSelectedLabModalItem] = useState<{
     item: any;
     type: "anion" | "cation" | "gas" | "element";
+  } | null>(null);
+  const [selectedInlineExamQuestion, setSelectedInlineExamQuestion] = useState<{
+    paperId?: string;
+    questionNumber?: string;
+    chapterNumber: number;
+    calculationTopicId?: string;
   } | null>(null);
 
   const toggleSolution = (id: string) => {

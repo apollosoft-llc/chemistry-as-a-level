@@ -436,12 +436,12 @@ export const PastPapersModule: React.FC<PastPapersModuleProps> = ({
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
               <div className="flex items-center gap-2">
                 <span className="text-xs font-bold text-slate-500">Filter Year / Series:</span>
-                <div className="flex items-center gap-1 bg-slate-100 p-1 rounded-xl border border-slate-200 text-xs font-bold">
-                  {(["ALL", "2024", "2023", "Specimen"] as const).map((yr) => (
+                <div className="flex items-center gap-1 bg-slate-100 p-1 rounded-xl border border-slate-200 text-xs font-bold overflow-x-auto max-w-xl">
+                  {(["ALL", "2026", "2025", "2024", "2023", "2022", "2021", "2020", "2019", "2018", "2017", "Specimen"] as const).map((yr) => (
                     <button
                       key={yr}
                       onClick={() => setSelectedYear(yr)}
-                      className={`px-2.5 py-1.5 rounded-lg transition-all ${
+                      className={`px-2.5 py-1.5 rounded-lg whitespace-nowrap transition-all ${
                         selectedYear === yr
                           ? "bg-slate-900 text-white shadow-2xs"
                           : "text-slate-600 hover:text-slate-900"
