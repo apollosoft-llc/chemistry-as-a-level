@@ -162,6 +162,10 @@ export interface PastPaper {
     qualitativeNotesIncluded?: boolean;
     safetyPrecautions?: string[];
   };
+  qpUrl?: string; // Direct Question Paper PDF / online viewer URL
+  msUrl?: string; // Direct Mark Scheme PDF / online viewer URL
+  erUrl?: string; // Examiner Report URL
+  gtUrl?: string; // Grade Thresholds URL
 }
 
 export interface FlashcardItem {
