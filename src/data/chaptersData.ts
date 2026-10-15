@@ -1392,63 +1392,219 @@ export const CHAPTERS_DATA: Chapter[] = [
     category: "Inorganic",
     titleEn: "Redox Reactions",
     titleMn: "Исэлдэн ангижрах урвал (Redox & Oxidation Numbers)",
-    descriptionEn: "Oxidation numbers, OIL RIG (electron transfer), oxidising and reducing agents, balancing complex redox equations using oxidation numbers, and disproportionation.",
-    descriptionMn: "Исэлдэхүйн зэрэг, электрон шилжилт (OIL RIG), исэлдүүлэгч ба ангижруулагч бодис, исэлдэхүйн зэргээр тэгшитгэл тэнцүүлэх, диспропорционаци (өөрөө исэлдэн-ангижрах).",
+    descriptionEn: "Oxidation and reduction by electron transfer and oxidation number, half-equations, oxidation number rules, oxidising and reducing agents, Roman numerals in names, balancing by oxidation number changes, and disproportionation (Syllabus 6.1).",
+    descriptionMn: "Электрон шилжилт ба исэлдэхүйн зэргээр тодорхойлох исэлдэлт, ангижрал, хагас тэгшитгэл, исэлдэхүйн зэргийн дүрэм, исэлдүүлэгч ба ангижруулагч, нэрэн дэх ром тоо, исэлдэхүйн зэргийн өөрчлөлтөөр тэнцвэржүүлэх, диспропорционац (Syllabus 6.1).",
+    syllabusRef: "Syllabus 6.1",
+    examPapers: ["Paper 1", "Paper 2"],
     learningIntentionsEn: [
-      "Calculate oxidation numbers of elements in compounds and complex ions following rules",
-      "Define oxidation as loss of electrons / increase in oxidation number; reduction as gain of electrons / decrease in oxidation number",
-      "Identify oxidising agents (electron acceptors, ox. number decreases) and reducing agents (electron donors, ox. number increases)",
-      "Balance full redox and ionic equations using the oxidation number method and half-equations",
-      "Explain disproportionation: simultaneous oxidation and reduction of the same element in a single reaction (e.g. Cl₂ + 2NaOH -> NaCl + NaClO + H₂O)"
+      "Calculate the oxidation numbers of elements in compounds and ions",
+      "Explain redox, oxidation and reduction in terms of electron transfer and changes in oxidation number",
+      "Write half-equations and combine them into a balanced ionic equation",
+      "Identify oxidising agents and reducing agents",
+      "Use Roman numerals to show oxidation numbers in names and deduce formulas from names",
+      "Balance redox equations using oxidation number changes",
+      "Explain and identify disproportionation reactions"
     ],
     learningIntentionsMn: [
-      "Нэгдэл ба ион дахь элементүүдийн исэлдэхүйн зэргийг дүрмийн дагуу тодорхойлох",
-      "Исэлдэх = электрон алдах / исэлдэхүйн зэрэг өсөх; Ангижрах = электрон авах / исэлдэхүйн зэрэг буурах (OIL RIG)",
-      "Исэлдүүлэгч ба ангижруулагч бодисыг таних",
-      "Исэлдэхүйн зэргийн өөрчлөлтөөр болон хагас тэгшитгэлийн аргаар исэлдэн ангижрах урвалыг тэнцүүлэх",
-      "Диспропорционацийн урвал: нэг элементийн атомууд нэгэн зэрэг исэлдэж бас ангижрах (жишээ нь Cl₂ хүйтэн/халуун шүлттэй харилцан үйлчлэх)"
+      "Нэгдэл ба ион дахь элементийн исэлдэхүйн зэргийг тооцоолох",
+      "Исэлдэн ангижрах урвал, исэлдэлт, ангижралыг электрон шилжилт ба исэлдэхүйн зэргийн өөрчлөлтөөр тайлбарлах",
+      "Хагас тэгшитгэл бичиж, тэдгээрийг нэгтгэн тэнцвэржүүлсэн ионы тэгшитгэл гаргах",
+      "Исэлдүүлэгч ба ангижруулагч бодисыг тодорхойлох",
+      "Нэрэнд ром тоогоор исэлдэхүйн зэргийг харуулах, нэрээс томьёо гаргах",
+      "Исэлдэхүйн зэргийн өөрчлөлтийг ашиглан исэлдэн ангижрах тэгшитгэлийг тэнцвэржүүлэх",
+      "Диспропорционацийн урвалыг тайлбарлаж, таних"
     ],
     subtopics: [
       {
         id: "7.1",
         number: "7.1",
-        titleEn: "Oxidation Numbers & Rules",
-        titleMn: "Исэлдэхүйн зэрэг ба тооцох дүрмүүд",
-        summaryEn: "Uncombined element = 0; Group 1 = +1; Group 2 = +2; F = -1; H = +1 (except hydrides -1); O = -2 (except peroxides -1, F₂O +2). Sum of ox. numbers in neutral compound = 0; in ion = ion charge.",
-        summaryMn: "Чөлөөт элемент = 0; Бүлэг 1 = +1; Бүлэг 2 = +2; F = -1; H = +1 (гидридэд -1); O = -2 (хэт исэлд -1). Ионы хувьд нийлбэр нь ионы цэнэгтэй тэнцүү.",
-        keyConcepts: ["Roman numerals in names indicate oxidation number: Iron(III) oxide = Fe₂O₃", "S in SO₄²⁻ is +6, N in NO₃⁻ is +5"]
+        titleEn: "Oxidation, Reduction & Half-Equations",
+        titleMn: "Исэлдэлт, ангижрал ба хагас тэгшитгэл",
+        summaryEn: "Oxidation is gain of oxygen, loss of hydrogen, loss of electrons or an increase in oxidation number; reduction is the opposite (OIL RIG: Oxidation Is Loss, Reduction Is Gain). In a redox reaction both happen together and electrons lost = electrons gained. Half-equations show only the oxidation or only the reduction: 2Na + Cl₂ → 2NaCl splits into Na → Na⁺ + e⁻ (oxidation) and Cl₂ + 2e⁻ → 2Cl⁻ (reduction). To combine half-equations, multiply so the electrons are equal, add, and cancel the electrons: Ni → Ni²⁺ + 2e⁻ with 2Fe³⁺ + 2e⁻ → 2Fe²⁺ gives Ni + 2Fe³⁺ → Ni²⁺ + 2Fe²⁺.",
+        summaryMn: "Исэлдэлт нь хүчилтөрөгч авах, устөрөгч алдах, электрон алдах эсвэл исэлдэхүйн зэрэг өсөх; ангижрал нь эсрэгээрээ (OIL RIG: Oxidation Is Loss, Reduction Is Gain). Исэлдэн ангижрах урвалд хоёулаа зэрэг явагдаж, алдсан электрон = авсан электрон. Хагас тэгшитгэл нь зөвхөн исэлдэлт эсвэл зөвхөн ангижралыг харуулна: 2Na + Cl₂ → 2NaCl нь Na → Na⁺ + e⁻ (исэлдэлт) ба Cl₂ + 2e⁻ → 2Cl⁻ (ангижрал) болж хуваагдана. Хагас тэгшитгэлүүдийг нэгтгэхдээ электроныг тэнцүүлэхээр үржүүлж, нэмээд электроныг хасна: Ni → Ni²⁺ + 2e⁻ ба 2Fe³⁺ + 2e⁻ → 2Fe²⁺ → Ni + 2Fe³⁺ → Ni²⁺ + 2Fe²⁺.",
+        keyConcepts: ["OIL RIG", "Electrons lost = electrons gained", "Half-equations balance atoms AND charge", "Multiply to equal electrons, then add"],
+        keyEquations: ["Na → Na⁺ + e⁻ (oxidation)", "Cl₂ + 2e⁻ → 2Cl⁻ (reduction)", "MnO₄⁻ + 8H⁺ + 5e⁻ → Mn²⁺ + 4H₂O", "2MnO₄⁻ + 10I⁻ + 16H⁺ → 2Mn²⁺ + 5I₂ + 8H₂O"],
+        commonPitfalls: [
+          "Balance charge in half-equations: Cl₂ + 2e⁻ → 2Cl⁻, not Cl₂ + e⁻ → Cl⁻.",
+          "When combining, the electrons must cancel completely — none should remain in the overall equation."
+        ]
       },
       {
         id: "7.2",
         number: "7.2",
-        titleEn: "Balancing Redox Equations & Half-Equations",
-        titleMn: "Redox тэгшитгэл ба Хагас тэгшитгэл тэнцүүлэх",
-        summaryEn: "1) Identify ox. number changes; 2) Balance electron loss & gain; 3) Balance ionic charges with H⁺; 4) Balance H and O with H₂O.",
-        summaryMn: "1) Исэлдэхүйн зэргийн өөрчлөлтийг олно; 2) Алдсан/авсан электроныг тэнцүүлнэ; 3) Цэнэгийг H⁺-оор тэнцүүлнэ; 4) H ба O-г H₂O-оор тэнцүүлнэ.",
-        keyConcepts: ["MnO₄⁻ + 8H⁺ + 5e⁻ → Mn²⁺ + 4H₂O (purple to colourless)", "Cr₂O₇²⁻ + 14H⁺ + 6e⁻ → 2Cr³⁺ + 7H₂O (orange to green)"],
-        keyEquations: ["MnO₄⁻ + 5Fe²⁺ + 8H⁺ → Mn²⁺ + 5Fe³⁺ + 4H₂O"]
+        titleEn: "Oxidation Number Rules",
+        titleMn: "Исэлдэхүйн зэргийн дүрэм",
+        summaryEn: "(1) An uncombined element has oxidation number 0. (2) Fixed values: Group 1 = +1, Group 2 = +2, F = −1, H = +1 (but −1 in metal hydrides such as NaH), O = −2 (but −1 in peroxides such as H₂O₂ and +2 in F₂O). (3) A monatomic ion = its charge. (4) The sum in a compound = 0. (5) The sum in an ion = the charge on the ion. (6) The more electronegative atom has the negative value. Always write the sign before the number. Examples: S in SO₂ +4; N in N₂H₄ −2; N in NO₃⁻ +5; Cr in Cr₂O₇²⁻ +6; S in S₂O₃²⁻ +2; Mn in MnO₄⁻ +7.",
+        summaryMn: "(1) Нэгдээгүй элементийн исэлдэхүйн зэрэг 0. (2) Тогтмол утга: 1-р бүлэг +1, 2-р бүлэг +2, F −1, H +1 (NaH зэрэг металлын гидридэд −1), O −2 (H₂O₂ зэрэг хэт исэлд −1, F₂O-д +2). (3) Нэг атомт ион = цэнэгтэйгээ тэнцүү. (4) Нэгдэлд нийлбэр = 0. (5) Ионд нийлбэр = ионы цэнэг. (6) Цахилгаан сөрөг чанар өндөр атом сөрөг утгатай. Тэмдгийг тооны өмнө бичнэ. Жишээ: SO₂-д S +4; N₂H₄-д N −2; NO₃⁻-д N +5; Cr₂O₇²⁻-д Cr +6; S₂O₃²⁻-д S +2; MnO₄⁻-д Mn +7.",
+        keyConcepts: ["Element = 0", "Compound sum = 0 · ion sum = charge", "Peroxide O = −1 · metal hydride H = −1", "Write the sign first: +3, not 3+"],
+        keyEquations: ["Cr₂O₇²⁻: 2x + 7(−2) = −2 → x = +6", "NO₃⁻: x + 3(−2) = −1 → x = +5"],
+        commonPitfalls: [
+          "Give the oxidation number per atom: Cr in Cr₂O₇²⁻ is +6, not +12.",
+          "Write the sign first: the oxidation number of Fe in Fe³⁺ is +3 (the ion's charge is written 3+).",
+          "O in H₂O₂ is −1 (peroxide) and H in NaH is −1."
+        ]
       },
       {
         id: "7.3",
         number: "7.3",
-        titleEn: "Disproportionation Reactions",
-        titleMn: "Диспропорционацийн урвалууд",
-        summaryEn: "Cold dilute NaOH (15°C): Cl₂ + 2NaOH → NaCl (ox -1) + NaClO (ox +1) + H₂O. Hot concentrated NaOH (70°C): 3Cl₂ + 6NaOH → 5NaCl (ox -1) + NaClO₃ (ox +5) + 3H₂O.",
-        summaryMn: "Хлор хүйтэн шүлттэй (15°C) -> NaCl + NaClO (хлор 0-ээс -1 ба +1). Хлор халуун шүлттэй (70°C) -> 5NaCl + NaClO₃ (хлор 0-ээс -1 ба +5).",
-        keyConcepts: ["Chlorine water purification: Cl₂ + H₂O ⇌ HCl + HClO (kills bacteria)", "Self-oxidation/reduction"]
+        titleEn: "Oxidising & Reducing Agents",
+        titleMn: "Исэлдүүлэгч ба ангижруулагч бодис",
+        summaryEn: "Oxidation: oxidation number increases; reduction: oxidation number decreases. An oxidising agent (oxidant) removes electrons from another species, so it is itself reduced and its oxidation number decreases (O₂, Cl₂, acidified MnO₄⁻, acidified Cr₂O₇²⁻). A reducing agent (reductant) donates electrons, so it is itself oxidised and its oxidation number increases (H₂, I⁻, reactive metals such as Al and Zn). Example: 2I⁻ + MnO₂ + 4H⁺ → I₂ + Mn²⁺ + 2H₂O: Mn +4 → +2 (MnO₂ is the oxidant), I −1 → 0 (I⁻ is the reductant). In Ca + 2H₂O → Ca(OH)₂ + H₂, water is the oxidising agent (H +1 → 0). Fe²⁺ is oxidised by acidified MnO₄⁻ (purple → colourless): MnO₄⁻ + 5Fe²⁺ + 8H⁺ → Mn²⁺ + 5Fe³⁺ + 4H₂O.",
+        summaryMn: "Исэлдэлт: исэлдэхүйн зэрэг өснө; ангижрал: буурна. Исэлдүүлэгч бодис бусад бөөмөөс электрон авдаг тул өөрөө ангижирч, исэлдэхүйн зэрэг нь буурна (O₂, Cl₂, хүчиллэг MnO₄⁻, хүчиллэг Cr₂O₇²⁻). Ангижруулагч бодис электрон өгдөг тул өөрөө исэлдэж, исэлдэхүйн зэрэг нь өснө (H₂, I⁻, Al, Zn зэрэг идэвхтэй металл). Жишээ: 2I⁻ + MnO₂ + 4H⁺ → I₂ + Mn²⁺ + 2H₂O: Mn +4 → +2 (MnO₂ исэлдүүлэгч), I −1 → 0 (I⁻ ангижруулагч). Ca + 2H₂O → Ca(OH)₂ + H₂ урвалд ус исэлдүүлэгч (H +1 → 0). Fe²⁺-ийг хүчиллэг MnO₄⁻ исэлдүүлнэ (нил ягаан → өнгөгүй): MnO₄⁻ + 5Fe²⁺ + 8H⁺ → Mn²⁺ + 5Fe³⁺ + 4H₂O.",
+        keyConcepts: ["Oxidising agent: gains electrons, is reduced", "Reducing agent: loses electrons, is oxidised", "Identify agents from oxidation number changes", "Acidified KMnO₄: purple → colourless"],
+        keyEquations: ["MnO₄⁻ + 5Fe²⁺ + 8H⁺ → Mn²⁺ + 5Fe³⁺ + 4H₂O", "Cr₂O₇²⁻ + 14H⁺ + 6Fe²⁺ → 2Cr³⁺ + 6Fe³⁺ + 7H₂O"],
+        commonPitfalls: [
+          "The oxidising agent is REDUCED — never write 'the oxidising agent is oxidised'.",
+          "To explain why a reaction is redox, give both changes with numbers: X goes from a to b (oxidised) and Y from c to d (reduced) — 'oxygen is added' is not enough."
+        ]
+      },
+      {
+        id: "7.4",
+        number: "7.4",
+        titleEn: "Naming Compounds with Roman Numerals",
+        titleMn: "Ром тоогоор нэгдлийг нэрлэх",
+        summaryEn: "A Roman numeral gives the oxidation number of the element written just before it: FeCl₂ iron(II) chloride, FeCl₃ iron(III) chloride, NO₂ nitrogen(IV) oxide, NaNO₂ sodium nitrate(III), NaNO₃ sodium nitrate(V), H₃PO₃ phosphoric(III) acid, HClO₄ chloric(VII) acid, Na₂SO₃ sodium sulfate(IV), Na₂SO₄ sodium sulfate(VI), NaClO sodium chlorate(I), KBrO₃ potassium bromate(V), Cu₂O copper(I) oxide, Mn₂O₇ manganese(VII) oxide. From a name to a formula: sodium chlorate(V) has Cl = +5 and O = −2 in an ion of charge −1, so +5 + n(−2) = −1, n = 3 → NaClO₃.",
+        summaryMn: "Ром тоо нь өмнө нь бичигдсэн элементийн исэлдэхүйн зэргийг заана: FeCl₂ төмөр(II) хлорид, FeCl₃ төмөр(III) хлорид, NO₂ азот(IV) исэл, NaNO₂ натрийн нитрат(III), NaNO₃ натрийн нитрат(V), H₃PO₃ фосфорын(III) хүчил, HClO₄ хлорын(VII) хүчил, Na₂SO₃ натрийн сульфат(IV), Na₂SO₄ натрийн сульфат(VI), NaClO натрийн хлорат(I), KBrO₃ калийн бромат(V), Cu₂O зэс(I) исэл, Mn₂O₇ манган(VII) исэл. Нэрээс томьёо: натрийн хлорат(V)-д Cl = +5, O = −2, ионы цэнэг −1 тул +5 + n(−2) = −1, n = 3 → NaClO₃.",
+        keyConcepts: ["Numeral follows the element whose oxidation number varies", "nitrate(III) = NO₂⁻ · nitrate(V) = NO₃⁻", "sulfate(IV) = SO₃²⁻ · sulfate(VI) = SO₄²⁻", "chlorate(I) = ClO⁻ · chlorate(V) = ClO₃⁻"],
+        keyEquations: ["sodium chlorate(V): +5 + n(−2) = −1 → n = 3 → NaClO₃"],
+        commonPitfalls: [
+          "Write 'sodium nitrate(V)', not 'sodium(I) nitrate' — sodium is always +1, so it never needs a numeral."
+        ]
+      },
+      {
+        id: "7.5",
+        number: "7.5",
+        titleEn: "Balancing Equations with Oxidation Numbers",
+        titleMn: "Исэлдэхүйн зэргээр тэгшитгэл тэнцвэржүүлэх",
+        summaryEn: "(1) Identify the atoms whose oxidation numbers change. (2) Work out the size of each change. (3) Multiply so that the total increase equals the total decrease. (4) Balance charges with H⁺ (or OH⁻), then balance H and O with H₂O. Example: CuO + NH₃ → Cu + N₂ + H₂O: Cu +2 → 0 (−2 each), N −3 → 0 (+3 each), so 3Cu (−6) balances 2N (+6) → 3CuO + 2NH₃ → 3Cu + N₂ + 3H₂O. Example: MnO₄⁻ + Fe²⁺: Mn −5, Fe +1 → 1 : 5; charge left 9+, right 17+ → add 8H⁺ → MnO₄⁻ + 5Fe²⁺ + 8H⁺ → Mn²⁺ + 5Fe³⁺ + 4H₂O.",
+        summaryMn: "(1) Исэлдэхүйн зэрэг нь өөрчлөгдөж буй атомуудыг олно. (2) Өөрчлөлт бүрийн хэмжээг тооцно. (3) Нийт өсөлт = нийт бууралт болохоор үржүүлнэ. (4) Цэнэгийг H⁺ (эсвэл OH⁻)-оор, дараа нь H ба O-г H₂O-оор тэнцвэржүүлнэ. Жишээ: CuO + NH₃ → Cu + N₂ + H₂O: Cu +2 → 0 (тус бүр −2), N −3 → 0 (тус бүр +3), тиймээс 3Cu (−6) нь 2N (+6)-тэй тэнцэнэ → 3CuO + 2NH₃ → 3Cu + N₂ + 3H₂O. Жишээ: MnO₄⁻ + Fe²⁺: Mn −5, Fe +1 → 1 : 5; цэнэг зүүн талд 9+, баруун талд 17+ → 8H⁺ нэмнэ → MnO₄⁻ + 5Fe²⁺ + 8H⁺ → Mn²⁺ + 5Fe³⁺ + 4H₂O.",
+        keyConcepts: ["Changes → charges → atoms", "Total increase = total decrease", "Balance charge with H⁺ in acid", "Balance O and H last with H₂O"],
+        keyEquations: ["3CuO + 2NH₃ → 3Cu + N₂ + 3H₂O", "H₂SO₄ + 6HI → S + 3I₂ + 4H₂O", "2KBrO₃ + 3N₂H₄ → 2KBr + 3N₂ + 6H₂O"],
+        commonPitfalls: [
+          "Count the change for EVERY atom: in N₂H₄ → N₂ each of the two N atoms changes by +2, so the molecule changes by +4."
+        ]
+      },
+      {
+        id: "7.6",
+        number: "7.6",
+        titleEn: "Disproportionation",
+        titleMn: "Диспропорционац",
+        summaryEn: "Disproportionation is a redox reaction in which the same element is both oxidised and reduced. Chlorine with cold dilute NaOH: Cl₂ + 2OH⁻ → Cl⁻ + ClO⁻ + H₂O (Cl 0 → −1 and 0 → +1). With hot concentrated NaOH: 3Cl₂ + 6OH⁻ → 5Cl⁻ + ClO₃⁻ + 3H₂O (Cl 0 → −1 five times and 0 → +5 once: −5 and +5 balance). Other examples: 2H₂O₂ → 2H₂O + O₂ (O −1 → −2 and −1 → 0); 3NO₂ + H₂O → 2HNO₃ + NO (N +4 → +5 and +4 → +2); Cu₂O + H₂SO₄ → Cu + CuSO₄ + H₂O (Cu +1 → 0 and +1 → +2); Cl₂ + H₂O → HCl + HClO. Not disproportionation: (NH₄)₂Cr₂O₇ → N₂ + 4H₂O + Cr₂O₃ (two different elements change).",
+        summaryMn: "Диспропорционац нь нэг элемент нэгэн зэрэг исэлдэж бас ангижрах исэлдэн ангижрах урвал. Хлор хүйтэн шингэрүүлсэн NaOH-тэй: Cl₂ + 2OH⁻ → Cl⁻ + ClO⁻ + H₂O (Cl 0 → −1 ба 0 → +1). Халуун өтгөн NaOH-тэй: 3Cl₂ + 6OH⁻ → 5Cl⁻ + ClO₃⁻ + 3H₂O (Cl 0 → −1 тав удаа, 0 → +5 нэг удаа: −5 ба +5 тэнцэнэ). Бусад жишээ: 2H₂O₂ → 2H₂O + O₂ (O −1 → −2 ба −1 → 0); 3NO₂ + H₂O → 2HNO₃ + NO (N +4 → +5 ба +4 → +2); Cu₂O + H₂SO₄ → Cu + CuSO₄ + H₂O (Cu +1 → 0 ба +1 → +2); Cl₂ + H₂O → HCl + HClO. Диспропорционац биш: (NH₄)₂Cr₂O₇ → N₂ + 4H₂O + Cr₂O₃ (өөр хоёр элемент өөрчлөгдөнө).",
+        keyConcepts: ["Same element oxidised AND reduced", "Cold dilute NaOH → Cl⁻ + ClO⁻", "Hot concentrated NaOH → 5Cl⁻ + ClO₃⁻", "Two different elements changing ≠ disproportionation"],
+        keyEquations: ["Cl₂ + 2OH⁻ → Cl⁻ + ClO⁻ + H₂O", "3Cl₂ + 6OH⁻ → 5Cl⁻ + ClO₃⁻ + 3H₂O", "2H₂O₂ → 2H₂O + O₂"],
+        commonPitfalls: [
+          "Disproportionation needs the SAME element to go both up and down — any reaction with two changes is not enough."
+        ]
       }
     ],
     keyTerms: [
-      { termEn: "Disproportionation", termMn: "Диспропорционаци", definitionEn: "A redox reaction in which the same element is simultaneously oxidised and reduced.", definitionMn: "Нэгэн зэрэг нэг элементийн атомууд исэлдэж бас ангижирдаг исэлдэн-ангижрах урвал." },
-      { termEn: "Oxidising Agent", termMn: "Исэлдүүлэгч бодис", definitionEn: "A substance that oxidises another substance by accepting electrons, whilst itself being reduced.", definitionMn: "Бусад бодисоос электрон авч исэлдүүлээд, өөрөө ангижирдаг бодис." }
+      { termEn: "Oxidation", termMn: "Исэлдэлт", definitionEn: "Loss of electrons, or an increase in oxidation number.", definitionMn: "Электрон алдах, эсвэл исэлдэхүйн зэрэг өсөх." },
+      { termEn: "Reduction", termMn: "Ангижрал", definitionEn: "Gain of electrons, or a decrease in oxidation number.", definitionMn: "Электрон авах, эсвэл исэлдэхүйн зэрэг буурах." },
+      { termEn: "Redox Reaction", termMn: "Исэлдэн ангижрах урвал", definitionEn: "A reaction in which oxidation and reduction take place together.", definitionMn: "Исэлдэлт ба ангижрал зэрэг явагдах урвал." },
+      { termEn: "Half-Equation", termMn: "Хагас тэгшитгэл", definitionEn: "An equation showing only the oxidation or only the reduction part of a redox reaction, including electrons.", definitionMn: "Исэлдэн ангижрах урвалын зөвхөн исэлдэлт эсвэл зөвхөн ангижралыг электронтой нь харуулсан тэгшитгэл." },
+      { termEn: "Oxidation Number", termMn: "Исэлдэхүйн зэрэг", definitionEn: "A number showing the degree of oxidation of an atom in a species; its sign is always shown.", definitionMn: "Бөөм дэх атомын исэлдсэн хэмжээг харуулах тоо; тэмдгийг үргэлж бичнэ." },
+      { termEn: "Oxidising Agent (Oxidant)", termMn: "Исэлдүүлэгч бодис", definitionEn: "A species that removes electrons from another species and is itself reduced.", definitionMn: "Бусад бөөмөөс электрон авч, өөрөө ангижирдаг бөөм." },
+      { termEn: "Reducing Agent (Reductant)", termMn: "Ангижруулагч бодис", definitionEn: "A species that donates electrons to another species and is itself oxidised.", definitionMn: "Бусад бөөмд электрон өгч, өөрөө исэлддэг бөөм." },
+      { termEn: "Disproportionation", termMn: "Диспропорционац", definitionEn: "A redox reaction in which the same element is both oxidised and reduced.", definitionMn: "Нэг элемент нэгэн зэрэг исэлдэж бас ангижрах исэлдэн ангижрах урвал." }
     ],
     formulas: [
-      { nameEn: "Chlorine with Cold NaOH", nameMn: "Хлор хүйтэн шүлттэй", formula: "Cl₂(aq) + 2NaOH(aq) → NaCl(aq) + NaClO(aq) + H₂O(l)", note: "Bleach formation (chlorate(I))" },
-      { nameEn: "Chlorine with Hot NaOH", nameMn: "Хлор халуун шүлттэй", formula: "3Cl₂(aq) + 6NaOH(aq) → 5NaCl(aq) + NaClO₃(aq) + 3H₂O(l)", note: "Forms chlorate(V)" }
+      { nameEn: "Sum of Oxidation Numbers", nameMn: "Исэлдэхүйн зэргийн нийлбэр", formula: "Σ(ox. no.) = 0 (compound) or = charge (ion)", note: "Use fixed values for Group 1, Group 2, F, H and O" },
+      { nameEn: "Combining Half-Equations", nameMn: "Хагас тэгшитгэл нэгтгэх", formula: "electrons lost = electrons gained", note: "Multiply each half-equation, add, cancel e⁻" },
+      { nameEn: "Chlorine with Cold Dilute NaOH", nameMn: "Хлор хүйтэн шингэрүүлсэн NaOH-тэй", formula: "Cl₂ + 2OH⁻ → Cl⁻ + ClO⁻ + H₂O", note: "Disproportionation: Cl 0 → −1 and +1" },
+      { nameEn: "Chlorine with Hot Concentrated NaOH", nameMn: "Хлор халуун өтгөн NaOH-тэй", formula: "3Cl₂ + 6OH⁻ → 5Cl⁻ + ClO₃⁻ + 3H₂O", note: "Disproportionation: Cl 0 → −1 and +5" }
     ],
     examStyleTips: [
-      "In systematically naming oxyanions, always write oxidation state in Roman numerals: NaClO is sodium chlorate(I), NaClO₃ is sodium chlorate(V).",
-      "When balancing half-equations in acidic solution: balance other elements first -> balance O by adding H₂O -> balance H by adding H⁺ -> balance charge by adding e⁻."
+      "Write oxidation numbers with the sign first (+3) and per atom (Cr in Cr₂O₇²⁻ is +6).",
+      "The oxidising agent is reduced (gains electrons, oxidation number decreases); the reducing agent is oxidised.",
+      "To show a reaction is redox, give both oxidation number changes with the species named.",
+      "Half-equations must balance both atoms and charge: Cl₂ + 2e⁻ → 2Cl⁻.",
+      "Balance redox equations in the order: oxidation number changes → charges (H⁺) → atoms (H₂O).",
+      "Roman numerals go after the element whose oxidation number varies: sodium chlorate(V), potassium nitrate(III)."
+    ],
+    examQuestions: [
+      {
+        id: "ch7-q1",
+        marks: 4,
+        questionEn: "Calculate the oxidation number of:\n(a) S in SO₂\n(b) N in N₂H₄\n(c) N in NO₃⁻\n(d) Cr in Cr₂O₇²⁻",
+        questionMn: "Исэлдэхүйн зэргийг тооцоолно уу:\n(a) SO₂ дахь S\n(b) N₂H₄ дахь N\n(c) NO₃⁻ дахь N\n(d) Cr₂O₇²⁻ дахь Cr",
+        solutionEn: "(a) x + 2(−2) = 0 → S = +4 [1]\n(b) 2x + 4(+1) = 0 → N = −2 [1]\n(c) x + 3(−2) = −1 → N = +5 [1]\n(d) 2x + 7(−2) = −2 → Cr = +6 [1]",
+        solutionMn: "Нэгдэлд нийлбэр 0, ионд нийлбэр нь цэнэгтэй тэнцүү: (a) +4, (b) −2, (c) +5, (d) +6 (нэг атомд).",
+        examinerTip: "Give the value per atom and always include the sign."
+      },
+      {
+        id: "ch7-q2",
+        marks: 3,
+        questionEn: "Combine each pair of half-equations into a balanced ionic equation:\n(a) Ni → Ni²⁺ + 2e⁻ and Fe³⁺ + e⁻ → Fe²⁺\n(b) 2I⁻ → I₂ + 2e⁻ and MnO₄⁻ + 8H⁺ + 5e⁻ → Mn²⁺ + 4H₂O",
+        questionMn: "Хагас тэгшитгэлийн хос бүрийг нэгтгэж тэнцвэржүүлсэн ионы тэгшитгэл бичнэ үү:\n(a) Ni → Ni²⁺ + 2e⁻ ба Fe³⁺ + e⁻ → Fe²⁺\n(b) 2I⁻ → I₂ + 2e⁻ ба MnO₄⁻ + 8H⁺ + 5e⁻ → Mn²⁺ + 4H₂O",
+        solutionEn: "(a) Fe³⁺ half × 2 → Ni + 2Fe³⁺ → Ni²⁺ + 2Fe²⁺ [1]\n(b) Iodide half × 5 and manganate half × 2 (10 e⁻ each) [1]\n2MnO₄⁻ + 10I⁻ + 16H⁺ → 2Mn²⁺ + 5I₂ + 8H₂O [1]",
+        solutionMn: "(a) Fe³⁺-ийн хагасыг 2-оор үржүүлж нэмнэ: Ni + 2Fe³⁺ → Ni²⁺ + 2Fe²⁺. (b) Иодидыг 5-аар, манганатыг 2-оор үржүүлж 10 электроныг тэнцүүлнэ → 2MnO₄⁻ + 10I⁻ + 16H⁺ → 2Mn²⁺ + 5I₂ + 8H₂O.",
+        examinerTip: "Check that no electrons remain and that the total charge is the same on both sides."
+      },
+      {
+        id: "ch7-q3",
+        marks: 4,
+        questionEn: "For each reaction, give the oxidation number changes and identify the oxidising and reducing agents:\n(a) 2I⁻ + Br₂ → I₂ + 2Br⁻\n(b) 2I⁻ + MnO₂ + 4H⁺ → I₂ + Mn²⁺ + 2H₂O",
+        questionMn: "Урвал бүрд исэлдэхүйн зэргийн өөрчлөлтийг бичиж, исэлдүүлэгч ба ангижруулагчийг тодорхойлно уу:\n(a) 2I⁻ + Br₂ → I₂ + 2Br⁻\n(b) 2I⁻ + MnO₂ + 4H⁺ → I₂ + Mn²⁺ + 2H₂O",
+        solutionEn: "(a) I −1 → 0 (oxidised) · Br 0 → −1 (reduced) [1]\nBr₂ is the oxidising agent, I⁻ is the reducing agent [1]\n(b) Mn +4 → +2 (reduced) · I −1 → 0 (oxidised) [1]\nMnO₂ is the oxidising agent, I⁻ is the reducing agent [1]",
+        solutionMn: "(a) I −1 → 0 исэлдэнэ, Br 0 → −1 ангижирна; Br₂ исэлдүүлэгч, I⁻ ангижруулагч. (b) Mn +4 → +2 ангижирна, I −1 → 0 исэлдэнэ; MnO₂ исэлдүүлэгч, I⁻ ангижруулагч."
+      },
+      {
+        id: "ch7-q4",
+        marks: 3,
+        questionEn: "(a) Give the formula of sodium chlorate(V). [1]\n(b) Give the systematic name of Na₂SO₃. [1]\n(c) Give the systematic name of KBrO₃. [1]",
+        questionMn: "(a) Натрийн хлорат(V)-ийн томьёог бичнэ үү. [1]\n(b) Na₂SO₃-ийн системчилсэн нэрийг бичнэ үү. [1]\n(c) KBrO₃-ийн системчилсэн нэрийг бичнэ үү. [1]",
+        solutionEn: "(a) Cl = +5: +5 + n(−2) = −1 → n = 3 → NaClO₃ [1]\n(b) 2(+1) + x + 3(−2) = 0 → S = +4 → sodium sulfate(IV) [1]\n(c) Br = +5 → potassium bromate(V) [1]",
+        solutionMn: "(a) NaClO₃. (b) S = +4 тул натрийн сульфат(IV). (c) Br = +5 тул калийн бромат(V)."
+      },
+      {
+        id: "ch7-q5",
+        marks: 3,
+        questionEn: "Copper(II) oxide reacts with ammonia to form copper, nitrogen and water:\nCuO + NH₃ → Cu + N₂ + H₂O\nUse oxidation number changes to balance the equation.",
+        questionMn: "Зэс(II) исэл аммиактай урвалд орж зэс, азот, ус үүсгэнэ:\nCuO + NH₃ → Cu + N₂ + H₂O\nИсэлдэхүйн зэргийн өөрчлөлтийг ашиглан тэнцвэржүүлнэ үү.",
+        solutionEn: "Cu +2 → 0 (change −2) · N −3 → 0 (change +3) [1]\n3Cu (−6) balances 2N (+6): 3CuO + 2NH₃ → 3Cu + N₂ [1]\nBalance H: 3CuO + 2NH₃ → 3Cu + N₂ + 3H₂O [1]",
+        solutionMn: "Cu −2, N +3 өөрчлөгдөнө. 3 Cu (−6) нь 2 N (+6)-тэй тэнцэнэ. 6 H → 3H₂O: 3CuO + 2NH₃ → 3Cu + N₂ + 3H₂O."
+      },
+      {
+        id: "ch7-q6",
+        marks: 4,
+        questionEn: "MnO₄⁻ + SO₂ + H₂O → Mn²⁺ + SO₄²⁻ + H⁺\n(a) Use oxidation numbers to identify the reducing agent. [2]\n(b) Balance the equation. [2]",
+        questionMn: "MnO₄⁻ + SO₂ + H₂O → Mn²⁺ + SO₄²⁻ + H⁺\n(a) Исэлдэхүйн зэргийг ашиглан ангижруулагчийг тодорхойлно уу. [2]\n(b) Тэгшитгэлийг тэнцвэржүүлнэ үү. [2]",
+        solutionEn: "(a) S +4 → +6, so SO₂ is oxidised [1] · it is the reducing agent (Mn +7 → +2 is reduced) [1]\n(b) Mn −5 and S +2 → 2MnO₄⁻ : 5SO₂ [1]\n2MnO₄⁻ + 5SO₂ + 2H₂O → 2Mn²⁺ + 5SO₄²⁻ + 4H⁺ [1]",
+        solutionMn: "(a) S +4 → +6 исэлдэнэ — SO₂ ангижруулагч; Mn +7 → +2 ангижирна. (b) −5 ба +2 өөрчлөлтийг тэнцүүлэхэд 2 : 5 харьцаа; цэнэг ба H, O-г тэнцвэржүүлбэл 2MnO₄⁻ + 5SO₂ + 2H₂O → 2Mn²⁺ + 5SO₄²⁻ + 4H⁺."
+      },
+      {
+        id: "ch7-q7",
+        marks: 4,
+        questionEn: "Chlorine reacts with hot concentrated sodium hydroxide:\nCl₂ + OH⁻ → Cl⁻ + ClO₃⁻ + H₂O\n(a) Balance the equation. [2]\n(b) Explain why this is a disproportionation reaction. [2]",
+        questionMn: "Хлор халуун өтгөн натрийн гидроксидтэй урвалд орно:\nCl₂ + OH⁻ → Cl⁻ + ClO₃⁻ + H₂O\n(a) Тэгшитгэлийг тэнцвэржүүлнэ үү. [2]\n(b) Энэ нь яагаад диспропорционацийн урвал болохыг тайлбарлана уу. [2]",
+        solutionEn: "(a) Cl → Cl⁻ is −1 and Cl → ClO₃⁻ is +5, so 5Cl⁻ for each ClO₃⁻ → 3Cl₂ [1]\n3Cl₂ + 6OH⁻ → 5Cl⁻ + ClO₃⁻ + 3H₂O [1]\n(b) The same element, chlorine, is both oxidised (0 → +5) [1] and reduced (0 → −1) [1]",
+        solutionMn: "(a) −1 ба +5 өөрчлөлт тул нэг ClO₃⁻ тутамд 5Cl⁻ → 6 Cl атом = 3Cl₂; баруун талын −6 цэнэгийг 6OH⁻-ээр тэнцүүлнэ: 3Cl₂ + 6OH⁻ → 5Cl⁻ + ClO₃⁻ + 3H₂O. (b) Нэг элемент (хлор) нэгэн зэрэг исэлдэж (0 → +5) бас ангижирна (0 → −1)."
+      },
+      {
+        id: "ch7-q8",
+        marks: 6,
+        questionEn: "Nitric acid is made from ammonia via NO and NO₂.\n(a) Give the oxidation number of N in NH₃, NO, NO₂ and HNO₃. [2]\n(b) Give the systematic name of NO₂. [1]\n(c) P + 5HNO₃ → H₃PO₄ + 5NO₂ + H₂O. Explain why this is a redox reaction and why HNO₃ is the oxidising agent. [3]",
+        questionMn: "Азотын хүчлийг аммиакаас NO, NO₂-оор дамжуулан гаргадаг.\n(a) NH₃, NO, NO₂, HNO₃ дахь N-ийн исэлдэхүйн зэргийг бичнэ үү. [2]\n(b) NO₂-ийн системчилсэн нэрийг бичнэ үү. [1]\n(c) P + 5HNO₃ → H₃PO₄ + 5NO₂ + H₂O. Энэ нь яагаад исэлдэн ангижрах урвал, HNO₃ яагаад исэлдүүлэгч болохыг тайлбарлана уу. [3]",
+        solutionEn: "(a) NH₃ −3 · NO +2 · NO₂ +4 · HNO₃ +5 [2]\n(b) nitrogen(IV) oxide [1]\n(c) P 0 → +5, so P is oxidised [1] · N +5 → +4, so N is reduced [1]\nHNO₃ increases the oxidation number of P and is itself reduced [1]",
+        solutionMn: "(a) −3, +2, +4, +5 — үе шат бүрт N исэлдэнэ. (b) азот(IV) исэл. (c) P 0 → +5 исэлдэнэ, N +5 → +4 ангижирна; HNO₃ нь P-ийн исэлдэхүйн зэргийг өсгөж, өөрөө ангижирдаг тул исэлдүүлэгч."
+      },
+      {
+        id: "ch7-q9",
+        marks: 3,
+        questionEn: "Which of these are disproportionation reactions? Explain each with oxidation numbers.\n(a) 2H₂O₂ → 2H₂O + O₂\n(b) 3NO₂ + H₂O → 2HNO₃ + NO\n(c) 2KBrO₃ → 2KBr + 3O₂",
+        questionMn: "Аль нь диспропорционацийн урвал вэ? Исэлдэхүйн зэргээр тайлбарлана уу.\n(a) 2H₂O₂ → 2H₂O + O₂\n(b) 3NO₂ + H₂O → 2HNO₃ + NO\n(c) 2KBrO₃ → 2KBr + 3O₂",
+        solutionEn: "(a) Yes · O −1 → −2 and −1 → 0 [1]\n(b) Yes · N +4 → +5 and +4 → +2 [1]\n(c) No · Br is reduced (+5 → −1) but O is oxidised (−2 → 0) — two different elements [1]",
+        solutionMn: "(a) Тийм: O −1 → −2 ба −1 → 0. (b) Тийм: N +4 → +5 ба +4 → +2. (c) Үгүй: Br ангижирч, O исэлдэнэ — өөр хоёр элемент."
+      },
+      {
+        id: "ch7-q10",
+        marks: 3,
+        questionEn: "Calcium reacts with water: Ca + 2H₂O → Ca(OH)₂ + H₂\n(a) Write the two half-equations. [2]\n(b) Which half-equation is the reduction? Explain. [1]",
+        questionMn: "Кальци устай урвалд орно: Ca + 2H₂O → Ca(OH)₂ + H₂\n(a) Хоёр хагас тэгшитгэлийг бичнэ үү. [2]\n(b) Аль хагас тэгшитгэл нь ангижрал вэ? Тайлбарлана уу. [1]",
+        solutionEn: "(a) Ca → Ca²⁺ + 2e⁻ [1]\n2H₂O + 2e⁻ → 2OH⁻ + H₂ [1]\n(b) The second · water gains electrons (H +1 → 0) [1]",
+        solutionMn: "(a) Ca → Ca²⁺ + 2e⁻; 2H₂O + 2e⁻ → 2OH⁻ + H₂. (b) Хоёр дахь нь ангижрал — ус электрон авч, H +1 → 0 болно."
+      }
     ]
   },
   {
@@ -1458,66 +1614,244 @@ export const CHAPTERS_DATA: Chapter[] = [
     category: "Physical",
     titleEn: "Equilibria (Chemical & Acid-Base)",
     titleMn: "Химийн тэнцвэр ба Хүчил-Шүлтийн тэнцвэр",
-    descriptionEn: "Dynamic equilibrium, Le Chatelier's principle (concentration, pressure, temperature, catalyst), Kc and Kp expressions, Haber & Contact processes, Brønsted-Lowry acids/bases, pH curves & indicators.",
-    descriptionMn: "Динамик тэнцвэр, Ле Шательегийн зарчим, Kc ба Kp тэнцвэрийн тогтмолын илэрхийлэл ба тооцоо, Хабер ба Контакт процесс, Брёнстед-Лоурийн хүчил/суурь, титрлэлтийн pH муруй ба индикатор сонголт.",
+    descriptionEn: "Reversible reactions and dynamic equilibrium, Le Chatelier's principle, Kc and Kp with ICE tables and partial pressures, the Haber and Contact processes, Brønsted–Lowry acids and bases, strong and weak acids, and pH titration curves and indicators (Syllabus 7.1–7.2).",
+    descriptionMn: "Буцах урвал ба динамик тэнцвэр, Ле Шательегийн зарчим, ICE хүснэгт ба хэсгийн даралт ашигласан Kc, Kp, Хабер ба Контакт процесс, Брёнстед–Лоурийн хүчил, суурь, хүчтэй ба сул хүчил, титрлэлтийн pH муруй ба индикатор (Syllabus 7.1–7.2).",
+    syllabusRef: "Syllabus 7.1–7.2",
+    examPapers: ["Paper 1", "Paper 2"],
     learningIntentionsEn: [
-      "Explain dynamic equilibrium (rate of forward = backward, concentrations constant in a closed system)",
-      "State and apply Le Chatelier's principle to predict shifts with changes in concentration, pressure, and temperature",
-      "Construct equilibrium expressions for Kc (concentrations) and Kp (partial pressures), and determine their units",
-      "Perform calculations for Kc and Kp (mole fractions, partial pressures)",
-      "Explain industrial compromises in the Haber process (450°C, 200 atm, Fe catalyst) and Contact process (450°C, 1-2 atm, V₂O₅ catalyst)",
-      "Describe Brønsted-Lowry theory (acids = proton donors, bases = proton acceptors)",
-      "Interpret titration curves (strong/weak combinations) and select suitable indicators based on vertical pH jump"
+      "Explain reversible reactions and dynamic equilibrium, and why a closed system is needed",
+      "State Le Chatelier's principle and use it to predict the effect of temperature, concentration, pressure and a catalyst",
+      "Write Kc and Kp expressions and deduce their units",
+      "Calculate Kc, Kp and equilibrium amounts from data, using ICE tables, mole fractions and partial pressures",
+      "State that only temperature changes the value of Kc or Kp",
+      "Explain the conditions used in the Haber and Contact processes",
+      "Use the Brønsted–Lowry theory and distinguish strong and weak acids and bases",
+      "Compare strong and weak acids by pH, conductivity and reaction with magnesium",
+      "Sketch pH titration curves and choose a suitable indicator"
     ],
     learningIntentionsMn: [
-      "Динамик тэнцвэрийн мөн чанар: Шулуун ба буцах урвалын хурд тэнцэж, битүү системд концентрациуд тогтмолжих",
-      "Ле Шательегийн зарчим: Тэнцвэрт байгаа системд гадны нөлөө үзүүлэхэд тэнцвэр уг нөлөөг бууруулах чиглэлд шилжинэ",
-      "Kc (молийн концентрациар) ба Kp (хэсгийн даралтаар) илэрхийлэл бичих, нэгжийг гаргах",
-      "Молийн хувь (mole fraction) ба хэсгийн даралт (partial pressure = mole fraction × P_total) ашиглан Kp бодох",
-      "Хабер ба Контакт процессын үйлдвэрлэлийн оновчтой нөхцөлүүд",
-      "Брёнстед-Лоурийн хүчил-суурийн онол, холбогдсон (conjugate) хос, хүчтэй/сул хүчлийн ялгаа",
-      "Титрлэлтийн pH муруй ба тохирох индикаторыг үсрэлтийн мужаар сонгох (Methyl orange: pH 3.2-4.4, Phenolphthalein: pH 8.2-10.0)"
+      "Буцах урвал ба динамик тэнцвэрийг тайлбарлаж, битүү систем яагаад хэрэгтэйг хэлэх",
+      "Ле Шательегийн зарчмыг хэлж, температур, концентраци, даралт, катализаторын нөлөөг урьдчилан хэлэх",
+      "Kc ба Kp-ийн илэрхийлэл бичиж, нэгжийг гаргах",
+      "ICE хүснэгт, молийн хувь, хэсгийн даралт ашиглан Kc, Kp ба тэнцвэрийн хэмжээг тооцоолох",
+      "Kc эсвэл Kp-ийн утгыг зөвхөн температур өөрчилдгийг хэлэх",
+      "Хабер ба Контакт процессын нөхцөлийг тайлбарлах",
+      "Брёнстед–Лоурийн онолыг хэрэглэж, хүчтэй ба сул хүчил, суурийг ялгах",
+      "Хүчтэй ба сул хүчлийг pH, цахилгаан дамжуулалт, магнитай урвалаар харьцуулах",
+      "Титрлэлтийн pH муруй зурж, тохирох индикатор сонгох"
     ],
     subtopics: [
       {
         id: "8.1",
         number: "8.1",
-        titleEn: "Le Chatelier's Principle & Equilibrium Shifts",
-        titleMn: "Ле Шательегийн зарчим & Тэнцвэрийн шилжилт",
-        summaryEn: "Concentration: adding reactant shifts right. Pressure: increasing P shifts to side with FEWER gas moles. Temperature: increasing T favors ENDOTHERMIC direction. Catalyst: increases rates equally, no shift in position, reaches equilibrium faster.",
-        summaryMn: "Даралт ихэсгэхэд хийн молийн тоо цөөнтэй тал руу шилжинэ. Температур өсгөхөд эндотерм чиглэл рүү шилжинэ. Катализатор тэнцвэрийн байрлалыг өөрчлөхгүй!",
-        keyConcepts: ["Temperature is the ONLY factor that changes the numerical value of Kc and Kp!"]
+        titleEn: "Reversible Reactions & Dynamic Equilibrium",
+        titleMn: "Буцах урвал ба динамик тэнцвэр",
+        summaryEn: "In a reversible reaction the products can react to re-form the reactants (CuSO₄·5H₂O ⇌ CuSO₄ + 5H₂O). Dynamic equilibrium has four features: (1) it is dynamic — particles keep reacting; (2) the forward rate equals the backward rate; (3) concentrations stay constant (but are not usually equal); (4) it needs a closed system, in which no reactants or products can escape. Equilibrium can be reached from either side: H₂ + I₂ or HI alone give the same equilibrium mixture. In an open system CaCO₃ → CaO + CO₂ goes to completion because CO₂ escapes.",
+        summaryMn: "Буцах урвалд бүтээгдэхүүн урвалд орж эх бодисыг дахин үүсгэж чадна (CuSO₄·5H₂O ⇌ CuSO₄ + 5H₂O). Динамик тэнцвэрийн дөрвөн шинж: (1) динамик — бөөмс урвалд орсоор байна; (2) шууд урвалын хурд = буцах урвалын хурд; (3) концентрациуд тогтмол (гэхдээ ихэвчлэн тэнцүү биш); (4) эх бодис, бүтээгдэхүүн гадагш гарахгүй битүү систем шаардлагатай. Тэнцвэрт аль ч талаас хүрч болно: H₂ + I₂ эсвэл зөвхөн HI нь ижил тэнцвэрийн хольц өгнө. Нээлттэй системд CO₂ гадагш гардаг тул CaCO₃ → CaO + CO₂ бүрэн явагдана.",
+        keyConcepts: ["Forward rate = backward rate", "Concentrations constant, not equal", "Closed system needed", "Reached from either direction"],
+        commonPitfalls: [
+          "At equilibrium the reaction has NOT stopped, and the concentrations are constant — not equal."
+        ]
       },
       {
         id: "8.2",
         number: "8.2",
-        titleEn: "Equilibrium Constants: Kc and Kp",
-        titleMn: "Тэнцвэрийн тогтмолууд: Kc ба Kp",
-        summaryEn: "For mA + nB ⇌ pC + qD: Kc = [C]^p [D]^q / ([A]^m [B]^n). Solids and pure liquids are omitted. Kp = (pC)^p (pD)^q / ((pA)^m (pB)^n). Partial pressure pA = mole fraction(A) × Total Pressure.",
-        summaryMn: "Kc = [бүтээгдэхүүн]^коэфф / [эх бодис]^коэфф. Kp нь хийн хэсгийн даралтаар илэрхийлэгдэнэ. Хатуу бодисыг бичихгүй.",
-        keyEquations: ["Kc = [C]^p [D]^q / ([A]^m [B]^n)", "Mole fraction xA = nA / nTotal", "pA = xA × PTotal", "Kp = (pC)^p (pD)^q / ((pA)^m (pB)^n)"]
+        titleEn: "Le Chatelier's Principle",
+        titleMn: "Ле Шательегийн зарчим",
+        summaryEn: "If a change is made to a system at dynamic equilibrium, the position of equilibrium moves to minimise this change. Concentration: adding a reactant (or removing a product) moves the position to the right. Pressure: increasing pressure moves the position towards the side with fewer gas molecules (2SO₂ + O₂ ⇌ 2SO₃: 3 → 2, so right); equal numbers of gas molecules on each side → no effect; count only (g). Temperature: increasing temperature moves the position in the endothermic direction (N₂O₄ ⇌ 2NO₂, ΔH = +58 kJ mol⁻¹: hot → darker brown). A catalyst increases the forward and backward rates equally: no change in position, but equilibrium is reached faster. Adding water to Ce⁴⁺ + Fe²⁺ ⇌ Ce³⁺ + Fe³⁺ has no effect (equal numbers of ions each side).",
+        summaryMn: "Динамик тэнцвэрт буй системд өөрчлөлт хийвэл тэнцвэрийн байрлал уг өөрчлөлтийг багасгах чиглэлд шилжинэ. Концентраци: эх бодис нэмэх (эсвэл бүтээгдэхүүн зайлуулах) нь байрлалыг баруун тийш шилжүүлнэ. Даралт: даралт ихэсгэхэд хийн молекул цөөтэй тал руу шилжинэ (2SO₂ + O₂ ⇌ 2SO₃: 3 → 2, баруун тийш); хоёр талд хийн молекулын тоо тэнцүү бол нөлөөгүй; зөвхөн (g)-г тоолно. Температур: температур өсгөхөд эндотерм чиглэл рүү шилжинэ (N₂O₄ ⇌ 2NO₂, ΔH = +58 kJ mol⁻¹: халаахад илүү бор). Катализатор шууд ба буцах хурдыг адилхан өсгөнө: байрлал өөрчлөгдөхгүй, харин тэнцвэрт хурдан хүрнэ. Ce⁴⁺ + Fe²⁺ ⇌ Ce³⁺ + Fe³⁺-д ус нэмэх нь нөлөөгүй (хоёр талд ионы тоо тэнцүү).",
+        keyConcepts: ["Position moves to minimise the change", "↑p → side with fewer gas molecules", "↑T → endothermic direction", "Catalyst: no shift, faster to equilibrium"],
+        keyEquations: ["N₂(g) + 3H₂(g) ⇌ 2NH₃(g) ΔH = −92 kJ mol⁻¹", "N₂O₄(g) ⇌ 2NO₂(g) ΔH = +58 kJ mol⁻¹"],
+        commonPitfalls: [
+          "Do not just write 'equilibrium shifts right' — state the change, the direction and the reason (fewer gas molecules, endothermic direction …).",
+          "A catalyst does not change the position of equilibrium or the yield."
+        ]
       },
       {
         id: "8.3",
         number: "8.3",
-        titleEn: "Acids, Bases & Titration pH Curves",
-        titleMn: "Хүчил, сууриуд ба Титрлэлтийн pH муруй",
-        summaryEn: "Strong acid + Strong base: vertical jump pH 3-11 (Indicator: Methyl orange or Phenolphthalein). Strong acid + Weak base: vertical jump pH 3-7 (Methyl orange). Weak acid + Strong base: vertical jump pH 7-11 (Phenolphthalein). Weak acid + Weak base: no sharp vertical jump (No indicator suitable).",
-        summaryMn: "Титрлэлтийн үсрэлт дээр индикаторын өнгө хувирах муж давхцаж байх ёстой. Сул хүчил + сул суурийн титрлэлтэд тохирох индикатор байхгүй (pH метр хэрэглэнэ).",
-        keyConcepts: ["Methyl orange: red (acid) -> yellow (alkali), end point orange ~pH 3.7", "Phenolphthalein: colourless (acid) -> pink (alkali), end point ~pH 9.3"]
+        titleEn: "The Equilibrium Constant Kc",
+        titleMn: "Тэнцвэрийн тогтмол Kc",
+        summaryEn: "Kc = products over reactants, with the equilibrium concentrations (mol dm⁻³) raised to the powers of their coefficients; solids (and pure liquids in heterogeneous systems) are left out. H₂ + I₂ ⇌ 2HI: Kc = [HI]² ÷ ([H₂][I₂]) — no units. N₂ + 3H₂ ⇌ 2NH₃: Kc = [NH₃]² ÷ ([N₂][H₂]³), units dm⁶ mol⁻². Use an ICE table (Initial, Change, Equilibrium) and convert moles to concentrations by dividing by V; if the number of terms top and bottom is equal, V cancels. Example: 0.100 mol A + 0.200 mol B in 2.00 dm³ form 0.040 mol C → [A] 0.0300, [B] 0.0800, [C] 0.0200 → Kc = 8.33 dm³ mol⁻¹. Only temperature changes Kc: for an endothermic forward reaction Kc increases with T; for an exothermic one it decreases.",
+        summaryMn: "Kc = бүтээгдэхүүн ÷ эх бодис, тэнцвэрийн концентрацийг (mol dm⁻³) коэффициентийн зэрэгт дэвшүүлнэ; хатуу бодис (гетероген системд цэвэр шингэн)-ыг оруулахгүй. H₂ + I₂ ⇌ 2HI: Kc = [HI]² ÷ ([H₂][I₂]) — нэгжгүй. N₂ + 3H₂ ⇌ 2NH₃: Kc = [NH₃]² ÷ ([N₂][H₂]³), нэгж dm⁶ mol⁻². ICE хүснэгт (Анхны, Өөрчлөлт, Тэнцвэр) ашиглаж, молийг V-д хувааж концентраци болгоно; дээд ба доод гишүүдийн тоо тэнцүү бол V хураагдана. Жишээ: 2.00 dm³-т 0.100 моль A + 0.200 моль B-ээс 0.040 моль C үүснэ → [A] 0.0300, [B] 0.0800, [C] 0.0200 → Kc = 8.33 dm³ mol⁻¹. Kc-г зөвхөн температур өөрчилнө: шууд урвал эндотерм бол T өсөхөд Kc өснө, экзотерм бол буурна.",
+        keyConcepts: ["Products over reactants, coefficients as powers", "Omit solids", "ICE table: Initial · Change · Equilibrium", "Only temperature changes K"],
+        keyEquations: ["H₂ + I₂ ⇌ 2HI: Kc = [HI]² ÷ ([H₂][I₂])", "N₂ + 3H₂ ⇌ 2NH₃: Kc = [NH₃]² ÷ ([N₂][H₂]³) dm⁶ mol⁻²", "[X] = n ÷ V"],
+        commonPitfalls: [
+          "Coefficients become powers: [HI]², not 2[HI].",
+          "Divide moles by the volume (dm³) unless V cancels.",
+          "Higher pressure or concentration does NOT change Kc — only temperature does."
+        ]
+      },
+      {
+        id: "8.4",
+        number: "8.4",
+        titleEn: "Partial Pressures & Kp",
+        titleMn: "Хэсгийн даралт ба Kp",
+        summaryEn: "The partial pressure of a gas is the pressure it would exert if it alone occupied the container. p(total) = pA + pB + pC …; mole fraction = moles of A ÷ total moles of gas; pA = mole fraction × p(total). Kp is written like Kc but with partial pressures and no square brackets: N₂O₄ ⇌ 2NO₂: Kp = p(NO₂)² ÷ p(N₂O₄), units Pa; 2SO₂ + O₂ ⇌ 2SO₃: Kp = p(SO₃)² ÷ (p(SO₂)² × p(O₂)), units Pa⁻¹; solids are left out. Example: H₂ + I₂ ⇌ 2HI at 100 kPa with mole fractions 0.0810, 0.1378 and 0.7813 → partial pressures 8.10, 13.78, 78.13 kPa → Kp = 78.13² ÷ (8.10 × 13.78) = 54.7 (no units).",
+        summaryMn: "Хийн хэсгийн даралт нь тухайн хий ганцаараа савыг эзэлсэн үед үзүүлэх даралт. p(нийт) = pA + pB + pC …; молийн хувь = A-ийн моль ÷ хийн нийт моль; pA = молийн хувь × p(нийт). Kp-г Kc шиг бичих ч хэсгийн даралтаар, дөрвөлжин хаалтгүй: N₂O₄ ⇌ 2NO₂: Kp = p(NO₂)² ÷ p(N₂O₄), нэгж Pa; 2SO₂ + O₂ ⇌ 2SO₃: Kp = p(SO₃)² ÷ (p(SO₂)² × p(O₂)), нэгж Pa⁻¹; хатуу бодисыг оруулахгүй. Жишээ: 100 kPa-д H₂ + I₂ ⇌ 2HI, молийн хувь 0.0810, 0.1378, 0.7813 → хэсгийн даралт 8.10, 13.78, 78.13 kPa → Kp = 78.13² ÷ (8.10 × 13.78) = 54.7 (нэгжгүй).",
+        keyConcepts: ["Mole fraction = n(A) ÷ n(total)", "pA = mole fraction × p(total)", "Sum of partial pressures = total pressure", "Kp uses p( ), not [ ]"],
+        keyEquations: ["pA = (nA ÷ n total) × p total", "Kp = p(NO₂)² ÷ p(N₂O₄)", "Kp = p(NH₃)² ÷ (p(N₂) × p(H₂)³) Pa⁻²"],
+        commonPitfalls: [
+          "Never use square brackets in Kp expressions.",
+          "Work out the units from the powers: N₂ + 3H₂ ⇌ 2NH₃ gives Pa² ÷ Pa⁴ = Pa⁻²."
+        ]
+      },
+      {
+        id: "8.5",
+        number: "8.5",
+        titleEn: "The Haber & Contact Processes",
+        titleMn: "Хабер ба Контакт процесс",
+        summaryEn: "Haber process: N₂(g) + 3H₂(g) ⇌ 2NH₃(g), ΔH = −92 kJ mol⁻¹. About 450 °C is a compromise: a lower temperature gives a higher yield (exothermic) but the rate is too slow. About 1.5 × 10⁷ Pa: 4 → 2 gas molecules, so high pressure raises the yield and the rate, but very high pressure is expensive and unsafe. An iron catalyst makes equilibrium reached faster without changing the yield. Ammonia is removed by condensing it, so the position moves right, and unreacted N₂ and H₂ are recycled. Contact process: 2SO₂(g) + O₂(g) ⇌ 2SO₃(g), ΔH = −197 kJ mol⁻¹, V₂O₅ catalyst, 400–450 °C; only 1–2 atm is used because Kp is very large (position already far right) and high pressure is costly. SO₃ is absorbed in 98% H₂SO₄.",
+        summaryMn: "Хабер процесс: N₂(g) + 3H₂(g) ⇌ 2NH₃(g), ΔH = −92 kJ mol⁻¹. ~450 °C нь буулт: бага температур гарцыг өсгөх (экзотерм) ч хурд хэт удаан. ~1.5 × 10⁷ Pa: 4 → 2 хийн молекул тул өндөр даралт гарц ба хурдыг өсгөх ч хэт өндөр даралт үнэтэй, аюултай. Төмөр катализатор гарцыг өөрчлөхгүйгээр тэнцвэрт хурдан хүргэнэ. Аммиакийг конденсацлан зайлуулахад байрлал баруун тийш шилжиж, урвалд ороогүй N₂, H₂-г дахин ашиглана. Контакт процесс: 2SO₂(g) + O₂(g) ⇌ 2SO₃(g), ΔH = −197 kJ mol⁻¹, V₂O₅ катализатор, 400–450 °C; Kp маш их (байрлал аль хэдийн баруун талд) бөгөөд өндөр даралт үнэтэй тул зөвхөн 1–2 атм хэрэглэнэ. SO₃-ийг 98% H₂SO₄-д шингээнэ.",
+        keyConcepts: ["Haber: ~450 °C, ~1.5 × 10⁷ Pa, Fe catalyst", "Compromise temperature: yield vs rate", "Contact: V₂O₅, 400–450 °C, 1–2 atm", "Remove product → position moves right"],
+        keyEquations: ["N₂ + 3H₂ ⇌ 2NH₃ ΔH = −92 kJ mol⁻¹", "2SO₂ + O₂ ⇌ 2SO₃ ΔH = −197 kJ mol⁻¹"],
+        commonPitfalls: [
+          "Explain the temperature as a compromise between yield and rate — mention both.",
+          "The catalyst affects only the rate, not the yield."
+        ]
+      },
+      {
+        id: "8.6",
+        number: "8.6",
+        titleEn: "Brønsted–Lowry Acids & Bases",
+        titleMn: "Брёнстед–Лоурийн хүчил ба суурь",
+        summaryEn: "A Brønsted–Lowry acid is a proton (H⁺) donor and a base is a proton acceptor. Water is amphoteric: it accepts H⁺ from HCl (base) and donates H⁺ to NH₃ (acid); H₃O⁺ is the hydroxonium ion. Strong acids and bases are fully dissociated in water (HCl → H⁺ + Cl⁻, NaOH → Na⁺ + OH⁻); weak ones are only partially dissociated, with the position well to the left (CH₃COOH ⇌ CH₃COO⁻ + H⁺, NH₃ + H₂O ⇌ NH₄⁺ + OH⁻). At the same concentration (0.1 mol dm⁻³) HCl has pH 1 but ethanoic acid pH 2.9; a strong acid also conducts better and reacts faster with Mg, because [H⁺] is higher. Neutralisation: H⁺(aq) + OH⁻(aq) → H₂O(l).",
+        summaryMn: "Брёнстед–Лоурийн хүчил нь протон (H⁺) өгөгч, суурь нь протон хүлээн авагч. Ус амфотер: HCl-ээс H⁺ авна (суурь), NH₃-т H⁺ өгнө (хүчил); H₃O⁺ — гидроксоний ион. Хүчтэй хүчил, суурь усанд бүрэн диссоциацлагдана (HCl → H⁺ + Cl⁻, NaOH → Na⁺ + OH⁻); сул нь зөвхөн хэсэгчлэн, байрлал зүүн талд (CH₃COOH ⇌ CH₃COO⁻ + H⁺, NH₃ + H₂O ⇌ NH₄⁺ + OH⁻). Ижил концентрацид (0.1 mol dm⁻³) HCl pH 1, этаны хүчил pH 2.9; хүчтэй хүчил [H⁺] өндөр тул илүү сайн дамжуулж, Mg-тэй хурдан урвалд орно. Саармагжилт: H⁺(aq) + OH⁻(aq) → H₂O(l).",
+        keyConcepts: ["Acid = proton donor · base = proton acceptor", "Strong = fully dissociated · weak = partially", "Water is amphoteric", "Strong vs weak: pH, conductivity, rate with Mg"],
+        keyEquations: ["HCl(aq) → H⁺(aq) + Cl⁻(aq)", "CH₃COOH ⇌ CH₃COO⁻ + H⁺", "NH₃ + H₂O ⇌ NH₄⁺ + OH⁻"],
+        commonPitfalls: [
+          "Weak is not the same as dilute: weak = partially dissociated; dilute = low concentration.",
+          "An acid is not 'something containing hydrogen' — it is a proton donor."
+        ]
+      },
+      {
+        id: "8.7",
+        number: "8.7",
+        titleEn: "pH Titration Curves & Indicators",
+        titleMn: "Титрлэлтийн pH муруй ба индикатор",
+        summaryEn: "An indicator is a weak acid whose two forms have different colours: HIn ⇌ H⁺ + In⁻ (acid → left, alkali → right). Ranges: methyl orange 3.2–4.4 (red → yellow), methyl red 4.2–6.3, bromothymol blue 6.0–7.6 (yellow → blue), phenolphthalein 8.2–10.0 (colourless → pink). The indicator's range must lie within the steep part of the titration curve. Strong acid + strong base: steep from about 3.5 to 10.5 — almost any indicator. Strong acid + weak base: steep 3.5–7.5 — methyl orange or methyl red, not phenolphthalein. Weak acid + strong base: steep 7.5–11 — phenolphthalein, not methyl orange. Weak acid + weak base: no steep part — no indicator is suitable.",
+        summaryMn: "Индикатор нь хоёр хэлбэр нь өөр өнгөтэй сул хүчил: HIn ⇌ H⁺ + In⁻ (хүчилд зүүн, шүлтэд баруун). Муж: метил улбар шар 3.2–4.4 (улаан → шар), метил улаан 4.2–6.3, бромтимол хөх 6.0–7.6 (шар → хөх), фенолфталеин 8.2–10.0 (өнгөгүй → ягаан). Индикаторын муж титрлэлтийн муруйн огцом хэсэгт байх ёстой. Хүчтэй хүчил + хүчтэй суурь: ~3.5-аас 10.5 хүртэл огцом — бараг ямар ч индикатор. Хүчтэй хүчил + сул суурь: 3.5–7.5 — метил улбар шар эсвэл метил улаан, фенолфталеин биш. Сул хүчил + хүчтэй суурь: 7.5–11 — фенолфталеин, метил улбар шар биш. Сул хүчил + сул суурь: огцом хэсэггүй — тохирох индикатор байхгүй.",
+        keyConcepts: ["Indicator range must lie in the steep part", "Strong acid + weak base → methyl orange", "Weak acid + strong base → phenolphthalein", "Weak + weak → no suitable indicator"],
+        keyEquations: ["HIn ⇌ H⁺ + In⁻"],
+        commonPitfalls: [
+          "Phenolphthalein is unsuitable for a strong acid with a weak base — its range (8.2–10) is outside the steep part."
+        ]
       }
     ],
     keyTerms: [
-      { termEn: "Le Chatelier's Principle", termMn: "Ле Шательегийн зарчим", definitionEn: "If a change is made to a system at dynamic equilibrium, the position of equilibrium moves to minimise this change.", definitionMn: "Динамик тэнцвэрт байгаа системд гадны нөлөө үзүүлэхэд тэнцвэр уг өөрчлөлтийг багасгах чиглэлд шилжинэ." },
-      { termEn: "Partial Pressure", termMn: "Хэсгийн даралт", definitionEn: "The pressure exerted by an individual gas in a mixture if it occupied the entire container alone.", definitionMn: "Хийн хольц дахь тухайн нэг хийн бие даан үзүүлэх даралт." }
+      { termEn: "Reversible Reaction", termMn: "Буцах урвал", definitionEn: "A reaction in which the products can react to re-form the reactants.", definitionMn: "Бүтээгдэхүүн нь урвалд орж эх бодисыг дахин үүсгэж чадах урвал." },
+      { termEn: "Closed System", termMn: "Битүү систем", definitionEn: "A system in which no reactants or products can escape.", definitionMn: "Эх бодис, бүтээгдэхүүн гадагш гарч чадахгүй систем." },
+      { termEn: "Dynamic Equilibrium", termMn: "Динамик тэнцвэр", definitionEn: "The state in which the forward and backward reaction rates are equal and the concentrations of reactants and products stay constant.", definitionMn: "Шууд ба буцах урвалын хурд тэнцүү, эх бодис ба бүтээгдэхүүний концентраци тогтмол байх төлөв." },
+      { termEn: "Position of Equilibrium", termMn: "Тэнцвэрийн байрлал", definitionEn: "The relative amounts of products and reactants in an equilibrium mixture.", definitionMn: "Тэнцвэрийн хольц дахь бүтээгдэхүүн ба эх бодисын харьцангуй хэмжээ." },
+      { termEn: "Le Chatelier's Principle", termMn: "Ле Шательегийн зарчим", definitionEn: "If a change is made to a system at dynamic equilibrium, the position of equilibrium moves to minimise this change.", definitionMn: "Динамик тэнцвэрт буй системд өөрчлөлт хийвэл тэнцвэрийн байрлал уг өөрчлөлтийг багасгах чиглэлд шилжинэ." },
+      { termEn: "Equilibrium Constant (Kc)", termMn: "Тэнцвэрийн тогтмол (Kc)", definitionEn: "The ratio of the equilibrium concentrations of products to reactants, each raised to the power of its coefficient.", definitionMn: "Бүтээгдэхүүний тэнцвэрийн концентрацийг эх бодисынхтой харьцуулсан харьцаа, тус бүрийг коэффициентийн зэрэгт дэвшүүлнэ." },
+      { termEn: "Partial Pressure", termMn: "Хэсгийн даралт", definitionEn: "The pressure one gas in a mixture would exert if it alone occupied the container; mole fraction × total pressure.", definitionMn: "Хольц дахь нэг хий ганцаараа савыг эзэлсэн үед үзүүлэх даралт; молийн хувь × нийт даралт." },
+      { termEn: "Mole Fraction", termMn: "Молийн хувь", definitionEn: "Moles of one gas ÷ total moles of gas in the mixture.", definitionMn: "Нэг хийн моль ÷ хольц дахь хийн нийт моль." },
+      { termEn: "Kp", termMn: "Kp", definitionEn: "The equilibrium constant expressed in terms of the partial pressures of gases.", definitionMn: "Хийн хэсгийн даралтаар илэрхийлсэн тэнцвэрийн тогтмол." },
+      { termEn: "Brønsted–Lowry Acid", termMn: "Брёнстед–Лоурийн хүчил", definitionEn: "A proton (H⁺) donor.", definitionMn: "Протон (H⁺) өгөгч." },
+      { termEn: "Brønsted–Lowry Base", termMn: "Брёнстед–Лоурийн суурь", definitionEn: "A proton (H⁺) acceptor.", definitionMn: "Протон (H⁺) хүлээн авагч." },
+      { termEn: "Strong Acid / Base", termMn: "Хүчтэй хүчил / суурь", definitionEn: "An acid or base that is fully dissociated in aqueous solution.", definitionMn: "Усан уусмалд бүрэн диссоциацлагддаг хүчил эсвэл суурь." },
+      { termEn: "Weak Acid / Base", termMn: "Сул хүчил / суурь", definitionEn: "An acid or base that is only partially dissociated in aqueous solution.", definitionMn: "Усан уусмалд зөвхөн хэсэгчлэн диссоциацлагддаг хүчил эсвэл суурь." },
+      { termEn: "Amphoteric", termMn: "Амфотер", definitionEn: "Able to act as either an acid or a base, e.g. water.", definitionMn: "Хүчил эсвэл суурийн аль алиных нь үүргийг гүйцэтгэж чаддаг, жишээ нь ус." },
+      { termEn: "Indicator", termMn: "Индикатор", definitionEn: "A dye that changes colour over a specific pH range.", definitionMn: "Тодорхой pH мужид өнгөө өөрчилдөг будагч бодис." }
     ],
     formulas: [
-      { nameEn: "Concentration Equilibrium Constant", nameMn: "Kc томьёо", formula: "Kc = [Products]^p / [Reactants]^r", note: "Square brackets = mol dm⁻³" },
-      { nameEn: "Partial Pressure from Mole Fraction", nameMn: "Хэсгийн даралт", formula: "p(A) = (nA / nTotal) × PTotal", note: "Sum of mole fractions = 1.0" }
+      { nameEn: "Equilibrium Constant Kc", nameMn: "Тэнцвэрийн тогтмол Kc", formula: "aA + bB ⇌ cC + dD: Kc = [C]ᶜ[D]ᵈ ÷ ([A]ᵃ[B]ᵇ)", note: "Concentrations in mol dm⁻³; omit solids" },
+      { nameEn: "Equilibrium Constant Kp", nameMn: "Тэнцвэрийн тогтмол Kp", formula: "Kp = p(C)ᶜ p(D)ᵈ ÷ (p(A)ᵃ p(B)ᵇ)", note: "Partial pressures in Pa; no square brackets" },
+      { nameEn: "Partial Pressure", nameMn: "Хэсгийн даралт", formula: "pA = (nA ÷ n total) × p total", note: "Mole fractions add up to 1" },
+      { nameEn: "Concentration from Moles", nameMn: "Мольоос концентраци", formula: "[X] = n ÷ V", note: "V in dm³; cancels when terms top and bottom are equal" }
     ],
     examStyleTips: [
-      "CRITICAL: Only TEMPERATURE changes the numerical value of Kc or Kp. Changes in concentration or pressure change equilibrium position but NOT the equilibrium constant value.",
-      "In Kp expressions, write round brackets with subscript p, NEVER square brackets: e.g. (pNH₃)² / ((pN₂) × (pH₂)³)."
+      "Dynamic equilibrium: forward rate = backward rate and concentrations constant — never 'the reaction has stopped' or 'concentrations are equal'.",
+      "Only temperature changes Kc and Kp; concentration, pressure and catalysts do not.",
+      "In Le Chatelier answers state the change, the direction of shift and the reason (fewer gas molecules / endothermic direction).",
+      "Kc: coefficients become powers and solids are omitted; divide moles by V unless it cancels; always give units.",
+      "Weak means partially dissociated, not dilute.",
+      "Choose an indicator whose range lies in the steep part of the pH curve."
+    ],
+    examQuestions: [
+      {
+        id: "ch8-q1",
+        marks: 4,
+        questionEn: "2SO₂(g) + O₂(g) ⇌ 2SO₃(g), ΔH negative, V₂O₅ catalyst.\nState and explain the effect on the position of equilibrium of:\n(a) removing SO₃\n(b) lowering the pressure\n(c) adding more V₂O₅\n(d) increasing the temperature",
+        questionMn: "2SO₂(g) + O₂(g) ⇌ 2SO₃(g), ΔH сөрөг, V₂O₅ катализатор.\nДараах өөрчлөлт тэнцвэрийн байрлалд хэрхэн нөлөөлөхийг тайлбарлана уу:\n(a) SO₃-ийг зайлуулах\n(b) даралтыг бууруулах\n(c) V₂O₅ нэмэх\n(d) температурыг өсгөх",
+        solutionEn: "(a) Moves right · more SO₃ forms to replace it [1]\n(b) Moves left · towards more gas molecules (3 on the left, 2 on the right) [1]\n(c) No change · a catalyst speeds up both reactions equally [1]\n(d) Moves left · the backward reaction is endothermic [1]",
+        solutionMn: "(a) Баруун тийш — зайлуулсан SO₃-ийг нөхнө. (b) Зүүн тийш — хийн молекул олонтой тал (3 > 2). (c) Өөрчлөлтгүй — хоёр урвалыг адилхан хурдасгана. (d) Зүүн тийш — буцах урвал эндотерм.",
+        examinerTip: "Each mark needs the direction AND the reason."
+      },
+      {
+        id: "ch8-q2",
+        marks: 3,
+        questionEn: "Write Kc expressions, with units, for:\n(a) N₂(g) + 3H₂(g) ⇌ 2NH₃(g)\n(b) 2SO₂(g) + O₂(g) ⇌ 2SO₃(g)\n(c) Ag⁺(aq) + Fe²⁺(aq) ⇌ Ag(s) + Fe³⁺(aq)",
+        questionMn: "Нэгжтэй Kc илэрхийлэл бичнэ үү:\n(a) N₂(g) + 3H₂(g) ⇌ 2NH₃(g)\n(b) 2SO₂(g) + O₂(g) ⇌ 2SO₃(g)\n(c) Ag⁺(aq) + Fe²⁺(aq) ⇌ Ag(s) + Fe³⁺(aq)",
+        solutionEn: "(a) Kc = [NH₃]² ÷ ([N₂][H₂]³) · dm⁶ mol⁻² [1]\n(b) Kc = [SO₃]² ÷ ([SO₂]²[O₂]) · dm³ mol⁻¹ [1]\n(c) Kc = [Fe³⁺] ÷ ([Ag⁺][Fe²⁺]) · dm³ mol⁻¹ (Ag(s) left out) [1]",
+        solutionMn: "(a) [NH₃]² ÷ ([N₂][H₂]³), dm⁶ mol⁻². (b) [SO₃]² ÷ ([SO₂]²[O₂]), dm³ mol⁻¹. (c) Хатуу Ag-г оруулахгүй: [Fe³⁺] ÷ ([Ag⁺][Fe²⁺]), dm³ mol⁻¹."
+      },
+      {
+        id: "ch8-q3",
+        marks: 3,
+        questionEn: "CH₃COOH + C₂H₅OH ⇌ CH₃COOC₂H₅ + H₂O\nAt equilibrium in 500 cm³ there are 0.235 mol acid, 0.0350 mol ethanol, 0.182 mol ester and 0.182 mol water.\nCalculate Kc.",
+        questionMn: "CH₃COOH + C₂H₅OH ⇌ CH₃COOC₂H₅ + H₂O\n500 cm³-т тэнцвэрт байхад 0.235 моль хүчил, 0.0350 моль этанол, 0.182 моль эфир, 0.182 моль ус байна.\nKc-г тооцоолно уу.",
+        solutionEn: "Kc = [ester][H₂O] ÷ ([acid][ethanol]) [1]\nTwo terms top and bottom, so V cancels and moles can be used [1]\nKc = (0.182 × 0.182) ÷ (0.235 × 0.0350) = 4.03 (no units) [1]",
+        solutionMn: "Дээд, доод талд хоёр хоёр гишүүн тул V хураагдана. Kc = (0.182 × 0.182) ÷ (0.235 × 0.0350) = 4.03, нэгжгүй."
+      },
+      {
+        id: "ch8-q4",
+        marks: 4,
+        questionEn: "0.100 mol of A and 0.200 mol of B are mixed in a 2.00 dm³ flask: A + B ⇌ C. At equilibrium 0.040 mol of C is present.\nCalculate Kc, with units.",
+        questionMn: "2.00 dm³ колбонд 0.100 моль A, 0.200 моль B холив: A + B ⇌ C. Тэнцвэрт 0.040 моль C байна.\nKc-г нэгжтэй нь тооцоолно уу.",
+        solutionEn: "Equilibrium moles: A 0.060 · B 0.160 · C 0.040 [1]\nConcentrations (÷ 2.00): A 0.0300 · B 0.0800 · C 0.0200 mol dm⁻³ [1]\nKc = 0.0200 ÷ (0.0300 × 0.0800) = 8.33 [1]\nUnits dm³ mol⁻¹ [1]",
+        solutionMn: "ICE: A 0.100 − 0.040 = 0.060, B 0.200 − 0.040 = 0.160, C 0.040 моль. 2.00 dm³-т хуваавал 0.0300, 0.0800, 0.0200. Kc = 8.33 dm³ mol⁻¹.",
+        examinerTip: "Here V does not cancel (1 term on top, 2 below), so you must convert to concentrations."
+      },
+      {
+        id: "ch8-q5",
+        marks: 4,
+        questionEn: "0.40 mol of PCl₅ is placed in a 2.0 dm³ flask: PCl₅(g) ⇌ PCl₃(g) + Cl₂(g). At equilibrium 0.10 mol of Cl₂ is present.\n(a) Calculate Kc, with units. [3]\n(b) State the effect of increasing the pressure on the position of equilibrium. [1]",
+        questionMn: "2.0 dm³ колбонд 0.40 моль PCl₅ хийв: PCl₅(g) ⇌ PCl₃(g) + Cl₂(g). Тэнцвэрт 0.10 моль Cl₂ байна.\n(a) Kc-г нэгжтэй нь тооцоолно уу. [3]\n(b) Даралт ихэсгэхэд тэнцвэрийн байрлал хэрхэн өөрчлөгдөх вэ? [1]",
+        solutionEn: "(a) [PCl₅] = 0.30 ÷ 2.0 = 0.15 · [PCl₃] = [Cl₂] = 0.050 mol dm⁻³ [1]\nKc = 0.050² ÷ 0.15 = 0.0167 [1] · mol dm⁻³ [1]\n(b) Moves left · fewer gas molecules (2 → 1) [1]",
+        solutionMn: "(a) PCl₅ 0.30 моль үлдэнэ → 0.15; PCl₃ = Cl₂ = 0.050 mol dm⁻³. Kc = 0.050² ÷ 0.15 = 0.0167 mol dm⁻³. (b) Зүүн тийш — хийн молекул цөөтэй тал."
+      },
+      {
+        id: "ch8-q6",
+        marks: 3,
+        questionEn: "N₂ + 3H₂ ⇌ 2NH₃. The total pressure is 2.000 × 10⁷ Pa; p(N₂) = 1.490 × 10⁷ Pa and p(H₂) = 0.400 × 10⁷ Pa.\nCalculate Kp.",
+        questionMn: "N₂ + 3H₂ ⇌ 2NH₃. Нийт даралт 2.000 × 10⁷ Pa; p(N₂) = 1.490 × 10⁷ Pa, p(H₂) = 0.400 × 10⁷ Pa.\nKp-г тооцоолно уу.",
+        solutionEn: "p(NH₃) = (2.000 − 1.490 − 0.400) × 10⁷ = 0.110 × 10⁷ Pa [1]\nKp = p(NH₃)² ÷ (p(N₂) × p(H₂)³) [1]\nKp = (0.110 × 10⁷)² ÷ (1.490 × 10⁷ × (0.400 × 10⁷)³) = 1.27 × 10⁻¹⁵ Pa⁻² [1]",
+        solutionMn: "Хэсгийн даралтын нийлбэр = нийт даралт тул p(NH₃) = 0.110 × 10⁷ Pa. Kp = 1.27 × 10⁻¹⁵ Pa⁻²."
+      },
+      {
+        id: "ch8-q7",
+        marks: 4,
+        questionEn: "Haber process: N₂(g) + 3H₂(g) ⇌ 2NH₃(g), ΔH = −92 kJ mol⁻¹.\n(a) Why is a temperature higher than 450 °C not used? [2]\n(b) Why is a high pressure used? [1]\n(c) Why is ammonia removed as soon as it forms? [1]",
+        questionMn: "Хабер процесс: N₂(g) + 3H₂(g) ⇌ 2NH₃(g), ΔH = −92 kJ mol⁻¹.\n(a) Яагаад 450 °C-аас өндөр температур хэрэглэдэггүй вэ? [2]\n(b) Яагаад өндөр даралт хэрэглэдэг вэ? [1]\n(c) Аммиакийг үүсмэгц яагаад зайлуулдаг вэ? [1]",
+        solutionEn: "(a) Forward reaction is exothermic, so a higher temperature moves the position left [1] · lower yield of ammonia (and higher energy cost) [1]\n(b) 4 → 2 gas molecules · higher pressure moves the position right and increases the rate [1]\n(c) Position moves right to replace it, so more NH₃ forms [1]",
+        solutionMn: "(a) Шууд урвал экзотерм тул өндөр температурт байрлал зүүн тийш шилжиж гарц буурна. (b) 4 → 2 хийн молекул — өндөр даралт байрлалыг баруун тийш шилжүүлж, хурдыг өсгөнө. (c) Байрлал баруун тийш шилжиж, илүү NH₃ үүснэ."
+      },
+      {
+        id: "ch8-q8",
+        marks: 4,
+        questionEn: "(a) Explain why water is described as amphoteric, using its reactions with HCl and with NH₃. [2]\n(b) Explain why 0.1 mol dm⁻³ ethanoic acid conducts electricity less well than 0.1 mol dm⁻³ hydrochloric acid. [2]",
+        questionMn: "(a) HCl ба NH₃-тай урвалыг ашиглан ус яагаад амфотер болохыг тайлбарлана уу. [2]\n(b) 0.1 mol dm⁻³ этаны хүчил яагаад 0.1 mol dm⁻³ давсны хүчлээс муу дамжуулдгийг тайлбарлана уу. [2]",
+        solutionEn: "(a) With HCl water accepts H⁺, so it is a base (H₂O + HCl → H₃O⁺ + Cl⁻) [1]\nWith NH₃ water donates H⁺, so it is an acid (NH₃ + H₂O ⇌ NH₄⁺ + OH⁻) [1]\n(b) Ethanoic acid is weak · only partially dissociated [1]\nSo there are fewer ions to carry the current [1]",
+        solutionMn: "(a) HCl-тэй ус H⁺ хүлээн авна — суурь; NH₃-тай ус H⁺ өгнө — хүчил. (b) Этаны хүчил сул — хэсэгчлэн диссоциацлагдана, гүйдэл дамжуулах ион цөөн."
+      },
+      {
+        id: "ch8-q9",
+        marks: 4,
+        questionEn: "10.0 cm³ of 0.200 mol dm⁻³ HCl is titrated with 0.200 mol dm⁻³ aqueous ammonia.\n(a) At what volume of ammonia is the equivalence point? [1]\n(b) Over roughly what pH range is the curve steep? [1]\n(c) Explain why methyl orange (3.2–4.4) is suitable but phenolphthalein (8.2–10.0) is not. [2]",
+        questionMn: "0.200 mol dm⁻³ HCl-ийн 10.0 cm³-ийг 0.200 mol dm⁻³ аммиакийн уусмалаар титрлэв.\n(a) Эквивалентийн цэг аммиакийн ямар эзлэхүүнд байх вэ? [1]\n(b) Муруй ойролцоогоор ямар pH мужид огцом вэ? [1]\n(c) Метил улбар шар (3.2–4.4) яагаад тохирох, фенолфталеин (8.2–10.0) яагаад тохирохгүйг тайлбарлана уу. [2]",
+        solutionEn: "(a) 1 : 1 at equal concentrations → 10.0 cm³ [1]\n(b) About pH 3.5 to 7.5 · strong acid with weak base [1]\n(c) Methyl orange changes colour within the steep part [1] · phenolphthalein changes at pH 8.2–10, outside the steep part [1]",
+        solutionMn: "(a) 10.0 cm³. (b) Хүчтэй хүчил + сул суурь тул ~pH 3.5–7.5. (c) Метил улбар шарын муж огцом хэсэгт багтана; фенолфталеиных багтахгүй."
+      },
+      {
+        id: "ch8-q10",
+        marks: 3,
+        questionEn: "Choose a suitable indicator for each titration, or say that none is suitable:\n(a) KOH with butanoic acid (a weak acid)\n(b) NaOH with H₂SO₄\n(c) ethanoic acid with aqueous ammonia",
+        questionMn: "Титрлэлт бүрд тохирох индикатор сонгоно уу, эсвэл тохирох индикатор байхгүй гэж хэлнэ үү:\n(a) KOH ба бутаны хүчил (сул хүчил)\n(b) NaOH ба H₂SO₄\n(c) этаны хүчил ба аммиакийн уусмал",
+        solutionEn: "(a) Phenolphthalein · weak acid with strong base, steep part pH 7.5–11 [1]\n(b) Almost any · strong acid with strong base, such as bromothymol blue or phenolphthalein [1]\n(c) None · weak acid with weak base has no steep part [1]",
+        solutionMn: "(a) Фенолфталеин (сул хүчил + хүчтэй суурь). (b) Бараг ямар ч индикатор (хүчтэй + хүчтэй). (c) Тохирох индикатор байхгүй (сул + сул, огцом хэсэггүй)."
+      }
     ]
   },
   {
@@ -1527,63 +1861,202 @@ export const CHAPTERS_DATA: Chapter[] = [
     category: "Physical",
     titleEn: "Rates of Reaction",
     titleMn: "Урвалын хурд & Идэвхжлийн энерги",
-    descriptionEn: "Rate of reaction definition, collision theory, factors affecting rate (concentration, pressure, temperature, catalyst), Maxwell-Boltzmann distribution curve, and homogeneous vs heterogeneous catalysis.",
-    descriptionMn: "Урвалын хурдны тодорхойлолт, мөргөлдөөний онол, хурдад нөлөөлөх хүчин зүйлс, Максвелл-Больцманы энергийн түгээлтийн муруй, нэгэн төрлийн ба олон төрлийн катализ.",
+    descriptionEn: "Measuring rate and converting units, following a reaction, rates from tangents, collision theory, the effect of concentration and pressure, the Boltzmann distribution and temperature, and homogeneous and heterogeneous catalysis (Syllabus 8.1–8.3).",
+    descriptionMn: "Урвалын хурдыг хэмжих ба нэгж хувиргах, урвалыг хянах аргууд, шүргэгчээс хурд олох, мөргөлдөөний онол, концентраци ба даралтын нөлөө, Больцманы тархалт ба температур, нэгэн төрлийн ба олон төрлийн катализ (Syllabus 8.1–8.3).",
+    syllabusRef: "Syllabus 8.1–8.3",
+    examPapers: ["Paper 1", "Paper 2", "Paper 3"],
     learningIntentionsEn: [
-      "Define rate of reaction = change in concentration / time (units: mol dm⁻³ s⁻¹)",
-      "Explain collision theory: particles must collide with correct orientation and energy ≥ Activation Energy (Ea)",
-      "Explain effect of concentration/pressure: increased collision frequency",
-      "Sketch and explain Maxwell-Boltzmann distribution curves at T and T+10°C (curve flattens, shifts right, area with E ≥ Ea roughly doubles)",
-      "Explain how a catalyst works: provides an alternative reaction pathway with a lower activation energy (Ea)",
-      "Distinguish homogeneous catalysis (same phase) from heterogeneous catalysis (different phase, adsorption -> bond weakening -> reaction -> desorption)"
+      "Define rate of reaction, convert its units and choose a method to follow a reaction",
+      "Calculate rates from data and from the gradient of a tangent to a curve",
+      "Use collision theory: reactions need effective collisions with energy ≥ EA",
+      "Explain the effect of concentration and pressure on rate in terms of collision frequency",
+      "Sketch and use the Boltzmann distribution and explain the effect of temperature",
+      "Explain catalysis as an alternative pathway with a lower EA, and draw both reaction pathway diagrams",
+      "Distinguish homogeneous and heterogeneous catalysts"
     ],
     learningIntentionsMn: [
-      "Урвалын хурд: нэгж хугацаанд зарцуулагдах эх бодис эсвэл үүсэх бүтээгдэхүүний концентрацийн өөрчлөлт",
-      "Мөргөлдөөний онол: үр дүнтэй мөргөлдөөн явагдахын тулд зөв чиглэлтэй, идэвхжлийн энергээс (Ea) давсан энергитэй мөргөлдөх ёстой",
-      "Концентраци ба даралтын нөлөө: нэгж хугацаан дахь мөргөлдөөний давтамж (frequency) өснө",
-      "Максвелл-Больцманы муруй: Температур 10°C өсөхөд Ea-аас дээш энергитэй молекулын тоо (талбай) бараг 2 дахин өсдөг",
-      "Катализатор нь урвалын идэвхжлийн энергийг бууруулсан өөр замаар урвалыг явуулдаг",
-      "Олон төрлийн катализ (heterogeneous): адсорбци (гадаргууд наалдах) -> холбоо сулрах -> урвал -> десорбци (салах)"
+      "Урвалын хурдыг тодорхойлж, нэгжийг хувиргах, урвалыг хянах аргыг сонгох",
+      "Өгөгдөл болон муруйн шүргэгчийн налалтаас хурд тооцоолох",
+      "Мөргөлдөөний онолыг хэрэглэх: урвалд энерги ≥ EA бүхий үр дүнтэй мөргөлдөөн хэрэгтэй",
+      "Концентраци ба даралтын нөлөөг мөргөлдөөний давтамжаар тайлбарлах",
+      "Больцманы тархалтыг зурж хэрэглэх, температурын нөлөөг тайлбарлах",
+      "Катализыг EA бага өөр замаар тайлбарлаж, хоёр урвалын замын диаграммыг зурах",
+      "Нэгэн төрлийн ба олон төрлийн катализаторыг ялгах"
     ],
     subtopics: [
       {
         id: "9.1",
         number: "9.1",
-        titleEn: "Collision Theory & Factors Affecting Rate",
-        titleMn: "Мөргөлдөөний онол ба Хурдад нөлөөлөх хүчин зүйлс",
-        summaryEn: "Rate = Δ[Concentration] / Δtime. Collisions are effective only if E ≥ Ea with correct geometry.",
-        summaryMn: "Урвалын хурд = Концентрацийн өөрчлөлт / Хугацаа. Бүх мөргөлдөөн урвалд хүргэдэггүй, зөвхөн Ea-аас их энергитэй нь урвалд орно.",
-        keyConcepts: ["Rate units: mol dm⁻³ s⁻¹", "Effective vs ineffective collisions", "Initial rate from tangent at t=0"]
+        titleEn: "Rate of Reaction & Units",
+        titleMn: "Урвалын хурд ба нэгж",
+        summaryEn: "Rate of reaction is the change in concentration of a reactant or product per unit time, usually in mol dm⁻³ s⁻¹ (min⁻¹ or h⁻¹ for slow reactions). It must be measured by experiment — the equation tells us nothing about rate — and it usually decreases as reactants are used up. Example: 0.254 g of I₂ (= 1.00 × 10⁻³ mol) is used in 1.00 h in 1 dm³ → 1.00 × 10⁻³ ÷ 3600 = 2.78 × 10⁻⁷ mol dm⁻³ s⁻¹. Following a reaction: sampling (remove samples, quench in ice, titrate) or continuous methods — colorimetry (a coloured species such as I₂ or Br₂), conductivity (ions formed or used), gas volume in a syringe or loss of mass, and dilatometry (volume change).",
+        summaryMn: "Урвалын хурд нь нэгж хугацаанд эх бодис эсвэл бүтээгдэхүүний концентрацийн өөрчлөлт, ихэвчлэн mol dm⁻³ s⁻¹ (удаан урвалд min⁻¹ эсвэл h⁻¹). Хурдыг туршилтаар хэмжинэ — тэгшитгэл хурдын талаар юу ч хэлэхгүй — эх бодис зарцуулагдах тусам хурд ихэвчлэн буурна. Жишээ: 1 dm³-т 1.00 цагт 0.254 г I₂ (= 1.00 × 10⁻³ моль) зарцуулагдав → 1.00 × 10⁻³ ÷ 3600 = 2.78 × 10⁻⁷ mol dm⁻³ s⁻¹. Урвалыг хянах: дээж авах (дээж авч, мөсөөр зогсоож, титрлэх) эсвэл тасралтгүй арга — колориметр (I₂, Br₂ зэрэг өнгөт бодис), цахилгаан дамжуулалт (ион үүсэх эсвэл зарцуулагдах), тариурт хийн эзлэхүүн эсвэл массын алдагдал, дилатометр (эзлэхүүний өөрчлөлт).",
+        keyConcepts: ["Units: mol dm⁻³ s⁻¹", "Convert minutes and hours to seconds", "Colour → colorimetry · ions → conductivity · gas → syringe or mass loss", "Rate decreases as reactants are used up"],
+        keyEquations: ["rate = change in concentration ÷ time", "1.00 × 10⁻³ ÷ 3600 = 2.78 × 10⁻⁷ mol dm⁻³ s⁻¹"],
+        commonPitfalls: [
+          "Convert the time to seconds and the amount to a concentration before giving the rate in mol dm⁻³ s⁻¹."
+        ]
       },
       {
         id: "9.2",
         number: "9.2",
-        titleEn: "Maxwell-Boltzmann Distribution & Temperature",
-        titleMn: "Максвелл-Больцманы тархалт ба Температур",
-        summaryEn: "Graph of number of molecules vs energy starts at (0,0), has a peak (most probable energy), and asymptotes toward zero at high energy. When heated: peak shifts right and down; area under curve remains constant; shaded area with E ≥ Ea increases significantly.",
-        summaryMn: "Температур ихсэхэд муруйн оргил баруун доош шилжиж, Ea-аас хойших талбай эрс томорно. Иймээс өндөр температурт урвал маш хурдан явагдана.",
-        keyConcepts: ["Origin at (0,0): no molecules have zero energy", "Area under curve = total number of molecules", "Area past Ea = reacting molecules"]
+        titleEn: "Rates from Graphs: Tangents",
+        titleMn: "Графикаас хурд олох: шүргэгч",
+        summaryEn: "The average rate over an interval is Δ[ ] ÷ Δt. The rate at an instant is the gradient of the tangent to the concentration–time curve at that time; the initial rate is the tangent at t = 0. As the curve gets shallower, the rate decreases; when it is flat the reaction has stopped (a reactant is used up). Example: for cyclopropane → propene the tangent at 10 min falls 1.40 mol dm⁻³ over 35 min → −1.40 ÷ (35 × 60) = −6.67 × 10⁻⁴ mol dm⁻³ s⁻¹. Rate ÷ [cyclopropane] is constant, so rate ∝ [cyclopropane]. For CaCO₃ + HCl the volume of CO₂ levels off at 45 cm³ when CaCO₃ (the limiting reagent) is used up; doubling the acid concentration doubles the initial gradient but gives the same final volume.",
+        summaryMn: "Хугацааны интервал дахь дундаж хурд = Δ[ ] ÷ Δt. Тухайн агшин дахь хурд нь тэр үеийн концентраци–хугацааны муруйн шүргэгчийн налалт; эхний хурд нь t = 0 дахь шүргэгч. Муруй намсах тусам хурд буурна; хэвтээ болбол урвал зогссон (эх бодис дууссан). Жишээ: циклопропан → пропен урвалд 10 мин дэх шүргэгч 35 минутад 1.40 mol dm⁻³ буурна → −1.40 ÷ (35 × 60) = −6.67 × 10⁻⁴ mol dm⁻³ s⁻¹. Хурд ÷ [циклопропан] тогтмол тул хурд ∝ [циклопропан]. CaCO₃ + HCl урвалд хязгаарлагч CaCO₃ дуусахад CO₂-ийн эзлэхүүн 45 cm³-т тогтоно; хүчлийн концентрацийг хоёр дахин өсгөхөд эхний налалт хоёр дахин өсөх ч эцсийн эзлэхүүн ижил.",
+        keyConcepts: ["Instantaneous rate = gradient of tangent", "Initial rate: tangent at t = 0", "Flat line: a reactant used up", "Same limiting reagent → same final volume"],
+        keyEquations: ["gradient = Δy ÷ Δx", "−1.40 ÷ (35 × 60) = −6.67 × 10⁻⁴ mol dm⁻³ s⁻¹"],
+        commonPitfalls: [
+          "Convert minutes to seconds and give the gradient with units (and a sign for a reactant).",
+          "Draw the tangent so that it touches the curve at one point only, and make the triangle large."
+        ]
       },
       {
         id: "9.3",
         number: "9.3",
-        titleEn: "Catalysis: Homogeneous vs Heterogeneous",
-        titleMn: "Катализ: Нэгэн ба олон төрлийн",
-        summaryEn: "Catalyst lowers Ea without being consumed. Homogeneous: same phase (e.g. atmospheric NO₂ in SO₂ oxidation to SO₃). Heterogeneous: different phase (e.g. solid Fe in Haber process, Pt/Rh/Pd in catalytic converters: adsorption -> bond weakening -> reaction -> desorption).",
-        summaryMn: "Катализаторын ажиллах 4 үе шат: 1. Diffusion & Adsorption; 2. Холбоо сулрах; 3. Шинэ холбоо үүсэх; 4. Desorption.",
-        keyConcepts: ["Catalytic converter: 2NO + 2CO → N₂ + 2CO₂", "Autocatalysis (e.g. Mn²⁺ in manganate + ethanedioate)"]
+        titleEn: "Collision Theory, Concentration & Pressure",
+        titleMn: "Мөргөлдөөний онол, концентраци ба даралт",
+        summaryEn: "Particles react only if they collide with the correct orientation and with energy ≥ the activation energy EA (an effective collision); otherwise they bounce apart unchanged. EA is the minimum energy colliding particles need to react. The rate increases if either the frequency of collisions or the proportion of collisions with E ≥ EA increases. Higher concentration (or higher pressure for gases) means more particles per unit volume, so collisions are more frequent (more per second) and there are more effective collisions per second; the energy of the particles is unchanged. A larger surface area (powder) gives more frequent collisions at the surface. The volume of acid used does not affect the rate if the concentration is the same.",
+        summaryMn: "Бөөмс зөв чиглэлээр, идэвхжүүлэлтийн энерги EA-аас их буюу тэнцүү энергитэй мөргөлдвөл (үр дүнтэй мөргөлдөөн) л урвалд орно; эс бөгөөс өөрчлөгдөлгүй ойно. EA нь мөргөлдөж буй бөөмс урвалд ороход хэрэгтэй хамгийн бага энерги. Мөргөлдөөний давтамж эсвэл E ≥ EA бүхий мөргөлдөөний эзлэх хувь өсвөл хурд өснө. Өндөр концентраци (хийд өндөр даралт) нь нэгж эзлэхүүнд илүү олон бөөм гэсэн үг тул мөргөлдөөн илүү давтамжтай (секундэд илүү олон), секундэд үр дүнтэй мөргөлдөөн олон болно; бөөмсийн энерги өөрчлөгдөхгүй. Гадаргуугийн талбай их (нунтаг) бол гадаргуу дээрх мөргөлдөөн илүү давтамжтай. Концентраци ижил бол хүчлийн эзлэхүүн хурдад нөлөөлөхгүй.",
+        keyConcepts: ["Effective collision: E ≥ EA and correct orientation", "Concentration/pressure ↑ → collision frequency ↑", "Surface area ↑ → more frequent collisions", "Particle energy unchanged by concentration"],
+        commonPitfalls: [
+          "Say 'more FREQUENT collisions' (more collisions per second), not just 'more collisions'.",
+          "Increasing concentration does not give particles more energy."
+        ]
+      },
+      {
+        id: "9.4",
+        number: "9.4",
+        titleEn: "The Boltzmann Distribution & Temperature",
+        titleMn: "Больцманы тархалт ба температур",
+        summaryEn: "The Boltzmann distribution shows the number of molecules (y-axis) with each molecular energy (x-axis) at a given temperature. The curve starts at the origin, has a skewed peak and never touches the x-axis at high energy; the area under it equals the total number of molecules, and the area to the right of EA shows the molecules that can react. At a higher temperature the curve is flatter, the peak is lower and moves to the right, the area stays the same and EA is unchanged — but many more molecules have E ≥ EA. Higher temperature increases the rate because (1) collisions are more frequent and (2), much more importantly, a larger proportion of molecules have E ≥ EA. A 10 °C rise roughly doubles the rate of many reactions.",
+        summaryMn: "Больцманы тархалт нь тухайн температурт молекулын энерги бүр (x тэнхлэг) бүхий молекулын тоог (y тэнхлэг) харуулна. Муруй координатын эхээс эхэлж, хазгай оргилтой, өндөр энергид x тэнхлэгт хэзээ ч хүрэхгүй; доорх талбай = нийт молекулын тоо, EA-аас баруун талын талбай = урвалд орж чадах молекулууд. Өндөр температурт муруй намжиж, оргил доошлон баруун тийш шилжинэ, талбай ижил, EA өөрчлөгдөхгүй — харин E ≥ EA бүхий молекул хамаагүй олон болно. Өндөр температур хурдыг өсгөх шалтгаан: (1) мөргөлдөөн илүү давтамжтай, (2) хамгийн чухал нь E ≥ EA бүхий молекулын эзлэх хувь их болно. 10 °C өсөхөд олон урвалын хурд ойролцоогоор хоёр дахин өснө.",
+        keyConcepts: ["Axes: number of molecules vs molecular energy", "Starts at origin, never touches x-axis", "Higher T: peak lower and to the right, same area", "Main reason: more molecules with E ≥ EA"],
+        commonPitfalls: [
+          "At higher temperature the peak is LOWER (and to the right), not higher; EA does not move.",
+          "Give both reasons for the temperature effect, saying the proportion with E ≥ EA is the main one.",
+          "The curve must start at the origin and never touch the x-axis."
+        ]
+      },
+      {
+        id: "9.5",
+        number: "9.5",
+        titleEn: "Catalysis",
+        titleMn: "Катализ",
+        summaryEn: "A catalyst increases the rate of a reaction and is chemically unchanged at the end. It provides an alternative pathway (mechanism) with a lower activation energy, so a greater proportion of molecules have E ≥ EA(cat) and there are more effective collisions per second. On a Boltzmann distribution the curve is unchanged and EA(cat) is marked to the left of EA; the extra area between them shows the extra molecules that can react. On a pathway diagram the catalysed hump is lower, but the reactant and product levels — and ΔH — are the same. A homogeneous catalyst is in the same phase as the reactants (e.g. H⁺(aq) in ester hydrolysis); a heterogeneous catalyst is in a different phase, usually a solid with reaction at its surface: Fe (Haber), Ni (margarine), V₂O₅ (Contact), MnO₂ with H₂O₂. If EA(forward) = 335 and ΔH = +92 kJ mol⁻¹, then EA(reverse) = 335 − 92 = 243 kJ mol⁻¹.",
+        summaryMn: "Катализатор урвалын хурдыг өсгөж, эцэст нь химийн хувьд өөрчлөгдөлгүй үлдэнэ. Энэ нь идэвхжүүлэлтийн энерги бага өөр зам (механизм) олгодог тул E ≥ EA(кат) бүхий молекулын эзлэх хувь өсч, секундэд үр дүнтэй мөргөлдөөн олон болно. Больцманы тархалтад муруй өөрчлөгдөхгүй, EA(кат)-ыг EA-аас зүүн талд тэмдэглэнэ; хоёрын хоорондох нэмэлт талбай нь урвалд орж чадах нэмэлт молекулууд. Урвалын замын диаграммд катализтай оргил нам боловч эх бодис ба бүтээгдэхүүний түвшин, ΔH ижил. Нэгэн төрлийн катализатор эх бодистой ижил фазад (жишээ нь эфирийн гидролиз дахь H⁺(aq)); олон төрлийн катализатор өөр фазад, ихэвчлэн хатуу, урвал гадаргуу дээр нь явагдана: Fe (Хабер), Ni (маргарин), V₂O₅ (Контакт), H₂O₂-тэй MnO₂. EA(шууд) = 335, ΔH = +92 kJ mol⁻¹ бол EA(буцах) = 335 − 92 = 243 kJ mol⁻¹.",
+        keyConcepts: ["Alternative pathway with lower EA", "Boltzmann curve unchanged; EA(cat) to the left", "ΔH unchanged", "Homogeneous: same phase · heterogeneous: different phase"],
+        keyEquations: ["EA(reverse) = EA(forward) − ΔH", "2H₂O₂ → 2H₂O + O₂ (MnO₂ catalyst)"],
+        commonPitfalls: [
+          "Say a catalyst 'provides an alternative pathway with a lower EA' — not just 'lowers the activation energy'.",
+          "A catalyst does not shift the Boltzmann curve or change ΔH."
+        ]
       }
     ],
     keyTerms: [
-      { termEn: "Activation Energy (Ea)", termMn: "Идэвхжлийн энерги", definitionEn: "The minimum kinetic energy that colliding particles must possess for a collision to be effective and lead to a reaction.", definitionMn: "Мөргөлдөж буй бөөмс химийн урвалд ороход шаардагдах хамгийн бага кинетик энерги." },
-      { termEn: "Catalyst", termMn: "Катализатор", definitionEn: "A substance that increases the rate of a chemical reaction by providing an alternative pathway with lower activation energy, remaining chemically unchanged at the end.", definitionMn: "Урвалын идэвхжлийн энергийг бууруулсан өөр замаар урвалыг хурдасгадаг, эцэст нь өөрөө химийн хувьд өөрчлөгдөлгүй үлддэг бодис." }
+      { termEn: "Rate of Reaction", termMn: "Урвалын хурд", definitionEn: "The change in concentration of a reactant or product per unit time, in mol dm⁻³ s⁻¹.", definitionMn: "Нэгж хугацаанд эх бодис эсвэл бүтээгдэхүүний концентрацийн өөрчлөлт, mol dm⁻³ s⁻¹." },
+      { termEn: "Activation Energy (EA)", termMn: "Идэвхжүүлэлтийн энерги (EA)", definitionEn: "The minimum energy colliding particles need for an effective collision that leads to reaction.", definitionMn: "Мөргөлдөж буй бөөмс урвалд хүргэх үр дүнтэй мөргөлдөөнд шаардагдах хамгийн бага энерги." },
+      { termEn: "Effective Collision", termMn: "Үр дүнтэй мөргөлдөөн", definitionEn: "A collision with energy ≥ EA and the correct orientation, which leads to reaction.", definitionMn: "EA-аас их буюу тэнцүү энергитэй, зөв чиглэлтэй, урвалд хүргэх мөргөлдөөн." },
+      { termEn: "Frequency of Collisions", termMn: "Мөргөлдөөний давтамж", definitionEn: "The number of collisions per unit time (per second).", definitionMn: "Нэгж хугацаанд (секундэд) болох мөргөлдөөний тоо." },
+      { termEn: "Boltzmann Distribution", termMn: "Больцманы тархалт", definitionEn: "A graph showing the number of molecules with each molecular energy in a sample at a given temperature.", definitionMn: "Тухайн температурт дээж дэх молекулын энерги бүр бүхий молекулын тоог харуулсан график." },
+      { termEn: "Catalyst", termMn: "Катализатор", definitionEn: "A substance that increases the rate of a reaction by providing an alternative pathway with a lower activation energy, and is chemically unchanged at the end.", definitionMn: "Идэвхжүүлэлтийн энерги бага өөр зам олгож урвалыг хурдасгадаг, эцэст нь химийн хувьд өөрчлөгдөлгүй үлддэг бодис." },
+      { termEn: "Homogeneous Catalyst", termMn: "Нэгэн төрлийн катализатор", definitionEn: "A catalyst in the same phase as the reactants.", definitionMn: "Эх бодистой ижил фазад байгаа катализатор." },
+      { termEn: "Heterogeneous Catalyst", termMn: "Олон төрлийн катализатор", definitionEn: "A catalyst in a different phase from the reactants, usually a solid with gaseous or liquid reactants.", definitionMn: "Эх бодисоос өөр фазад байгаа катализатор, ихэвчлэн хий эсвэл шингэн эх бодистой хатуу бодис." }
     ],
     formulas: [
-      { nameEn: "Rate of Reaction", nameMn: "Урвалын хурд", formula: "Rate = Δ[Product] / Δt = -Δ[Reactant] / Δt", note: "Gradient of concentration-time graph" }
+      { nameEn: "Rate of Reaction", nameMn: "Урвалын хурд", formula: "rate = Δ[ ] ÷ Δt", note: "mol dm⁻³ s⁻¹; instantaneous rate = gradient of tangent" },
+      { nameEn: "Reverse Activation Energy", nameMn: "Буцах урвалын идэвхжүүлэлтийн энерги", formula: "EA(reverse) = EA(forward) − ΔH(forward)", note: "e.g. EA 120, ΔH −40 → EA(reverse) 160 kJ mol⁻¹" }
     ],
     examStyleTips: [
-      "In exam questions explaining temperature effect: ALWAYS mention 1) higher kinetic energy increases collision frequency; 2) MORE IMPORTANTLY, a vastly greater proportion of molecules have energy ≥ Ea.",
-      "When drawing Maxwell-Boltzmann curve for T+10°C: make sure the curve starts at (0,0), peaks to the right and lower than original, and does not touch the x-axis at high energy."
+      "Concentration and pressure: 'more frequent collisions' (more collisions per second) — not just 'more collisions'.",
+      "Temperature: more frequent collisions AND a greater proportion of molecules with E ≥ EA — the second is the main reason.",
+      "Catalyst: 'provides an alternative pathway with a lower EA'; ΔH and the Boltzmann curve are unchanged.",
+      "Boltzmann curve: label the axes, start at the origin, never touch the x-axis; at higher T the peak is lower and to the right.",
+      "Tangent gradients: convert time to seconds and give units.",
+      "Compare in answers: 'greater rate', 'faster reaction' — not just 'it is fast'."
+    ],
+    examQuestions: [
+      {
+        id: "ch9-q1",
+        marks: 2,
+        questionEn: "0.254 g of iodine is used up in 1.00 h in a reaction mixture of volume 1 dm³.\nExpress the rate in mol dm⁻³ s⁻¹. (Ar: I = 127)",
+        questionMn: "1 dm³ урвалын хольцонд 1.00 цагт 0.254 г иод зарцуулагдав.\nХурдыг mol dm⁻³ s⁻¹-ээр илэрхийлнэ үү. (Ar: I = 127)",
+        solutionEn: "n(I₂) = 0.254 ÷ 254 = 1.00 × 10⁻³ mol → 1.00 × 10⁻³ mol dm⁻³ [1]\nRate = 1.00 × 10⁻³ ÷ 3600 = 2.78 × 10⁻⁷ mol dm⁻³ s⁻¹ [1]",
+        solutionMn: "I₂-ийн Mr = 254, моль = 1.00 × 10⁻³ → 1 dm³-т 1.00 × 10⁻³ mol dm⁻³. 1.00 цаг = 3600 с. Хурд = 2.78 × 10⁻⁷ mol dm⁻³ s⁻¹."
+      },
+      {
+        id: "ch9-q2",
+        marks: 3,
+        questionEn: "Suggest a method to follow each reaction:\n(a) H₂O₂ + 2I⁻ + 2H⁺ → 2H₂O + I₂\n(b) 2H₂O₂ → 2H₂O + O₂(g)\n(c) (CH₃)₃CBr + H₂O → (CH₃)₃COH + H⁺ + Br⁻",
+        questionMn: "Урвал бүрийг хянах аргыг санал болгоно уу:\n(a) H₂O₂ + 2I⁻ + 2H⁺ → 2H₂O + I₂\n(b) 2H₂O₂ → 2H₂O + O₂(g)\n(c) (CH₃)₃CBr + H₂O → (CH₃)₃COH + H⁺ + Br⁻",
+        solutionEn: "(a) Colorimetry · brown I₂ forms [1]\n(b) Gas syringe · volume of O₂ (or loss of mass) [1]\n(c) Conductivity · ions are formed [1]",
+        solutionMn: "(a) Колориметр — бор I₂ үүснэ. (b) Хийн тариур — O₂-ийн эзлэхүүн (эсвэл массын алдагдал). (c) Цахилгаан дамжуулалт — ионууд үүснэ."
+      },
+      {
+        id: "ch9-q3",
+        marks: 4,
+        questionEn: "0.1875 g of CaCO₃ (Mr 100.1) reacts with 40 cm³ of 0.100 mol dm⁻³ HCl. The volume of CO₂ is 9 cm³ after 10 s, 27.5 cm³ at 40 s, 32 cm³ at 50 s and 45 cm³ from 100 s onward.\n(a) Calculate the average rates for 0–10 s and 40–50 s. [2]\n(b) Show which reagent is limiting. [2]",
+        questionMn: "0.1875 г CaCO₃ (Mr 100.1) 0.100 mol dm⁻³ HCl-ийн 40 cm³-тэй урвалд орно. CO₂-ийн эзлэхүүн 10 с-д 9 cm³, 40 с-д 27.5 cm³, 50 с-д 32 cm³, 100 с-ээс хойш 45 cm³.\n(a) 0–10 с ба 40–50 с-ийн дундаж хурдыг тооцоолно уу. [2]\n(b) Аль бодис хязгаарлагч болохыг харуулна уу. [2]",
+        solutionEn: "(a) 0–10 s: 9 ÷ 10 = 0.90 cm³ s⁻¹ [1] · 40–50 s: 4.5 ÷ 10 = 0.45 cm³ s⁻¹, so the rate has halved [1]\n(b) n(CaCO₃) = 1.87 × 10⁻³ mol · n(HCl) = 4.00 × 10⁻³ mol [1]\nCaCO₃ needs 3.75 × 10⁻³ mol HCl < 4.00 × 10⁻³, so CaCO₃ is limiting (max 45 cm³ CO₂) [1]",
+        solutionMn: "(a) 0.90 ба 0.45 cm³ s⁻¹ — хурд хоёр дахин буурсан. (b) CaCO₃ 1.87 × 10⁻³ моль-д 3.75 × 10⁻³ моль HCl хэрэгтэй, 4.00 × 10⁻³ байгаа тул CaCO₃ хязгаарлагч."
+      },
+      {
+        id: "ch9-q4",
+        marks: 3,
+        questionEn: "For the same CaCO₃ + HCl reaction:\n(a) How would you find the rate at 40 s? [1]\n(b) Describe the new curve if the acid concentration were doubled, with CaCO₃ still limiting. [2]",
+        questionMn: "Дээрх CaCO₃ + HCl урвалын хувьд:\n(a) 40 с дэх хурдыг яаж олох вэ? [1]\n(b) CaCO₃ хязгаарлагч хэвээр байхад хүчлийн концентрацийг хоёр дахин өсгөвөл шинэ муруй ямар байх вэ? [2]",
+        solutionEn: "(a) Draw a tangent at 40 s and find its gradient, Δy ÷ Δx [1]\n(b) Steeper at the start (greater initial rate) [1] · levels off at the same 45 cm³ [1]",
+        solutionMn: "(a) 40 с-д шүргэгч татаж налалтыг олно. (b) Эхэндээ илүү огцом, гэхдээ ижил 45 cm³-т тогтоно (CaCO₃ ижил)."
+      },
+      {
+        id: "ch9-q5",
+        marks: 2,
+        questionEn: "Explain why reactants in solution react faster at a higher concentration.",
+        questionMn: "Уусмал дахь эх бодисууд яагаад өндөр концентрацид хурдан урвалд ордгийг тайлбарлана уу.",
+        solutionEn: "More particles per unit volume · so collisions are more frequent [1]\nMore effective collisions per second (the energy of the particles is unchanged) [1]",
+        solutionMn: "Нэгж эзлэхүүнд бөөм олон тул мөргөлдөөн илүү давтамжтай; секундэд үр дүнтэй мөргөлдөөн олон болно (бөөмсийн энерги өөрчлөгдөхгүй)."
+      },
+      {
+        id: "ch9-q6",
+        marks: 6,
+        questionEn: "(a) Sketch the Boltzmann distribution for a gas and label the axes. [2]\n(b) Draw a second curve for a slightly higher temperature. [2]\n(c) Use your sketch to explain why the reaction is faster at the higher temperature. [2]",
+        questionMn: "(a) Хийн Больцманы тархалтыг зурж, тэнхлэгүүдийг тэмдэглэнэ үү. [2]\n(b) Арай өндөр температурын хоёр дахь муруйг зурна уу. [2]\n(c) Өндөр температурт урвал яагаад хурдан явагдахыг зургаараа тайлбарлана уу. [2]",
+        solutionEn: "(a) Vertical axis: number of molecules · horizontal axis: molecular energy [1] · starts at the origin, skewed peak, never touches the energy axis [1]\n(b) Peak lower and moved to the right [1] · above the first curve at high energy, same area [1]\n(c) Much larger proportion of molecules with E ≥ EA (main reason) [1] · collisions also more frequent [1]",
+        solutionMn: "(a) y — молекулын тоо, x — молекулын энерги; эхээс эхэлж, хазгай оргилтой, x тэнхлэгт хүрэхгүй. (b) Оргил доошилж баруун тийш шилжинэ, өндөр энергид эхний муруйгаас дээгүүр, талбай ижил. (c) E ≥ EA бүхий молекулын хувь хамаагүй их (гол шалтгаан), мөргөлдөөн илүү давтамжтай.",
+        examinerTip: "Drawing the higher-temperature peak taller is the most common error."
+      },
+      {
+        id: "ch9-q7",
+        marks: 3,
+        questionEn: "(a) What is a catalyst? [1]\n(b) Explain how a catalyst increases the rate of a reaction, referring to the Boltzmann distribution. [2]",
+        questionMn: "(a) Катализатор гэж юу вэ? [1]\n(b) Больцманы тархалтыг ашиглан катализатор урвалын хурдыг хэрхэн өсгөдгийг тайлбарлана уу. [2]",
+        solutionEn: "(a) A substance that increases the rate and is chemically unchanged at the end [1]\n(b) Provides an alternative pathway with a lower activation energy [1]\nA greater proportion of molecules have E ≥ EA(cat), so there are more effective collisions per second [1]",
+        solutionMn: "(a) Хурдыг өсгөж, эцэст нь химийн хувьд өөрчлөгдөлгүй үлддэг бодис. (b) Идэвхжүүлэлтийн энерги бага өөр зам олгоно; муруй өөрчлөгдөхгүй ч E ≥ EA(кат) бүхий молекулын хувь өсч, үр дүнтэй мөргөлдөөн олширно."
+      },
+      {
+        id: "ch9-q8",
+        marks: 3,
+        questionEn: "The uncatalysed decomposition of ammonia, 2NH₃(g) → N₂(g) + 3H₂(g), has EA = +335 kJ mol⁻¹ and ΔH = +92 kJ mol⁻¹.\n(a) Calculate the activation energy for the formation of ammonia from N₂ and H₂. [2]\n(b) How does a tungsten catalyst affect the activation energy? [1]",
+        questionMn: "Аммиакийн катализгүй задрал 2NH₃(g) → N₂(g) + 3H₂(g)-ийн EA = +335 kJ mol⁻¹, ΔH = +92 kJ mol⁻¹.\n(a) N₂ ба H₂-оос аммиак үүсэх урвалын идэвхжүүлэлтийн энергийг тооцоолно уу. [2]\n(b) Вольфрам катализатор идэвхжүүлэлтийн энергид хэрхэн нөлөөлөх вэ? [1]",
+        solutionEn: "(a) Products are 92 above the reactants and the peak is 335 above the reactants [1]\nEA(formation of NH₃) = 335 − 92 = 243 kJ mol⁻¹ [1]\n(b) It is lower · alternative pathway (in both directions) [1]",
+        solutionMn: "(a) Бүтээгдэхүүн эх бодисоос 92-оор дээр, оргил 335-аар дээр тул буцах урвалын EA = 335 − 92 = 243 kJ mol⁻¹. (b) Буурна — өөр зам (хоёр чиглэлд)."
+      },
+      {
+        id: "ch9-q9",
+        marks: 2,
+        questionEn: "State whether each catalyst is homogeneous or heterogeneous, and explain:\n(a) V₂O₅(s) in 2SO₂(g) + O₂(g) ⇌ 2SO₃(g)\n(b) H⁺(aq) in the hydrolysis of an ester in aqueous solution",
+        questionMn: "Катализатор бүр нэгэн төрлийн үү, олон төрлийн үү? Тайлбарлана уу:\n(a) 2SO₂(g) + O₂(g) ⇌ 2SO₃(g) дахь V₂O₅(s)\n(b) усан уусмал дахь эфирийн гидролиз дахь H⁺(aq)",
+        solutionEn: "(a) Heterogeneous · solid catalyst with gaseous reactants [1]\n(b) Homogeneous · catalyst and reactants are all in aqueous solution [1]",
+        solutionMn: "(a) Олон төрлийн — хатуу катализатор, хийн эх бодис. (b) Нэгэн төрлийн — бүгд усан уусмалд."
+      },
+      {
+        id: "ch9-q10",
+        marks: 3,
+        questionEn: "Exit ticket:\n(a) [H₂O₂] falls from 0.100 to 0.080 mol dm⁻³ in the first 40 s. Calculate the average rate. [1]\n(b) Use the Boltzmann distribution to explain why the reaction is faster at 40 °C than at 20 °C. [2]",
+        questionMn: "(a) Эхний 40 с-д [H₂O₂] 0.100-аас 0.080 mol dm⁻³ болж буурав. Дундаж хурдыг тооцоолно уу. [1]\n(b) Урвал яагаад 20 °C-аас 40 °C-д хурдан явагддагийг Больцманы тархалтаар тайлбарлана уу. [2]",
+        solutionEn: "(a) 0.020 ÷ 40 = 5.0 × 10⁻⁴ mol dm⁻³ s⁻¹ [1]\n(b) A larger proportion of molecules have E ≥ EA (main reason) [1] · collisions are more frequent [1]",
+        solutionMn: "(a) 0.020 ÷ 40 = 5.0 × 10⁻⁴ mol dm⁻³ s⁻¹. (b) E ≥ EA бүхий молекулын хувь их (гол шалтгаан), мөргөлдөөн илүү давтамжтай."
+      }
     ]
   },
   {
@@ -1593,64 +2066,227 @@ export const CHAPTERS_DATA: Chapter[] = [
     category: "Inorganic",
     titleEn: "Periodicity: Period 3 Elements & Compounds",
     titleMn: "Үелэх хууль (3-р үеийн элементүүд ба тэдгээрийн нэгдлүүд)",
-    descriptionEn: "Trends across Period 3 (Na to Ar): atomic/ionic radius, melting points, conductivity, reactions with oxygen, chlorine, and water; structure and acid-base nature of Period 3 oxides and chlorides.",
-    descriptionMn: "3-р үеийн элементүүдийн үелэх хандлага: радиус, хайлах цэг, цахилгаан дамжуулалт; хүчилтөрөгч, хлор, устай харилцан үйлчлэх урвалууд; оксид ба хлоридуудын бүтэц, хүчил-суурийн шинж чанар, гидролиз.",
+    descriptionEn: "Period 3 trends in atomic and ionic radius, melting point, conductivity and ionisation energy; reactions of the elements with oxygen, chlorine and water; oxidation numbers of oxides and chlorides; and the acid–base behaviour of the oxides and chlorides with water (Syllabus 9.1–9.3).",
+    descriptionMn: "3-р үеийн атом ба ионы радиус, хайлах цэг, цахилгаан дамжуулалт, иончлолын энергийн хандлага; элементүүдийн хүчилтөрөгч, хлор, устай урвал; исэл ба хлоридын исэлдэхүйн зэрэг; исэл ба хлоридын устай харилцан үйлчлэх хүчил–суурийн шинж (Syllabus 9.1–9.3).",
+    syllabusRef: "Syllabus 9.1–9.3",
+    examPapers: ["Paper 1", "Paper 2"],
     learningIntentionsEn: [
-      "Explain periodicity across Period 3 in atomic radius, ionic radius, melting point, and electrical conductivity",
-      "Write equations for reactions of Na, Mg, Al, Si, P, S with oxygen (Na₂O, MgO, Al₂O₃, SiO₂, P₄O₁₀, SO₂, SO₃)",
-      "Write equations for reactions with chlorine (NaCl, MgCl₂, Al₂Cl₆, SiCl₄, PCl₅)",
-      "Describe reactions of Na and Mg with cold water and steam",
-      "Describe the structure and acid/base behavior of Period 3 oxides: Basic (Na₂O, MgO), Amphoteric (Al₂O₃), Acidic (SiO₂, P₄O₁₀, SO₂, SO₃)",
-      "Describe the reactions and pH of Period 3 chlorides in water: NaCl (pH 7), MgCl₂ (pH 6.5), Al₂Cl₆ (pH 3), SiCl₄ (pH 2, white fumes of HCl), PCl₅ (pH 2)"
+      "Explain the trends across Period 3 in atomic radius, ionic radius, melting point, electrical conductivity and first ionisation energy",
+      "Write equations for the reactions of Period 3 elements with oxygen, chlorine and water",
+      "Explain the oxidation numbers of the oxides and chlorides in terms of outer-shell electrons",
+      "Describe the reactions of the oxides with water and their acid–base behaviour, with pH values",
+      "Describe the amphoteric behaviour of Al₂O₃ and Al(OH)₃ with equations",
+      "Describe the reactions of the chlorides with water, with pH values, and explain them by bonding and electronegativity",
+      "Deduce the position of an unknown element from its properties and predict the properties of an element"
     ],
     learningIntentionsMn: [
-      "3-р үеийн дагуу атомын ба ионы радиус, хайлах цэг, цахилгаан дамжуулалтын өөрчлөлтийг тайлбарлах",
-      "Na-аас S хүртэлх элементүүдийн хүчилтөрөгч болон хлортой урвалд орох тэгшитгэлүүд",
-      "Na ба Mg-ийн хүйтэн ус болон усны ууртай урвалд орох онцлог (Na: маш хүчтэй pH 14; Mg: хүйтэн усанд удаан pH 11, ууранд хурдан MgO үүсгэнэ)",
-      "3-р үеийн оксидуудын хүчил-суурийн шинж: Суурийн (Na₂O, MgO), Амфотер (Al₂O₃), Хүчлийн (SiO₂, P₄O₁₀, SO₂, SO₃)",
-      "3-р үеийн хлоридуудын усанд уусах ба гидролиз: NaCl (саармаг pH 7), MgCl₂ (pH 6.5), Al₂Cl₆ (хүчиллэг pH 3), SiCl₄ & PCl₅ (эрс гидролизод орж цагаан утаа HCl үүсгэнэ, pH 2)"
+      "3-р үеийн дагуух атомын радиус, ионы радиус, хайлах цэг, цахилгаан дамжуулалт, нэгдүгээр иончлолын энергийн хандлагыг тайлбарлах",
+      "3-р үеийн элементүүдийн хүчилтөрөгч, хлор, устай урвалын тэгшитгэл бичих",
+      "Исэл ба хлоридын исэлдэхүйн зэргийг гадна бүрхүүлийн электроноор тайлбарлах",
+      "Ислүүдийн устай урвал ба хүчил–суурийн шинжийг pH-тай нь тодорхойлох",
+      "Al₂O₃ ба Al(OH)₃-ийн амфотер шинжийг тэгшитгэлээр харуулах",
+      "Хлоридуудын устай урвалыг pH-тай нь тодорхойлж, холбоо ба цахилгаан сөрөг чанараар тайлбарлах",
+      "Үл мэдэгдэх элементийн байрлалыг шинж чанараас нь тодорхойлох, элементийн шинжийг урьдчилан хэлэх"
     ],
     subtopics: [
       {
         id: "10.1",
         number: "10.1",
-        titleEn: "Physical Trends Across Period 3",
-        titleMn: "3-р үеийн физик шинжийн үелэх хандлага",
-        summaryEn: "Atomic radius decreases across period (increasing nuclear charge, same shielding). Melting point: increases Na->Mg->Al (metallic bonding), peaks at Si (giant covalent), drops sharply P₄, S₈, Cl₂, Ar (simple molecular).",
-        summaryMn: "Радиус үеийн дагуу багасна. Хайлах цэг Na->Al өсөөд, Si дээр дээд цэгтээ хүрч (ковалентын аварга тор), P, S, Cl, Ar дээр огцом буурна.",
-        keyConcepts: ["S₈ has higher MP than P₄ because S₈ has more electrons -> stronger London dispersion forces"]
+        titleEn: "Atomic & Ionic Radius Across Period 3",
+        titleMn: "3-р үеийн атом ба ионы радиус",
+        summaryEn: "Periodicity is a repeating pattern of properties across each period. Atomic radius decreases from Na (0.157 nm) to Cl (0.099 nm): the nuclear charge increases by one each element, electrons are added to the same shell and shielding stays about the same, so the outer electrons are pulled closer. Cations Na⁺ → Si⁴⁺ have lost the third shell (2, 8) and get smaller as nuclear charge increases. Anions P³⁻ → Cl⁻ have an extra shell (2, 8, 8), so they are much larger than the cations, and they also get smaller across. Down a group atomic radius increases (extra shells, more shielding).",
+        summaryMn: "Үелэх чанар нь үе бүрийн дагуу давтагдах шинж чанарын хэв маяг. Атомын радиус Na (0.157 нм)-аас Cl (0.099 нм) хүртэл буурна: цөмийн цэнэг элемент бүрт нэгээр өсөж, электронууд ижил бүрхүүлд нэмэгдэн, халхлалт ойролцоо хэвээр байх тул гадна электронууд ойр татагдана. Na⁺ → Si⁴⁺ катионууд 3-р бүрхүүлээ алдсан (2, 8) бөгөөд цөмийн цэнэг өсөхөд жижгэрнэ. P³⁻ → Cl⁻ анионууд нэмэлт бүрхүүлтэй (2, 8, 8) тул катионоос хамаагүй том, мөн үеийн дагуу жижгэрнэ. Бүлгийн дагуу доош атомын радиус өснө (нэмэлт бүрхүүл, халхлалт их).",
+        keyConcepts: ["Radius ↓ across: nuclear charge ↑, same shell, similar shielding", "Cations: 2 shells (2, 8)", "Anions: 3 shells (2, 8, 8) → larger", "Radius ↑ down a group"],
+        commonPitfalls: [
+          "Do not say 'more electrons so smaller' — explain with nuclear charge, same shell and similar shielding."
+        ]
       },
       {
         id: "10.2",
         number: "10.2",
-        titleEn: "Period 3 Oxides: Bonding & Acid-Base Nature",
-        titleMn: "3-р үеийн оксидууд: Холбоо ба Хүчил-Суурийн шинж",
-        summaryEn: "Na₂O, MgO: Giant ionic, basic (form OH⁻ with water). Al₂O₃: Giant ionic with covalent character, amphoteric (reacts with acid to form Al³⁺ salt and with hot conc. NaOH to form [Al(OH)₄]⁻). SiO₂: Giant covalent, acidic (reacts with hot conc NaOH to form Na₂SiO₃). P₄O₁₀, SO₂, SO₃: Simple molecular, acidic (form H₃PO₄, H₂SO₃, H₂SO₄ in water).",
-        summaryMn: "Na₂O, MgO нь суурийн оксид. Al₂O₃ нь амфотер (хүчил ба шүлт хоёулантай нь урвалд орно). SiO₂, P₄O₁₀, SO₂, SO₃ нь хүчлийн оксид.",
-        keyConcepts: ["Al₂O₃ + 6H⁺ → 2Al³⁺ + 3H₂O", "Al₂O₃ + 2OH⁻ + 3H₂O → 2[Al(OH)₄]⁻"]
+        titleEn: "Melting Point, Conductivity & Ionisation Energy",
+        titleMn: "Хайлах цэг, цахилгаан дамжуулалт ба иончлолын энерги",
+        summaryEn: "Na, Mg, Al are giant metallic (m.p. 371, 923, 932 K; good conductors that improve Na → Al): more delocalised electrons per atom and higher ion charge give stronger metallic bonding. Si is giant covalent (1683 K, the highest): many strong covalent bonds must be broken; it is a semiconductor. P₄, S₈ and Cl₂ are simple molecular (317, 392, 172 K; insulators): only weak instantaneous dipole–induced dipole forces between molecules are overcome; S₈ > P₄ > Cl₂ because more electrons give stronger id–id forces. Ar exists as single atoms (84 K). First IE generally increases across the period (nuclear charge ↑, same shell) with dips at Al (3p electron, shielded by 3s) and S (paired 3p electron, spin-pair repulsion): Na 494, Mg 736, Al 577, Si 786, P 1060, S 1000, Cl 1260, Ar 1520 kJ mol⁻¹.",
+        summaryMn: "Na, Mg, Al нь металлын аварга тор (хайлах цэг 371, 923, 932 K; сайн дамжуулагч, Na → Al сайжирна): нэг атомд ногдох чөлөөт электрон олон, ионы цэнэг өндөр тул металлын холбоо хүчтэй. Si нь аварга ковалент (1683 K, хамгийн өндөр): олон хүчтэй ковалент холбоог таслах хэрэгтэй; хагас дамжуулагч. P₄, S₈, Cl₂ нь энгийн молекул (317, 392, 172 K; тусгаарлагч): зөвхөн молекулуудын хоорондох сул id–id хүчийг даван гарна; электрон олон байх тусам id–id хүч хүчтэй тул S₈ > P₄ > Cl₂. Ar нь ганц атом (84 K). Нэгдүгээр IE үеийн дагуу ерөнхийдөө өснө (цөмийн цэнэг ↑, ижил бүрхүүл), Al (3s-ээр халхлагдсан 3p электрон) ба S (хостой 3p электрон, спин хосын түлхэлт) дээр уналттай: Na 494, Mg 736, Al 577, Si 786, P 1060, S 1000, Cl 1260, Ar 1520 kJ mol⁻¹.",
+        keyConcepts: ["Metallic (Na–Al) → giant covalent (Si) → simple molecular (P, S, Cl) → atoms (Ar)", "Si has the highest m.p.", "S₈ > P₄ > Cl₂: more electrons, stronger id–id", "IE₁ dips at Al and S"],
+        commonPitfalls: [
+          "P, S and Cl have low melting points because of weak id–id forces BETWEEN molecules — the covalent bonds are strong and do not break.",
+          "Si's high melting point is due to many strong covalent bonds in a giant structure — not 'strong intermolecular forces'.",
+          "Conductivity increases Na → Al because there are more delocalised electrons per atom, not 'more ions'."
+        ]
       },
       {
         id: "10.3",
         number: "10.3",
-        titleEn: "Period 3 Chlorides & Hydrolysis",
-        titleMn: "3-р үеийн хлоридууд ба тэдгээрийн гидролиз",
-        summaryEn: "NaCl: Giant ionic, dissolves (pH 7). MgCl₂: Giant ionic, slight hydrolysis (pH 6.5). Al₂Cl₆: Covalent dimer, hydrolyses vigorously: [Al(H₂O)₆]³⁺ → [Al(H₂O)₅OH]²⁺ + H⁺ (pH 3). SiCl₄: Hydrolyses violently: SiCl₄ + 2H₂O → SiO₂ + 4HCl (steamy white fumes, pH 2). PCl₅: PCl₅ + 4H₂O → H₃PO₄ + 5HCl (steamy white fumes, pH 2).",
-        summaryMn: "NaCl усанд саармаг уусна. Al₂Cl₆, SiCl₄, PCl₅ нь усаар задарч (гидролиз) давсны хүчлийн цагаан утаа ялгаруулж өндөр хүчиллэг уусмал үүсгэнэ.",
-        keyConcepts: ["SiCl₄(l) + 2H₂O(l) → SiO₂(s) + 4HCl(g)", "PCl₅(s) + 4H₂O(l) → H₃PO₄(aq) + 5HCl(g)"]
+        titleEn: "Reactions of the Elements with Oxygen, Chlorine & Water",
+        titleMn: "Элементүүдийн хүчилтөрөгч, хлор, устай урвал",
+        summaryEn: "With oxygen: 4Na + O₂ → 2Na₂O (vigorous, yellow flame); 2Mg + O₂ → 2MgO (bright white flame); 4Al + 3O₂ → 2Al₂O₃ (powder burns); Si + O₂ → SiO₂ (slow); 4P + 5O₂ → P₄O₁₀ (white clouds); S + O₂ → SO₂ (gentle blue flame, toxic gas). With chlorine: 2Na + Cl₂ → 2NaCl and Mg + Cl₂ → MgCl₂ (ionic white solids); 2Al + 3Cl₂ → Al₂Cl₆ (covalent dimer); Si + 2Cl₂ → SiCl₄ (covalent liquid); 2P + 5Cl₂ → 2PCl₅ (excess Cl₂). With water: 2Na + 2H₂O → 2NaOH + H₂ (vigorous, melts, pH ≈ 14); Mg reacts very slowly with cold water (Mg + 2H₂O → Mg(OH)₂ + H₂, pH ≈ 11) but vigorously with steam (Mg + H₂O(g) → MgO + H₂).",
+        summaryMn: "Хүчилтөрөгчтэй: 4Na + O₂ → 2Na₂O (хүчтэй, шар дөл); 2Mg + O₂ → 2MgO (тод цагаан дөл); 4Al + 3O₂ → 2Al₂O₃ (нунтаг шатна); Si + O₂ → SiO₂ (удаан); 4P + 5O₂ → P₄O₁₀ (цагаан утаа); S + O₂ → SO₂ (зөөлөн цэнхэр дөл, хортой хий). Хлортой: 2Na + Cl₂ → 2NaCl ба Mg + Cl₂ → MgCl₂ (ионы цагаан хатуу бодис); 2Al + 3Cl₂ → Al₂Cl₆ (ковалент димер); Si + 2Cl₂ → SiCl₄ (ковалент шингэн); 2P + 5Cl₂ → 2PCl₅ (Cl₂ илүүдэлтэй). Устай: 2Na + 2H₂O → 2NaOH + H₂ (хүчтэй, хайлна, pH ≈ 14); Mg хүйтэн устай маш удаан (Mg + 2H₂O → Mg(OH)₂ + H₂, pH ≈ 11), харин уураар хүчтэй урвалд орно (Mg + H₂O(g) → MgO + H₂).",
+        keyConcepts: ["Na burns with a yellow flame, Mg with a bright white flame", "S burns with a blue flame → SO₂", "Al chloride is the covalent dimer Al₂Cl₆", "Mg + steam → MgO + H₂"],
+        keyEquations: ["4P + 5O₂ → P₄O₁₀", "2Al + 3Cl₂ → Al₂Cl₆", "Mg + H₂O(g) → MgO + H₂"],
+        commonPitfalls: [
+          "Magnesium with steam gives MgO, not Mg(OH)₂: Mg(s) + H₂O(g) → MgO(s) + H₂(g)."
+        ]
+      },
+      {
+        id: "10.4",
+        number: "10.4",
+        titleEn: "Oxidation Numbers of Oxides & Chlorides",
+        titleMn: "Исэл ба хлоридын исэлдэхүйн зэрэг",
+        summaryEn: "The maximum oxidation number of a Period 3 element equals the number of outer-shell electrons used in bonding. Oxides: Na₂O +1, MgO +2, Al₂O₃ +3, SiO₂ +4, P₄O₁₀ +5, SO₂ +4 and SO₃ +6. Chlorides: NaCl +1, MgCl₂ +2, AlCl₃ +3, SiCl₄ +4, PCl₅ +5 (and SCl₂ +2). The oxidation number rises by one each group because one more outer electron is available.",
+        summaryMn: "3-р үеийн элементийн хамгийн их исэлдэхүйн зэрэг нь холбоонд оролцсон гадна бүрхүүлийн электроны тоотой тэнцүү. Ислүүд: Na₂O +1, MgO +2, Al₂O₃ +3, SiO₂ +4, P₄O₁₀ +5, SO₂ +4 ба SO₃ +6. Хлоридууд: NaCl +1, MgCl₂ +2, AlCl₃ +3, SiCl₄ +4, PCl₅ +5 (мөн SCl₂ +2). Бүлэг бүрт нэг гадна электрон нэмэгдэх тул исэлдэхүйн зэрэг нэгээр өснө.",
+        keyConcepts: ["Max oxidation number = outer electrons", "Oxides: +1 → +6", "Chlorides: +1 → +5"],
+        commonPitfalls: [
+          "The syllabus formula of phosphorus(V) oxide is P₄O₁₀ — use it in equations."
+        ]
+      },
+      {
+        id: "10.5",
+        number: "10.5",
+        titleEn: "Oxides: Water & Acid–Base Behaviour",
+        titleMn: "Ислүүд: устай урвал ба хүчил–суурийн шинж",
+        summaryEn: "Na₂O + H₂O → 2NaOH (pH 13–14); MgO + H₂O → Mg(OH)₂ (slightly soluble, pH ≈ 9–10); Al₂O₃ and SiO₂ do not react and are insoluble (pH 7); P₄O₁₀ + 6H₂O → 4H₃PO₄ (pH ≈ 2); SO₂ + H₂O → H₂SO₃ (pH ≈ 2); SO₃ + H₂O → H₂SO₄ (pH ≈ 1). Na₂O and MgO are ionic and basic (O²⁻ + H₂O → 2OH⁻; they react with acids). Al₂O₃ is ionic with covalent character and amphoteric: Al₂O₃ + 3H₂SO₄ → Al₂(SO₄)₃ + 3H₂O and Al₂O₃ + 2NaOH + 3H₂O → 2NaAl(OH)₄; Al(OH)₃ is also amphoteric. SiO₂ is giant covalent and acidic (reacts only with hot concentrated NaOH: SiO₂ + 2NaOH → Na₂SiO₃ + H₂O). P₄O₁₀, SO₂ and SO₃ are simple molecular and acidic (e.g. SO₂ + 2NaOH → Na₂SO₃ + H₂O).",
+        summaryMn: "Na₂O + H₂O → 2NaOH (pH 13–14); MgO + H₂O → Mg(OH)₂ (бага зэрэг уусна, pH ≈ 9–10); Al₂O₃ ба SiO₂ урвалд орохгүй, уусахгүй (pH 7); P₄O₁₀ + 6H₂O → 4H₃PO₄ (pH ≈ 2); SO₂ + H₂O → H₂SO₃ (pH ≈ 2); SO₃ + H₂O → H₂SO₄ (pH ≈ 1). Na₂O, MgO нь ионы, суурийн исэл (O²⁻ + H₂O → 2OH⁻; хүчилтэй урвалд орно). Al₂O₃ нь ковалент шинжтэй ионы исэл, амфотер: Al₂O₃ + 3H₂SO₄ → Al₂(SO₄)₃ + 3H₂O ба Al₂O₃ + 2NaOH + 3H₂O → 2NaAl(OH)₄; Al(OH)₃ мөн амфотер. SiO₂ нь аварга ковалент, хүчлийн исэл (зөвхөн халуун өтгөн NaOH-тэй урвалд орно: SiO₂ + 2NaOH → Na₂SiO₃ + H₂O). P₄O₁₀, SO₂, SO₃ нь энгийн молекул, хүчлийн исэл (жишээ нь SO₂ + 2NaOH → Na₂SO₃ + H₂O).",
+        keyConcepts: ["Basic → amphoteric (Al₂O₃) → acidic", "Na₂O pH 13–14 · MgO ≈ 9–10 · P₄O₁₀, SO₂ ≈ 2 · SO₃ ≈ 1", "Al₂O₃ and SiO₂ insoluble in water", "Ionic → giant covalent → simple molecular"],
+        keyEquations: ["Na₂O + H₂O → 2NaOH", "P₄O₁₀ + 6H₂O → 4H₃PO₄", "Al₂O₃ + 2NaOH + 3H₂O → 2NaAl(OH)₄", "SiO₂ + 2NaOH → Na₂SiO₃ + H₂O"],
+        commonPitfalls: [
+          "Al₂O₃ does NOT dissolve in water (pH 7); it shows amphoteric behaviour only with acids and alkalis.",
+          "MgO gives pH about 9–10, not 14, because Mg(OH)₂ is only slightly soluble."
+        ]
+      },
+      {
+        id: "10.6",
+        number: "10.6",
+        titleEn: "Chlorides with Water",
+        titleMn: "Хлоридуудын устай урвал",
+        summaryEn: "NaCl dissolves without reaction: NaCl(s) + aq → Na⁺(aq) + Cl⁻(aq), pH 7. MgCl₂ dissolves with very slight hydrolysis (pH ≈ 6.5). AlCl₃ (Al₂Cl₆) dissolves to give [Al(H₂O)₆]³⁺, which releases H⁺ because the small, highly charged Al³⁺ polarises the water molecules: [Al(H₂O)₆]³⁺ → [Al(H₂O)₅OH]²⁺ + H⁺ (pH ≈ 3). SiCl₄ and PCl₅ are hydrolysed, giving white fumes of HCl and strongly acidic solutions (pH ≈ 2): SiCl₄ + 2H₂O → SiO₂ + 4HCl and PCl₅ + 4H₂O → H₃PO₄ + 5HCl (PCl₃ + 3H₂O → H₃PO₃ + 3HCl). Across the period the chlorides change from ionic (neutral solutions) to covalent (hydrolysed, acidic), following the decrease in electronegativity difference with chlorine.",
+        summaryMn: "NaCl урвалгүйгээр уусна: NaCl(s) + aq → Na⁺(aq) + Cl⁻(aq), pH 7. MgCl₂ маш бага гидролизтой уусна (pH ≈ 6.5). AlCl₃ (Al₂Cl₆) уусаж [Al(H₂O)₆]³⁺ үүсгэх ба жижиг, өндөр цэнэгтэй Al³⁺ усны молекулыг туйлшруулдаг тул H⁺ ялгаруулна: [Al(H₂O)₆]³⁺ → [Al(H₂O)₅OH]²⁺ + H⁺ (pH ≈ 3). SiCl₄ ба PCl₅ гидролизд орж HCl-ийн цагаан утаа, хүчтэй хүчиллэг уусмал (pH ≈ 2) үүсгэнэ: SiCl₄ + 2H₂O → SiO₂ + 4HCl ба PCl₅ + 4H₂O → H₃PO₄ + 5HCl (PCl₃ + 3H₂O → H₃PO₃ + 3HCl). Үеийн дагуу хлоридууд ионы (саармаг уусмал)-аас ковалент (гидролизд орж, хүчиллэг) руу шилжинэ — хлортой цахилгаан сөрөг чанарын ялгаа багасахыг дагана.",
+        keyConcepts: ["Ionic chlorides dissolve: pH 7", "AlCl₃: [Al(H₂O)₆]³⁺ releases H⁺, pH ≈ 3", "SiCl₄, PCl₅ hydrolysed: white fumes of HCl, pH ≈ 2", "Ionic → covalent across the period"],
+        keyEquations: ["SiCl₄ + 2H₂O → SiO₂ + 4HCl", "PCl₅ + 4H₂O → H₃PO₄ + 5HCl", "[Al(H₂O)₆]³⁺ → [Al(H₂O)₅OH]²⁺ + H⁺"],
+        commonPitfalls: [
+          "SiCl₄ and PCl₅ do not simply dissolve — they are hydrolysed, giving white fumes of HCl."
+        ]
+      },
+      {
+        id: "10.7",
+        number: "10.7",
+        titleEn: "Deducing & Predicting Properties",
+        titleMn: "Шинж чанарыг тодорхойлох ба урьдчилан хэлэх",
+        summaryEn: "Use the patterns to identify unknown elements. A chloride that gives pH 1 with water is a hydrolysed covalent chloride (a non-metal); an oxide that does not react with NaOH is not Al₂O₃; an oxide melting at 1610 °C is giant covalent → Group 14, and since CO₂ is a gas the element is in Period 3 or below (Si). Selenium (Group 16, Period 4) is predicted to be like sulfur: simple molecular, relatively low melting point, non-conductor, insoluble; SeCl₄ is covalent and hydrolysed by moist air; SeO₂ is acidic. GeO₂ is acidic like SiO₂: GeO₂ + 2NaOH → Na₂GeO₃ + H₂O, with no reaction with HCl.",
+        summaryMn: "Хэв маягийг ашиглан үл мэдэгдэх элементийг тодорхойлно. Устай pH 1 өгдөг хлорид нь гидролизд ордог ковалент хлорид (металл бус); NaOH-тэй урвалд ордоггүй исэл нь Al₂O₃ биш; 1610 °C-д хайлдаг исэл аварга ковалент → 14-р бүлэг, CO₂ хий тул элемент 3-р үе буюу түүнээс доош (Si). Селен (16-р бүлэг, 4-р үе) хүхэртэй төстэй гэж таамаглана: энгийн молекул, хайлах цэг харьцангуй бага, дамжуулахгүй, уусахгүй; SeCl₄ ковалент, чийглэг агаарт гидролизд орно; SeO₂ хүчлийн исэл. GeO₂ нь SiO₂ шиг хүчлийн исэл: GeO₂ + 2NaOH → Na₂GeO₃ + H₂O, HCl-тэй урвалд орохгүй.",
+        keyConcepts: ["Chloride pH 1 → covalent, non-metal", "Oxide reacts with acid and alkali → aluminium", "Very high m.p. oxide → giant covalent", "Predict from the element above in the group"],
+        commonPitfalls: [
+          "Use all the clues — bonding of the chloride, acid–base behaviour of the oxide and melting point — before deciding."
+        ]
       }
     ],
     keyTerms: [
-      { termEn: "Amphoteric", termMn: "Амфотер шинж", definitionEn: "Capable of reacting as both an acid (with bases) and a base (with acids), e.g. Al₂O₃ and Al(OH)₃.", definitionMn: "Хүчилтэй ч, суурьтай ч урвалд орж давс үүсгэх хоёрч шинж (жишээ нь Al₂O₃, Al(OH)₃)." },
-      { termEn: "Hydrolysis", termMn: "Гидролиз", definitionEn: "The chemical breakdown of a compound due to reaction with water.", definitionMn: "Усны үйлчлэлээр бодис задарч шинэ нэгдэл үүсэх химийн урвал." }
+      { termEn: "Periodicity", termMn: "Үелэх чанар", definitionEn: "A repeating pattern of properties across each period of the Periodic Table.", definitionMn: "Үелэх системийн үе бүрийн дагуу шинж чанар давтагдах хэв маяг." },
+      { termEn: "Atomic (Covalent) Radius", termMn: "Атомын (ковалент) радиус", definitionEn: "Half the distance between the nuclei of two bonded atoms of the same element.", definitionMn: "Ижил элементийн холбогдсон хоёр атомын цөм хоорондын зайн хагас." },
+      { termEn: "Electronegativity", termMn: "Цахилгаан сөрөг чанар", definitionEn: "The power of an atom to attract the pair of electrons in a covalent bond.", definitionMn: "Ковалент холбоон дахь электроны хосыг өөртөө татах атомын чадвар." },
+      { termEn: "Metalloid (Semimetal)", termMn: "Металлоид (хагас металл)", definitionEn: "An element with properties between those of metals and non-metals, e.g. silicon.", definitionMn: "Металл ба металл бусын хоорондох шинжтэй элемент, жишээ нь цахиур." },
+      { termEn: "Basic Oxide", termMn: "Суурийн исэл", definitionEn: "An oxide that reacts with acids and gives an alkaline solution, e.g. Na₂O, MgO.", definitionMn: "Хүчилтэй урвалд орж, шүлтлэг уусмал өгдөг исэл, жишээ нь Na₂O, MgO." },
+      { termEn: "Acidic Oxide", termMn: "Хүчлийн исэл", definitionEn: "An oxide that reacts with bases and gives an acidic solution, e.g. SO₂, P₄O₁₀.", definitionMn: "Сууртай урвалд орж, хүчиллэг уусмал өгдөг исэл, жишээ нь SO₂, P₄O₁₀." },
+      { termEn: "Amphoteric", termMn: "Амфотер", definitionEn: "Able to react with both acids and bases, e.g. Al₂O₃ and Al(OH)₃.", definitionMn: "Хүчил ба суурь хоёулантай урвалд орж чаддаг, жишээ нь Al₂O₃, Al(OH)₃." },
+      { termEn: "Hydrolysis", termMn: "Гидролиз", definitionEn: "The breaking down of a compound by reaction with water, e.g. SiCl₄ and PCl₅.", definitionMn: "Устай урвалд орж нэгдэл задрах, жишээ нь SiCl₄, PCl₅." }
     ],
     formulas: [
-      { nameEn: "Aluminium Oxide with Acid", nameMn: "Хөнгөнцагааны оксид хүчилтэй", formula: "Al₂O₃(s) + 6HCl(aq) → 2AlCl₃(aq) + 3H₂O(l)", note: "Behaves as a base" },
-      { nameEn: "Aluminium Oxide with Alkali", nameMn: "Хөнгөнцагааны оксид шүлттэй", formula: "Al₂O₃(s) + 2NaOH(aq) + 3H₂O(l) → 2NaAl(OH)₄(aq)", note: "Behaves as an acid" },
-      { nameEn: "Silicon Chloride Hydrolysis", nameMn: "Цахиурын хлоридын гидролиз", formula: "SiCl₄(l) + 2H₂O(l) → SiO₂(s) + 4HCl(g)", note: "White ppt SiO₂ + steamy white fumes HCl" }
+      { nameEn: "Aluminium Oxide with Acid", nameMn: "Хөнгөнцагааны исэл хүчилтэй", formula: "Al₂O₃(s) + 6HCl(aq) → 2AlCl₃(aq) + 3H₂O(l)", note: "Acts as a base" },
+      { nameEn: "Aluminium Oxide with Alkali", nameMn: "Хөнгөнцагааны исэл шүлттэй", formula: "Al₂O₃(s) + 2NaOH(aq) + 3H₂O(l) → 2NaAl(OH)₄(aq)", note: "Acts as an acid" },
+      { nameEn: "Silicon Tetrachloride Hydrolysis", nameMn: "Цахиурын хлоридын гидролиз", formula: "SiCl₄(l) + 2H₂O(l) → SiO₂(s) + 4HCl(g)", note: "White fumes of HCl; pH ≈ 2" },
+      { nameEn: "Phosphorus(V) Chloride Hydrolysis", nameMn: "Фосфор(V) хлоридын гидролиз", formula: "PCl₅(s) + 4H₂O(l) → H₃PO₄(aq) + 5HCl(g)", note: "White fumes of HCl; pH ≈ 2" },
+      { nameEn: "Phosphorus(V) Oxide with Water", nameMn: "Фосфор(V) исэл устай", formula: "P₄O₁₀(s) + 6H₂O(l) → 4H₃PO₄(aq)", note: "pH ≈ 2" }
     ],
     examStyleTips: [
-      "When explaining why S₈ has a higher melting point than P₄: Both are simple molecular, but S₈ has 128 electrons compared to P₄ with 60 electrons, so S₈ has stronger instantaneous dipole-induced dipole forces.",
-      "Al₂Cl₆ has dative covalent bonding where a lone pair from chlorine is donated to the electron-deficient aluminium."
+      "Low melting points of P₄, S₈, Cl₂: weak id–id forces between molecules — the covalent bonds do not break.",
+      "Si: giant covalent, many strong covalent bonds — not 'strong intermolecular forces'.",
+      "Radius across a period: nuclear charge increases, same shell, similar shielding.",
+      "Al₂O₃ is insoluble in water; show amphoteric behaviour with one equation for an acid and one for an alkali.",
+      "SiCl₄ and PCl₅ are hydrolysed (white fumes of HCl, pH ≈ 2) — they do not just dissolve.",
+      "Use P₄O₁₀ (not P₂O₅) in equations: P₄O₁₀ + 6H₂O → 4H₃PO₄."
+    ],
+    examQuestions: [
+      {
+        id: "ch10-q1",
+        marks: 3,
+        questionEn: "(a) Explain why atomic radius decreases from sodium to chlorine. [2]\n(b) Explain why P³⁻ is much larger than Na⁺. [1]",
+        questionMn: "(a) Натриас хлор хүртэл атомын радиус яагаад буурдгийг тайлбарлана уу. [2]\n(b) P³⁻ яагаад Na⁺-аас хамаагүй том вэ? [1]",
+        solutionEn: "(a) Nuclear charge increases · electrons are added to the same shell [1]\nShielding is similar, so the outer electrons are pulled closer [1]\n(b) P³⁻ has three shells (2, 8, 8) but Na⁺ only two (2, 8) [1]",
+        solutionMn: "(a) Цөмийн цэнэг өснө; электронууд ижил бүрхүүлд нэмэгдэж, халхлалт ойролцоо тул гадна электронууд ойр татагдана. (b) P³⁻ гурван бүрхүүлтэй (2, 8, 8), Na⁺ хоёртой (2, 8)."
+      },
+      {
+        id: "ch10-q2",
+        marks: 4,
+        questionEn: "Explain why the melting point of silicon (1683 K) is much higher than that of phosphorus (317 K).",
+        questionMn: "Цахиурын хайлах цэг (1683 K) яагаад фосфорынхоос (317 K) хамаагүй өндөр байдгийг тайлбарлана уу.",
+        solutionEn: "Silicon is giant covalent [1] · many strong covalent bonds must be broken, needing a lot of energy [1]\nPhosphorus is simple molecular, P₄ [1] · only weak id–id forces between molecules are overcome [1]",
+        solutionMn: "Цахиур аварга ковалент — олон хүчтэй ковалент холбоог таслахад их энерги хэрэгтэй. Фосфор энгийн молекул (P₄) — зөвхөн молекулуудын хоорондох сул id–id хүчийг даван гарна.",
+        examinerTip: "Name the structure, the force that is overcome and the energy needed for each element."
+      },
+      {
+        id: "ch10-q3",
+        marks: 3,
+        questionEn: "(a) Explain why aluminium has a higher melting point than sodium. [2]\n(b) Explain why sulfur has a higher melting point than chlorine. [1]",
+        questionMn: "(a) Хөнгөнцагаан яагаад натриас өндөр хайлах цэгтэй вэ? [2]\n(b) Хүхэр яагаад хлороос өндөр хайлах цэгтэй вэ? [1]",
+        solutionEn: "(a) Al³⁺ has a higher charge and each Al atom gives 3 delocalised electrons (Na only 1) [1] · stronger metallic bonding [1]\n(b) S₈ has more electrons than Cl₂, so the id–id forces are stronger [1]",
+        solutionMn: "(a) Al³⁺ цэнэг өндөр, атом бүр 3 чөлөөт электрон өгнө (Na 1) — металлын холбоо хүчтэй. (b) S₈ нь Cl₂-оос олон электронтой тул id–id хүч хүчтэй."
+      },
+      {
+        id: "ch10-q4",
+        marks: 4,
+        questionEn: "Write equations for the reactions of:\n(a) phosphorus with oxygen\n(b) aluminium with chlorine\n(c) sodium with cold water\n(d) magnesium with steam",
+        questionMn: "Урвалын тэгшитгэлийг бичнэ үү:\n(a) фосфор хүчилтөрөгчтэй\n(b) хөнгөнцагаан хлортой\n(c) натри хүйтэн устай\n(d) магни усны уураар",
+        solutionEn: "(a) 4P(s) + 5O₂(g) → P₄O₁₀(s) [1]\n(b) 2Al(s) + 3Cl₂(g) → Al₂Cl₆(s) [1]\n(c) 2Na(s) + 2H₂O(l) → 2NaOH(aq) + H₂(g) [1]\n(d) Mg(s) + H₂O(g) → MgO(s) + H₂(g) [1]",
+        solutionMn: "(a) 4P + 5O₂ → P₄O₁₀. (b) 2Al + 3Cl₂ → Al₂Cl₆ (ковалент димер). (c) 2Na + 2H₂O → 2NaOH + H₂. (d) Mg + H₂O(g) → MgO + H₂ — уураар Mg(OH)₂ биш MgO үүснэ."
+      },
+      {
+        id: "ch10-q5",
+        marks: 6,
+        questionEn: "Describe what happens when each compound is added to water. Give an equation and the approximate pH.\n(a) sodium oxide\n(b) sulfur trioxide\n(c) aluminium oxide",
+        questionMn: "Нэгдэл бүрийг усанд хийхэд юу болохыг тэгшитгэл, ойролцоо pH-тай нь бичнэ үү.\n(a) натрийн исэл\n(b) хүхрийн гурвалсан исэл\n(c) хөнгөнцагааны исэл",
+        solutionEn: "(a) Na₂O + H₂O → 2NaOH [1] · pH 13–14, strongly alkaline [1]\n(b) SO₃ + H₂O → H₂SO₄ [1] · pH ≈ 1, strongly acidic [1]\n(c) No reaction · insoluble [1] · pH 7 [1]",
+        solutionMn: "(a) Na₂O + H₂O → 2NaOH, pH 13–14. (b) SO₃ + H₂O → H₂SO₄, pH ≈ 1. (c) Урвалгүй, уусахгүй, pH 7."
+      },
+      {
+        id: "ch10-q6",
+        marks: 3,
+        questionEn: "Write equations to show that:\n(a) aluminium oxide is amphoteric [2]\n(b) silicon(IV) oxide is acidic [1]",
+        questionMn: "Тэгшитгэлээр харуулна уу:\n(a) хөнгөнцагааны исэл амфотер [2]\n(b) цахиур(IV) исэл хүчлийн исэл [1]",
+        solutionEn: "(a) With acid: Al₂O₃ + 6HCl → 2AlCl₃ + 3H₂O [1]\nWith alkali: Al₂O₃ + 2NaOH + 3H₂O → 2NaAl(OH)₄ [1]\n(b) SiO₂ + 2NaOH → Na₂SiO₃ + H₂O (hot, concentrated) [1]",
+        solutionMn: "(a) Хүчилтэй: Al₂O₃ + 6HCl → 2AlCl₃ + 3H₂O; шүлттэй: Al₂O₃ + 2NaOH + 3H₂O → 2NaAl(OH)₄. (b) SiO₂ + 2NaOH → Na₂SiO₃ + H₂O (халуун өтгөн NaOH)."
+      },
+      {
+        id: "ch10-q7",
+        marks: 4,
+        questionEn: "(a) Describe what you see when silicon tetrachloride is added to water. Give the equation and the pH. [3]\n(b) Explain why aqueous aluminium chloride is acidic. [1]",
+        questionMn: "(a) Цахиурын тетрахлоридыг усанд хийхэд юу ажиглагдах вэ? Тэгшитгэл, pH-г бичнэ үү. [3]\n(b) Хөнгөнцагааны хлоридын уусмал яагаад хүчиллэг байдгийг тайлбарлана уу. [1]",
+        solutionEn: "(a) White fumes (of HCl) and a white solid (SiO₂) [1]\nSiCl₄ + 2H₂O → SiO₂ + 4HCl [1] · pH ≈ 2 [1]\n(b) Small, highly charged Al³⁺ polarises water: [Al(H₂O)₆]³⁺ → [Al(H₂O)₅OH]²⁺ + H⁺ [1]",
+        solutionMn: "(a) HCl-ийн цагаан утаа, SiO₂ цагаан хатуу бодис; SiCl₄ + 2H₂O → SiO₂ + 4HCl; pH ≈ 2. (b) Жижиг, өндөр цэнэгтэй Al³⁺ усыг туйлшруулж H⁺ ялгаруулна."
+      },
+      {
+        id: "ch10-q8",
+        marks: 3,
+        questionEn: "Phosphorus(III) chloride, PCl₃, reacts with water to form H₃PO₃.\nWrite the equation, state the approximate pH of the solution and describe what you would see.",
+        questionMn: "Фосфор(III) хлорид PCl₃ устай урвалд орж H₃PO₃ үүсгэнэ.\nТэгшитгэл бичиж, уусмалын ойролцоо pH-г хэлж, юу ажиглагдахыг тодорхойлно уу.",
+        solutionEn: "PCl₃(l) + 3H₂O(l) → H₃PO₃(aq) + 3HCl(aq) [1]\npH 1–2 [1]\nWhite fumes of HCl [1]",
+        solutionMn: "PCl₃ + 3H₂O → H₃PO₃ + 3HCl; pH 1–2; HCl-ийн цагаан утаа гарна."
+      },
+      {
+        id: "ch10-q9",
+        marks: 4,
+        questionEn: "Element G forms a chloride that reacts with water to give pH 1. Its oxide melts at 1610 °C and does not react with aqueous sodium hydroxide.\nDeduce the group of G and suggest its identity, explaining each step.",
+        questionMn: "G элементийн хлорид устай урвалд орж pH 1 өгнө. Түүний исэл 1610 °C-д хайлж, натрийн гидроксидын уусмалтай урвалд ордоггүй.\nG-ийн бүлгийг тодорхойлж, ямар элемент болохыг алхам бүрээр тайлбарлан санал болгоно уу.",
+        solutionEn: "pH 1 chloride: hydrolysed covalent chloride, so G is a non‑metal or metalloid [1]\nNo reaction with NaOH: not Al₂O₃ (amphoteric) [1]\nOxide melts at 1610 °C: giant covalent oxide → Group 14 [1]\nCO₂ is a gas, so G is in Period 3 or below → silicon [1]",
+        solutionMn: "pH 1 хлорид → гидролизд ордог ковалент хлорид. NaOH-тэй урвалд орохгүй → Al₂O₃ биш. Исэл 1610 °C-д хайлна → аварга ковалент → 14-р бүлэг. CO₂ хий тул 3-р үе буюу түүнээс доош → цахиур."
+      },
+      {
+        id: "ch10-q10",
+        marks: 4,
+        questionEn: "Selenium is in Group 16, Period 4.\nPredict its structure, two physical properties, and the nature of its oxide SeO₂ and chloride SeCl₄.",
+        questionMn: "Селен 16-р бүлэг, 4-р үед байрладаг.\nТүүний бүтэц, хоёр физик шинж, SeO₂ исэл ба SeCl₄ хлоридын шинжийг урьдчилан хэлнэ үү.",
+        solutionEn: "Simple molecular non‑metal, like sulfur [1]\nRelatively low melting point · does not conduct electricity [1]\nSeO₂ is an acidic oxide (like SO₂) [1]\nSeCl₄ is covalent and is hydrolysed by water, giving HCl [1]",
+        solutionMn: "Хүхэр шиг энгийн молекулын металл бус; хайлах цэг харьцангуй бага, цахилгаан дамжуулахгүй; SeO₂ хүчлийн исэл (SO₂ шиг); SeCl₄ ковалент, устай гидролизд орж HCl үүсгэнэ."
+      }
     ]
   },
   {
@@ -1660,63 +2296,214 @@ export const CHAPTERS_DATA: Chapter[] = [
     category: "Inorganic",
     titleEn: "Group 2 (Alkaline Earth Metals)",
     titleMn: "2-р бүлгийн элементүүд (Шүлтлэг газрын металлууд)",
-    descriptionEn: "Group 2 physical trends, reactions with oxygen, water, and dilute acids, solubility of hydroxides and sulfates, and thermal stability of carbonates and nitrates.",
-    descriptionMn: "2-р бүлгийн металлуудын урвалын идэвх (догшлох тусам өснө), гидроксидын уусах чанар (өснө), сульфатын уусах чанар (буурна), карбонат ба нитратын дулааны тогтворжилт (өснө).",
+    descriptionEn: "Trends in physical properties down Group 2; reactions of the metals with oxygen, water and dilute acids; oxides, hydroxides and carbonates with water and acids; thermal decomposition of carbonates and nitrates; solubility of hydroxides and sulfates; flame tests and uses (Syllabus 10.1).",
+    descriptionMn: "2-р бүлгийн дагуух физик шинжийн хандлага; металлуудын хүчилтөрөгч, ус, шингэрүүлсэн хүчилтэй урвал; исэл, гидроксид, карбонатын устай ба хүчилтэй урвал; карбонат ба нитратын дулааны задрал; гидроксид ба сульфатын уусах чанар; дөлний сорил ба хэрэглээ (Syllabus 10.1).",
+    syllabusRef: "Syllabus 10.1",
+    examPapers: ["Paper 1", "Paper 2"],
     learningIntentionsEn: [
-      "Describe electronic configurations and physical trends down Group 2 (Be to Ba)",
-      "Explain increasing reactivity down Group 2 with O₂, H₂O, and dilute acids (lower 1st + 2nd IE, greater shielding and radius)",
-      "Recognize flame test colors: Ca²⁺ (brick-red), Sr²⁺ (scarlet/crimson), Ba²⁺ (apple-green)",
-      "Explain trends in solubility: Group 2 Hydroxides get MORE soluble down group (Mg(OH)₂ sparingly soluble -> Ba(OH)₂ soluble, pH increases)",
-      "Explain trends in solubility: Group 2 Sulfates get LESS soluble down group (MgSO₄ soluble -> BaSO₄ insoluble white precipitate)",
-      "Explain thermal stability of Group 2 Carbonates and Nitrates (increases down group due to larger cation radius having lower charge density and less polarising power on the anion)"
+      "Describe and explain trends in atomic radius, melting point, density and ionisation energy down Group 2",
+      "Write equations for the reactions of the metals with oxygen, water (and steam) and dilute acids",
+      "Write equations for the reactions of the oxides, hydroxides and carbonates with water and dilute acids",
+      "Write equations for the thermal decomposition of the nitrates and carbonates and state the trend in thermal stability",
+      "State the trends in solubility of the hydroxides (increase) and sulfates (decrease)",
+      "Recall flame test colours and explain the uses of Ca(OH)₂ and CaCO₃; predict the properties of Be and Ra"
     ],
     learningIntentionsMn: [
-      "2-р бүлгийн дагуу доошлоход атомын радиус томорч, иончлолын энерги багасах тул металлын урвалын идэвх нэмэгдэнэ",
-      "Дөлний өнгө: Ca²⁺ (тоосгон улаан), Sr²⁺ (хүрэн улаан/час улаан), Ba²⁺ (алимны ногоон)",
-      "Гидроксидын уусах чанар доошлох тусам ИХЭСНЭ: Mg(OH)₂ бага уусдаг -> Ba(OH)₂ сайн уусна (pH өснө)",
-      "Сульфатын уусах чанар доошлох тусам БАГАСНА: MgSO₄ сайн уусна -> BaSO₄ уусдаггүй цагаан тунадас",
-      "Карбонат ба нитратын халаалтад тэсвэртэй чанар (thermal stability) доошлох тусам ӨСНӨ (катионы радиус томорч, цэнэгийн нягт ба туйлшруулах чадвар буурна)"
+      "2-р бүлгийн дагуу доош атомын радиус, хайлах цэг, нягт, иончлолын энергийн хандлагыг тодорхойлж тайлбарлах",
+      "Металлуудын хүчилтөрөгч, ус (ба уур), шингэрүүлсэн хүчилтэй урвалын тэгшитгэл бичих",
+      "Исэл, гидроксид, карбонатын устай ба шингэрүүлсэн хүчилтэй урвалын тэгшитгэл бичих",
+      "Нитрат ба карбонатын дулааны задралын тэгшитгэл бичиж, дулааны тогтвортой байдлын хандлагыг хэлэх",
+      "Гидроксидын (өснө) ба сульфатын (буурна) уусах чанарын хандлагыг хэлэх",
+      "Дөлний сорилын өнгийг санах, Ca(OH)₂ ба CaCO₃-ийн хэрэглээг тайлбарлах; Be ба Ra-ийн шинжийг урьдчилан хэлэх"
     ],
     subtopics: [
       {
         id: "11.1",
         number: "11.1",
-        titleEn: "Reactivity & Flame Tests",
-        titleMn: "Урвалын идэвх ба Дөлний сорил",
-        summaryEn: "Reactivity increases down Group 2: Mg -> Ca -> Sr -> Ba. Mg burns with intense white light. Ca²⁺ brick-red, Sr²⁺ scarlet, Ba²⁺ apple-green.",
-        summaryMn: "2-р бүлгээр доошлоход 1 ба 2-р иончлолын нийлбэр энерги буурах тул электрон илүү хялбар алдаж илүү идэвхтэй болдог.",
-        keyConcepts: ["2M(s) + O₂(g) → 2MO(s)", "M(s) + 2H₂O(l) → M(OH)₂(aq/s) + H₂(g)", "Mg(s) + H₂O(g) → MgO(s) + H₂(g) with steam"]
+        titleEn: "Physical Properties & Reactivity Trends",
+        titleMn: "Физик шинж ба урвалын идэвхийн хандлага",
+        summaryEn: "Group 2 elements (alkaline earth metals) have two outer electrons (ns²) and form 2+ ions. Metallic radius increases down the group (Be 0.122 → Ba 0.217 nm) because each element has an extra shell. Melting point generally decreases (Mg breaks the trend: Be 1280, Mg 650, Ca 838, Sr 768, Ba 714 °C) and density generally increases. The metals are reducing agents: M → M²⁺ + 2e⁻ (oxidation number 0 → +2). IE₁ + IE₂ decreases down the group (Be 2660, Mg 2186, Ca 1740, Sr 1608, Ba 1468 kJ mol⁻¹) because the greater distance and shielding outweigh the increased nuclear charge, so the 2 electrons are lost more easily and reactivity increases.",
+        summaryMn: "2-р бүлгийн элементүүд (шүлтлэг газрын металл) хоёр гадна электронтой (ns²), 2+ ион үүсгэнэ. Металлын радиус бүлгийн дагуу доош өснө (Be 0.122 → Ba 0.217 нм), учир нь элемент бүр нэмэлт бүрхүүлтэй. Хайлах цэг ерөнхийдөө буурна (Mg хандлагыг зөрчинө: Be 1280, Mg 650, Ca 838, Sr 768, Ba 714 °C), нягт ерөнхийдөө өснө. Металлууд ангижруулагч: M → M²⁺ + 2e⁻ (исэлдэхүйн зэрэг 0 → +2). IE₁ + IE₂ бүлгийн дагуу доош буурна (Be 2660, Mg 2186, Ca 1740, Sr 1608, Ba 1468 kJ mol⁻¹), учир нь зай ба халхлалт их болж цөмийн цэнэгийн өсөлтөөс давдаг тул 2 электрон амархан алдагдаж, урвалын идэвх өснө.",
+        keyConcepts: ["ns² → M²⁺", "Radius ↑ down: extra shell", "IE₁ + IE₂ ↓ → reactivity ↑", "Metals are reducing agents (0 → +2)"],
+        keyEquations: ["M → M²⁺ + 2e⁻", "Ca: 1s² 2s² 2p⁶ 3s² 3p⁶ 4s² → Ca²⁺: 1s² 2s² 2p⁶ 3s² 3p⁶"],
+        commonPitfalls: [
+          "Explain reactivity with ionisation energy: more shielding and greater distance outweigh the nuclear charge — not just 'the atoms are bigger'."
+        ]
       },
       {
         id: "11.2",
         number: "11.2",
-        titleEn: "Solubility Trends: Hydroxides vs Sulfates",
-        titleMn: "Уусах чанарын хандлага: Гидроксид ба Сульфат",
-        summaryEn: "Hydroxide solubility INCREASES down Group 2 (Mg(OH)₂ pH ~10 -> Ba(OH)₂ pH ~13). Sulfate solubility DECREASES down Group 2 (MgSO₄ soluble -> BaSO₄ insoluble, used in test for SO₄²⁻).",
-        summaryMn: "Гидроксид уруудах тусам илүү сайн уусна (pH өснө). Сульфат уруудах тусам муу уусна (BaSO₄ цагаан тунадас).",
-        keyConcepts: ["Limewater Ca(OH)₂ test for CO₂", "Barium chloride + dilute HCl test for sulfate: Ba²⁺ + SO₄²⁻ → BaSO₄(s)"]
+        titleEn: "Reactions with Oxygen, Water & Acids; Flame Tests",
+        titleMn: "Хүчилтөрөгч, ус, хүчилтэй урвал; дөлний сорил",
+        summaryEn: "With oxygen all form white basic oxides: 2Mg + O₂ → 2MgO (bright white flame); reactivity increases down the group (Ba is stored under oil). With water: M + 2H₂O → M(OH)₂ + H₂. Mg reacts very slowly with cold water (pH ≈ 10) but vigorously with steam: Mg + H₂O(g) → MgO + H₂. Ca fizzes steadily and forms a cloudy white suspension of Ca(OH)₂ (pH ≈ 11); Ba reacts vigorously (pH ≈ 13). With dilute HCl all react, faster down the group: Mg + 2HCl → MgCl₂ + H₂. With dilute H₂SO₄ an insoluble sulfate layer soon stops Ca, Sr and Ba reacting (Ca + H₂SO₄ → CaSO₄(s) + H₂). Flame tests: Ca brick-red, Sr red (scarlet), Ba apple-green.",
+        summaryMn: "Хүчилтөрөгчтэй бүгд цагаан суурийн исэл үүсгэнэ: 2Mg + O₂ → 2MgO (тод цагаан дөл); идэвх доошлох тусам өснө (Ba-г тосонд хадгална). Устай: M + 2H₂O → M(OH)₂ + H₂. Mg хүйтэн устай маш удаан (pH ≈ 10), уураар хүчтэй: Mg + H₂O(g) → MgO + H₂. Ca тогтвортой хөөсөрч, Ca(OH)₂-ийн булингартай цагаан суспенз үүсгэнэ (pH ≈ 11); Ba хүчтэй урвалд орно (pH ≈ 13). Шингэрүүлсэн HCl-тэй бүгд урвалд орох ба доошлох тусам хурдан: Mg + 2HCl → MgCl₂ + H₂. Шингэрүүлсэн H₂SO₄-тэй үед Ca, Sr, Ba-ийн гадаргууд уусдаггүй сульфатын давхарга үүсч урвал удалгүй зогсоно (Ca + H₂SO₄ → CaSO₄(s) + H₂). Дөлний сорил: Ca тоосгон улаан, Sr улаан (час улаан), Ba алимны ногоон.",
+        keyConcepts: ["2M + O₂ → 2MO (white, basic)", "Mg + steam → MgO + H₂", "Ca + water: cloudy white Ca(OH)₂", "Flame: Ca brick-red · Sr red · Ba apple-green"],
+        keyEquations: ["M + 2H₂O → M(OH)₂ + H₂", "Mg + H₂O(g) → MgO + H₂", "Ca + H₂SO₄ → CaSO₄(s) + H₂"],
+        commonPitfalls: [
+          "Mg with steam forms MgO, not Mg(OH)₂.",
+          "Ca with water gives a cloudy white suspension, not a clear solution.",
+          "Do not swap the flame colours: Sr is red and Ba is apple-green."
+        ]
       },
       {
         id: "11.3",
         number: "11.3",
+        titleEn: "Oxides, Hydroxides & Carbonates",
+        titleMn: "Исэл, гидроксид ба карбонат",
+        summaryEn: "The oxides and hydroxides are bases: they react with acids to form a salt and water. MgO + H₂O → Mg(OH)₂ (pH ≈ 10); CaO + H₂O → Ca(OH)₂ (very exothermic); MgO + 2HCl → MgCl₂ + H₂O; Mg(OH)₂ + H₂SO₄ → MgSO₄ + 2H₂O; Ba(OH)₂ + 2HCl → BaCl₂ + 2H₂O; Ba(OH)₂ + H₂SO₄ → BaSO₄(s) + 2H₂O. Carbonates react with acids to give a salt, water and CO₂: MgCO₃ + H₂SO₄ → MgSO₄ + H₂O + CO₂; BaCO₃ + 2HCl → BaCl₂ + H₂O + CO₂; with H₂SO₄ insoluble BaSO₄ coats the BaCO₃ and the reaction stops.",
+        summaryMn: "Исэл ба гидроксид нь суурь: хүчилтэй урвалд орж давс, ус үүсгэнэ. MgO + H₂O → Mg(OH)₂ (pH ≈ 10); CaO + H₂O → Ca(OH)₂ (маш экзотерм); MgO + 2HCl → MgCl₂ + H₂O; Mg(OH)₂ + H₂SO₄ → MgSO₄ + 2H₂O; Ba(OH)₂ + 2HCl → BaCl₂ + 2H₂O; Ba(OH)₂ + H₂SO₄ → BaSO₄(s) + 2H₂O. Карбонат хүчилтэй урвалд орж давс, ус, CO₂ үүсгэнэ: MgCO₃ + H₂SO₄ → MgSO₄ + H₂O + CO₂; BaCO₃ + 2HCl → BaCl₂ + H₂O + CO₂; H₂SO₄-тэй үед уусдаггүй BaSO₄ BaCO₃-ийг бүрхэж урвал зогсоно.",
+        keyConcepts: ["Oxides and hydroxides are bases", "CaO + water: very exothermic (slaked lime)", "Carbonate + acid → salt + water + CO₂", "BaSO₄ layer stops the reaction"],
+        keyEquations: ["CaO + H₂O → Ca(OH)₂", "MgCO₃ + H₂SO₄ → MgSO₄ + H₂O + CO₂", "Ba(OH)₂ + H₂SO₄ → BaSO₄(s) + 2H₂O"],
+        commonPitfalls: [
+          "Give CaSO₄, SrSO₄ and BaSO₄ the state symbol (s) — they are white precipitates, not (aq)."
+        ]
+      },
+      {
+        id: "11.4",
+        number: "11.4",
+        titleEn: "Solubility Trends: Hydroxides & Sulfates",
+        titleMn: "Уусах чанарын хандлага: гидроксид ба сульфат",
+        summaryEn: "Hydroxide solubility INCREASES down the group (mol per 100 g water: Mg(OH)₂ 2.0 × 10⁻⁵, Ca(OH)₂ 1.5 × 10⁻³, Sr(OH)₂ 3.4 × 10⁻³, Ba(OH)₂ 1.5 × 10⁻²), so saturated solutions become more alkaline (higher [OH⁻], higher pH). Sulfate solubility DECREASES down the group: MgSO₄ soluble, CaSO₄ sparingly soluble, SrSO₄ and BaSO₄ insoluble — BaSO₄ is the white precipitate in the test for sulfate. Example: 1.5 × 10⁻³ mol of Ca(OH)₂ dissolves in 100 g of water, so 7.5 × 10⁻⁴ mol (0.056 g) dissolves in 50 g.",
+        summaryMn: "Гидроксидын уусах чанар бүлгийн дагуу доош ӨСНӨ (100 г усанд моль: Mg(OH)₂ 2.0 × 10⁻⁵, Ca(OH)₂ 1.5 × 10⁻³, Sr(OH)₂ 3.4 × 10⁻³, Ba(OH)₂ 1.5 × 10⁻²), тиймээс ханасан уусмал илүү шүлтлэг болно ([OH⁻] их, pH өндөр). Сульфатын уусах чанар доош БУУРНА: MgSO₄ уусна, CaSO₄ бага уусна, SrSO₄ ба BaSO₄ уусахгүй — BaSO₄ нь сульфатын сорилын цагаан тунадас. Жишээ: 100 г усанд 1.5 × 10⁻³ моль Ca(OH)₂ уусдаг тул 50 г усанд 7.5 × 10⁻⁴ моль (0.056 г) уусна.",
+        keyConcepts: ["Hydroxides: solubility ↑ down (pH ↑)", "Sulfates: solubility ↓ down", "BaSO₄: white precipitate (sulfate test)", "Limewater = saturated Ca(OH)₂(aq)"],
+        keyEquations: ["Ba²⁺(aq) + SO₄²⁻(aq) → BaSO₄(s)", "7.5 × 10⁻⁴ × 74.1 = 0.056 g"],
+        commonPitfalls: [
+          "Hydroxides get MORE soluble down the group, sulfates get LESS soluble — do not mix them up."
+        ]
+      },
+      {
+        id: "11.5",
+        number: "11.5",
         titleEn: "Thermal Decomposition of Carbonates & Nitrates",
-        titleMn: "Карбонат ба Нитратын дулааны задрал",
-        summaryEn: "Decomposition temp increases down group. Carbonates: MCO₃ → MO + CO₂. Nitrates: 2M(NO₃)₂ → 2MO + 4NO₂ (brown toxic gas) + O₂ (relights splint). Smaller Mg²⁺ has high charge density, distorts CO₃²⁻/NO₃⁻ electron cloud, weakening C-O / N-O bonds.",
-        summaryMn: "Mg²⁺ ион жижиг тул цэнэгийн өндөр нягттай бөгөөд том анионыг илүү хүчтэй туйлшруулж C-O, N-O холбоог сулруулснаар бага температурт амархан задардаг.",
-        keyConcepts: ["Thermal stability: BaCO₃ > SrCO₃ > CaCO₃ > MgCO₃", "Polarisation of large anion by small cation"]
+        titleMn: "Карбонат ба нитратын дулааны задрал",
+        summaryEn: "Carbonates decompose on heating to the oxide and carbon dioxide: MCO₃(s) → MO(s) + CO₂(g), e.g. CaCO₃ → CaO + CO₂ in a lime kiln. Nitrates give the oxide, brown nitrogen dioxide and oxygen: 2M(NO₃)₂(s) → 2MO(s) + 4NO₂(g) + O₂(g). Thermal stability increases down the group: a higher temperature is needed to decompose BaCO₃ than MgCO₃, so MgCO₃ and Mg(NO₃)₂ decompose most easily. (Extension: the small Mg²⁺ ion has a high charge density and polarises the large carbonate or nitrate ion most, weakening its bonds.)",
+        summaryMn: "Карбонат халаахад исэл ба нүүрстөрөгчийн давхар исэл болж задарна: MCO₃(s) → MO(s) + CO₂(g), жишээ нь шохойн зууханд CaCO₃ → CaO + CO₂. Нитрат исэл, бор өнгийн азотын давхар исэл, хүчилтөрөгч үүсгэнэ: 2M(NO₃)₂(s) → 2MO(s) + 4NO₂(g) + O₂(g). Дулааны тогтвортой байдал бүлгийн дагуу доош өснө: BaCO₃-ийг задлахад MgCO₃-аас өндөр температур хэрэгтэй, тиймээс MgCO₃ ба Mg(NO₃)₂ хамгийн амархан задарна. (Нэмэлт: жижиг Mg²⁺ ион цэнэгийн нягт өндөр тул том карбонат, нитрат ионыг хамгийн их туйлшруулж, холбоог нь сулруулна.)",
+        keyConcepts: ["MCO₃ → MO + CO₂", "2M(NO₃)₂ → 2MO + 4NO₂ + O₂ (brown gas)", "Thermal stability ↑ down the group", "MgCO₃ decomposes most easily"],
+        keyEquations: ["CaCO₃(s) → CaO(s) + CO₂(g)", "2Mg(NO₃)₂(s) → 2MgO(s) + 4NO₂(g) + O₂(g)"],
+        commonPitfalls: [
+          "Balance the nitrate equation with 2 : 2 : 4 : 1 — not Ca(NO₃)₂ → CaO + 2NO₂ + O₂."
+        ]
+      },
+      {
+        id: "11.6",
+        number: "11.6",
+        titleEn: "Uses & Predicting Be and Ra",
+        titleMn: "Хэрэглээ ба Be, Ra-ийг урьдчилан хэлэх",
+        summaryEn: "Mg powder is used in flares and fireworks (large surface area). CaCO₃ (limestone, marble) is a building material; a lime kiln turns it into CaO, used to make cement and concrete. Ca(OH)₂ (slaked lime) and powdered CaCO₃ are bases that neutralise acidic soil: Ca(OH)₂ + 2HNO₃ → Ca(NO₃)₂ + 2H₂O. Trends allow predictions: radium forms Ra²⁺, RaO and Ra(OH)₂, is more reactive than Ba, has a lower melting point, higher density and larger radius, and Ra(OH)₂ with dilute H₂SO₄ gives a white precipitate of RaSO₄. Beryllium (1s² 2s²) has a higher melting point than Ra because the small Be²⁺ ions are closer to the delocalised electrons, giving stronger metallic bonding.",
+        summaryMn: "Mg нунтагийг дохиоллын гал, салют-д хэрэглэнэ (гадаргуугийн талбай их). CaCO₃ (шохойн чулуу, гантиг) барилгын материал; шохойн зууханд CaO болгож цемент, бетон хийнэ. Ca(OH)₂ (унтраасан шохой) ба нунтаг CaCO₃ нь хүчиллэг хөрсийг саармагжуулах суурь: Ca(OH)₂ + 2HNO₃ → Ca(NO₃)₂ + 2H₂O. Хандлагаар урьдчилан хэлж болно: ради Ra²⁺, RaO, Ra(OH)₂ үүсгэж, Ba-аас идэвхтэй, хайлах цэг бага, нягт их, радиус том; Ra(OH)₂ шингэрүүлсэн H₂SO₄-тэй RaSO₄-ийн цагаан тунадас өгнө. Бериллийн (1s² 2s²) хайлах цэг Ra-аас өндөр, учир нь жижиг Be²⁺ ионууд чөлөөт электронд ойр тул металлын холбоо хүчтэй.",
+        keyConcepts: ["Ca(OH)₂ and CaCO₃ neutralise acidic soil", "Lime kiln: CaCO₃ → CaO", "Radium: most reactive, RaSO₄ insoluble", "Be: smallest ion, strongest metallic bonding"],
+        keyEquations: ["Ca(OH)₂ + 2HNO₃ → Ca(NO₃)₂ + 2H₂O", "2Ra + O₂ → 2RaO"],
+        commonPitfalls: [
+          "CaCO₃ raises soil pH because it is a base that neutralises acid — not because it is an alkali."
+        ]
       }
     ],
     keyTerms: [
-      { termEn: "Charge Density", termMn: "Цэнэгийн нягт", definitionEn: "The ratio of an ion's charge to its volume (ionic radius). Smaller ions with higher charge have high charge density.", definitionMn: "Ионы цэнэгийг түүний эзлэхүүнд харьцуулсан хэмжигдэхүүн." },
-      { termEn: "Ion Polarisation", termMn: "Ионы туйлшрал", definitionEn: "The distortion of the electron cloud of an anion by the attractive force of a nearby cation.", definitionMn: "Катионы цахилгаан таталцлын нөлөөгөөр анионы электрон үүл хэлбэрээ алдаж гажих үзэгдэл." }
+      { termEn: "Alkaline Earth Metals", termMn: "Шүлтлэг газрын металл", definitionEn: "The Group 2 elements; they have two outer electrons (ns²) and form 2+ ions.", definitionMn: "2-р бүлгийн элементүүд; хоёр гадна электронтой (ns²), 2+ ион үүсгэнэ." },
+      { termEn: "Metallic Radius", termMn: "Металлын радиус", definitionEn: "Half the distance between the nuclei of neighbouring atoms in a metallic lattice.", definitionMn: "Металлын торон дахь хөрш атомуудын цөм хоорондын зайн хагас." },
+      { termEn: "Thermal Decomposition", termMn: "Дулааны задрал", definitionEn: "The breaking down of a compound by heating.", definitionMn: "Халаахад нэгдэл задрах." },
+      { termEn: "Thermal Stability", termMn: "Дулааны тогтвортой байдал", definitionEn: "How difficult it is to decompose a compound by heating; it increases down Group 2.", definitionMn: "Нэгдлийг халааж задлахад хэр хэцүү байх; 2-р бүлгийн дагуу доош өснө." },
+      { termEn: "Reducing Agent", termMn: "Ангижруулагч бодис", definitionEn: "A species that donates electrons; Group 2 metals are oxidised from 0 to +2.", definitionMn: "Электрон өгдөг бөөм; 2-р бүлгийн металлууд 0-ээс +2 болж исэлдэнэ." },
+      { termEn: "Limewater", termMn: "Шохойн ус", definitionEn: "A saturated solution of calcium hydroxide, Ca(OH)₂(aq); weakly alkaline.", definitionMn: "Кальцийн гидроксидын ханасан уусмал Ca(OH)₂(aq); сул шүлтлэг." },
+      { termEn: "Quicklime / Slaked Lime", termMn: "Унтраагаагүй / Унтраасан шохой", definitionEn: "Calcium oxide, CaO / calcium hydroxide, Ca(OH)₂.", definitionMn: "Кальцийн исэл CaO / кальцийн гидроксид Ca(OH)₂." },
+      { termEn: "Flame Test", termMn: "Дөлний сорил", definitionEn: "Identifying metal ions by the colour they give in a flame: Ca brick-red, Sr red, Ba apple-green.", definitionMn: "Дөлөнд өгөх өнгөөр нь металлын ионыг тодорхойлох: Ca тоосгон улаан, Sr улаан, Ba алимны ногоон." },
+      { termEn: "Charge Density", termMn: "Цэнэгийн нягт", definitionEn: "The charge of an ion relative to its size; small, highly charged ions such as Mg²⁺ have a high charge density.", definitionMn: "Ионы цэнэгийг хэмжээтэй нь харьцуулсан утга; Mg²⁺ зэрэг жижиг, өндөр цэнэгтэй ионы цэнэгийн нягт өндөр." }
     ],
     formulas: [
-      { nameEn: "Thermal Decomposition of Group 2 Nitrate", nameMn: "2-р бүлгийн нитратын задрал", formula: "2M(NO₃)₂(s) → 2MO(s) + 4NO₂(g) + O₂(g)", note: "Brown fumes of NO₂ + O₂" },
-      { nameEn: "Thermal Decomposition of Group 2 Carbonate", nameMn: "2-р бүлгийн карбонатын задрал", formula: "MCO₃(s) → MO(s) + CO₂(g)", note: "Requires heat to form metal oxide" }
+      { nameEn: "Metal with Water", nameMn: "Металл устай", formula: "M(s) + 2H₂O(l) → M(OH)₂(aq) + H₂(g)", note: "Mg with steam gives MgO + H₂ instead" },
+      { nameEn: "Carbonate Decomposition", nameMn: "Карбонатын задрал", formula: "MCO₃(s) → MO(s) + CO₂(g)", note: "Higher temperature needed down the group" },
+      { nameEn: "Nitrate Decomposition", nameMn: "Нитратын задрал", formula: "2M(NO₃)₂(s) → 2MO(s) + 4NO₂(g) + O₂(g)", note: "Brown NO₂ gas" },
+      { nameEn: "Sulfate Test", nameMn: "Сульфатын сорил", formula: "Ba²⁺(aq) + SO₄²⁻(aq) → BaSO₄(s)", note: "White precipitate" }
     ],
     examStyleTips: [
-      "Crucial mnemonic for Group 2 solubility: 'Hydroxides increase down, Sulfates decrease down' (H-I-S-D: High In Sun Day).",
-      "When explaining thermal stability, use the exact keywords: cation radius increases -> charge density decreases -> polarising power decreases -> less distortion of the carbonate/nitrate electron cloud -> C-O / N-O bond is less weakened."
+      "Down Group 2: hydroxide solubility increases (pH rises) and sulfate solubility decreases.",
+      "Mg with steam: Mg + H₂O(g) → MgO + H₂ — not Mg(OH)₂.",
+      "Nitrate decomposition is 2M(NO₃)₂ → 2MO + 4NO₂ + O₂; carbonates give MO + CO₂.",
+      "Explain increasing reactivity with lower IE: greater distance and shielding outweigh the increased nuclear charge.",
+      "CaSO₄, SrSO₄ and BaSO₄ are (s) — white precipitates.",
+      "Flame colours: Ca brick-red, Sr red, Ba apple-green."
+    ],
+    examQuestions: [
+      {
+        id: "ch11-q1",
+        marks: 3,
+        questionEn: "Describe how each property changes down Group 2:\n(a) reactivity of the metals\n(b) solubility of the sulfates\n(c) solubility of the hydroxides",
+        questionMn: "2-р бүлгийн дагуу доош шинж бүр хэрхэн өөрчлөгдөх вэ:\n(a) металлуудын урвалын идэвх\n(b) сульфатын уусах чанар\n(c) гидроксидын уусах чанар",
+        solutionEn: "(a) Increases [1]\n(b) Decreases [1]\n(c) Increases [1]",
+        solutionMn: "(a) Өснө. (b) Буурна. (c) Өснө."
+      },
+      {
+        id: "ch11-q2",
+        marks: 3,
+        questionEn: "Explain why calcium forms Ca²⁺ ions more easily than magnesium forms Mg²⁺ ions.",
+        questionMn: "Кальци яагаад магниас амархан 2+ ион үүсгэдгийг тайлбарлана уу.",
+        solutionEn: "Ca's outer electrons are in a higher shell, further from the nucleus [1]\nThere is more shielding by inner electrons [1]\nThese outweigh the larger nuclear charge, so IE₁ + IE₂ is lower [1]",
+        solutionMn: "Ca-ийн гадна электрон өндөр бүрхүүлд, цөмөөс хол; дотоод электронуудын халхлалт их; эдгээр нь цөмийн цэнэгийн өсөлтөөс давж, IE₁ + IE₂ бага болно."
+      },
+      {
+        id: "ch11-q3",
+        marks: 4,
+        questionEn: "Write equations, with state symbols, for:\n(a) calcium with cold water\n(b) magnesium with steam\n(c) strontium with oxygen\n(d) barium carbonate with dilute nitric acid",
+        questionMn: "Төлөвийн тэмдэгтэй тэгшитгэл бичнэ үү:\n(a) кальци хүйтэн устай\n(b) магни усны уураар\n(c) стронци хүчилтөрөгчтэй\n(d) барийн карбонат шингэрүүлсэн азотын хүчилтэй",
+        solutionEn: "(a) Ca(s) + 2H₂O(l) → Ca(OH)₂(aq) + H₂(g) [1]\n(b) Mg(s) + H₂O(g) → MgO(s) + H₂(g) [1]\n(c) 2Sr(s) + O₂(g) → 2SrO(s) [1]\n(d) BaCO₃(s) + 2HNO₃(aq) → Ba(NO₃)₂(aq) + H₂O(l) + CO₂(g) [1]",
+        solutionMn: "(a) Ca + 2H₂O → Ca(OH)₂ + H₂. (b) Mg + H₂O(g) → MgO + H₂. (c) 2Sr + O₂ → 2SrO. (d) BaCO₃ + 2HNO₃ → Ba(NO₃)₂ + H₂O + CO₂."
+      },
+      {
+        id: "ch11-q4",
+        marks: 3,
+        questionEn: "(a) Write the equation for the thermal decomposition of magnesium nitrate and state what you would see. [2]\n(b) Which decomposes at the lowest temperature: CaCO₃, SrCO₃ or BaCO₃? [1]",
+        questionMn: "(a) Магнийн нитратын дулааны задралын тэгшитгэлийг бичиж, юу ажиглагдахыг хэлнэ үү. [2]\n(b) CaCO₃, SrCO₃, BaCO₃-ийн аль нь хамгийн бага температурт задрах вэ? [1]",
+        solutionEn: "(a) 2Mg(NO₃)₂(s) → 2MgO(s) + 4NO₂(g) + O₂(g) [1] · brown gas (NO₂) is seen [1]\n(b) CaCO₃ · thermal stability increases down the group [1]",
+        solutionMn: "(a) 2Mg(NO₃)₂ → 2MgO + 4NO₂ + O₂; бор хий (NO₂) харагдана. (b) CaCO₃ — дулааны тогтвортой байдал доошлох тусам өснө."
+      },
+      {
+        id: "ch11-q5",
+        marks: 2,
+        questionEn: "Explain why a saturated solution of Ba(OH)₂ is more alkaline than a saturated solution of Mg(OH)₂.",
+        questionMn: "Ba(OH)₂-ийн ханасан уусмал яагаад Mg(OH)₂-ийнхаас илүү шүлтлэг байдгийг тайлбарлана уу.",
+        solutionEn: "Ba(OH)₂ is more soluble · hydroxide solubility increases down the group [1]\nSo [OH⁻] is higher and the pH is higher [1]",
+        solutionMn: "Ba(OH)₂ илүү сайн уусна (гидроксидын уусах чанар доошлох тусам өснө) — [OH⁻] их, pH өндөр."
+      },
+      {
+        id: "ch11-q6",
+        marks: 3,
+        questionEn: "The solubility of Ca(OH)₂ at 298 K is 1.5 × 10⁻³ mol per 100 g of water.\nCalculate the mass of Ca(OH)₂ that dissolves in 50 g of water. (Ar: Ca = 40.1, O = 16.0, H = 1.0)",
+        questionMn: "298 K-д Ca(OH)₂-ийн уусах чанар 100 г усанд 1.5 × 10⁻³ моль.\n50 г усанд уусах Ca(OH)₂-ийн массыг тооцоолно уу. (Ar: Ca = 40.1, O = 16.0, H = 1.0)",
+        solutionEn: "1.5 × 10⁻³ × 50/100 = 7.5 × 10⁻⁴ mol [1]\nMr = 40.1 + 2(16.0 + 1.0) = 74.1 [1]\nMass = 7.5 × 10⁻⁴ × 74.1 = 0.056 g [1]",
+        solutionMn: "50 г-д 7.5 × 10⁻⁴ моль; Mr = 74.1; масс = 0.056 г."
+      },
+      {
+        id: "ch11-q7",
+        marks: 4,
+        questionEn: "(a) Write the equation for calcium metal reacting with dilute sulfuric acid. [1]\n(b) Explain why the bubbles soon stop. [1]\n(c) Describe what you would see when dilute sulfuric acid is added to aqueous barium hydroxide, and give the ionic equation. [2]",
+        questionMn: "(a) Кальци шингэрүүлсэн хүхрийн хүчилтэй урвалд орох тэгшитгэлийг бичнэ үү. [1]\n(b) Хийн бөмбөлөг яагаад удалгүй зогсдог вэ? [1]\n(c) Барийн гидроксидын уусмалд шингэрүүлсэн хүхрийн хүчил нэмэхэд юу ажиглагдах вэ? Ионы тэгшитгэлийг бичнэ үү. [2]",
+        solutionEn: "(a) Ca(s) + H₂SO₄(aq) → CaSO₄(s) + H₂(g) [1]\n(b) Insoluble CaSO₄ forms a layer on the calcium and stops the reaction [1]\n(c) A white precipitate (of BaSO₄) [1] · Ba²⁺(aq) + SO₄²⁻(aq) → BaSO₄(s) [1]",
+        solutionMn: "(a) Ca + H₂SO₄ → CaSO₄(s) + H₂. (b) Уусдаггүй CaSO₄ кальцийн гадаргууг бүрхэж урвалыг зогсооно. (c) BaSO₄-ийн цагаан тунадас: Ba²⁺ + SO₄²⁻ → BaSO₄(s)."
+      },
+      {
+        id: "ch11-q8",
+        marks: 4,
+        questionEn: "(a) Give the formula of calcium hydroxide and explain why it is used in agriculture. [2]\n(b) Explain why beryllium has a higher melting point than radium. [2]",
+        questionMn: "(a) Кальцийн гидроксидын томьёог бичиж, хөдөө аж ахуйд яагаад хэрэглэдгийг тайлбарлана уу. [2]\n(b) Бериллий яагаад радиас өндөр хайлах цэгтэй вэ? [2]",
+        solutionEn: "(a) Ca(OH)₂ [1] · it is a base that neutralises acidic soil [1]\n(b) Be²⁺ ions are much smaller, so the delocalised electrons are closer to the nuclei [1]\nStronger metallic bonding needs more energy to break [1]",
+        solutionMn: "(a) Ca(OH)₂ — хүчиллэг хөрсийг саармагжуулах суурь. (b) Be²⁺ ион хамаагүй жижиг тул чөлөөт электрон цөмд ойр; металлын холбоо хүчтэй, таслахад их энерги хэрэгтэй."
+      },
+      {
+        id: "ch11-q9",
+        marks: 6,
+        questionEn: "For each reaction give the oxidation number changes and state which element is oxidised and which is reduced:\n(a) Sr + Cl₂ → SrCl₂\n(b) Sr + 2H₂O → Sr(OH)₂ + H₂\n(c) 2Mg + CO₂ → 2MgO + C",
+        questionMn: "Урвал бүрд исэлдэхүйн зэргийн өөрчлөлтийг бичиж, аль элемент исэлдэж, аль нь ангижирч байгааг хэлнэ үү:\n(a) Sr + Cl₂ → SrCl₂\n(b) Sr + 2H₂O → Sr(OH)₂ + H₂\n(c) 2Mg + CO₂ → 2MgO + C",
+        solutionEn: "(a) Sr 0 → +2, oxidised [1] · Cl 0 → −1, reduced [1]\n(b) Sr 0 → +2, oxidised [1] · H +1 → 0, reduced [1]\n(c) Mg 0 → +2, oxidised [1] · C +4 → 0, reduced [1]",
+        solutionMn: "(a) Sr 0 → +2 исэлдэнэ, Cl 0 → −1 ангижирна. (b) Sr 0 → +2 исэлдэнэ, H +1 → 0 ангижирна. (c) Mg 0 → +2 исэлдэнэ, C +4 → 0 ангижирна."
+      },
+      {
+        id: "ch11-q10",
+        marks: 3,
+        questionEn: "Predict for radium:\n(a) the formula of its hydroxide and how its reactivity compares with barium [1]\n(b) the equation for radium oxide with dilute hydrochloric acid [1]\n(c) what you would see when dilute sulfuric acid is added to aqueous Ra(OH)₂ [1]",
+        questionMn: "Радийн хувьд урьдчилан хэлнэ үү:\n(a) гидроксидын томьёо ба бартай харьцуулсан урвалын идэвх [1]\n(b) радийн исэл шингэрүүлсэн давсны хүчилтэй урвалд орох тэгшитгэл [1]\n(c) Ra(OH)₂-ийн уусмалд шингэрүүлсэн хүхрийн хүчил нэмэхэд юу ажиглагдах [1]",
+        solutionEn: "(a) Ra(OH)₂ · more reactive than barium [1]\n(b) RaO + 2HCl → RaCl₂ + H₂O [1]\n(c) A white precipitate of RaSO₄ [1]",
+        solutionMn: "(a) Ra(OH)₂; бариас идэвхтэй. (b) RaO + 2HCl → RaCl₂ + H₂O. (c) RaSO₄-ийн цагаан тунадас."
+      }
     ]
   },
   {
