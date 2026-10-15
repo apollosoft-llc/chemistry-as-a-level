@@ -16,6 +16,7 @@ import {
   Layers,
   FileQuestion,
   GraduationCap,
+  ChevronRight,
 } from "lucide-react";
 import {
   CAMBRIDGE_COMMAND_WORDS,
