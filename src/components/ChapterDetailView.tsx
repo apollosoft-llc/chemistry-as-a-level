@@ -356,13 +356,19 @@ export const ChapterDetailView: React.FC<ChapterDetailViewProps> = ({
                   <span>Шалгалтын асуулт</span>
                 </button>
               )}
-              {onOpenCalculations && linkage?.coreCalculationTopicId && (
+              {linkage?.coreCalculationTopicId && (
                 <button
-                  onClick={() => onOpenCalculations(linkage.coreCalculationTopicId)}
+                  onClick={() =>
+                    setSelectedInlineExamQuestion({
+                      calculationTopicId: linkage.coreCalculationTopicId,
+                      chapterNumber: chapter.number,
+                    })
+                  }
                   className="px-3.5 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-white text-xs font-bold transition-colors flex items-center gap-1.5 border border-white/20"
+                  title="Энэ сэдвийн бодлогыг энд шууд дуудаж бодох"
                 >
                   <Calculator className="w-3.5 h-3.5 text-amber-300" />
-                  <span>Бодлого бодох</span>
+                  <span>Бодлого энд бодох</span>
                 </button>
               )}
             </div>
@@ -589,14 +595,30 @@ export const ChapterDetailView: React.FC<ChapterDetailViewProps> = ({
                     </p>
                   </div>
 
-                  <div className="mt-4 pt-3 border-t border-slate-100">
+                  <div className="mt-4 pt-3 border-t border-slate-100 flex items-center gap-2">
                     <button
-                      onClick={() => onOpenPastPapers && onOpenPastPapers(paperItem.paperId)}
-                      className="w-full px-3 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs shadow-2xs transition-colors flex items-center justify-center gap-1.5"
+                      onClick={() =>
+                        setSelectedInlineExamQuestion({
+                          paperId: paperItem.paperId,
+                          questionNumber: paperItem.questionNumber,
+                          chapterNumber: chapter.number,
+                        })
+                      }
+                      className="flex-1 px-3 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs shadow-2xs transition-colors flex items-center justify-center gap-1.5"
                     >
-                      <FileText className="w-3.5 h-3.5" />
-                      <span>Энэ Paper-ийг нээж ажиллах →</span>
+                      <Zap className="w-3.5 h-3.5 text-amber-300" />
+                      <span>Энд шууд ажиллах</span>
                     </button>
+                    {onOpenPastPapers && (
+                      <button
+                        onClick={() => onOpenPastPapers(paperItem.paperId)}
+                        className="px-3 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs border border-slate-200 transition-colors flex items-center justify-center gap-1"
+                        title="Бүтэн paper-ийг тусад нь нээх"
+                      >
+                        <ExternalLink className="w-3.5 h-3.5" />
+                        <span>Бүтэн Paper</span>
+                      </button>
+                    )}
                   </div>
                 </div>
               ))}
@@ -939,6 +961,25 @@ export const ChapterDetailView: React.FC<ChapterDetailViewProps> = ({
           item={selectedLabModalItem.item}
           type={selectedLabModalItem.type}
           onClose={() => setSelectedLabModalItem(null)}
+        />
+      )}
+
+      {/* Inline Past Paper Question & Calculation Runner Modal */}
+      {selectedInlineExamQuestion && (
+        <InlineQuestionRunnerModal
+          paperId={selectedInlineExamQuestion.paperId}
+          questionNumber={selectedInlineExamQuestion.questionNumber}
+          chapterNumber={selectedInlineExamQuestion.chapterNumber}
+          calculationTopicId={selectedInlineExamQuestion.calculationTopicId}
+          onClose={() => setSelectedInlineExamQuestion(null)}
+          onOpenFullPaper={(pId) => {
+            setSelectedInlineExamQuestion(null);
+            if (onOpenPastPapers) onOpenPastPapers(pId);
+          }}
+          onOpenFullCalculations={(cId) => {
+            setSelectedInlineExamQuestion(null);
+            if (onOpenCalculations) onOpenCalculations(cId);
+          }}
         />
       )}
     </div>

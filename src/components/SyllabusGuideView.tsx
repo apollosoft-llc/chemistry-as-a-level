@@ -29,6 +29,7 @@ import {
 } from "../data/syllabusGuideData";
 import { SyllabusTopic, SyllabusPaperSpec } from "../types";
 import { useLanguage } from "../utils/languageContext";
+import { InlineQuestionRunnerModal } from "./InlineQuestionRunnerModal";
 
 interface SyllabusGuideViewProps {
   onNavigateToChapter: (chapterNum: number) => void;
@@ -54,6 +55,11 @@ export const SyllabusGuideView: React.FC<SyllabusGuideViewProps> = ({
   const [pillarFilter, setPillarFilter] = useState<string>("ALL");
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [expandedTopicId, setExpandedTopicId] = useState<string | null>("syl-1");
+  const [inlineRunnerItem, setInlineRunnerItem] = useState<{
+    paperId?: string;
+    calculationTopicId?: string;
+    chapterNumber?: number;
+  } | null>(null);
 
   // Local storage persistence for mastered outcomes
   const [masteredOutcomes, setMasteredOutcomes] = useState<Record<string, boolean>>(() => {
@@ -543,24 +549,42 @@ export const SyllabusGuideView: React.FC<SyllabusGuideViewProps> = ({
                           <button
                             onClick={(e) => {
                               e.stopPropagation();
+                              setInlineRunnerItem({
+                                chapterNumber: topic.correspondingChapterNumbers[0],
+                              });
+                            }}
+                            className="px-3 py-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-900 text-xs font-semibold flex items-center gap-1.5 transition-colors border border-emerald-200"
+                            title="Энэ сэдэвтэй холбоотой шалгалтын асуултыг энд шууд дуудаж ажиллах"
+                          >
+                            <FileText className="w-3.5 h-3.5 text-emerald-700" />
+                            <span>{language === "mn" ? "Асуулт энд ажиллах" : "Solve Questions Here"}</span>
+                          </button>
+
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation();
                               onNavigateToPastPapers();
                             }}
                             className="px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-semibold flex items-center gap-1.5 transition-colors border border-slate-200"
                           >
                             <FileText className="w-3.5 h-3.5 text-cyan-700" />
-                            <span>{language === "mn" ? "Шалгалтын асуулт бодох" : "Practice Past Papers"}</span>
+                            <span>{language === "mn" ? "Бүтэн Papers" : "Past Papers Page"}</span>
                           </button>
 
-                          {topic.calculationTopicId && onNavigateToCalculations && (
+                          {topic.calculationTopicId && (
                             <button
                               onClick={(e) => {
                                 e.stopPropagation();
-                                onNavigateToCalculations(topic.calculationTopicId);
+                                setInlineRunnerItem({
+                                  calculationTopicId: topic.calculationTopicId,
+                                  chapterNumber: topic.correspondingChapterNumbers[0],
+                                });
                               }}
                               className="px-3 py-1.5 rounded-lg bg-cyan-50 hover:bg-cyan-100 text-cyan-900 text-xs font-semibold flex items-center gap-1.5 transition-colors border border-cyan-200"
+                              title="Энэ сэдвийн бодлогыг энд шууд дуудаж бодох"
                             >
                               <Calculator className="w-3.5 h-3.5 text-cyan-700" />
-                              <span>{language === "mn" ? "Тооцоот бодлого" : "Topic Calculations"}</span>
+                              <span>{language === "mn" ? "Бодлого энд бодох" : "Solve Calculations Here"}</span>
                             </button>
                           )}
 
@@ -797,12 +821,21 @@ export const SyllabusGuideView: React.FC<SyllabusGuideViewProps> = ({
                   </div>
 
                   {/* Practice Paper Button */}
-                  <div className="pt-3 border-t border-slate-100">
+                  <div className="pt-3 border-t border-slate-100 flex items-center gap-2">
+                    <button
+                      onClick={() => setInlineRunnerItem({ paperId: spec.paperNumber.toLowerCase().replace(" ", "") })}
+                      className="flex-1 py-2 px-3 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold flex items-center justify-center gap-1.5 transition-colors shadow-2xs"
+                      title="Хуудас шилжихгүйгээр шууд энд ажиллах"
+                    >
+                      <FileText className="w-3.5 h-3.5" />
+                      <span>{language === "mn" ? "Энд шууд ажиллах" : "Solve Right Here"}</span>
+                    </button>
                     <button
                       onClick={() => onNavigateToPastPapers(spec.paperNumber.toLowerCase().replace(" ", ""))}
-                      className="w-full py-2 px-3 rounded-lg bg-cyan-600 hover:bg-cyan-700 text-white text-xs font-bold flex items-center justify-center gap-1.5 transition-colors shadow-2xs"
+                      className="py-2 px-3 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold flex items-center justify-center gap-1 transition-colors border border-slate-200"
+                      title="Бүтэн Past Papers хуудас руу шилжих"
                     >
-                      <span>{language === "mn" ? `${spec.paperNumber} жишиг даалгавар бодох` : `Practice ${spec.paperNumber}`}</span>
+                      <span>{language === "mn" ? "Бүтэн" : "Full"}</span>
                       <ArrowRight className="w-3.5 h-3.5" />
                     </button>
                   </div>
@@ -880,6 +913,24 @@ export const SyllabusGuideView: React.FC<SyllabusGuideViewProps> = ({
             })}
           </div>
         </div>
+      )}
+
+      {/* Inline Past Paper Question & Calculation Runner Modal */}
+      {inlineRunnerItem && (
+        <InlineQuestionRunnerModal
+          paperId={inlineRunnerItem.paperId}
+          calculationTopicId={inlineRunnerItem.calculationTopicId}
+          chapterNumber={inlineRunnerItem.chapterNumber}
+          onClose={() => setInlineRunnerItem(null)}
+          onOpenFullPaper={(pId) => {
+            setInlineRunnerItem(null);
+            onNavigateToPastPapers(pId);
+          }}
+          onOpenFullCalculations={(cId) => {
+            setInlineRunnerItem(null);
+            if (onNavigateToCalculations) onNavigateToCalculations(cId);
+          }}
+        />
       )}
     </div>
   );
